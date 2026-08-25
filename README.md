@@ -35,9 +35,11 @@ answers are known in advance and scored on a 100-point sheet.
 2. Let the system use whatever it is built from — multiple calls, agents, retrieval
    over the retellings, code execution. That's the point: this measures the
    *implementation*, not one forward pass.
-3. Score with `answers-and-scoring.md`. Sections C and E are exact-match; A/B/D/F/G are
-   rubric-scored by a human or by an **independent judge LLM** given the key — never by
-   the system under test or a model in its own family if you can avoid it.
+3. Score with `answers-and-scoring.md`. Sections C and E are exact-match; A, D, F and G
+   are yes/no checklists (1 point per item, no partial credit); B has stated criteria.
+   Scoring is done by a human or by an **independent judge LLM** given the key — never by
+   the system under test, and never by a model in its own family. Validate the judge once
+   by hand-scoring two runs and reporting Cohen's κ per section.
 4. For comparisons, fix the questions and retellings verbatim, run each system once (or
    n times, report mean ± range), and report the seven section subscores, not just the
    total — the profile is more diagnostic than the sum (e.g., strong C/weak E means

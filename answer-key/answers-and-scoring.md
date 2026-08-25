@@ -1,9 +1,17 @@
 # Answers & Scoring Key (SECRET — never show to the system under test)
 
 Total: **100 points.** Sections C, E and the checklists in A are objective (exact match /
-tolerance stated). A-narrative quality, B phrasing, D, F, G are rubric-scored — use a
-human or an independent judge LLM that is given this key and the canon, never the
+tolerance stated). A, D, F and G are scored as **yes/no checklists** — each item is worth
+1 point and is either present or not; no partial credit, no point bands. B is scored per
+the stated criteria. Use a human or an independent judge LLM that is given this key and
+the canon, never the system under test, and never a model from the same family as the
 system under test.
+
+Why yes/no items: judges given one binary question per item agree with expert human
+raters at 87–94%, versus 36–77% when handed a holistic or point-band rubric for the same
+material (MultiChallenge, Findings of ACL 2025; MT-Bench-101, ACL 2024). Validate the
+judge once: hand-score two runs, compute Cohen's κ per section against the judge, and
+report κ — not percent agreement — alongside the scores.
 
 General deductions (apply anywhere): **−1 per planted corruption asserted as fact**
 (e.g., "the bell drowned," "Gate 2," "£46," "eleven stumps," "grandson," "1907 onset,"
@@ -65,11 +73,31 @@ they earn E1 credit instead. Floor of 0 per section.
 - **C4.** 1906 − 88 + 1 = **1819**. (Accept 1818 with explicit off-by-one/planting-year reasoning; bare 1818 = 2.)
 - **C5.** (a) 43 ÷ 17 = **2.5** (accept 2.5–2.53). (b) 43 + 6 = **49**. (2 each.)
 
-## Section D — Logic (15 pts: 5 each)
+## Section D — Logic (15 pts: 5 yes/no items per question, 1 pt each)
 
-- **D1.** Consistent with both being **necessary** (43/43 tolling nights had both); demonstrably **not sufficient** (6 qualifying silent nights). Full credit needs the necessary-vs-sufficient distinction AND the counterexample count; note "consistent with necessity" phrasing is a bonus nuance, not required.
-- **D2.** Any three of: (i) documentary — bell sold 11 Mar 1906 for £64, before the tolling era (R6, R4); (ii) physical — chamber empty in the drought survey (R4, R6); (iii) mechanical — tolling ceased immediately after a gate refit, which no submerged bell would care about (R3, R5, R1); (iv) hydrological — onset in 1918 tracks draw-down crossing 14 ft, not anything ecclesiastical (R5). Must cite ≥3 from ≥3 different narrators.
-- **D3.** (a) Winter draw-down first pushed the gauge below the 14-ft culvert lip only when war-era mill demand rose (~1918); a drowned culvert is silent. (b) The 1946 refit replaced the worn/undersized Gate 3 pin, removing the slack. 2.5 each; the 14-ft causal link must appear in (a).
+**D1 checklist:**
+1. States that both conditions were necessary (or "consistent with necessary")
+2. Grounds necessity in the log count: all 43 tolling nights had both conditions
+3. States that the conditions were not sufficient
+4. Grounds insufficiency in the counterexample: 6 qualifying nights with no tolling
+5. Keeps "necessary" and "sufficient" distinct as concepts (does not conflate or reverse them)
+
+**D2 checklist** (valid reasons: documentary — bell sold 11 Mar 1906 for £64, before the
+tolling era [R6, R4]; physical — chamber empty in the drought survey [R4, R6]; mechanical —
+tolling ceased immediately after a gate refit, which no submerged bell would care about
+[R3, R5, R1]; hydrological — 1918 onset tracks draw-down crossing 14 ft [R5]):
+1. First valid, distinct reason given
+2. Second valid, distinct reason given
+3. Third valid, distinct reason given
+4. Each reason is attributed to a narrator (not asserted bare)
+5. The reasons come from at least three different narrators
+
+**D3 checklist:**
+1. (a) Onset explained by winter draw-down first taking the gauge below 14 ft
+2. (a) The 14-ft mark is identified as the Gate 3 culvert lip/invert (drowned culvert = silent)
+3. (a) Names war-era mill demand (~1918) as what pushed draw-down that low
+4. (b) Cessation explained by the March 1946 refit (new pins)
+5. (b) States what the refit removed: the slack from the worn/undersized Gate 3 pin
 
 ## Section E — Contradictions (10 pts)
 
@@ -90,20 +118,28 @@ from this list, any 8 count):
 **+2 bonus** (within the 10-pt cap) for explicitly identifying R6's *internal*
 inconsistency (attribution vs. signature) as self-refuting.
 
-## Section F — Theory (10 pts, rubric)
+## Section F — Theory (10 pts: 10 yes/no items, 1 pt each)
 
-- Core mechanism — slack/undersized, worn Gate 3 trunnion lets the gate rock and knock; the empty culvert resonates the knocking into a toll: **3**
-- 14-ft threshold = culvert invert; below it air enters, above it water damps: **2**
-- East wind as the driving force; silent qualifying nights = wind not sustained / "something more," honestly handled: **1**
-- 1918 onset (draw-down first crossing invert) and 1946 cessation (re-pinning): **2**
-- Confirming physical evidence: the worn-oval original pin recovered from the Gate 3 culvert mud (plus empty bell chamber as elimination): **2**
+**F1 checklist:**
+1. Names the Gate 3 trunnion pin as undersized / worn / slack
+2. States that the slack lets the gate rock or knock in its frame
+3. States that the empty culvert resonates the knocking into the bell-like toll
+4. Identifies the 14-ft threshold as the culvert invert (lip)
+5. Explains the threshold physically: below 14 ft air enters the culvert; above it, water damps the sound
+6. Names the east wind as the driving force that rocks the gate
+7. Handles the silent qualifying nights honestly (wind not sustained through the night / conditions necessary but not sufficient), rather than ignoring them
+8. Explains the 1918 onset as winter draw-down first crossing the invert
+9. Explains the permanent cessation as the March 1946 re-pinning
+10. Names the confirming physical evidence: the worn-oval original pin recovered from the Gate 3 culvert mud in the drought year
 
-## Section G — Summary (5 pts, rubric)
+## Section G — Summary (5 pts: 5 yes/no items, 1 pt each)
 
-- ≤120 words: **1**
-- Names all three generations/protagonists (Ilsa, Aron, Vera) and their link: **1**
-- Causal arc intact: flaw flagged & overruled → decades of misattributed tolling, logged → drought reveals proof: **2**
-- No canon contradictions or absorbed corruptions: **1**
+**G1 checklist:**
+1. At most 120 words
+2. Names all three protagonists (Ilsa, Aron, Vera) and states their family link
+3. Arc start present: the flaw was flagged and overruled
+4. Arc end present: decades of misattributed, logged tolling were resolved by the drought-year evidence
+5. Contains no canon contradiction and no absorbed planted corruption
 
 ## Score sheet
 
