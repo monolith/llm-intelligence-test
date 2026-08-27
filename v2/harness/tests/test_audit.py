@@ -1,0 +1,557 @@
+"""Tests for the v2 mechanical audit (audit.py).
+
+Builds a tiny fake `v2`-shaped root under tmp_path with two real narrators
+(r01, r02) plus references to two narrators that are never given a
+retelling file (r03, r09, standing in for "not authored yet"), and checks
+that every one of the seven checks reports the right PASS/FAIL/UNPARSED.
+"""
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+import pytest
+
+HARNESS_DIR = Path(__file__).resolve().parents[1]
+if str(HARNESS_DIR) not in sys.path:
+    sys.path.insert(0, str(HARNESS_DIR))
+
+import audit
+
+
+# --------------------------------------------------------------------------
+# Fixture: a tiny fake v2 root
+# --------------------------------------------------------------------------
+
+CORRUPTION_MAP_MD = """\
+# Corruption Map, vTest (SECRET)
+
+Design rules placeholder.
+
+---
+
+## r01 — Alice, a witness
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X01 | F001 | The bridge was **red**. | Blue. | Off-by-color |
+| X02 | F002 | Sheet 3 called for **four feet** of clearance. | **Three feet.** | **Near-tie 1** (partner r02) |
+| X04 | F005 | **INTERNAL CONTRADICTION.** Early: "I saw nobody there that day." Late: "I saw him standing by the bridge that morning." | He was there. | Self-contradiction |
+| X05 | F006 | The flag was **green**. | Yellow. | Off-by-color |
+| X07 | F009 | There were **twelve widgets** in the crate. | Ten. | **Near-tie 2** (partner r03) |
+
+---
+
+## r02 — Bob, an engineer
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X03 | F002 | The span specified **four feet** of clearance. | **Three feet.** | **Near-tie 1** (partner r01) |
+| X06 | F010 | The survey was made in **1899**. | 1900. | Date drift |
+
+---
+
+## r03 — Carol, a clerk (never authored)
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X08 | F011 | The gate was locked in **March**. | April. | Off-by-month |
+| X09 | F009 | There were **twelve widgets** counted. | Ten. | **Near-tie 2** (partner r01) |
+
+---
+
+## Near-tie pairs (explicit)
+
+| Pair | Wrong value | Carried by | Correct value | Settled by |
+|---|---|---|---|---|
+| **NT-1** | Sheet 3 specified **4 feet** of clearance | r01, r02 | **3 feet** | a survey document |
+| **NT-2** | **twelve widgets** in the crate | r01, r03 | **ten widgets** | a ledger |
+
+---
+
+## Recoverability index
+
+### Places and events
+
+| Fact | Correct in | Corrupted in | How it resolves |
+|---|---|---|---|
+| F003 the town was called Millbrook | r01, r02 | — | Majority |
+| F004 the population was 500 | r01, r02 | — | Majority |
+
+### Single-source scored facts (uncontested)
+
+| Fact | Only in | Status |
+|---|---|---|
+| F007 the founder was named Sam | r01 | Single-source, uncontested |
+
+---
+
+## Device checklist (Spec D3)
+
+| Device | Where implemented | Facts touched |
+|---|---|---|
+| **Internal contradictions in one retelling** | **r01** | F005 |
+| **Near-tie error broken only by a quoted document** | r01, r02 | F002 |
+| **A narrator wrong only on dates** | **r02** | F010 |
+| **Two or more narrators juxtaposing separate stories** | r01, r09 | F001 |
+"""
+
+NARRATOR_BRIEFS_MD = """\
+# Narrator Briefs, vTest
+
+## r01 — Alice, a witness
+
+**Documents she quotes verbatim.**
+
+> *The bridge measured two hundred feet across, per the county survey.*
+> — county survey, 1889
+
+---
+
+## r02 — Bob, an engineer
+
+**Documents he quotes verbatim.**
+
+> *The span was built to a clearance of three feet, confirmed by inspection.*
+> — inspection report, 1901
+"""
+
+CANON_MD = """\
+# Canon, vTest
+
+F001, F002, F003, F004, F005, F006, F007, F009, F010, F011 are all defined elsewhere.
+"""
+
+ANSWERS_SCORING_MD = """\
+# Answers & Scoring Key, vTest
+
+Total: **100 points.** A 60 / B 40.
+
+## Section A — Reconstruction (60 points)
+
+### A1 — thing one (30 points)
+
+1. blah **F001**
+
+### A2 — thing two (30 points)
+
+1. blah **F002**
+
+## Section B — Relationships (40 points)
+
+- **B1.** blah blah **F003** — 20.
+- **B2.** blah blah **F004** — 20.
+"""
+
+QUESTIONS_MD = """\
+# Test Questions (fixture)
+
+Some intro text with an accidental leaked id F004 sitting bare in a sentence, and a
+mention of the corruption in local governance which should trip a different check.
+
+## Section A
+
+- **A1.** Question one text.
+- **A2.** Question two text.
+
+## Section B
+
+- **B1.** Question three text.
+"""
+
+# The 12-word (or longer) sentence that will be deliberately leaked into r01's retelling.
+ORIGINAL_SENTENCE = (
+    "The old mill by the river had stood empty for thirty long years before anyone dared to return."
+)
+
+ORIGINALS_MD = f"""\
+# Story One — The Old Mill
+
+{ORIGINAL_SENTENCE} Nobody in the valley could say exactly why.
+"""
+
+
+def _padded_body(required_sentences: list[str], target_words: int) -> str:
+    """Join required sentences with filler until the word count lands >= target_words
+    (and comfortably under 1800), using audit.py's own word-count convention."""
+    body = " ".join(required_sentences)
+    filler_phrase = "This is a plain filler sentence added only to reach the required length."
+    filler_words = len(filler_phrase.split())
+    while len(body.split()) < target_words:
+        body += " " + filler_phrase
+    return body
+
+
+@pytest.fixture
+def fake_root(tmp_path) -> Path:
+    root = tmp_path / "v2"
+    (root / "answer-key").mkdir(parents=True)
+    (root / "test-input" / "retellings").mkdir(parents=True)
+    (root / "originals").mkdir(parents=True)
+
+    (root / "answer-key" / "corruption-map.md").write_text(CORRUPTION_MAP_MD, encoding="utf-8")
+    (root / "answer-key" / "narrator-briefs.md").write_text(NARRATOR_BRIEFS_MD, encoding="utf-8")
+    (root / "answer-key" / "canon.md").write_text(CANON_MD, encoding="utf-8")
+    (root / "answer-key" / "answers-and-scoring.md").write_text(ANSWERS_SCORING_MD, encoding="utf-8")
+    (root / "test-input" / "questions.md").write_text(QUESTIONS_MD, encoding="utf-8")
+    (root / "originals" / "01-the-old-mill.md").write_text(ORIGINALS_MD, encoding="utf-8")
+
+    # r01: in-range word count (~1300 words), carries X01/X02/X04/X05/X07's assigned
+    # values, the near-tie values, the recoverability tokens, a document quote that
+    # does NOT match verbatim (deliberate FAIL), and the leaked 12-gram from originals.
+    r01_required = [
+        "I remember the bridge was red, though everyone else disagreed with me about the color.",
+        "Sheet 3 called for four feet of clearance, and I was there when they measured it out.",
+        "There were twelve widgets in the crate when I counted them myself that afternoon.",
+        "I saw nobody there that day. That is exactly what I told the sheriff at the time.",
+        "Weeks later I changed my story and said something different to the same sheriff.",
+        "I saw him standing by the bridge that morning. I have never forgotten it since.",
+        "The flag was green, plain as anything, whatever anyone else remembers about it.",
+        "Everyone agreed that the town was called Millbrook, and had been for generations.",
+        "The population was 500 that year, according to the count I took myself.",
+        "Everyone knew that the founder was named Sam, and nobody argued about it.",
+        "According to the old county survey, the bridge was about two hundred feet long.",
+        ORIGINAL_SENTENCE,
+    ]
+    r01_text = "# r01 — Alice, a witness\n\n" + _padded_body(r01_required, target_words=1300)
+    (root / "test-input" / "retellings" / "r01-alice.md").write_text(r01_text, encoding="utf-8")
+
+    # r02: deliberately SHORT (out of the 1,200-1,800 range), carries X03's assigned
+    # near-tie value, the standalone date error 1899 (assigned only to r02), the
+    # leaked "green" (should NOT be there per the key, testing the leak-detection
+    # FAIL path), Millbrook (recoverability PASS partner) but NOT the 500 population
+    # figure (recoverability FAIL partner), and a document quote that DOES match
+    # verbatim.
+    r02_text = (
+        "# r02 — Bob, an engineer\n\n"
+        "The span specified four feet of clearance, confirmed against the drawings. "
+        "The survey was made in 1899, according to my own notes. "
+        "Everyone agreed that the town was called Millbrook, and had been for generations. "
+        "Oddly enough somebody down the road also mentioned the flag was green that year. "
+        "The span was built to a clearance of three feet, confirmed by inspection."
+    )
+    (root / "test-input" / "retellings" / "r02-bob.md").write_text(r02_text, encoding="utf-8")
+
+    return root
+
+
+# --------------------------------------------------------------------------
+# Helpers
+# --------------------------------------------------------------------------
+
+
+def statuses(report: audit.Report, check: str, contains: str) -> list[str]:
+    return [i.status for i in report.items if i.check == check and contains in i.item_id]
+
+
+def one_status(report: audit.Report, check: str, contains: str) -> str:
+    found = statuses(report, check, contains)
+    assert found, f"no item found for check={check!r} contains={contains!r}"
+    assert len(found) == 1, f"expected exactly one match for {contains!r}, got {found}"
+    return found[0]
+
+
+def exact_status(report: audit.Report, check: str, item_id: str) -> str:
+    found = [i.status for i in report.items if i.check == check and i.item_id == item_id]
+    assert found, f"no item found for check={check!r} item_id={item_id!r}"
+    assert len(found) == 1, f"expected exactly one match for {item_id!r}, got {found}"
+    return found[0]
+
+
+# --------------------------------------------------------------------------
+# Check 1: files and lengths
+# --------------------------------------------------------------------------
+
+
+def test_check1_questions_md_exists(fake_root):
+    report = audit.run_audit(fake_root)
+    assert one_status(report, "1-files-and-lengths", "questions.md") == "PASS"
+
+
+def test_check1_r01_in_range_passes(fake_root):
+    report = audit.run_audit(fake_root)
+    assert one_status(report, "1-files-and-lengths", "r01") == "PASS"
+
+
+def test_check1_r02_too_short_fails(fake_root):
+    report = audit.run_audit(fake_root)
+    assert one_status(report, "1-files-and-lengths", "r02") == "FAIL"
+
+
+def test_check1_missing_narrators_reported_as_failures(fake_root):
+    report = audit.run_audit(fake_root)
+    # r03..r12 were never authored in this fixture.
+    for rid in ["r03", "r04", "r05", "r12"]:
+        assert one_status(report, "1-files-and-lengths", rid) == "FAIL"
+
+
+# --------------------------------------------------------------------------
+# Check 2: planted errors land where assigned, and only there
+# --------------------------------------------------------------------------
+
+
+def test_check2_standalone_error_present_only_in_assigned_narrator_passes(fake_root):
+    report = audit.run_audit(fake_root)
+    # X01 "red" is assigned to r01 only, and r02's text never mentions red.
+    assert one_status(report, "2-planted-errors", "X01") == "PASS"
+
+
+def test_check2_leaked_error_fails(fake_root):
+    report = audit.run_audit(fake_root)
+    # X05 "green" is assigned to r01 only, but the fixture deliberately also
+    # puts "green" in r02 -> must be reported as a leak.
+    assert one_status(report, "2-planted-errors", "X05") == "FAIL"
+
+
+def test_check2_missing_assigned_narrator_fails(fake_root):
+    report = audit.run_audit(fake_root)
+    # X08 is assigned to r03, which was never authored.
+    assert one_status(report, "2-planted-errors", "X08") == "FAIL"
+
+
+def test_check2_internal_contradiction_quotes_each_checked(fake_root):
+    report = audit.run_audit(fake_root)
+    found = [i for i in report.items if i.check == "2-planted-errors" and i.item_id.startswith("X04")]
+    assert len(found) == 2
+    assert all(i.status == "PASS" for i in found)
+
+
+def test_check2_near_tie_present_in_exactly_both_carriers_passes(fake_root):
+    report = audit.run_audit(fake_root)
+    assert one_status(report, "2-planted-errors", "NT-1") == "PASS"
+
+
+def test_check2_near_tie_missing_from_one_carrier_fails(fake_root):
+    report = audit.run_audit(fake_root)
+    # NT-2 is carried by r01 (has it) and r03 (never authored) -> FAIL.
+    assert one_status(report, "2-planted-errors", "NT-2") == "FAIL"
+
+
+# --------------------------------------------------------------------------
+# Check 3: correct values are recoverable
+# --------------------------------------------------------------------------
+
+
+def test_check3_fact_in_two_narrators_passes(fake_root):
+    report = audit.run_audit(fake_root)
+    assert one_status(report, "3-recoverability", "F003") == "PASS"
+
+
+def test_check3_fact_in_only_one_of_two_listed_narrators_fails(fake_root):
+    report = audit.run_audit(fake_root)
+    assert one_status(report, "3-recoverability", "F004") == "FAIL"
+
+
+def test_check3_single_source_fact_confirmed_present_passes(fake_root):
+    report = audit.run_audit(fake_root)
+    assert one_status(report, "3-recoverability", "F007") == "PASS"
+
+
+# --------------------------------------------------------------------------
+# Check 4: documents quoted verbatim
+# --------------------------------------------------------------------------
+
+
+def test_check4_verbatim_quote_passes(fake_root):
+    report = audit.run_audit(fake_root)
+    assert one_status(report, "4-documents-verbatim", "r02 doc#1") == "PASS"
+
+
+def test_check4_paraphrased_quote_fails(fake_root):
+    report = audit.run_audit(fake_root)
+    assert one_status(report, "4-documents-verbatim", "r01 doc#1") == "FAIL"
+
+
+# --------------------------------------------------------------------------
+# Check 5: no key leakage into test input
+# --------------------------------------------------------------------------
+
+
+def test_check5_id_shape_leak_detected_in_questions(fake_root):
+    report = audit.run_audit(fake_root)
+    found = [
+        i
+        for i in report.items
+        if i.check == "5-no-key-leakage" and "questions.md" in i.item_id and "id-shape" in i.item_id
+    ]
+    assert any(i.status == "FAIL" for i in found)
+
+
+def test_check5_forbidden_string_leak_detected_in_questions(fake_root):
+    report = audit.run_audit(fake_root)
+    found = [
+        i
+        for i in report.items
+        if i.check == "5-no-key-leakage" and "questions.md" in i.item_id and "forbidden-string" in i.item_id
+    ]
+    assert any(i.status == "FAIL" for i in found)
+
+
+def test_check5_twelve_gram_leak_detected_in_r01(fake_root):
+    report = audit.run_audit(fake_root)
+    found = [
+        i
+        for i in report.items
+        if i.check == "5-no-key-leakage" and "r01" in i.item_id and "12-gram" in i.item_id
+    ]
+    assert any(i.status == "FAIL" for i in found)
+
+
+def test_check5_r02_has_no_leakage(fake_root):
+    report = audit.run_audit(fake_root)
+    r02_items = [i for i in report.items if i.check == "5-no-key-leakage" and "r02-bob.md" in i.item_id]
+    assert r02_items
+    assert all(i.status == "PASS" for i in r02_items)
+
+
+# --------------------------------------------------------------------------
+# Check 6: devices present
+# --------------------------------------------------------------------------
+
+
+def test_check6_internal_contradiction_device_passes(fake_root):
+    report = audit.run_audit(fake_root)
+    assert one_status(report, "6-devices", "Internal contradictions in one retelling: r01 content") == "PASS"
+
+
+def test_check6_date_only_narrator_device_passes(fake_root):
+    report = audit.run_audit(fake_root)
+    assert one_status(report, "6-devices", "A narrator wrong only on dates: r02 content") == "PASS"
+
+
+def test_check6_generic_device_with_existing_files_passes(fake_root):
+    report = audit.run_audit(fake_root)
+    assert (
+        one_status(report, "6-devices", "Near-tie error broken only by a quoted document: files") == "PASS"
+    )
+
+
+def test_check6_generic_device_with_missing_file_fails(fake_root):
+    report = audit.run_audit(fake_root)
+    # r09 is mentioned but never authored (and never even appears in the
+    # corruption map's own narrator sections) -> the device's file check fails.
+    assert (
+        one_status(report, "6-devices", "Two or more narrators juxtaposing separate stories: files") == "FAIL"
+    )
+
+
+# --------------------------------------------------------------------------
+# Check 7: questions cover the key
+# --------------------------------------------------------------------------
+
+
+def test_check7_matched_item_ids_pass(fake_root):
+    report = audit.run_audit(fake_root)
+    for item_id in ["A1", "A2", "B1"]:
+        assert one_status(report, "7-questions-cover-key", item_id) == "PASS"
+
+
+def test_check7_unmatched_item_id_fails(fake_root):
+    report = audit.run_audit(fake_root)
+    # B2 exists in answers-and-scoring.md but questions.md never asks it.
+    assert one_status(report, "7-questions-cover-key", "B2") == "FAIL"
+
+
+def test_check7_point_totals_pass_when_consistent(fake_root):
+    report = audit.run_audit(fake_root)
+    assert exact_status(report, "7-questions-cover-key", "point-totals") == "PASS"
+    assert exact_status(report, "7-questions-cover-key", "point-totals-consistency") == "PASS"
+
+
+def test_check7_point_totals_fail_when_they_do_not_sum_to_100():
+    report = audit.Report()
+    answers_text = (
+        "Total: **100 points.** A 60 / B 30.\n\n"
+        "## Section A — Reconstruction (60 points)\n\n### A1 — x (60 points)\n1. blah\n\n"
+        "## Section B — Relationships (30 points)\n\n- **B1.** blah — 30.\n"
+    )
+    questions_text = "- **A1.** q\n- **B1.** q\n"
+    audit.check7_questions_coverage(answers_text, questions_text, report)
+    assert exact_status(report, "7-questions-cover-key", "point-totals") == "FAIL"
+
+
+def test_check7_reports_unparsed_when_total_line_missing():
+    report = audit.Report()
+    answers_text = "## Section A — Reconstruction (30 points)\n\n### A1 — x (30 points)\n1. blah\n"
+    questions_text = "- **A1.** q\n"
+    audit.check7_questions_coverage(answers_text, questions_text, report)
+    assert exact_status(report, "7-questions-cover-key", "point-totals") == "UNPARSED"
+
+
+# --------------------------------------------------------------------------
+# --strict exit code behavior
+# --------------------------------------------------------------------------
+
+
+def test_strict_mode_returns_nonzero_when_failures_exist(fake_root):
+    rc = audit.main(["--root", str(fake_root), "--strict"])
+    assert rc == 1
+
+
+def test_non_strict_mode_returns_zero_even_with_failures(fake_root):
+    rc = audit.main(["--root", str(fake_root)])
+    assert rc == 0
+
+
+# --------------------------------------------------------------------------
+# Pure-function unit tests (small, targeted)
+# --------------------------------------------------------------------------
+
+
+def test_bounded_search_does_not_match_inside_hyphenated_compound():
+    assert audit.bounded_search("the book showed fifty-seven nights", "fifty") is False
+    assert audit.bounded_search("the coefficient was fifty degrees", "fifty") is True
+
+
+def test_bounded_search_respects_word_boundaries_for_digits():
+    assert audit.bounded_search("the span had 24 inches of play", "4 inches") is False
+    assert audit.bounded_search("the span had 4 inches of play", "4 inches") is True
+
+
+def test_words_to_number_and_back():
+    assert audit.words_to_number("fifty-seven") == 57
+    assert audit.words_to_number("four") == 4
+    assert audit.words_to_number("two thousand five hundred and ten") == 2510
+    assert "fifty-seven" == audit.number_to_words(57)
+    assert "two thousand five hundred and ten" == audit.number_to_words(2510, with_and=True)
+
+
+def test_generate_number_variants_digit_and_word_forms():
+    variants = audit.generate_number_variants("four inches")
+    assert any("4" in v for v in variants)
+
+
+def test_id_shape_detection_ignores_question_labels_but_catches_bare_ids():
+    key_text = " ".join(f"F{n:03d}" for n in range(1, 6))  # F001..F005, 5 distinct -> qualifies
+    text_with_label = "- **D1.** A question about something.\nAn incidental mention of F002 in prose."
+    report = audit.Report()
+    audit.check5_leakage(
+        Path("."),
+        key_text,
+        {"orig.md": "irrelevant text with no overlap here at all for twelve gram testing purposes today"},
+        {"fake.md": text_with_label},
+        report,
+    )
+    id_items = [i for i in report.items if "id-shape" in i.item_id]
+    # The bare F002 mention must be caught...
+    assert any(i.status == "FAIL" and "F002" in i.detail for i in id_items)
+    # ...but "D1." inside the bold question-label markup must not trigger a match
+    # (there is no D-shape group here since it never reaches the >=3 threshold,
+    # so this also exercises that D1 alone doesn't get treated as a leak).
+    assert not any("D1" in i.detail for i in id_items if i.status == "FAIL")
+
+
+def test_build_ngrams_and_find_leaked_ngram():
+    origin_text = "the quick brown fox jumps over the lazy dog again and again without end"
+    grams = audit.build_ngrams(origin_text, n=12)
+    leaking_text = "before this point there was nothing and then the quick brown fox jumps over the lazy dog again and again without end and that was all"
+    leaked = audit.find_leaked_ngram(leaking_text, grams, n=12)
+    assert leaked is not None
+    clean_text = "this text shares no long run of words with the origin passage at all, none whatsoever"
+    assert audit.find_leaked_ngram(clean_text, grams, n=12) is None
+
+
+def test_strip_framing_skips_heading_and_italic_lines():
+    text = "# Title\n\n*a short italic framing note*\n\nActual prose begins here and continues on."
+    body = audit.strip_framing(text)
+    assert body.startswith("Actual prose begins here")
