@@ -37,7 +37,7 @@ CAVEAT_PARAGRAPH = (
     "The judge is an Opus subagent, the same model family as the systems under test, which is a "
     "potential source of bias in scoring. Sampling is not deterministic: each cell reflects a "
     "single run (n = 1), not an average over repeats. All results in this report are for version "
-    "2.1 of the story test material."
+    "{label} of the story test material."
 )
 
 _ABSTENTION_RE = re.compile(r"cannot be determined", re.IGNORECASE)
@@ -358,10 +358,10 @@ def render_notes_section(cells: dict[tuple[str, str], dict]) -> str:
     return "\n".join(lines)
 
 
-def render_report(runs_dir: Path, prices: dict, date_str: str) -> str:
+def render_report(runs_dir: Path, prices: dict, date_str: str, label: str = "2.1") -> str:
     cells = all_cells(runs_dir)
     parts = [
-        "# Story test v2.1 -- orchestrated runs",
+        f"# Story test {label} -- orchestrated runs",
         "",
         f"Generated: {date_str}",
         "",
@@ -392,6 +392,7 @@ def parse_args(argv=None) -> argparse.Namespace:
     parser.add_argument("--out", required=True, help="Markdown file to write.")
     parser.add_argument("--prices", default=None, help="Path to prices.json (default: prices.json next to this script).")
     parser.add_argument("--date", default=None, help="Generation date to print (default: today, ISO format).")
+    parser.add_argument("--label", default="2.1", help="Material version shown in the title and caveat (e.g. 2.1, 3.0).")
     return parser.parse_args(argv)
 
 
@@ -402,7 +403,7 @@ def main(argv=None) -> int:
     prices = load_prices(prices_path)
     date_str = args.date or date.today().isoformat()
 
-    report_text = render_report(runs_dir, prices, date_str)
+    report_text = render_report(runs_dir, prices, date_str, args.label)
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(report_text, encoding="utf-8")

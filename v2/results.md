@@ -1,4 +1,4 @@
-# Story test v2.1 -- orchestrated runs
+# Story test 2.1 -- orchestrated runs
 
 Generated: 2026-08-27
 
@@ -92,4 +92,4 @@ Max across all judged cells: 3
 
 ### Caveats
 
-The judge is an Opus subagent, the same model family as the systems under test, which is a potential source of bias in scoring. Sampling is not deterministic: each cell reflects a single run (n = 1), not an average over repeats. All results in this report are for version 2.1 of the story test material.
+The judge is an Opus subagent, the same model family as the systems under test, which is a potential source of bias in scoring. Sampling is not deterministic: each cell reflects a single run (n = 1), not an average over repeats. All results in this report are for version {label} of the story test material.
