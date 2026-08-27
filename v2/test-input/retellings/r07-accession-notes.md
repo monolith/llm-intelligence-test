@@ -20,6 +20,12 @@ Loose in the back of Item 1, unpinned, folded in three: one letter on railroad p
 
 > *The engineering party is reduced entire on the 15th May next, and your time is paid to that day. Mr. Tice asks that his recommendation be entered upon your card.*
 
+Folded inside the same letter, a printed office slip:
+
+> *Notice. Re-engaged from the 1st August next for the Ashby extension: J. Corliss, rodman; F. Wain, chainman. — Cadder Valley Railroad, 20 July 1901.*
+
+Both men named on the slip were of the same engineering party. The recipient of the letter is not named on it, and there is no second slip of the kind among these papers. Why she kept it is not something the papers say.
+
 *Provenance, Item 1.* Given to the Society in 1963 by Mr. Wendell Frayne of Cadder Falls. It was his mother's book, and by his account she had it in her own keeping from 1901 until her death in 1959, after which it was his. Depositor's slip is in his hand and is not signed.
 
 **Item 2. Station ledger, half-bound, "the night book"** (so called on the wrapper and by everyone who has asked after it). Attributed: **A. Rennick.** Five ruled columns: the date; the day's high; the night's low; whether the sound came; the hour it came. Forty-three winters, unbroken. A heavier, blunter pencil than Item 1 and a hand that slopes. Front matter carries a retrospective note, undated in itself but written up from a station slate:
@@ -40,7 +46,7 @@ A few particulars from Item 2 worth recording in the entry, as I am asked for th
 
 *Provenance, Item 2.* Received in 1969 from the estate of Mr. Judd Rennick, station agent at Cadder Falls 1915–1954, who died that year. The book had been lent by him personally to the author of Item 5 in 1962 and returned to him afterward; it was never the Society's before 1969, and any earlier citation of it is a citation of the loan.
 
-**Item 3. Weather record, four cardboard boxes**, farm daybooks and later ruled sheets, kept at the Wexler farm at Kettle Bench, three miles above Cadder Falls, from 1 January 1894. Daily high, daily low, precipitation. Two hands, the second taking over partway through.
+**Item 3. Weather record, four cardboard boxes**, farm daybooks and later ruled sheets, kept at the Wexler farm at Kettle Bench, three miles above Cadder Falls. Daily high, daily low, precipitation. Two hands, the second taking over partway through. The depositor's own index sheet gives the beginning of the record as 1 January 1894, and I have entered that date on the authority of the sheet, having no other.
 
 *Provenance, Item 3.* Received 1967 from the farm. The record was kept by two brothers named Wexler, the younger of whom carried it on after the elder gave it up. The boxes came to us in the same condition in which they went down to the 1962 survey and came back.
 
@@ -66,7 +72,7 @@ The second, from a lumber company shop book, May 1929, the engine having been se
 
 These are copies only. The Tolliver Lumber Company's stock book and shop book are **not** in this collection and have never been; they are at the Bly County Historical Rooms, two hundred miles north, deposited there in 1938, and the correspondence file shows they were catalogued on arrival. We hold the two pages and nothing else of that company.
 
-**Note on the depositors and their relations**, taken off the slips and from one conversation. The author of Item 5 is the granddaughter of the writer of the field book. Her father, Mr. Wendell Frayne, who deposited Item 1, and Judd Rennick, who wrote the night book, were first cousins. Judd Rennick's father, Emil, and Adela, who wrote the field book, were brother and sister. So Items 1 and 2 come out of one family two generations apart, and Item 5 out of the third generation of it, which is unusual enough in a county collection to be worth saying in the published note.
+**Note on the depositors and their relations**, taken off the slips and from one conversation. The author of Item 5 is the granddaughter of the writer of the field book, Adela Rennick, born 1876 and died 1959. Her father, Mr. Wendell Frayne, who deposited Item 1, and Judd Rennick, who wrote the night book, were first cousins. Judd Rennick's father, Emil, and Adela, who wrote the field book, were brother and sister. So Items 1 and 2 come out of one family two generations apart, and Item 5 out of the third generation of it, which is unusual enough in a county collection to be worth saying in the published note.
 
 Of the depositors named above: Judd Rennick died in 1969; Mr. Wendell Frayne is living; Lettie Wexler died in 1967, the same year her boxes came in.
 

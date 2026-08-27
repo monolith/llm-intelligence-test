@@ -1,5 +1,16 @@
 # Authoring Notes — v2 canon and key (SECRET)
 
+> **SUPERSEDED IN PART — read `HARDENING-v2.1.md` first.** This file records the original
+> v2.0 design and is kept for the reasoning behind it, not for its counts. After the 94/100
+> validation solve the corpus was hardened: **11 near-tie pairs** (not 3), **6 abstention
+> items A01–A06** (not 4), **13 documents** (not 12), a **decoy theory** in r02 and r09, a
+> re-bucketed Section E, and a gullibility maximum of **−12**. Every count, difficulty
+> estimate and soft-spot note below that touches those numbers is out of date; the design
+> logic (why the mechanism, why the locomotive, why the abstentions sit where they do) still
+> holds. Soft spots 2, 4 and 6 are unchanged; soft spot 1 (NT-3's fragility) was resolved by
+> planting NT-11 in the same two narrators; soft spot 3 (A03) is unchanged; soft spot 5
+> (Section E's cap) was addressed by the E-a/E-b/E-c/E-d buckets.
+
 Written 2026-08-27, alongside `canon.md`, `corruption-map.md`, `answers-and-scoring.md`
 and `narrator-briefs.md`. Spec: `docs/superpowers/specs/2026-08-27-story-test-v2-spec.md`
 (D1–D4 and Acceptance).

@@ -12,11 +12,11 @@ This little book was made for the eighth grade of the Cadder Falls school, and f
 
 Before the railroad there was a wagon road, and before the wagon road there was the creek, and the creek is still here and will outlast the rest.
 
-The Cadder Valley Railroad was built to bring stone down from the Ashby quarry and lumber and cloth up from Ninestone. Its great work was the bridge at Sallow Creek, which was begun in April of 1896 and which took a year and a half to build. The center span — the long one, over the water — was closed on the twelfth of September, 1897. On the fourteenth of November, 1897, the first train came into Cadder Falls, and the town you live in dates from that afternoon as surely as if it had been founded on it.
+The Cadder Valley Railroad was built to bring stone down from the Ashby quarry and lumber and cloth up from Ninestone. Its great work was the bridge at Sallow Creek, which was begun in April of 1896 and which took a year and a half to build. It is six hundred feet long and it stands ninety-seven feet above the water. The center span — the long one, over the water — was closed on the twelfth of September, 1897. On the fourteenth of November, 1897, the first train came into Cadder Falls, and the town you live in dates from that afternoon as surely as if it had been founded on it.
 
 The bridge was built by men from this valley and men from away. Emil Rennick, of the Falls, built the falsework — the wooden staging on which the iron was put together before it could carry itself. Cass Nolan, who set the rollers, was of the gang, and so were a good many others whose names are on nobody's list.
 
-The resident engineer was Warren Tice, whose son Dorsey keeps the store today.
+The resident engineer was Warren Tice, whose nephew Dorsey keeps the store today.
 
 **CHAPTER II. THE WOMAN WHO KEPT A BOOK**
 
@@ -42,13 +42,13 @@ On a bitter night the bridge at Sallow Creek makes a sound. It is one sound, a s
 
 The first night it was heard was the seventeenth of January, 1912.
 
-We know that date, and we know a great deal else, because of one man. Judd Rennick — son of Emil, the carpenter of Chapter I — came to the depot at Cadder Falls as night operator and was afterward the station agent for many years. From the first night he kept a book. In it he set down the date, the day's warmest, the night's coldest, whether she spoke, and at what hour. He kept it for forty-three winters, which is longer than most men keep anything. Fifty-seven nights are recorded.
+We know that date, and we know a great deal else, because of one man. Judd Rennick — son of Emil, the carpenter of Chapter I — came to the depot at Cadder Falls as night operator and was afterward the station agent for many years. From the first night he kept a book. In it he set down the date, the day's warmest, the night's coldest, whether she spoke, and at what hour. He kept it for forty-three winters, which is longer than most men keep anything. Fifty-seven nights are recorded. In thirty of those winters the bridge spoke at least once; in thirteen of them it never spoke at all.
 
 Now, what is it?
 
 Number Nine lies in the creek to this day, and it is her that the valley hears. She went off the iron at the north end in 1898 and rolled down into the gorge, and there she has stayed under the water, and on the nights when the cold works into the iron of her she speaks. That is what this valley has believed for two generations, and it is not a foolish belief. It fits the sound, which is the sound of iron. It fits the place, which is the place she went off. It fits the winter, for iron is loudest when it is coldest. A boy of your age can test a belief by asking what it explains, and this one explains a good deal.
 
-The last night the bridge was heard was the ninth of February, 1954. In March of that year the railroad rebuilt the bridge to carry the new diesel engines, and put new bearings under the long span, and from that month to this the valley has not heard a sound. Fifty-seven nights are recorded, and there will not be a fifty-eighth.
+The last night the bridge was heard was the ninth of February, 1954. In March of that year the railroad rebuilt the bridge to carry the new diesel engines, and put new bearings under the long span, and from that month to this the valley has not heard a sound. Three nights in the two winters that followed answered every condition the book lays down, and the bridge said nothing on any of them. Fifty-seven nights are recorded, and there will not be a fifty-eighth.
 
 **CHAPTER V. THE WAGER**
 

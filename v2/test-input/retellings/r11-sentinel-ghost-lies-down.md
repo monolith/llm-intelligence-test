@@ -6,7 +6,7 @@
 
 For sixty-odd years this county has owned a ghost, and last month a woman in rubber boots walked eight hundred feet of its address and found nobody home.
 
-The state's flood-control cut took the water out of the gorge in September and kept it out for eleven weeks. For the first time in the memory of anybody now living, Sallow Creek ran as a floor instead of a stream: gravel, boulders the size of a hay wagon, a good deal of wire, and the long shadow of the viaduct lying across all of it at four in the afternoon. The county sent its engineer down there with a level and a camera. This paper went along.
+The state's flood-control cut took the water out of the gorge in September and kept it out for eleven weeks. For the first time in the memory of anybody now living, Sallow Creek ran as a floor instead of a stream: gravel, boulders the size of a hay wagon, a good deal of wire, and the long shadow of the viaduct — six hundred feet of it, ninety-seven feet up — lying across all of it at four in the afternoon. The county sent its engineer down there with a level and a camera. This paper went along.
 
 What the county was looking for, officially, was the condition of the piers. What half the valley was looking for, and would have told you so in the store, was a locomotive.
 
@@ -20,7 +20,7 @@ The story, as everybody in this county has it, begins on the morning of the sixt
 
 From the winter after the wreck, the valley began to hear her.
 
-It is a hard sound to get a description of, because everybody who ever heard it heard it in bed. The word most often used is *boom* — one boom, deep, not a ring and not a rumble, coming up the valley on the coldest nights of the year and going through the floor of a house rather than the window of it. Men at Cadder Falls will tell you they felt it in the soles of their feet before they heard it in their ears. It came in January and February and it never came in July, and it came, everyone agreed, when the cold had a certain bite to it. Old men here remember hearing it at Ninestone in the winter of 1918.
+It is a hard sound to get a description of, because everybody who ever heard it heard it in bed. The word most often used is *boom* — one boom, deep, not a ring and not a rumble, coming up the valley on the coldest nights of the year and going through the floor of a house rather than the window of it. Men at Cadder Falls will tell you they felt it in the soles of their feet before they heard it in their ears. It came in January and February and it never came in July, and it came, everyone agreed, when the cold had a certain bite to it. Old men here remember hearing it at Ninestone in the winter of 1918, which was the hardest winter the valley has on paper: thirteen below zero up at Kettle Bench, and nothing since has come near it.
 
 Naturally it was the engine. What else would it be? A dead crew, said the older version of the story, lying under the water where the current had rolled her, and the sound was the engine settling, or the crew knocking, according to which grandmother told it to you. It rang for a death in the town, some said. It rang for a hard winter, said others, and those two theories have been argued in this county's kitchens for sixty years without either side producing a scrap of paper.
 

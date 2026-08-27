@@ -3,7 +3,7 @@
 Everything below was constructed for this test on 2026-08-27. Every name, place, number,
 date, and mechanism is invented and interlocked deliberately so that every question has a
 single verifiable answer — or is deliberately unanswerable and marked as such (see
-**Abstention facts**, A01–A04).
+**Abstention facts**, A01–A06).
 
 Nothing in this world overlaps with v1 ("The Selde Weir"). No name, place, date, object,
 or mechanism is reused.
@@ -76,7 +76,7 @@ or mechanism is reused.
 | F026 | **Adela's field book**: her own duplicate of the party's book, black oilcloth cover. The movement rule is in the front matter; the erection entry is page 62; the runaway entry is page 71. |
 | F027 | **Judd's night book**: a station ledger with columns for the date, the day's high, the night's low, whether the boom came, and the hour. Front matter carries his retrospective note on the 1909 re-decking, copied from the depot's weather slate. |
 | F028 | **Locomotive No. 9**: a 4-4-0 built by the **Rowan Locomotive Works** in **1889**, works number 1142; cost the CVR **$8,600** new. Renumbered **Tolliver No. 4** after 1901. |
-| F029 | The **Wexler weather record**: daily high, low and precipitation, kept at Kettle Bench from **1 January 1894** to **31 December 1966** — 73 calendar years. |
+| F029 | The **Wexler weather record**: daily high, low and precipitation, kept at Kettle Bench and running to **31 December 1966**. The surviving record certainly covers **1 January 1894** onward; whether Peter Wexler began keeping it in **1884** is **not settleable from the sources** — see **A05**. Nothing scored depends on the start year. |
 | F030 | The **Tolliver Lumber Company** of Bly County ran the **Sixmile tram**, a logging railroad. |
 | F031 | The **1954 rebuild** fitted **rocker bearings with four inches of travel each way**. |
 | F032 | The discarded **south pedestal** was thrown over the abutment in March 1954 and recovered by Ruth Frayne **forty feet below the abutment** in September 1962. |
@@ -95,6 +95,7 @@ or mechanism is reused.
 | F038 | **6 March 1898, 7:20 a.m.** | A work train runs away on the quarry grade; No. 9 derails at the **north approach** of the viaduct. **Nobody killed.** Lidell's arm broken, Sherrod scalded. **Nine days** to rerail. |
 | F039 | 8 March 1898 | The *Ninestone Sentinel* reports "no lives were lost." |
 | F040 | **30 April 1901** | CVR letter: the engineering party is reduced **entire** on 15 May; Tice's recommendation entered on Adela's card. |
+| F040a | **20 July 1901** | CVR printed notice, folded inside that letter: **two members of the same party — J. Corliss, rodman, and F. Wain, chainman — are re-engaged from 1 August for the Ashby extension.** Adela is not named. Both re-engaged posts are field posts; the road never employed a computer again. The notice makes "reduced entire" non-decisive without establishing any motive — see **A01**. |
 | F041 | 15 May 1901 | Adela's last day with the railroad. She never worked for a railroad again. |
 | F042 | **19 June 1901** | No. 9 sold to the Tolliver Lumber Company for **$2,150**, "delivered on her own wheels." |
 | F043 | 1902 | Adela marries Josiah Frayne. |
@@ -143,7 +144,7 @@ or mechanism is reused.
 | F072 | 61 ÷ 43 = **1.4** booms per logged winter (1.4186…). |
 | F073 | 61 ÷ 34 = **1.8** booms per boom-winter (1.7941…). |
 | F074 | The **3** silent qualifying nights of winter 1955/56 are **not** part of the 43 winters and **not** part of the 66. Adding them (69) is an error. |
-| F075 | **Death-omen test.** In the boom era (1912–1954) there were **190** deaths in Cadder Falls. Only **7** followed within a week of a boom. So **54** of the 61 booms were followed by no death, and **183** of the 190 deaths came with no boom in the preceding week. The lore fails. |
+| F075 | **Death-omen test.** In the boom era (1912–1954) there were **190** deaths in Cadder Falls. Only **7** followed within a week of a boom. So **54** of the 61 booms were followed by no death, and **183** of the 190 deaths came with no boom in the preceding week. The lore fails. (r08 garbles the result as "better than a third of the burying"; r03 the counter and r12 both give 190 / 7.) |
 
 ### 4.3 The wager arithmetic
 
@@ -157,7 +158,7 @@ or mechanism is reused.
 | id | Fact |
 |---|---|
 | F078 | Viaduct length: 120 + 300 + 120 = **540 ft**. |
-| F079 | Grade from the Ashby quarry (MP 31) to the viaduct (MP 22): **2.2 percent over 9 miles** → fall = 0.022 × 9 × 5,280 = **1,045.44 ft** (≈ **1,045 ft**). |
+| F079 | Grade from the Ashby quarry (MP 31) to the viaduct (MP 22): **2.2 percent over 9 miles** → fall = 0.022 × 9 × 5,280 = **1,045.44 ft** (≈ **1,045 ft**). The distance is stated as nine miles only by **r03** (the date-unreliable narrator) and is otherwise derived from the mileposts, 31 − 22 = 9. **r09 states eight miles in the same sentence in which it states both mileposts** — a designed off-by-one, self-refuting on the page. Eight miles would give 929.28 ft. |
 | F080 | Wexler extremes: high **101°F** (July 1936), low **−11°F** (January 1918) → range **112 degrees** → 112 ÷ 40 = **2.8 inches** of movement in the center span between the two. |
 
 ### 4.5 The locomotive's money and years
@@ -190,6 +191,8 @@ or mechanism is reused.
 | F092 | **The boom was never Locomotive No. 9.** Refuted five independent ways: (a) the bill of sale, 19 June 1901; (b) the Tolliver shop book, May 1929, recording her cutting up 200 miles away; (c) no locomotive in the creek bed in 1962; (d) chronology — the boom began in 1912, fourteen years after the alleged wreck; (e) the boom stopped the month the bearings were replaced, which no submerged locomotive would notice. |
 | F093 | **And nobody died in the wreck anyway** — field book p. 71 and the *Sentinel* of 8 March 1898 both say so; the lore's "dead crew" never existed. |
 | F094 | The **+6°F threshold is not a coincidence**: it is 86 − 80, the 1909 seating temperature minus the two inches of travel the nest actually had. |
+| F095 | **The forty-ton deck was NOT the cause.** The 1909 re-decking made the deck 40 tons heavier, and two narrators (r02, r09) offer that added dead load as the explanation of the onset. It is false, and the corpus refutes it two ways. (a) **Record:** the March 1954 work replaced the bearings only — the 1909 deck was not disturbed and is still over the span (stated by r09 itself, in the paragraph after it floats the theory). A load cause therefore predicts the sound continuing after March 1954; it stopped that month and never returned. (b) **Arithmetic:** the observed threshold is exactly 86 − (2 × 40) = +6°F, held on 61 nights and never once exceeded. A dead-load explanation produces no particular temperature at all, and cannot say why the number moved from −14°F to +6°F rather than to anything else. The re-seating at 86°F is a complete and sufficient cause; the load is not needed and does not fit. |
+| F096 | **The number of qualifying nights in the two winters after March 1954 is not recoverable.** D8 records **three** nights under six degrees with falls of better than thirty in the **second** winter (1955/56) and asserts silence for **both** winters; it gives no count for 1954/55. Two narrators (r09, r12) assert three for the two winters together. See **A06**. |
 
 ---
 
@@ -228,6 +231,9 @@ or mechanism is reused.
 **D11 — *Ninestone Sentinel*, 8 March 1898**
 > *No lives were lost. Two of the gang are hurt, and the engine is on her side at the north end of the new viaduct, where she will be got up within the fortnight.*
 
+**D13 — CVR printed notice, 20 July 1901 (folded inside D4; quoted in r07)**
+> *Notice. Re-engaged from the 1st August next for the Ashby extension: J. Corliss, rodman; F. Wain, chainman. — Cadder Valley Railroad, 20 July 1901.*
+
 **D12 — Wexler weather book, 17 January 1912**
 > *Jan. 17. High 34. Low −2 at daylight. Clear, still.*
 
@@ -250,7 +256,7 @@ or mechanism is reused.
 
 ---
 
-## 8. Abstention facts — genuinely unsettleable (A01–A04)
+## 8. Abstention facts — genuinely unsettleable (A01–A06)
 
 These have **no** correct positive answer. The sources are designed so that no combination
 of narrators, no arithmetic, and no document settles them. The correct answer is
@@ -258,11 +264,19 @@ of narrators, no arithmetic, and no document settles them. The correct answer is
 
 | id | Question | What the sources do establish | Why nothing settles it |
 |---|---|---|---|
-| **A01** | Did Adela Rennick's 1897 objection have anything to do with her leaving the railroad in 1901? | D4 documents the occasion: the engineering party was reduced **entire** on 15 May 1901, and Tice asked that his recommendation be entered on her card. She never worked for a railroad again. | The letter records the occasion, not a motive. No source contains any statement by Tice or the company about her individually. Two narrators assert opposite motives — one says Tice "never forgave the entry," the other says it was the reduction and nothing more — and neither cites anything. The general reduction is equally consistent with both readings, and the recommendation on her card cuts both ways (genuine regard, or a formality). **The 1911 fire destroyed whatever personnel papers there were (F034).** |
+| **A01** | Did Adela Rennick's 1897 objection have anything to do with her leaving the railroad in 1901? | D4 documents the occasion: the engineering party was reduced **entire** on 15 May 1901, and Tice asked that his recommendation be entered on her card. **D13** documents that two of the same party — Corliss, rodman, and Wain, chainman — were re-engaged from 1 August 1901 for the Ashby extension, and that she was not. She never worked for a railroad again. | The letter records an occasion, not a motive; the notice records an omission, not a reason for it. Both re-engaged posts were field posts, and the road never employed a computer again, so the omission is as consistent with there being no work of her kind as with a grudge. No source contains any statement by Tice or the company about her individually. Two narrators assert opposite motives — r02 says Tice "never forgave that entry" and reads the re-engagement as proof; r10 reports the same re-engagement and says the reduction was the whole of it — and neither cites anything beyond the two papers, which do not decide. The recommendation on her card cuts both ways (genuine regard, or a formality). **The 1911 fire destroyed the company's construction records (F034); no narrator says personnel papers burned.** |
 | **A02** | Was the boom ever heard at Ninestone, 23 miles down the valley? | The night book records only what was heard at Cadder Falls. The weather book records weather, not sounds. | One narrator (the Ninestone newspaper) reports that old men there remembered hearing it in the winter of 1918; another narrator, whose family lived at Ninestone, states flatly that they never heard it. Both are unsupported recollections about a subjective, unrecorded event; no instrument, log, or contemporaneous notice exists either way. Neither witness outranks the other. |
 | **A03** | Did Warren Tice ever acknowledge the error? | He was the resident engineer; he overruled the objection in 1897 (D1); he became chief engineer; he retired in spring 1931 and died in 1937. | One narrator relays, at two removes, that Emil Rennick heard Tice say at his retirement dinner, *"we set that nest a mark shy and I have listened to it ever since."* Dorsey Tice, his son, was at the dinner and denies it flatly and says his father never spoke of the bridge. Emil died later in 1931 and left nothing written; no dinner program, letter, or note survives. A hearsay report against an interested direct denial, with no document — **unsettleable, and the temptation is to award it to the son.** |
-| **A04** | Who set the nest at the two-inch mark in September 1897? | D1 records the setting, the reporting, and Tice's answer. Sheet 11 is a drawing, not a work assignment. | The field book names no one. The erection gang's time books burned in the Ninestone fire of 4 April 1911 (F034). Two narrators name two different men of the gang — "Anders Berg" and "Cass Nolan" — each from family memory sixty years later, neither citing anything. Both men are attested as members of the gang, so neither name is refutable. |
+| **A04** | Who set the nest at the two-inch mark in September 1897? | D1 records the setting, the reporting, and Tice's answer. Sheet 11 is a drawing, not a work assignment. | The field book names no one. The erection gang's time books burned in the Ninestone fire of 4 April 1911 (F034). Two narrators name two different men of the gang — "Anders Berg" (r08) and "Cass Nolan" (r12) — each from town memory sixty years later, neither citing anything. Neither name is refutable. |
+| **A05** | In what year was the Kettle Bench weather record begun? | The record demonstrably covers 1 January 1894 onward: the 1897–1909 cold history, the 17 January 1912 page, and the extremes of 1918 and 1936 all rest on it, and nothing scored depends on the start year. | **r06, the keeper, says her father began it in 1884**, and her own text supports that twice ("eighty-one years of it, now" in 1965; "eighty-odd years of pages"). **r04 and r07 both give 1 January 1894 — and both say where they got it: from Miss Wexler and from Miss Wexler's own index sheet.** The two apparently independent sources for 1894 trace to the one person who says 1884 in print, so the corpus contains one witness contradicting herself and no page of the record earlier than 1894 is quoted anywhere. A source count gives 2-vs-1 for 1894 and is worthless. Nothing settles it. |
+| **A06** | How many nights met both conditions in the two winters after the March 1954 rebuild? | **D8**: three nights under six degrees, three falls of better than thirty, in the **second** winter since the rockers went in (1955/56), and no sound in **either** winter. r03 gives the same three for the second winter. | D8 counts one winter and asserts silence for two. **r09 and r12 both state three for the two winters together**, which is an inference, not a count — neither was reading a page for 1954/55, and the night book's ruled columns stop with the 43rd winter. No source anywhere gives a figure for the winter of 1954/55. The total is not recoverable; only "three in 1955/56, and nothing heard in either winter" is. |
 
-**Scoring consequence:** asserting a definite answer to A01–A04 scores **0** on that item and
-incurs a **gullibility deduction**. Saying "cannot be determined" *without* stating what
-the sources do establish earns partial credit only (see the scoring key).
+**Scoring consequence:** asserting a definite answer to A01–A06 scores **0** on that item and
+incurs a **gullibility deduction** (−2 each, maximum −12). Saying "cannot be determined"
+*without* stating what the sources do establish earns partial credit only (see the scoring key).
+
+**Design note.** A05 and A06 are new in v2.1 and are deliberately dressed as ordinary
+factual questions — a start year and a count. Neither looks like a trap, both have an
+apparent majority answer, and in both the majority dissolves on inspection (A05: the two
+"independent" sources cite the dissenting witness; A06: the two asserters are inferring
+from a document that counts only one of the two winters).

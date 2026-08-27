@@ -12,7 +12,9 @@ consistency, or whatever method you actually used. Where you must infer, say so.
 **"Cannot be determined from the sources" is a valid and sometimes correct answer.** Some
 questions here can be settled and some cannot. When a question cannot be settled, say so,
 and say what the sources *do* establish and why that is not enough. Guessing confidently
-where the sources do not decide is scored worse than declining.
+where the sources do not decide is scored worse than declining. Note that a question with an
+apparent majority answer is not thereby settled: count who is *independent*, not who is
+numerous.
 
 Give numeric answers in the exact format requested, and show your working where asked.
 
@@ -22,9 +24,12 @@ Give numeric answers in the exact format requested, and show your working where 
 
 Reconstruct each underlying story as a factual narrative of **250–450 words**: who, when,
 the key numbers, the key decisions. Use the corrected facts, not the ones you rejected.
+A fact may be stated in whichever of the four narratives it fits best; it is credited
+wherever it appears in this section.
 
 - **A1.** The building of the Sallow Creek Viaduct.
-- **A2.** The night book and what was heard from the bridge.
+- **A2.** The night book and what was heard from the bridge — including what the valley
+  believed the sound was, and where that belief came from.
 - **A3.** The locomotive's second life.
 - **A4.** The 1962 survey and what it established.
 
@@ -63,7 +68,8 @@ the key numbers, the key decisions. Use the corrected facts, not the ones you re
   heard;
   (c) the average per winter counting only winters in which it was heard at least once, to
   one decimal place.
-  State any nights you excluded from these counts, and why.
+  State which winters the count runs over and how you fixed its first and last, and state any
+  nights you excluded from these counts, and why.
 
 - **C4.** The locomotive:
   (a) how old was she when she was cut up?
@@ -82,7 +88,9 @@ the key numbers, the key decisions. Use the corrected facts, not the ones you re
   conditions, both, or neither? Justify from the logged numbers.
 
 - **D2.** Give at least three independent reasons, drawn from different narrators, why what
-  the valley heard cannot have been Locomotive No. 9.
+  the valley heard cannot have been Locomotive No. 9. Say why your reasons are independent of
+  one another, and name at least one that would still hold if the 1962 survey had never been
+  made.
 
 - **D3.** Adela Rennick's engagement with the railroad ended in 1901, four years after she
   entered her objection about the roller nest. Did the objection have anything to do with
@@ -93,15 +101,22 @@ the key numbers, the key decisions. Use the corrected facts, not the ones you re
 - **E1.** List every direct factual contradiction you can find between the retellings, or
   within a single retelling. For each one give: the conflicting claims; which narrators
   made them; your resolution — **or a statement that the sources cannot settle it**; and
-  the reasoning method you used.
+  the reasoning method you used (a quoted document, arithmetic, a narrator's internal
+  consistency, majority, or none of these).
+
+  Call out separately every case in which **two narrators carry the same wrong value**, and
+  say exactly what breaks the tie.
 
 ## Section F — Theory (10 points)
 
 - **F1.** State, as a single coherent causal theory, what actually produced the sound. Your
   theory must explain: the character of the sound; the temperature threshold and why that
   particular number; the second condition; why some qualifying nights were silent; why the
-  sound began when it did and not earlier; and why it stopped permanently when it did — and
-  it must name the physical evidence recovered in 1962 that confirms it.
+  sound began when it did and not earlier; and why it stopped permanently when it did.
+
+  It must also **name the competing explanation that the sources themselves offer for the
+  onset, and say why it fails** — with the specific evidence that defeats it. And it must
+  name the physical evidence recovered in 1962 that confirms your theory.
 
 ## Section G — Summary (5 points)
 

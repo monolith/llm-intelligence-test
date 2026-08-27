@@ -18,6 +18,11 @@ prohibitions — is inside the brief.
 - Do not mention anything in your "must NOT mention" list, even in passing.
 - American spelling throughout. No real people or places.
 
+**v2.1 note.** These briefs were revised on 2026-08-27 to match the hardened retellings.
+Where a brief now assigns a near-tie value, the pair partner is named so the author can see
+that the value must be reproduced *exactly*, not paraphrased into a different wrong number —
+a near-tie only works if both carriers say the same thing.
+
 **Shared world vocabulary** (safe for any narrator to use): Pell County · Ninestone (the
 county seat) · Cadder Falls (the mill town) · Kettle Bench (a farm three miles up the
 valley) · Sallow Creek and its gorge · the Sallow Creek Viaduct · the Cadder Valley
@@ -64,7 +69,12 @@ whole street. She never read a document in her life and would not know what Shee
    first winter after the viaduct opened — 1897 into 1898 — and connects it directly to the
    wreck. She will say "seventy-odd years" of it if pressed.
 3. **"Dorsey Tice was old Warren Tice's nephew."** Use the word *nephew*. She may add that
-   the Tices were "railroad people from Ninestone."
+   the Tices were "railroad people from Ninestone." (**Near-tie 7** — r12 carries the same
+   word. Do not soften it to "kin" or "some relation.")
+4. **"She was his grand-niece."** Of the young Frayne woman who came round with her
+   notebook: Judd Rennick's **grand-niece**, "they told me," come to look at his book, and
+   he let her have it. (**Near-tie 8** — r04 carries the same error from the other end,
+   calling Judd "my father's uncle." Use the word *grand-niece*.)
 
 **Allowed rhetoric (not scored, not an error).** "A hundred nights if there was one." She
 may exaggerate the frequency freely as long as she never states a counted total.
@@ -95,15 +105,14 @@ documentary and second-hand, and he knows it.
 **What he knows (state these as given).**
 - The CVR: thirty-one miles. Ninestone at milepost 0, the Sallow Creek Viaduct at milepost
   22, Cadder Falls at milepost 23, the Ashby quarry at milepost 31. (F021)
-- The grade from the quarry down to the viaduct: **two and two-tenths percent, nine miles
-  of it**. (F079)
+- The grade from the quarry down to the viaduct: **two and two-tenths percent**, held the
+  whole way down. **Do not give the distance in miles** — the nine miles belongs to r03 and
+  to his own mileposts. (F079)
 - The viaduct: three spans — 120 feet, then a pin-connected truss of **300 feet**, then 120
   feet: **five hundred and forty feet** in all, **ninety-seven feet** above the creek. Begun
   April 1896; the line opened to Cadder Falls **14 November 1897**. (F022, F035, F037, F078)
 - The center span's north end is pinned solid; the south end rests on a nest of rollers in a
   cast pedestal, so the steel can lengthen and shorten. (F023)
-- The rule the engineers used for that span: **one inch in three hundred feet for forty
-  degrees**. (F060)
 - The span was closed on **12 September 1897** with the thermometer at **sixty-six
   degrees**. (F036, F061)
 - Locomotive No. 9: a 4-4-0 from the **Rowan Locomotive Works, 1889, works number 1142**,
@@ -127,20 +136,35 @@ documentary and second-hand, and he knows it.
 - The **March 1954** rehabilitation for diesel power, which put in new bearings; the noise
   stopped after it and never came back. (F052, F091)
 
-**What he gets wrong (X04, X05 — reproduce with these wordings).**
+**What he gets wrong (X04, X05, X38, X39 — reproduce with these wordings).**
 1. **"Sheet 11 called for four inches of travel."** He states the specification as **four
    inches** and is confident about it. He may add that "four inches was generous for a
    three-hundred-foot span." He must never quote the field book on this point.
 2. **"The re-decking was in 1908."** He gives the year of the re-decking as **1908**
    throughout. Everything else about the re-decking he gives correctly.
+3. **"One inch in three hundred feet for fifty degrees."** He states the movement rule with
+   **fifty** where the field book says forty, and repeats it: "an inch for every fifty
+   degrees, which is the sort of arithmetic even a clerk's son can carry in his head." He
+   computes nothing from it. (**Near-tie 5** — r09 carries the same constant.)
+4. **The decoy theory, offered as his one stated opinion and never hedged.** "Forty tons is
+   forty tons. A nest of rollers under a bridge was never meant to carry what that new deck
+   put upon it, and the noise the Falls made so much of began somewhere about that time and
+   not before it. I say the weight did it." He has no drawing and says he does not need one.
+   He must **not** connect the noise to any thermometer reading, any threshold, or any
+   re-seating; the weight is his whole explanation.
 
-**Abstention poles he carries (⌀X06, ⌀X07 — reproduce with these wordings, as his own
+**Abstention poles he carries (⌀X06, ⌀X07, ⌀X40 — reproduce with these wordings, as his own
 opinion, citing nothing).**
-3. **On Adela Rennick's leaving:** "Tice never forgave that entry, and she was gone inside
+5. **On the re-engagement:** immediately after "Her time with the road ended when the
+   engineering party was reduced," he adds that **two of that party were taken back on in the
+   August following, for the Ashby extension work, and she was not**, "and I have never
+   needed anybody to explain that to me." He states the fact plainly and draws his inference
+   from it without any further evidence.
+6. **On Adela Rennick's leaving:** "Tice never forgave that entry, and she was gone inside
    four years." He offers no letter, no minute, no witness — this is a conviction he formed
    from the atmosphere of the office. He must **not** quote the reduction-of-force letter,
    and must **not** claim to have seen anything in writing about it.
-4. **On the sound at Ninestone:** "We never heard it at Ninestone. My father would have
+7. **On the sound at Ninestone:** "We never heard it at Ninestone. My father would have
    written it down." Stated flatly as a family fact.
 
 **Must NOT mention.** The night book's totals (61, 43, 34, 9, 5, 66), the +6-degree
@@ -279,10 +303,14 @@ about all of it except two things.
   1962. In the front matter, the rule. On page sixty-two, the entry of 12 September 1897.
   (F002, F006, F018, F026, F060, F036)
 - **Finding four: the night book.** Judd Rennick, seventy-four and living three streets from
-  the depot, lent it to her himself. Forty-three winters, sixty-one nights, every one below
-  six degrees at the bottom of a fall of thirty or more, five nights that answered and gave
-  nothing — and in the front, a gang in **August 1909** jacking both shoes and setting them
-  again to the mark at **eighty-six degrees**. (F019, F045, F068, F069, F071, F088)
+  the depot, lent it to her himself. Forty-three winters, **sixty-one nights**, every one
+  below six degrees at the bottom of a fall of thirty or more — and in the front, a gang in
+  **August 1909** jacking both shoes and setting them again to the mark at **eighty-six
+  degrees**. (F019, F045, F068, F069, F088)
+  **She must NOT give the number of silent qualifying nights.** She says only that "further
+  nights answered both conditions and produced nothing at all, and his own summing at the
+  back of the book gives the count of them." The 5 / 66 belongs to r03 and to D7 in r07;
+  keeping it out of her talk is what makes **Near-tie 10** a genuine 2-vs-2.
 - **The arithmetic, which she gives step by step.** A three-hundred-foot span moves an inch
   for every forty degrees. Sheet 11 gave the nest **three inches** of cold travel and the
   span was closed at **sixty-six degrees**: three inches is a hundred and twenty degrees, so
@@ -294,8 +322,11 @@ about all of it except two things.
   **six above zero**. And six above zero is where the night book says the bridge spoke,
   sixty-one times, and never once above. (F060–F065, F094)
 - **The independent witness.** The Wexler family of Kettle Bench kept a volunteer weather
-  record — high, low and rain, every day — from **1 January 1894**; Lettie Wexler lent it to
-  her in four cardboard boxes. Peter Wexler began it; his daughter Lettie has kept it since
+  record — high, low and rain, every day. **She must name her source for the start date**:
+  "Miss Wexler puts the beginning of it at the first of January, 1894, and I have used her
+  date." (This is abstention pole ⌀X41 — the whole of A05 turns on the fact that both 1894
+  sources cite the woman who prints 1884.) Lettie Wexler lent it to her in four cardboard
+  boxes. Peter Wexler began it; his daughter Lettie has kept it since
   1926. They never wrote down a sound in their lives. Their weather agrees with Judd
   Rennick's book on **every one** of the sixty-one nights. (F014, F015, F016, F029)
 - **The seven nights.** Between the opening of the line in November 1897 and the re-decking
@@ -318,9 +349,14 @@ about all of it except two things.
 **What she gets wrong (X13, X14 — reproduce with these wordings).**
 1. **"The lowest reading in the whole Wexler series is thirteen below."** She gives the
    record low as **−13°F** and attributes it to January 1918. (Everything else she says
-   about the Wexler record is correct, including the 101-degree high.)
+   about the Wexler record is correct, including the 101-degree high.) **Near-tie 6** — r11
+   carries the same figure.
 2. **"My father's uncle, Judd Rennick."** She calls Judd her father's *uncle* — once early
-   and once late, naturally, in passing, never as a claim she is defending.
+   and once late, naturally, in passing, never as a claim she is defending. **Near-tie 8** —
+   r01 carries the same error as "grand-niece."
+
+**Length note (v2.1).** r04 is the longest retelling in the corpus and sits close to the
+1,800-word ceiling. Any addition must be paid for with a cut.
 
 **Must NOT mention.** The wager, the death count, the peak winter of 1917/18, the
 Sentinel, the 1911 Ninestone fire, the name Warren Tice (she says only "the resident
@@ -452,12 +488,19 @@ it: "We never wrote down a noise. We wrote down weather."
   every one came after a day at least thirty degrees warmer. She checked a dozen of them
   against her own pages and they agreed. (F088, I06)
 
-**What she gets wrong (X17, X18 — reproduce with these wordings).**
-1. **"My father began it in 1884."** She gives the start of the record as **1884** and may
-   compute from it ("eighty-one years of it, now"). Everything else about the record's
-   contents is right.
+**Abstention pole she carries (⌀X17 — reproduce with this wording).**
+1. **"My father began it in 1884."** She gives the start of the record as **1884** and
+   computes from it ("eighty-one years of it, now"; "eighty-odd years of pages").
+   **Reclassified in v2.1**: this is no longer scored as an error but as one pole of
+   abstention item **A05**. The other pole is the date 1 January 1894, which r04 and r07
+   both give and which both of them explicitly attribute to *her*. She must not mention an
+   index sheet, must not address the discrepancy, and must not sound uncertain.
+
+**What she gets wrong (X18 — reproduce with this wording).**
 2. **"Eight nights answered both and gave nothing."** From her single reading of the night
-   book she reports **eight** silent qualifying nights, and may add the total **sixty-nine**.
+   book she reports **eight** silent qualifying nights, and adds the total **sixty-nine**.
+   (**Near-tie 10** — r09 reports the same eight at second hand.) She may state the
+   sixty-one nights the bridge spoke; that figure is correct.
 
 **Must NOT mention.** The roller nest, Sheet 11, any measurement in inches, the movement
 rule, the 1909 re-decking (she knows nothing of any bridge work), the −54/−14/+6
@@ -490,11 +533,14 @@ exact. Everything he *infers around* the transcriptions is a hurried man's guess
   and kept by her from 1901 until her death in 1959. The night book came in 1969 from the
   estate of Judd Rennick, station agent at Cadder Falls 1915–1954, who had lent it to the
   survey's author in 1962 and had it back. The weather record came in 1967 from the Wexler
-  farm at Kettle Bench, kept there from **1 January 1894**. The pedestal was recovered from
+  farm at Kettle Bench; **he takes the start date, 1 January 1894, from the depositor's own
+  index sheet and says so** ("having no other"). This is abstention pole ⌀X43. The pedestal was recovered from
   Sallow Creek in September 1962 by the author of the survey report and given to the society
   in 1963. (F018, F019, F020, F029, F032, F046)
 - **The depositor's relations**, as noted on the slips: the author of the survey report is
-  the granddaughter of the field book's writer; her father Wendell Frayne and the night
+  the granddaughter of the field book's writer, **"Adela Rennick, born 1876 and died 1959"**
+  — a curator's note, not a transcription, and wrong by two years (**Near-tie 9**, partner
+  r10); her father Wendell Frayne and the night
   book's writer Judd Rennick were **first cousins**. Judd's father Emil and the field book's
   writer Adela were brother and sister. (F003, F004, F008)
 - Judd Rennick died in 1969, Wendell Frayne is living, Lettie Wexler died in 1967. (F004,
@@ -530,6 +576,15 @@ exact. Everything he *infers around* the transcriptions is a hurried man's guess
    enough together that an attentive reader sees it and a skimming one does not.
 2. **"The weather record was kept by two brothers named Wexler."** He states this in the
    provenance note for the boxes. (Truth: father and daughter, Peter and Lettie.)
+3. **"Adela Rennick, born 1876."** In the relations note. (**Near-tie 9** — r10 gives the
+   same year, and refutes himself doing it.)
+
+**New in v2.1 — the thirteenth document.** Folded inside the reduction-of-force letter he
+finds and transcribes a printed office slip, and adds three flat observations and no
+inference: that both men named were of the same engineering party, that the letter's
+recipient is not named on the slip, and that there is no second slip of the kind among the
+papers. He must **not** speculate about what it means. It is the counterweight that makes
+A01 genuinely unsettleable.
 
 **Must NOT mention.** Any explanation of the sound; the movement rule's application; the
 binding temperatures; the wager; the death count; the 1911 fire; the Tolliver purchase
@@ -579,6 +634,10 @@ Nolan; whether the sound was ever heard at Ninestone. He offers no theory of any
 > *No. 4 (ex-Cadder Valley 9) cut up at Sixmile this month. Scrap to Ravel Brothers, $470.*
 > — photostat, Tolliver Lumber Company shop book, May 1929
 
+> *Notice. Re-engaged from the 1st August next for the Ashby extension: J. Corliss, rodman;
+> F. Wain, chainman. — Cadder Valley Railroad, 20 July 1901.*
+> — printed slip, folded inside the letter of 30 April 1901
+
 > *The south pedestal was recovered from the creek bed forty feet below the abutment, where
 > the 1954 gang threw it. The chisel mark on the roller seat is at two inches. Sheet 11
 > calls for three. There is no locomotive in this creek and there never was one. What the
@@ -617,7 +676,7 @@ the most interesting thing about him.
 - The noise stopped after the railroad rebuilt the bridge, and the town was disappointed.
   (F091)
 
-**What he gets wrong (X21, X22 — reproduce with these wordings).**
+**What he gets wrong (X21, X22, X44, X45 — reproduce with these wordings).**
 1. **THE INTERNAL CONTRADICTION — this is the point of this retelling.** Early in the
    recording, when the subject of the bridge's building comes up, he says: **"My father had
    no hand in that bridge. He was in the Ninestone office the whole time it was building."**
@@ -626,22 +685,32 @@ the most interesting thing about him.
    must appear, several hundred words apart, in that order, with no acknowledgment from him
    that they conflict.
 2. **"Fifty-seven nights, that book showed."** He gives the total as **57**. He is
-   confident; he heard Judd say it, or thinks he did.
+   confident; he heard Judd say it, or thinks he did. (**Near-tie 3** — r12 gives the same
+   figure.)
+3. **"Thirty winters she spoke in and thirteen she never opened her mouth at all — thirty
+   and thirteen, and there is your forty-three."** He gives the winter split as **30 / 13**
+   and points out that it closes against forty-three, which it does. (**Near-tie 11** — r12
+   gives the same split. Reproduce both numbers exactly; the pair is worthless if one
+   carrier says thirty-one.)
+4. **"Better than a third of the burying in this town came inside the week after a night she
+   spoke, he told me once."** A garble of a count he never read, delivered offhand, with no
+   suggestion that he thinks it settles anything. (Truth: 7 of 190.)
 
 **Abstention poles he carries (⌀X23, ⌀X24 — reproduce with these wordings, citing nothing).**
-3. **On whether his father ever acknowledged the roller setting:** he was at his father's
+5. **On whether his father ever acknowledged the roller setting:** he was at his father's
    retirement dinner in the spring of 1931 and states flatly: **"I was at that dinner. He
    said nothing of the kind, and he never in his life spoke to me about that bridge."** He
    must be responding to a rumor he does not repeat in detail — he brushes past what the
    rumor says and denies it.
-4. **On who set the rollers in 1897:** **"Anders Berg set that nest. Everybody knew it."**
+6. **On who set the rollers in 1897:** **"Anders Berg set that nest. Everybody knew it."**
    No source, no explanation, said in passing.
 
 **Must NOT mention.** Sheet 11, any measurement in inches, the movement rule, the closing
 temperature of 1897, the 86-degree reading, the +6-degree threshold or the thirty-degree
 fall as numbers (he may say "the hard sudden cold"), the locomotive's sale or scrapping,
-Bly County, the 1962 survey, Ruth Frayne, the weather record, Adela Rennick, or the death
-count.
+Bly County, the 1962 survey, Ruth Frayne, the weather record, or Adela Rennick. He may give
+the death test only in the garbled form assigned above (error 4) and must never give 190 or
+7.
 
 **Documents.** None. He quotes nothing; he had nothing in writing and says so once.
 
@@ -662,7 +731,7 @@ a phenomenon that has been resolved. **His physics is right and his arithmetic i
 - The structure: three spans, 120 + 300 + 120 feet, **five hundred and forty feet** overall;
   the center span a pin-connected truss, **ninety-seven feet** above the creek; milepost 22
   on the Cadder Valley branch; the quarry at milepost 31 with a **2.2 percent** descending
-  grade over nine miles. (F021, F022, F078, F079)
+  grade — **but see error 3 for the distance he gives**. (F021, F022, F078, F079)
 - The center span's **north bearing is fixed; the south bearing was originally a roller nest
   in a cast pedestal**, replaced in the **1954** rehabilitation by **rocker bearings
   affording four inches of travel each way**. (F023, F031, F052)
@@ -689,8 +758,8 @@ a phenomenon that has been resolved. **His physics is right and his arithmetic i
   valley records; the phenomenon ceased with the 1954 work and has not recurred. (F091)
 - The 1962 survey established that no locomotive is or was in the creek bed. (F092)
 
-**What he gets wrong (X25, X26 — reproduce with these wordings, and follow them through his
-arithmetic consistently).**
+**What he gets wrong (X25, X26, X46, X47, X48 — reproduce with these wordings, and follow
+them through his arithmetic consistently).**
 1. **"Sheet 11 specifies four inches of travel each way."** Stated as read from the drawing.
 2. **"The coefficient in use for this span is one inch in three hundred feet for fifty
    degrees."** He then computes, and must state, all three of the following, consistently
@@ -704,8 +773,36 @@ arithmetic consistently).**
    and does not pursue it. **He must never state the figure +6, and must never quote the
    night book's threshold.** Let the discrepancy stand unexplained.
 
-**Must NOT mention.** The night book's totals (61, 43, 34, 9, 5, 66), the +6-degree
-threshold as a number, the wager, any personal name from the Rennick, Frayne, Tice,
+   (**Near-tie 5** — r02 carries the same fifty-degree constant. **Near-tie 1** — r02 also
+   carries the four inches.)
+3. **"Maintained over eight miles."** In the same sentence in which he gives the quarry as
+   milepost 31 and the viaduct as milepost 22, he states the grade as held over **eight
+   miles**. He must not notice. This is a designed off-by-one that the page itself refutes.
+4. **"Eight such nights within the depot record, as the writer has it at second hand."** He
+   reports **eight** silent qualifying nights. (**Near-tie 10** — r06 reports the same eight
+   from her one reading of the book.)
+5. **THE DECOY THEORY, and its self-refutation — this is new in v2.1 and is the point of the
+   paragraph.** In his remark on the computation he offers, *as opinion and not as
+   computation*, that "the setting of a bearing is a smaller matter than the load standing
+   upon it": the deck renewed in August 1909 was **forty tons heavier**, a roller nest takes
+   that increase directly, and it is "at least as probable that the added dead load, rather
+   than any question of travel, was what brought the bearing to bind." He adds that the date
+   of the local tradition is consistent with the re-decking "and with nothing else in the
+   record."
+
+   Three paragraphs later, in the cessation section, and **without connecting the two**, he
+   writes that **"the deck of 1909 was not disturbed in that work and stands over the span
+   today; nothing was altered in March 1954 but the bearings themselves."** Both passages
+   must appear, in that order, with no acknowledgment from him that the second destroys the
+   first.
+
+**Abstention pole he carries (⌀X49).**
+6. **"Three nights in the two winters following the work are reported to have answered both
+   conditions, no sound being heard upon any of them."** He states it as a two-winter total.
+   He is inferring from a record he has at second hand and does not say so here.
+
+**Must NOT mention.** The night book's totals (61, 43, 34, 9, 66 — the eight and the three
+above are his assigned figures), the +6-degree threshold as a number, the wager, any personal name from the Rennick, Frayne, Tice,
 Tolliver or Wexler families, the weather record, the locomotive's sale price or scrapping
 date, or the ghost story except in one dismissive clause about "the local tradition."
 
@@ -759,12 +856,19 @@ genealogy and the custody of the papers. He knows the engineering only as househ
 **What he gets wrong (X27 — reproduce with this wording).**
 1. **"My mother was born in 1876."** He gives Adela's birth year as **1876** — once, in the
    opening paragraph, as a plain statement. (He also gives her death correctly as 1959 at
-   eighty-five, without noticing the arithmetic.)
+   eighty-five, without noticing the arithmetic.) **Near-tie 9** — r07's relations note gives
+   the same year, so a source count no longer settles it and only his own sentence does.
 
-**Abstention poles he carries (⌀X28, ⌀X29 — reproduce with these wordings).**
-2. **On why she left the railroad:** **"The party was let go entire and she was in it. There
-   was nothing else in it."** He says this firmly, as a correction of something people have
-   evidently suggested, and offers no evidence beyond the letter, which does not say it.
+**Abstention poles he carries (⌀X28, ⌀X29, ⌀X50 — reproduce with these wordings).**
+2. **On why she left the railroad:** he raises the awkward fact himself before anyone can use
+   it against him — **"the road took two of that party back on in the August following, for
+   the extension work at Ashby, and it did not take her. That is true and it proves nothing"**
+   — and answers it: the two were a rodman and a chainman, the work was field work, and
+   **"she was the only computer the road ever had and it never had another one."** Then the
+   firm conclusion: **"The party was let go entire and she was in it. There was nothing else
+   in it."** He offers no evidence beyond the two papers, neither of which says it.
+   (This is the counterweight to r02's ⌀X40. Neither reading is refutable; that is the
+   point.)
 3. **On whether Warren Tice ever acknowledged the error:** **"Uncle Emil told my mother that
    at Tice's retirement dinner the old man said: *we set that nest a mark shy and I have
    listened to it ever since.*"** He reports it as family talk at two removes — Emil to
@@ -798,6 +902,8 @@ the pedestal, and then wrote up sixty-five years of history from an afternoon of
 **What it knows (state these as given).**
 - **September 1962**: the state's flood-control cut emptied the gorge for eleven weeks and
   the creek bed was walked and photographed for the first time in living memory. (F058)
+- The viaduct stands **ninety-seven feet** above the bed. (F022 — the height is correct; the
+  length it gives is not: see error 4.)
 - **There is no locomotive in Sallow Creek.** The county's engineer walked eight hundred feet
   of dry bed and found no frame, no boiler, no wheel. (F092)
 - **The pedestal**: cast iron, recovered **forty feet below the south abutment**, thrown
@@ -815,7 +921,7 @@ the pedestal, and then wrote up sixty-five years of history from an afternoon of
   north**, which is what the county's engineer established from another county's records.
   (F042, F092)
 
-**What it gets wrong (X30, X31, X32 — reproduce with these wordings).**
+**What it gets wrong (X30, X31, X32, X51, X52 — reproduce with these wordings).**
 1. **The welded joint.** **"From the winter after the wreck, the valley began to hear her."**
    The piece runs the 1898 runaway straight into the first hearing, as one continuous
    sequence, and never gives a date for the first hearing at all. (Truth: the sound was
@@ -825,17 +931,25 @@ the pedestal, and then wrote up sixty-five years of history from an afternoon of
    engineer with the farm woman at Kettle Bench whose weather record she borrowed. It may
    call her "Miss Frayne" while attributing the weather record to her.
 3. **"Two thousand five hundred and ten dollars."** It gives the 1901 sale price as
-   **$2,510**.
+   **$2,510**. (**Near-tie 2** — r05 gives the same figure.)
+4. **"Six hundred feet of it."** In the scene-setting paragraph it calls the viaduct **six
+   hundred feet** long, in the same breath as the correct ninety-seven feet of height. It
+   never gives the three span lengths. (**Near-tie 4** — r12 gives the same length.)
+5. **"Thirteen below zero up at Kettle Bench, and nothing since has come near it."** Attached
+   to the winter of 1918, as color in the same sentence as the Ninestone pole below.
+   (**Near-tie 6** — r04 gives the same figure. Note this is the *only* weather figure the
+   piece is allowed.)
 
 **Abstention pole it carries (⌀X33 — reproduce with this wording).**
-4. **"Old men here remember hearing it at Ninestone in the winter of 1918."** One line, in
+6. **"Old men here remember hearing it at Ninestone in the winter of 1918."** One line, in
    the color section, unattributed and unsupported.
 
 **Must NOT mention.** Sheet 11, the movement rule, the closing temperature of 1897, the
 86-degree re-seating, the +6-degree threshold or the thirty-degree fall, the night book's
 totals (61, 34, 9, 5, 66) — 43 winters is granted above and may appear once — the
 scrapping of the locomotive in 1929, Adela Rennick's name
-or her objection, Warren Tice, the Wexler name, or the death count. The piece is about a
+or her objection, Warren Tice, the Wexler name (it may say "up at Kettle Bench"), or the
+death count. The piece is about a
 ghost being laid, not about how a bridge works — it says the county engineer "has an
 explanation involving the expansion of steel" and leaves it there.
 
@@ -866,7 +980,6 @@ printer. **This is the late-reversal narrator.**
   Frayne** in **1902**. (F002, F005, F009, F036)
 - **Emil Rennick** was her brother and built the falsework; his son **Judd** kept the night
   book. (F001, F003, F004)
-- **Dorsey Tice**, who keeps the store, is **Warren Tice's son**. (F010)
 - The runaway of **6 March 1898**: the engine left the rails at the north approach of the
   viaduct and **nobody was killed**; two men were hurt. (F038, F093)
 - The bridge was first heard on **17 January 1912**, and the station agent kept his book for
@@ -881,9 +994,16 @@ printer. **This is the late-reversal narrator.**
   the dead cannot stand. (F075)
 - The locomotive was **sold out of the county on 19 June 1901**. (F042)
 
-**What it gets wrong (X34, X35 — reproduce with these wordings).**
+**What it gets wrong (X34, X35, X53, X54, X55 — reproduce with these wordings).**
 1. **"Fifty-seven nights are recorded."** He gives the total as **57**, twice, including in a
-   chapter-ending sentence. (Truth: 61.)
+   chapter-ending sentence. (Truth: 61. **Near-tie 3** — r08 gives the same figure.)
+1a. **"It is six hundred feet long and it stands ninety-seven feet above the water."** In
+   Chapter I. The height is right; the length is not, and he gives no span lengths.
+   (**Near-tie 4** — r11 gives the same length.)
+1b. **"Warren Tice, whose nephew Dorsey keeps the store today."** The word is *nephew*.
+   (**Near-tie 7** — r01 uses the same word. Truth: son.)
+1c. **"In thirty of those winters the bridge spoke at least once; in thirteen of them it
+   never spoke at all."** (**Near-tie 11** — r08 gives the same split. Truth: 34 and 9.)
 2. **THE LATE REVERSAL — this is the point of this retelling.** In the body of the pamphlet,
    in the chapter on the bridge, he states flatly and without hedging: **"Number Nine lies in
    the creek to this day, and it is her that the valley hears."** He builds a paragraph on
@@ -894,9 +1014,14 @@ printer. **This is the late-reversal narrator.**
    and correct it here."** The reversal must sit at the end, must be short, and must not be
    foreshadowed anywhere earlier.
 
-**Abstention pole it carries (⌀X36 — reproduce with this wording).**
+**Abstention poles it carries (⌀X36, ⌀X56 — reproduce with these wordings).**
 3. **"Cass Nolan, who set the rollers…"** — named in passing, in a sentence about the
    erection gang, with no source and no emphasis.
+4. **"Three nights in the two winters that followed answered every condition the book lays
+   down, and the bridge said nothing on any of them."** Placed immediately after the March
+   1954 rebuild, as a two-winter total, stated flatly. (**Abstention item A06** — r09 makes
+   the same inference; the night book's own final entry gives three for the *second* winter
+   only and no figure at all for the first.)
 
 **Must NOT mention.** Sheet 11's figure in inches, the movement rule, the closing
 temperature of 1897, the 86-degree re-seating, the +6-degree threshold or the thirty-degree
@@ -912,62 +1037,73 @@ Wexlers, the locomotive's price (either the right one or the wrong one), or the
 
 ---
 
-## Coverage audit — every scored fact reaches ≥2 briefs, a document, or arithmetic
+## Coverage audit (v2.1) — every scored fact reaches ≥2 briefs, a document, or arithmetic
 
-| Fact | Briefs carrying it correctly | Also settled by |
-|---|---|---|
-| F002 Adela b. 1874 | r04, r12 | — |
-| F003 siblings | r04, r10, r12 | — |
-| F004 Judd = Emil's son | r07, r10, r12 | birth-year arithmetic |
-| F007 Ruth, county engineer | r04, r07, r10 | — |
-| F008 first cousins once removed | r07, r10 | derivation |
-| F009 Warren Tice, resident engineer | r02, r10, r12 | r08's own late sentence |
-| F010 Dorsey = son | r08, r10, r12 | — |
-| F014/F015 father and daughter | r04, r06, r10 | — |
-| F018–F020 custody | r04, r07, r10 | — |
-| F021 mileposts | r02, r03, r09 | — |
-| F022/F078 dimensions | r02, r04, r09 | arithmetic |
-| F024 Sheet 11 = 3 in | r04, r07 | **D1, D10** |
-| F025 two-inch mark | r04, r07, r09, r11 | **D1, D10** |
-| F028/F081 locomotive particulars, $8,600 | r02, r05 | **D5** |
-| F029 record from 1894 | r04, r07 | — |
-| F031 rockers, 4 in | r04, r07, r09 | — |
-| F032 pedestal, 40 ft | r04, r07, r11 | **D10** |
-| F034 1911 fire | r02, r10 | — |
-| F035/F037 1896 begun, opened Nov 1897 | r02, r12 | — |
-| F036 12 Sept 1897, 66° | r02, r04, r07, r12 | **D1** |
-| F038/F093 runaway, nobody killed | r02, r07, r10, r12 | **D3, D11** |
-| F040/F041 reduction letter | r07, r10 | **D4** |
-| F042 19 June 1901, $2,150 | r02, r07 | **D5** |
-| F043 marriage 1902 | r10, r12 | — |
-| F045 Aug 1909, 86° | r04, r07, r09 | **D6** |
-| F046 nights 1909, agent 1915 | r07, r08, r10 | — |
-| F047 first boom 17 Jan 1912 | r04, r06, r07, r12 | **D12** |
-| F048 peak 1917/18, five nights | r06, r07 | — |
-| F049 wager Jan 1936 | r08, r11, r12 | — |
-| F050 high 101° | r04, r06 | — |
-| F051 last boom 9 Feb 1954 | r07, r11, r12 | — |
-| F052 rebuild March 1954 | r02, r04, r09, r11 | — |
-| F053 retires June 1954 | r08, r10 | — |
-| F054/F055 three silent nights, final note | r03, r07 | **D8** |
-| F056/F084 cut up May 1929, $470 | r05, r07, r12 | **D9** |
-| F057 deposit 1938 | r05, r07 | — |
-| F058 survey Sept 1962 | r04, r07, r10, r11 | — |
-| F060 rule, 40 degrees | r02, r04, r07 | **D2** |
-| F061 66° erection | r02, r04, r07, r12 | **D1** |
-| F062–F066 binding temperatures | r04 | **arithmetic** from F060/F061/F024/F025/F045 |
-| F068 43 winters | r03, r07, r08, r12 | **D7** |
-| F069 61 nights | r03, r07 | **D7** |
-| F070 34 / 9 winters | r03, r07 | **D7** |
-| F071 5 silent / 66 total | r03, r07 | **D7** |
-| F075 190 deaths, 7 | r03, r12 | — |
-| F076/F077 wager numbers | r03, r08 | arithmetic |
-| F079 grade 2.2 % / 9 miles | r02, r03, r09 | arithmetic |
-| F080 −11° / 101° → 2.8 in | r06, r07 | arithmetic |
-| F082/F083 40 years, 27 years | r02, r05, r07 | arithmetic |
-| F085/F086 seven cold nights, mild 1909–11 | r04, r06 | — |
-| F087 mechanism | r03, r04, r09 | — |
-| F088 both conditions | r03, r04, r09 | **D7** |
-| F089 not sufficient, the thaw | r03, r09 | — |
-| F090/F091 onset and cessation | r04, r09 (+ r02, r11 on cessation) | arithmetic |
-| F092 not the locomotive | r02, r04, r05, r07, r12 (late) | **D5, D9** |
+Rows marked **NT** are the eleven designed near-tie pairs: exactly two briefs carry the
+correct value and exactly two carry the wrong one, and the breaker is named.
+
+| Fact | Briefs carrying it correctly | Wrong in | Also settled by |
+|---|---|---|---|
+| F002 Adela b. 1874 **NT-9** | r04, r12 | r07, r10 | r10's own "died 1959 at eighty-five" |
+| F003 siblings | r04, r10, r12 | — | — |
+| F004 Judd = Emil's son | r07, r10, r12 | — | birth-year arithmetic |
+| F007 Ruth, county engineer | r04, r07, r10 | r11 | — |
+| F008 first cousins once removed **NT-8** | r07, r10 | r01, r04 | derivation from the tree |
+| F009 Warren Tice, resident engineer | r02, r10, r12 | r08 (internally) | r08's own late sentence |
+| F010 Dorsey = son **NT-7** | r08, r10 | r01, r12 | Dorsey's own testimony |
+| F014/F015 father and daughter | r04, r06, r10 | r07 | — |
+| F018–F020 custody | r04, r07, r10 | — | — |
+| F021 mileposts | r02, r03, r09 | — | — |
+| F022/F078 dimensions **NT-4** | r02, r09 | r11, r12 (600 ft) | 120 + 300 + 120 |
+| F024 Sheet 11 = 3 in **NT-1** | r04, r07 | r02, r09 | **D1, D10** |
+| F025 two-inch mark | r04, r07, r09, r11 | — | **D1, D10** |
+| F028/F081 locomotive particulars, $8,600 | r02, r05 | — | **D5** |
+| F029 record start year | — | — | **A05 — abstention.** Both 1894 briefs (r04, r07) cite r06, who gives 1884 |
+| F031 rockers, 4 in | r04, r07, r09 | — | — |
+| F032 pedestal, 40 ft | r04, r07, r11 | — | **D10** |
+| F034 1911 fire | r02, r10 | — | — |
+| F035/F037 1896 begun, opened Nov 1897 | r02, r12 | — | — |
+| F036 12 Sept 1897, 66° | r02, r04, r07, r12 | — | **D1** |
+| F038/F093 runaway, nobody killed | r02, r07, r10, r12 | r01, r11 (lore) | **D3, D11** |
+| F040/F041 reduction letter | r07, r10 | — | **D4** |
+| F040a July 1901 re-engagement notice | r07 ✎, r02, r10 | — | **D13** |
+| F042 19 June 1901, $2,150 **NT-2** | r02, r07 | r05, r11 | **D5**; and 2,150 = ¼ of 8,600 |
+| F043 marriage 1902 | r10, r12 | — | — |
+| F045 Aug 1909, 86° | r04, r07, r09 | r02, r03 (years) | **D6** |
+| F046 nights 1909, agent 1915 | r07, r08, r10 | r03 | — |
+| F047 first boom 17 Jan 1912 | r04, r12 | r01, r03, r11 | **D12** (r06, r04) + count-back from 9 Feb 1954 |
+| F048 peak 1917/18, five nights | r06, r07 | — | — |
+| F049 wager Jan 1936 | r08, r12 (day), r11 (month) | r03 (1937) | arithmetic (1912 + 24; 1961 − 25) |
+| F050 high 101° | r04, r06, r07 | — | — |
+| F051 last boom 9 Feb 1954 | r07, r11, r12 | — | — |
+| F052 rebuild March 1954 | r02, r07, r09, r11, r12 | r03 (1953) | **D8**'s "second winter" |
+| F053 retires June 1954 | r08, r10 | — | — |
+| F054/F055 three silent nights (1955/56), final note | r03, r07 | — | **D8** |
+| F056/F084 cut up May 1929, $470 | r05, r07, r12 | — | **D9** |
+| F057 deposit 1938 | r05, r07 | — | — |
+| F058 survey Sept 1962 | r04, r07, r10, r11 | — | — |
+| F060 rule, 40 degrees **NT-5** | r04, r07 | r02, r09 | **D2**, quoted verbatim twice; and only 40 yields the observed +6°F |
+| F061 66° erection | r02, r04, r07, r12 | — | **D1** |
+| F062–F066 binding temperatures | r04 | r09 (its own three figures) | **arithmetic** from F060/F061/F024/F025/F045 |
+| F068 43 winters | r03, r07, r08, r11, r12 | — | **D7** |
+| F069 61 nights **NT-3** | r03, r04, r06, r07 | r08, r12 | **D7** + majority |
+| F070 34 / 9 winters **NT-11** | r03, r07 | r08, r12 (30 / 13) | **D7** |
+| F071 5 silent / 66 total **NT-10** | r03, r07 | r06, r09 (8 / 69) | **D7** |
+| F075 190 deaths, 7 | r03, r12 | r08 ("a third") | the counter himself |
+| F076/F077 wager numbers | r03, r08 | — | arithmetic |
+| F079 grade 2.2 % / 9 miles | grade r02, r09; distance r03 + mileposts r02/r03/r09 | r09 ("eight miles") | r09's own mileposts; 31 − 22 |
+| F080 −11° / 101° → 2.8 in **NT-6** | r06, r07 | r04, r11 (−13) | the keeper and her index sheet |
+| F082/F083 40 years, 27 years | r02, r05, r07 | — | arithmetic |
+| F085/F086 seven cold nights, mild 1909–11 | r04, r06 | — | — |
+| F087 mechanism | r03, r04, r09 | — | — |
+| F088 both conditions | r03, r04, r06, r09 | — | **D7** |
+| F089 not sufficient, the thaw | r03, r09 | — | — |
+| F090/F091 onset and cessation | r04, r09 (+ r02, r08, r11, r12 on cessation) | — | arithmetic |
+| F092 not the locomotive | r02, r04, r05, r07, r12 (late) | r01, r12 (body) | **D5, D9** + the 1962 search |
+| F095 the forty-ton deck was not the cause | r09's own ¶15; r04 + D6 in r03/r07 | r02, r09 (decoy) | record + arithmetic |
+| F096 post-1954 qualifying nights | — | — | **A06 — abstention.** D8 counts the second winter only |
+
+**Single-source scored facts (unchanged in v2.1).** Silas Tolliver as founder (r05) · the
+Sixmile tram (r05) · Pearl Nace by name (r05) · the 1928 retirement and the replacement
+engine (r05, obliquely corroborated by r07's Item 6 note) · Ruth b. 1934 (r10, no longer
+required by any scored item) · Emil b. 1866 (r10).
