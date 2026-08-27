@@ -440,3 +440,44 @@ listed, and none is in the fix list, so none was touched:
 - `answers-and-scoring.md` 225 — Bands: "all three near-ties broken by document".
 - `answers-and-scoring.md` 154 — E row 8 still reads `**January 1936** (r08, r11, r12)`; still
   correct, but r08 and r12 now name the day as well.
+
+---
+
+# Fixes applied (validation 2) 2026-08-27
+
+Source: `harness/validation-blind-solve-2-score.md`, section *Key problems surfaced by this
+run* (7 items). Each was applied as the smallest edit that resolves it; where the run offered
+alternatives, the key-side edit was taken over a retelling edit, and the explicit-gate option
+over the loosening option. No retelling was touched; `test-input/questions.md` was not
+touched. Difficulty design (near-ties, abstention items, the 120-word G cap) is unchanged.
+
+| Item | File | Lines changed (post-edit numbering) |
+|---|---|---|
+| **1** A2-8 and C3(d) winnable on the A06 error | `answer-key/answers-and-scoring.md` | 120–125 — A2-8: `recorded for the second winter after (1955/56)` → `recorded **for the second winter after the rebuild (1955/56)**`, and the trailing grader note extended to `…— and asserting three as the two-winter total loses this item as well.)` |
+| | `answer-key/answers-and-scoring.md` | 214 — C3(d): sentence inserted after the `1954 − 1912 + 1 = 43` derivation — `Asserting three as the two-winter total loses this item as well.` |
+| **2** D3-3's substantive requirement unbolded | `answer-key/answers-and-scoring.md` | 286–288 — D3 item 3: `and says that it weakens "reduced entire and nothing else" without establishing anything.` → the same clause bolded, so the analytical requirement gates the point instead of the citation alone. (Explicit-gate option taken; the alternative — a general "in Section D an item with no bold is read whole" line — was not needed once D3-4 also carries a gate.) |
+| **3** D3-4 bundles three requirements | `answer-key/answers-and-scoring.md` | 289–291 — D3 item 4 rewritten: `**the two narrators who assert motives assert opposite ones from the same two papers**` bolded as the single gate; the other two observations restated as `context and do not gate the point`. Item count and the 5-point D3 block unchanged (no split, no point moved). |
+| **4** "leaning is still abstention" stated only under D3 | `answer-key/answers-and-scoring.md` | 62–65 — new paragraph in **General deductions** after the gullibility rule: `**An answer that leans one way while explicitly declining to decide is a correct abstention**, not an assertion: no gullibility deduction, and the item is not lost on that ground. This governs all six abstention items (A01–A06) wherever they are scored — the Section A checklists, D3 and E-c alike.` |
+| | `answer-key/answers-and-scoring.md` | 278–282 — the lifted sentence removed from the D3 grader note and replaced by `(For leaning-but-declining answers, see the general rule under General deductions.)` |
+| **5** cross-section credit travel defined only for A | `answer-key/answers-and-scoring.md` | 23–25 — new **Scope rule** paragraph inserted in *How to read a checklist item*, above the Section A rule: `A required element is credited **wherever in the answers the solver states it** — filing location does not gate a point — with the single exception below: credit never travels into Section A from B–G.` The Section A scope rule is unchanged. |
+| **6** G4's numeral competes with the 120-word cap | `answer-key/answers-and-scoring.md` | 425–429 — G item 4: grader note appended — `*(The span given as onset year to cessation year — "1912 … 1954" — satisfies "forty-three winters" in place of the literal number; the 120-word cap stands.)*` The literal-number-plus-130-word-cap alternative was rejected: it would have changed `test-input/questions.md` and the solver's word budget. |
+| **7** E-a #15 does not match the corpus dispute | `answer-key/answers-and-scoring.md` | 325 — table row 15: `Where the wager was made` → `Where the wager was **struck**` |
+| | `answer-key/answers-and-scoring.md` | 327–331 — `*Note on #15.*` added below the E-a table: the item covers only where the wager was struck; the narrators' disagreement about the payment (r03 in the store before everybody, r08 the next morning before opening) is not part of it, and a solver who marks the payment "cannot be determined" while disposing of the depot version still earns #15. |
+
+**Post-fix checks.**
+- Score sheet still totals **100** — A 30 · B 10 · C 20 · D 15 · E 10 · F 10 · G 5 — and no
+  section maximum was altered. Sub-block maxima intact: A1 8 · A2 8 · A3 7 · A4 7; D1/D2/D3
+  5 each; E-a 3 · E-b 3 · E-c 3 · E-d 1 = 10; F 10 items; G 5 items.
+- Checklist item counts unchanged in every section (A1 8, A2 8, A3 7, A4 7, D1 5, D2 5,
+  D3 5, F 10, G 5). No item split, merged, added or removed.
+- No block quotation (`>` line) and no verbatim document quote was touched, in the key or in
+  any retelling. No retelling file was edited, so the 1,200–1,800-word band is unaffected.
+- Difficulty design untouched: the eleven near-tie pairs, the six abstention items and their
+  poles, the corruption list, and the 120-word G cap all stand as in v2.1.
+
+**Not carried out.** Nothing in the seven-item list was left unapplied. Two alternatives
+offered by the run were deliberately declined in favour of the smaller/explicit option, as
+noted in the table (item 2's general Section-D reading line; item 6's 130-word cap). The
+run's closing observation about the instrument ceilinging at 96/100 — E's caps and A-checklist
+granularity as the place to find v2.2 headroom — is a design change, not a clarity fix, and is
+left for v2.2.

@@ -20,6 +20,10 @@ Every item below cites a fact id from `canon.md`. Hardening changes are recorded
 "and/or", explanatory clauses — is context for the grader and does **not** gate the point.
 Where an item names two bolded things, both are required; that is stated in the item.
 
+**Scope rule.** A required element is credited **wherever in the answers the solver states
+it** — filing location does not gate a point — with the single exception below: credit never
+travels into Section A from B–G.
+
 **Section A scope rule.** A Section A item is credited if it is satisfied **anywhere in
 Section A**, in whichever sub-narrative the solver filed it. Credit does **not** travel into
 Section A from B–G. No fact is scored twice inside Section A.
@@ -54,6 +58,11 @@ gullibility deduction instead.**
 assertion** rather than a declared inability to settle it. **Maximum −12.** This applies
 even where the assertion happens to sound reasonable; the sources do not support either
 side.
+
+**An answer that leans one way while explicitly declining to decide is a correct
+abstention**, not an assertion: no gullibility deduction, and the item is not lost on that
+ground. This governs all six abstention items (A01–A06) wherever they are scored — the
+Section A checklists, D3 and E-c alike.
 
 Floor of 0 per section; floor of 0 overall.
 
@@ -109,10 +118,11 @@ Floor of 0 per section; floor of 0 overall.
    three. Any one wrong figure loses the item.)*
 7. The death test: **190** deaths 1912–1954, only **7** within a week after a boom. **F075**
 8. The wager of **14 January 1936** with Dorsey Tice ($5); last heard **9 February 1954**; the
-   **March 1954** rocker bearings; **three** qualifying nights recorded for the second winter
-   after (1955/56) with no sound; final note 2 March 1956. **F049, F051, F052, F054, F055**
-   *(Asserting three as the total for both winters triggers A06 — see E and the gullibility
-   rule.)*
+   **March 1954** rocker bearings; **three** qualifying nights recorded **for the second
+   winter after the rebuild (1955/56)** with no sound; final note 2 March 1956. **F049, F051,
+   F052, F054, F055** *(Asserting three as the total for both winters triggers A06 — see E and
+   the gullibility rule — and asserting three as the two-winter total loses this item as
+   well.)*
 
 ### A3 — the locomotive's second life (7 points, 1 per item)
 
@@ -201,7 +211,8 @@ Floor of 0 per section; floor of 0 overall.
   (1955/56) and whatever the first winter held — because the mechanism was gone; **and
   fixes the span of the count as the winters of 1911/12 through 1953/54**, established from
   the 17 January 1912 onset, the last night heard on 9 February 1954, and 1954 − 1912 + 1 =
-  43. **F068–F074, F096.** 1 point each.
+  43. Asserting three as the two-winter total loses this item as well. **F068–F074, F096.**
+  1 point each.
   *(The span trap: r03's 1913 onset yields 42 winters; r01's 1897/98 yields fifty-seven
   years and no consistent count at all.)*
   *Diagnostics.* 57 ÷ 43 = 1.3 (NT-3). 61 ÷ 30 = 2.0 or 57 ÷ 30 = 1.9 (NT-11). 61 + 8 = 69
@@ -264,20 +275,20 @@ month the bearings were replaced**; **nobody died in the 1898 runaway** in the f
    *Note for the grader (v2.1).* The corpus now contains **two** papers, not one, and they
    pull against each other. D4 records a reduction **entire**; **D13**, the printed notice of
    20 July 1901 folded inside it, records that two of the same party were re-engaged from
-   1 August for the Ashby extension and that she was not. Neither paper states a reason. An
-   answer that leans one way while explicitly declining to decide is a correct abstention.
+   1 August for the Ashby extension and that she was not. Neither paper states a reason.
    An answer that concludes "no, the reduction settles it" — the reading D4 alone invited in
    v2.0 — is now an assertion against available contrary evidence and scores 0 with the
-   deduction, as does the retaliatory reading.
+   deduction, as does the retaliatory reading. (For leaning-but-declining answers, see the
+   general rule under General deductions.)
 
 2. Cites the documented occasion: the engineering party was reduced **entire** as of 15 May
    1901, per the letter of 30 April 1901. **F040, F041**
 3. Cites **the July 1901 re-engagement notice** — two of the party taken back for the Ashby
-   extension, she not among them — and says that it weakens "reduced entire and nothing else"
-   without establishing anything. **F040a**
-4. Notes that the two narrators who assert motives assert opposite ones from the same two
-   papers, that neither cites anything further, and that Tice's recommendation on her card
-   cuts both ways.
+   extension, she not among them — and **says that it weakens "reduced entire and nothing
+   else" without establishing anything**. **F040a**
+4. Notes that **the two narrators who assert motives assert opposite ones from the same two
+   papers**. That neither cites anything further, and that Tice's recommendation on her card
+   cuts both ways, are context and do not gate the point.
 5. Notes that **no statement by Tice or the company about her individually survives**, and/or
    that both re-engaged posts were field posts and the road never employed a computer again,
    so the omission is as consistent with there being no work of her kind as with a grudge.
@@ -311,7 +322,13 @@ Awarded only when the conflict is found *and* correctly resolved *and* a method 
 | 12 | The locomotive in the creek | asserted (r01; r12 in the body) / **sold 1901, cut up 1929** (r12's own closing note quoting D9; r02, r04, r05, r07) | Late reversal inside r12; documents | F092 |
 | 13 | Deaths in the 1898 runaway | a crew killed (r01; the tradition in r11, r12 ch. IV) / **nobody killed** (D3, D11, r10's eyewitness, r12 ch. III) | Two contemporaneous documents | F017/F093 |
 | 14 | Book attributions | swapped (r07) / **field book = Adela, night book = Judd** | r07's own transcriptions refute it | F026/F027 |
-| 15 | Where the wager was made | the store (r03, r08 — both participants) / the depot (r11, r12) | Participants over secondhand | F049 |
+| 15 | Where the wager was **struck** | the store (r03, r08 — both participants) / the depot (r11, r12) | Participants over secondhand | F049 |
+
+*Note on #15.* The item covers **only where the wager was struck**. The narrators also
+disagree about the payment — r03 has it paid in the store in front of everybody, r08 the next
+morning before opening — and that disagreement is **not part of this item**; a solver who
+marks the payment "cannot be determined" while disposing of the depot version still earns
+#15.
 
 ### E-b. Near-tie pairs correctly broken — 1 point each, **maximum 3**
 
@@ -407,7 +424,9 @@ r09's eight-mile grade against its own mileposts, or its dead-load remark agains
    Naming the three is sufficient; the kinship words are not required. **F003, F004, F008**
 4. The arc, **both ends**: an objection to the roller setting **entered and overruled in
    1897**, and **forty-three winters of a misattributed sound, silenced by the 1954 rebuild
-   and explained by the 1962 survey**. **F036, F068, F091, F058**
+   and explained by the 1962 survey**. **F036, F068, F091, F058** *(The span given as onset
+   year to cessation year — "1912 … 1954" — satisfies "forty-three winters" in place of the
+   literal number; the 120-word cap stands.)*
 5. Contains no canon contradiction and no absorbed corruption — in particular no locomotive in
    the creek and no wrong headline number. **F092**
 
