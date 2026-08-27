@@ -1,0 +1,5 @@
+.env
+v2/harness/.venv/
+__pycache__/
+.pytest_cache/
+v2/test-input/retellings/.author-*

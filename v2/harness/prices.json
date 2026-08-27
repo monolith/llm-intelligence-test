@@ -1,0 +1,6 @@
+{
+  "claude-fable-5":   {"provider": "anthropic", "input_per_M": 10.0, "cached_input_per_M": 1.0,  "cache_write_per_M": 12.5,  "output_per_M": 50.0, "supports_effort": true,  "as_of_date": "2026-06-24", "source_url": "https://docs.anthropic.com/en/docs/about-claude/pricing"},
+  "claude-opus-5":    {"provider": "anthropic", "input_per_M": 5.0,  "cached_input_per_M": 0.5,  "cache_write_per_M": 6.25,  "output_per_M": 25.0, "supports_effort": true,  "as_of_date": "2026-06-24", "source_url": "https://docs.anthropic.com/en/docs/about-claude/pricing"},
+  "claude-sonnet-5":  {"provider": "anthropic", "input_per_M": 2.0,  "cached_input_per_M": 0.2,  "cache_write_per_M": 2.5,   "output_per_M": 10.0, "supports_effort": true,  "as_of_date": "2026-06-24", "source_url": "https://docs.anthropic.com/en/docs/about-claude/pricing"},
+  "claude-haiku-4-5": {"provider": "anthropic", "input_per_M": 1.0,  "cached_input_per_M": 0.1,  "cache_write_per_M": 1.25,  "output_per_M": 5.0,  "supports_effort": false, "as_of_date": "2026-06-24", "source_url": "https://docs.anthropic.com/en/docs/about-claude/pricing"}
+}
