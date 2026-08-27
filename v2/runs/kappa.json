@@ -1,10 +1,24 @@
 {
+ "fable/noisy": {
+  "items_matched": 19,
+  "agreement": 1.0,
+  "kappa": 1.0,
+  "total_1": 88,
+  "total_2": 88
+ },
  "fable/sequential": {
   "items_matched": 74,
   "agreement": 1.0,
   "kappa": 1.0,
   "total_1": 91,
   "total_2": 91
+ },
+ "fable/single": {
+  "items_matched": 28,
+  "agreement": 1.0,
+  "kappa": 1.0,
+  "total_1": 93,
+  "total_2": 93
  },
  "haiku/noisy": {
   "items_matched": 69,
@@ -27,12 +41,33 @@
   "total_1": 57,
   "total_2": 56
  },
+ "opus/noisy": {
+  "items_matched": 19,
+  "agreement": 1.0,
+  "kappa": 1.0,
+  "total_1": 86,
+  "total_2": 86
+ },
  "opus/sequential": {
   "items_matched": 74,
   "agreement": 0.972972972972973,
   "kappa": 0.7366548042704634,
   "total_1": 92,
   "total_2": 94
+ },
+ "opus/single": {
+  "items_matched": 69,
+  "agreement": 1.0,
+  "kappa": 1.0,
+  "total_1": 92,
+  "total_2": 92
+ },
+ "sonnet/noisy": {
+  "items_matched": 43,
+  "agreement": 0.9767441860465116,
+  "kappa": 0.8958837772397092,
+  "total_1": 81,
+  "total_2": 81
  },
  "sonnet/sequential": {
   "items_matched": 19,
