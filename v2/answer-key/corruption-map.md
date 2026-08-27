@@ -41,8 +41,8 @@ purest carrier of the lore.
 
 | id | Corrupts | As told | Truth | Mechanism |
 |---|---|---|---|---|
-| X01 | F092, F093 | "Number Nine and her crew are down in that gorge, and it is her they hear." Never withdrawn. | The engine was sold in 1901 and cut up in 1929; nobody died in the 1898 runaway. | Lore asserted as fact |
-| X02 | F047 | The boom "started the winter the bridge was new" (1897/98). | First boom 17 January 1912. | Conflation with the wreck |
+| X01 | F092, F093 | "They are down there yet, under the gravel and the water, and it is her working the grade that the valley hears." Never withdrawn. | The engine was sold in 1901 and cut up in 1929; nobody died in the 1898 runaway. | Lore asserted as fact |
+| X02 | F047 | The boom started "that same winter, the first winter after they opened that bridge — that would be ninety-seven going into ninety-eight — right on the heels of the wreck." | First boom 17 January 1912. | Conflation with the wreck |
 | X03 | F010 | Dorsey Tice was Warren Tice's **nephew**. | His **son**. | **Near-tie 7** (partner r12) |
 | X37 | F008 | Ruth Frayne was Judd's **grand-niece** — "she was his grand-niece, they told me." | Judd is her **first cousin once removed**. | **Near-tie 8** (partner r04, whose "my father's uncle" is the same error from the other end) |
 
@@ -102,7 +102,7 @@ instead of scoring the whole source as trustworthy or not.
 | X09 | F045 | The bridge gang came "the summer of 1911." | August 1909. | Date drift |
 | X10 | F052 | The rockers went in "the spring of 1953." | March 1954. | Date drift |
 | X11 | F049 | The wager was "January of 1937." | 14 January 1936. | Date drift |
-| X12 | F046 | "I went on nights in 1907 and started the book that same winter." | Night operator 1909; night book begun 18 January 1912. | Date drift (compound) |
+| X12 | F046 | "I went on nights in 1907 and I started the book that same winter." | Night operator 1909; night book begun 18 January 1912. | Date drift (compound) |
 
 *Everything else from r03 is canon-correct*, including: 43 winters; 61 booms; 34 boom
 winters and 9 blank; 5 silent qualifying nights; 66 qualifying nights; low below +6°F and
@@ -332,7 +332,7 @@ v2.1** (NT-4 – NT-11).
 | **NT-7** | Dorsey Tice was Warren Tice's **nephew** | r01 (X03), r12 (X54) | **son** | r08, r10 | **Direct testimony + internal consistency.** r08 is Dorsey himself and calls Warren "my father" throughout, including "he took me out on the deck when I was six"; r10 is the family's record-keeper |
 | **NT-8** | Judd was Ruth's **great-uncle** (r04: "my father's uncle"; r01: "his grand-niece") | r01 (X37), r04 (X14) | **first cousin once removed** | r10 (states it), r07 (supplies both links) | **Derivation.** Emil and Adela are siblings (r03, r07, r10, r12); Judd is Emil's son (r03, r10, r12); Wendell is Adela's son (r04, r10); Ruth is Wendell's daughter (r07, r10). r10 states the conclusion and names the courtesy title as the source of the error |
 | **NT-9** | Adela born **1876** | r07 (X42), r10 (X27) | **1874** | r04, r12 | **Arithmetic, inside a wrong-value carrier.** r10's own sentence says she "died in 1959, at eighty-five" → 1874 |
-| **NT-10** | **8** silent qualifying nights → **69** in all | r06 (X18), r09 (X47) | **5 → 66** | r03, r07 ✎ | **Document.** D7 (night-book summary page) quoted verbatim in r07 and given in the same figures by its author r03. Both wrong-value carriers say where they got it — r06 read the book for an hour, r09 has it "at second hand" |
+| **NT-10** | **8** silent qualifying nights (r09 states only this; r06 additionally sums it to **69** in all) | r06 (X18), r09 (X47) | **5 → 66** | r03, r07 ✎ | **Document.** D7 (night-book summary page) quoted verbatim in r07 and given in the same figures by its author r03. Both wrong-value carriers say where they got it — r06 read the book for an hour, r09 has it "at second hand" |
 | **NT-11** | **30** boom winters / **13** blank | r08 (X44), r12 (X55) | **34 / 9** | r03, r07 ✎ | **Document.** D7. The wrong pair is internally consistent (30 + 13 = 43), so arithmetic alone will not break it. Corrupts C3(c) to 1.9 |
 
 Consequences of swallowing a near-tie (useful as diagnostics when grading):
@@ -365,14 +365,14 @@ quotation.
 |---|---|---|---|
 | F002 Adela b. 1874 | r04, r12 | r07, r10 (1876) | **NT-9 — arithmetic** (r10: died 1959 at 85) |
 | F003 Adela and Emil siblings | r04, r10, r12 | — | Majority |
-| F004 Judd b. 1888, Emil's son | r07 ✎, r10, r12 | — | Majority + arithmetic (Adela b. 1874 could not have a son b. 1888) |
-| F006 Wendell b. 1904, Adela's son | r04, r10 | — | Majority |
-| F007 Ruth, civil engineer, b. 1934 | r04, r07 ✎, r10 | r11 (weather observer) | Majority |
+| F004 Judd b. 1888, Emil's son | r10 | — | Single-source for the birth year (r07, r12 confirm "Emil's son" but neither states 1888) |
+| F006 Wendell b. 1904, Adela's son | r10 | — | Single-source for the birth year (r04 confirms "Adela's son" but never states 1904) |
+| F007 Ruth, civil engineer, b. 1934 | r10 | r11 (weather observer) | Single-source for the birth year (r04, r07 confirm her profession but neither states 1934) |
 | F008 Judd = Ruth's first cousin once removed | r07, r10 | r01 ("grand-niece"), r04 ("my father's uncle") | **NT-8 — derivation** from F003/F004/F006/F007 |
 | F009 Warren Tice, resident engineer | r02, r10, r12 | r08 (internal contradiction) | Majority + r08's own later sentence |
 | F010 Dorsey = Warren's son | r08, r10 | r01, r12 (nephew) | **NT-7 — direct testimony** (r08 is Dorsey) |
 | F014/F015 Peter and Lettie, father and daughter | r04, r06, r10 | r07 ("two brothers") | Majority |
-| F017 Lidell and Sherrod hurt, none killed | r02 ✎, r07 ✎, r10, r12 | r01 (dead crew) | Two documents (D3, D11) |
+| F017 none killed, two of the crew hurt (named as Lidell and Sherrod only in r07's D1 transcription) | r02 ✎, r07 ✎, r10, r12 | r01 (dead crew) | Two documents (D3, D11) — only r07 names the two men |
 | F018–F020 custody chains | r04, r07 ✎, r10 | — | Majority |
 
 ### Places, objects, dimensions
@@ -437,7 +437,7 @@ quotation.
 | F080 101 / −11 → 2.8 in | r06, r07 ✎ (temps) | r04, r11 (−13) | **NT-6 — keeper + index sheet** |
 | F081 $8,600 new | r02, r05 | — | Majority |
 | F082 built 1889, cut up 1929 → 40 years | r02, r05, r07 ✎ | — | Arithmetic |
-| F083 27 years at Tolliver | r05 (stated); arithmetic from D5's 1901 sale (r02 ✎, r07 ✎) + r05's September 1928 retirement | — | Arithmetic |
+| F083 27 years at Tolliver | r05 | — | r05 states "twenty-seven" directly; also re-derivable from D5's 1901 sale date (r02 ✎, r07 ✎) plus r05's September 1928 retirement |
 | F084 scrap $470 | r05, r07 ✎, r12 (late) ✎ | — | D9 |
 | F085 seven cold nights 1897–1909, coldest −9°F | r04, r06 | — | Majority |
 | F095 the forty-ton deck was **not** the cause | r09 ✎ (its own ¶15), r04 + r03/r07 ✎ (the 86° re-seating and the +6 threshold) | r02, r09 (decoy) | **Record + arithmetic.** The 1954 work changed the bearings only and the 1909 deck is still in place (r09), yet the sound stopped; and +6 = 86 − 2 × 40 exactly |

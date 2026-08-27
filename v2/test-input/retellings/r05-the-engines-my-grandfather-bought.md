@@ -8,7 +8,7 @@ Silas Tolliver was born in 1849 and came into this county with a mill, a horse, 
 
 The Sixmile tram was named for the creek and not for its length, which is a thing I have had to explain to visitors my whole life. It began at about that length, I grant you, but it did not stay there. By the end it was nineteen miles of thirty-pound rail running up three drainages, with switchbacks where the ground would not take a curve, and grades that the men described in language my mother would not enter in a book. The rail was light and the ties were whatever came off the hill nearest, and it hauled more timber than anything in this county before or since.
 
-My mother, Pearl Tolliver Nace, was born in 1881 and kept the company's books from the age of eighteen, which is to say for thirty-nine years, because she was better at it than anybody her father could hire. That is not my phrase. That is the phrase he used, in front of company, and she never once let on that she liked hearing it.
+My mother, Pearl Tolliver Nace, was born in 1881 and kept the company's books from the age of eighteen, which is to say for thirty-nine years, because nobody her father ever hired did the work as well as she did. That is not my phrase. That is the phrase he used, in front of company, and she never once let on that she liked hearing it.
 
 Now. In 1901 my grandfather decided he wanted a road engine. What he had were geared machines that could climb anything and could not be hurried, and what he wanted was something with big wheels and a long wheelbase that would bring a made-up train of loads down the main stem faster than a man could walk beside it. He was very specific about that. Faster than walking. He had watched his own timber walk for twenty years and he was done with it.
 

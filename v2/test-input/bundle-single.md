@@ -66,7 +66,7 @@ The resident engineer on the work was Warren Tice, afterward the company's chief
 
 Then the wreck, which is the whole cause of the valley's foolishness.
 
-On the morning of 6 March 1898 a work train came down off the quarry grade without brakes enough to hold her. The locomotive was No. 9, and she went off the iron at the north approach of the new viaduct at twenty minutes past seven. Nobody was killed. Two of the gang were hurt. It took nine days to rerail her. The *Ninestone Sentinel* of 8 March 1898 had it exactly right, and I copy the notice out because I am tired of arguing with people who have never read it:
+On the morning of 6 March 1898 a work train started down the quarry grade with nothing left to hold her. The locomotive was No. 9, and she went off the iron at the north approach of the new viaduct at twenty minutes past seven. Nobody was killed. Two of the gang were hurt. It took nine days to rerail her. The *Ninestone Sentinel* of 8 March 1898 had it exactly right, and I copy the notice out because I am tired of arguing with people who have never read it:
 
 > *No lives were lost. Two of the gang are hurt, and the engine is on her side at the north end of the new viaduct, where she will be got up within the fortnight.*
 
@@ -110,7 +110,7 @@ It was always between midnight and four. Never in the evening. Never at daylight
 
 The first time she spoke was the winter of 1913. I was on nights, alone in the office, and I thought a car had got away in the quarry and come down on us. I went out on the platform with a lantern and there was nothing wrong anywhere and it was so cold the lantern glass cracked. In the morning I ruled up a book.
 
-Five columns. The date. The day's high. The night's low. Whether she spoke. And the hour. That is all. I did not put down what I thought about it because what I thought about it was not worth the ink, and because a man who writes down his opinion once will write down his opinion instead of the reading the next time. Forty-three winters of that.
+Five columns. The date, how warm the day ran, how cold the night got, whether she spoke, and the hour of it. That is all. I did not put down what I thought about it because what I thought about it was not worth the ink, and because a man who writes down his opinion once will write down his opinion instead of the reading the next time. Forty-three winters of that.
 
 Now the conditions, and I did not have these at the start. I got them out of the book after a good many winters, when there was enough of it to look at.
 
@@ -160,7 +160,7 @@ The Frayne girl came a while back and sat where you are sitting and read the who
 
 *Read to the Society at Ninestone; her blackboard figures are given in the text.*
 
-Thank you. I am an engineer with the Pell County highway department, three years in it, and I did not go out to Sallow Creek last September to settle anything. I went because the creek was going to be dry, and a dry creek under a railroad bridge is an opportunity that does not come twice in a career. The state's flood-control cut took Sallow Creek out of its bed for eleven weeks and the gorge was dry to the gravel. The inspection was routine, and stopped being routine on the second afternoon.
+Thank you. I am an engineer with the Pell County highway department, three years in it, and I did not go out to Sallow Creek last September to settle anything. I went because the creek was going to be dry, and a dry creek under a railroad bridge is an opportunity that does not come twice in a career. A state flood-control project had pulled Sallow Creek out of its bed for eleven weeks, leaving the gorge dry down to the gravel. The inspection was routine, and stopped being routine on the second afternoon.
 
 I have four findings and then some arithmetic, and I would ask you to hold your questions until the arithmetic, which is where the talk is going.
 
@@ -234,7 +234,7 @@ Silas Tolliver was born in 1849 and came into this county with a mill, a horse, 
 
 The Sixmile tram was named for the creek and not for its length, which is a thing I have had to explain to visitors my whole life. It began at about that length, I grant you, but it did not stay there. By the end it was nineteen miles of thirty-pound rail running up three drainages, with switchbacks where the ground would not take a curve, and grades that the men described in language my mother would not enter in a book. The rail was light and the ties were whatever came off the hill nearest, and it hauled more timber than anything in this county before or since.
 
-My mother, Pearl Tolliver Nace, was born in 1881 and kept the company's books from the age of eighteen, which is to say for thirty-nine years, because she was better at it than anybody her father could hire. That is not my phrase. That is the phrase he used, in front of company, and she never once let on that she liked hearing it.
+My mother, Pearl Tolliver Nace, was born in 1881 and kept the company's books from the age of eighteen, which is to say for thirty-nine years, because nobody her father ever hired did the work as well as she did. That is not my phrase. That is the phrase he used, in front of company, and she never once let on that she liked hearing it.
 
 Now. In 1901 my grandfather decided he wanted a road engine. What he had were geared machines that could climb anything and could not be hurried, and what he wanted was something with big wheels and a long wheelbase that would bring a made-up train of loads down the main stem faster than a man could walk beside it. He was very specific about that. Faster than walking. He had watched his own timber walk for twenty years and he was done with it.
 
@@ -587,7 +587,7 @@ Naturally it was the engine. What else would it be? A dead crew, said the older 
 
 **The man with the book**
 
-One man did produce a scrap of paper, and he produced a great many of them. The station agent at Cadder Falls, who came to the depot as a young operator and stayed on into the nineteen-fifties, kept a ruled book of every night the sound came — the date, the day's high, the night's low, whether she spoke, and the hour. He kept it for forty-three winters. He is still living at the Falls, and he still has the look of a man waiting for something.
+One man did produce a scrap of paper, and he produced a great many of them. The station agent at Cadder Falls, who came to the depot as a young operator and stayed on into the nineteen-fifties, kept a ruled book of every night the sound came: the date, how warm the day had been, how cold the night ran, whether she spoke, and at what hour. He kept it for forty-three winters. He is still living at the Falls, and he still has the look of a man waiting for something.
 
 He is also, by the evidence, the only man in the valley who ever made money out of the ghost.
 
@@ -669,7 +669,7 @@ Now, what is it?
 
 Number Nine lies in the creek to this day, and it is her that the valley hears. She went off the iron at the north end in 1898 and rolled down into the gorge, and there she has stayed under the water, and on the nights when the cold works into the iron of her she speaks. That is what this valley has believed for two generations, and it is not a foolish belief. It fits the sound, which is the sound of iron. It fits the place, which is the place she went off. It fits the winter, for iron is loudest when it is coldest. A boy of your age can test a belief by asking what it explains, and this one explains a good deal.
 
-The last night the bridge was heard was the ninth of February, 1954. In March of that year the railroad rebuilt the bridge to carry the new diesel engines, and put new bearings under the long span, and from that month to this the valley has not heard a sound. Three nights in the two winters that followed answered every condition the book lays down, and the bridge said nothing on any of them. Fifty-seven nights are recorded, and there will not be a fifty-eighth.
+The last night the bridge was heard was the ninth of February, 1954. The following month the railroad rebuilt the bridge to carry the new diesel engines, and put new bearings under the long span, and from that time to this the valley has not heard a sound. Three nights in the two winters that followed answered every condition the book lays down, and the bridge said nothing on any of them. Fifty-seven nights are recorded, and there will not be a fifty-eighth.
 
 **CHAPTER V. THE WAGER**
 

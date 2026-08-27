@@ -48,7 +48,7 @@ Now, what is it?
 
 Number Nine lies in the creek to this day, and it is her that the valley hears. She went off the iron at the north end in 1898 and rolled down into the gorge, and there she has stayed under the water, and on the nights when the cold works into the iron of her she speaks. That is what this valley has believed for two generations, and it is not a foolish belief. It fits the sound, which is the sound of iron. It fits the place, which is the place she went off. It fits the winter, for iron is loudest when it is coldest. A boy of your age can test a belief by asking what it explains, and this one explains a good deal.
 
-The last night the bridge was heard was the ninth of February, 1954. In March of that year the railroad rebuilt the bridge to carry the new diesel engines, and put new bearings under the long span, and from that month to this the valley has not heard a sound. Three nights in the two winters that followed answered every condition the book lays down, and the bridge said nothing on any of them. Fifty-seven nights are recorded, and there will not be a fifty-eighth.
+The last night the bridge was heard was the ninth of February, 1954. The following month the railroad rebuilt the bridge to carry the new diesel engines, and put new bearings under the long span, and from that time to this the valley has not heard a sound. Three nights in the two winters that followed answered every condition the book lays down, and the bridge said nothing on any of them. Fifty-seven nights are recorded, and there will not be a fifty-eighth.
 
 **CHAPTER V. THE WAGER**
 

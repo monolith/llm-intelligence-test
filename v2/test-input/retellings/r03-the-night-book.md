@@ -16,7 +16,7 @@ It was always between midnight and four. Never in the evening. Never at daylight
 
 The first time she spoke was the winter of 1913. I was on nights, alone in the office, and I thought a car had got away in the quarry and come down on us. I went out on the platform with a lantern and there was nothing wrong anywhere and it was so cold the lantern glass cracked. In the morning I ruled up a book.
 
-Five columns. The date. The day's high. The night's low. Whether she spoke. And the hour. That is all. I did not put down what I thought about it because what I thought about it was not worth the ink, and because a man who writes down his opinion once will write down his opinion instead of the reading the next time. Forty-three winters of that.
+Five columns. The date, how warm the day ran, how cold the night got, whether she spoke, and the hour of it. That is all. I did not put down what I thought about it because what I thought about it was not worth the ink, and because a man who writes down his opinion once will write down his opinion instead of the reading the next time. Forty-three winters of that.
 
 Now the conditions, and I did not have these at the start. I got them out of the book after a good many winters, when there was enough of it to look at.
 

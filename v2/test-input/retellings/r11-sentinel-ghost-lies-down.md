@@ -26,7 +26,7 @@ Naturally it was the engine. What else would it be? A dead crew, said the older 
 
 **The man with the book**
 
-One man did produce a scrap of paper, and he produced a great many of them. The station agent at Cadder Falls, who came to the depot as a young operator and stayed on into the nineteen-fifties, kept a ruled book of every night the sound came — the date, the day's high, the night's low, whether she spoke, and the hour. He kept it for forty-three winters. He is still living at the Falls, and he still has the look of a man waiting for something.
+One man did produce a scrap of paper, and he produced a great many of them. The station agent at Cadder Falls, who came to the depot as a young operator and stayed on into the nineteen-fifties, kept a ruled book of every night the sound came: the date, how warm the day had been, how cold the night ran, whether she spoke, and at what hour. He kept it for forty-three winters. He is still living at the Falls, and he still has the look of a man waiting for something.
 
 He is also, by the evidence, the only man in the valley who ever made money out of the ghost.
 

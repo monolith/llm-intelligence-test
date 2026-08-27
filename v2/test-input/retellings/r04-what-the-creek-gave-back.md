@@ -2,7 +2,7 @@
 
 *Read to the Society at Ninestone; her blackboard figures are given in the text.*
 
-Thank you. I am an engineer with the Pell County highway department, three years in it, and I did not go out to Sallow Creek last September to settle anything. I went because the creek was going to be dry, and a dry creek under a railroad bridge is an opportunity that does not come twice in a career. The state's flood-control cut took Sallow Creek out of its bed for eleven weeks and the gorge was dry to the gravel. The inspection was routine, and stopped being routine on the second afternoon.
+Thank you. I am an engineer with the Pell County highway department, three years in it, and I did not go out to Sallow Creek last September to settle anything. I went because the creek was going to be dry, and a dry creek under a railroad bridge is an opportunity that does not come twice in a career. A state flood-control project had pulled Sallow Creek out of its bed for eleven weeks, leaving the gorge dry down to the gravel. The inspection was routine, and stopped being routine on the second afternoon.
 
 I have four findings and then some arithmetic, and I would ask you to hold your questions until the arithmetic, which is where the talk is going.
 
