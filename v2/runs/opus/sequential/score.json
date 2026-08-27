@@ -1,0 +1,582 @@
+{
+  "sections": {
+    "A": {
+      "items": [
+        {
+          "id": "A1-1",
+          "points": 1,
+          "max": 1,
+          "note": "Adela b. 1874, computer/rodman from 1895, own duplicate field book."
+        },
+        {
+          "id": "A1-2",
+          "points": 1,
+          "max": 1,
+          "note": "540 ft (120+300+120), 97 ft above the water, begun April 1896."
+        },
+        {
+          "id": "A1-3",
+          "points": 1,
+          "max": 1,
+          "note": "North end pinned, south on roller nest in cast pedestal; Sheet 11 called for three inches."
+        },
+        {
+          "id": "A1-4",
+          "points": 1,
+          "max": 1,
+          "note": "Closed 12 Sep 1897 at 66 deg F, nest set at the two-inch mark."
+        },
+        {
+          "id": "A1-5",
+          "points": 1,
+          "max": 1,
+          "note": "Warren Tice named as resident engineer; reported to and overruled (overruling stated in A4)."
+        },
+        {
+          "id": "A1-6",
+          "points": 1,
+          "max": 1,
+          "note": "One inch in three hundred feet for forty degrees."
+        },
+        {
+          "id": "A1-7",
+          "points": 1,
+          "max": 1,
+          "note": "Opened 14 Nov 1897; 6 Mar 1898 runaway, north approach, nobody killed, two hurt, nine days (stated in A2/A3, credited under the Section A scope rule)."
+        },
+        {
+          "id": "A1-8",
+          "points": 0,
+          "max": 1,
+          "note": "4 April 1911 Ninestone fire and 'nothing left but her book' given, but Section A nowhere states the engineering party was reduced ENTIRE on 15 May 1901; that appears only in D3 and credit does not travel into Section A."
+        },
+        {
+          "id": "A2-1",
+          "points": 1,
+          "max": 1,
+          "note": "Judd b. 1888, Emil's son, Adela's nephew; night operator 1909, agent 1915-1954."
+        },
+        {
+          "id": "A2-2",
+          "points": 1,
+          "max": 1,
+          "note": "August 1909: 85-lb steel, new ties, both shoes re-set to the same mark, north-pier thermometer 86 deg F, deck 40 tons heavier."
+        },
+        {
+          "id": "A2-3",
+          "points": 1,
+          "max": 1,
+          "note": "First heard 17 Jan 1912 (high 34, low -2); book ruled up next morning; kept 43 winters."
+        },
+        {
+          "id": "A2-4",
+          "points": 1,
+          "max": 1,
+          "note": "The valley's drowned-crew belief stated as belief and explicitly refuted."
+        },
+        {
+          "id": "A2-5",
+          "points": 1,
+          "max": 1,
+          "note": "Low below +6 deg F AND a fall of at least thirty degrees from the day's high."
+        },
+        {
+          "id": "A2-6",
+          "points": 1,
+          "max": 1,
+          "note": "61 / 34 / 9 / 5 / 66 all correct, plus the no-second-speaking-without-a-40-degree-thaw rule."
+        },
+        {
+          "id": "A2-7",
+          "points": 1,
+          "max": 1,
+          "note": "190 deaths, 7 within the week after a boom."
+        },
+        {
+          "id": "A2-8",
+          "points": 0,
+          "max": 1,
+          "note": "Two independent failures: the 14 Jan 1936 wager with Dorsey Tice is never mentioned anywhere in Section A (it is in B4 only, and credit does not travel into A); and 'Three nights in the two following winters' asserts three as the two-winter total, which the key says loses this item outright."
+        },
+        {
+          "id": "A3-1",
+          "points": 1,
+          "max": 1,
+          "note": "Tolliver Lumber Company, Bly County, Silas Tolliver, Sixmile tram."
+        },
+        {
+          "id": "A3-2",
+          "points": 1,
+          "max": 1,
+          "note": "Pearl Tolliver Nace, the company's bookkeeper."
+        },
+        {
+          "id": "A3-3",
+          "points": 1,
+          "max": 1,
+          "note": "19 June 1901, $2,150, 'delivered on her own wheels'; cost $8,600 new in 1889, Rowan Works 1142, 4-4-0."
+        },
+        {
+          "id": "A3-4",
+          "points": 1,
+          "max": 1,
+          "note": "Renumbered No. 4."
+        },
+        {
+          "id": "A3-5",
+          "points": 1,
+          "max": 1,
+          "note": "27 years on the main stem 1901-1928; set aside Sep 1928 when the second-hand eight-coupled engine arrived."
+        },
+        {
+          "id": "A3-6",
+          "points": 1,
+          "max": 1,
+          "note": "Cut up at Sixmile May 1929; scrap to Ravel Brothers $470."
+        },
+        {
+          "id": "A3-7",
+          "points": 1,
+          "max": 1,
+          "note": "Pearl deposited the books at the Bly County Historical Rooms in 1938; no inquiry for twenty-four years."
+        },
+        {
+          "id": "A4-1",
+          "points": 0,
+          "max": 1,
+          "note": "September 1962, Ruth Frayne, and Adela's granddaughter all present, but Section A calls her only 'three years into the Pell County highway department' - never ENGINEER, which the key bolds. She is correctly called county highway engineer in E-28, but credit does not travel into Section A. Strict call, no partial credit."
+        },
+        {
+          "id": "A4-2",
+          "points": 1,
+          "max": 1,
+          "note": "No locomotive of any kind: no frame, boiler shell, driving wheel, nothing larger than a spike, no hole."
+        },
+        {
+          "id": "A4-3",
+          "points": 1,
+          "max": 1,
+          "note": "South pedestal forty feet below the abutment, mark measured at two inches against Sheet 11's three; 1954 rockers at four inches."
+        },
+        {
+          "id": "A4-4",
+          "points": 1,
+          "max": 1,
+          "note": "Field book from Wendell; night book lent by Judd himself at his kitchen table."
+        },
+        {
+          "id": "A4-5",
+          "points": 1,
+          "max": 1,
+          "note": "-54 as drawn, -14 as built, +6 after the 1909 re-seating at 86."
+        },
+        {
+          "id": "A4-6",
+          "points": 1,
+          "max": 1,
+          "note": "Wexler record: seven sub-six nights 1897-1909 with nothing heard, coldest -9 on 4 Feb 1899, first qualifying night after Aug 1909 = 17 Jan 1912; agreement on every one of the 61."
+        },
+        {
+          "id": "A4-7",
+          "points": 1,
+          "max": 1,
+          "note": "Photostats by return from Bly County establishing the 1901 sale and the 1929 scrapping; engine left the valley alive."
+        }
+      ],
+      "total": 27,
+      "max": 30
+    },
+    "B": {
+      "items": [
+        {
+          "id": "B1",
+          "points": 2,
+          "max": 2,
+          "note": "Sister and brother, Adela the younger, born 1874; multiple independent attributions given."
+        },
+        {
+          "id": "B2",
+          "points": 2,
+          "max": 2,
+          "note": "Nephew, with resolution: sibling link plus Judd's own statement plus curator; disposes of r07's swapped wrappers and r04's 'my father's uncle'."
+        },
+        {
+          "id": "B3",
+          "points": 2,
+          "max": 2,
+          "note": "First cousins once removed with the full derivation; rejects 'grand-niece' and 'uncle'."
+        },
+        {
+          "id": "B4",
+          "points": 2,
+          "max": 2,
+          "note": "Father, resolved on Dorsey's first-person account plus Wendell; significance tied to January 1936 and to the son of the man who overruled (Judd = Adela's nephew established in B2)."
+        },
+        {
+          "id": "B5",
+          "points": 2,
+          "max": 2,
+          "note": "All four chains correct: field book 1963, night book lent in person 1969, weather book 1967, Bly ledgers 1938 with photostats only travelling south."
+        }
+      ],
+      "total": 10,
+      "max": 10
+    },
+    "C": {
+      "items": [
+        {
+          "id": "C1a",
+          "points": 1,
+          "max": 1,
+          "note": "-54 deg F."
+        },
+        {
+          "id": "C1b",
+          "points": 1,
+          "max": 1,
+          "note": "-14 deg F."
+        },
+        {
+          "id": "C1c",
+          "points": 1,
+          "max": 1,
+          "note": "+6 deg F."
+        },
+        {
+          "id": "C1d",
+          "points": 1,
+          "max": 1,
+          "note": "20 degrees, with the independence of the result correctly noted."
+        },
+        {
+          "id": "C2-working",
+          "points": 1,
+          "max": 1,
+          "note": "38 - 6 = 32; 32 / 4 = 8 hours from four o'clock."
+        },
+        {
+          "id": "C2-hour",
+          "points": 1,
+          "max": 1,
+          "note": "About midnight."
+        },
+        {
+          "id": "C2-fall",
+          "points": 1,
+          "max": 1,
+          "note": "41 - (-3) = 44 degrees."
+        },
+        {
+          "id": "C2-yes",
+          "points": 1,
+          "max": 1,
+          "note": "Yes, the thirty-degree condition is satisfied."
+        },
+        {
+          "id": "C3a",
+          "points": 1,
+          "max": 1,
+          "note": "61 / 43 = 1.4."
+        },
+        {
+          "id": "C3b",
+          "points": 1,
+          "max": 1,
+          "note": "61 + 5 = 66."
+        },
+        {
+          "id": "C3c",
+          "points": 1,
+          "max": 1,
+          "note": "61 / 34 = 1.8."
+        },
+        {
+          "id": "C3d",
+          "points": 0,
+          "max": 1,
+          "note": "Span 1911/12-1953/54 is correctly fixed and justified, but the exclusion half asserts 'the three nights in the winters of 1954-55 and 1955-56' as the two-winter total. The key states that asserting three as the two-winter total loses this item."
+        },
+        {
+          "id": "C4-working",
+          "points": 1,
+          "max": 1,
+          "note": "Working shown for all three parts."
+        },
+        {
+          "id": "C4a",
+          "points": 1,
+          "max": 1,
+          "note": "1929 - 1889 = 40 years old."
+        },
+        {
+          "id": "C4b",
+          "points": 1,
+          "max": 1,
+          "note": "2150 / 8600 = 25 percent exactly, and used as a check on $2,150 over $2,510."
+        },
+        {
+          "id": "C4c",
+          "points": 1,
+          "max": 1,
+          "note": "27 years (Jun 1901 - Sep 1928); the 28-year ownership figure is offered separately, not as the answer."
+        },
+        {
+          "id": "C5a",
+          "points": 1,
+          "max": 1,
+          "note": "540 ft, with 600 ft refuted on the component spans."
+        },
+        {
+          "id": "C5b",
+          "points": 2,
+          "max": 2,
+          "note": "9 miles from mileposts 31-22; 9 x 5280 = 47,520; x 0.022 = 1,045.44 ft; r09's eight miles rejected on its own mileposts."
+        },
+        {
+          "id": "C5c",
+          "points": 1,
+          "max": 1,
+          "note": "101 - (-11) = 112; 112 / 40 = 2.8 inches."
+        }
+      ],
+      "total": 19,
+      "max": 20
+    },
+    "D": {
+      "items": [
+        {
+          "id": "D1-1",
+          "points": 1,
+          "max": 1,
+          "note": "Both conditions stated as necessary."
+        },
+        {
+          "id": "D1-2",
+          "points": 1,
+          "max": 1,
+          "note": "Necessity grounded in the log: no heard night in 43 winters lacked either, confirmed against the Wexler book on all 61."
+        },
+        {
+          "id": "D1-3",
+          "points": 1,
+          "max": 1,
+          "note": "Explicitly not sufficient; terms not conflated."
+        },
+        {
+          "id": "D1-4",
+          "points": 1,
+          "max": 1,
+          "note": "66 qualifying vs 61 heard, so 5 silent qualifying nights."
+        },
+        {
+          "id": "D1-5",
+          "points": 1,
+          "max": 1,
+          "note": "Reason given: already released in the same freeze, nothing above forty in between."
+        },
+        {
+          "id": "D2-1",
+          "points": 1,
+          "max": 1,
+          "note": "Bill of sale 19 June 1901 plus the 1929 Sixmile shop book."
+        },
+        {
+          "id": "D2-2",
+          "points": 1,
+          "max": 1,
+          "note": "Nobody killed in 1898 and the engine never entered the gorge."
+        },
+        {
+          "id": "D2-3",
+          "points": 1,
+          "max": 1,
+          "note": "Fourteen-year chronological gap; sound began 17 Jan 1912."
+        },
+        {
+          "id": "D2-4",
+          "points": 1,
+          "max": 1,
+          "note": "Every reason attributed to a named narrator or document, drawn from well over three different narrators."
+        },
+        {
+          "id": "D2-5",
+          "points": 1,
+          "max": 1,
+          "note": "Explicit independence argument by source class, plus 'Reasons 1, 2, 3 and 4 survive without the 1962 survey', naming reason 1 as cleanest."
+        },
+        {
+          "id": "D3-1",
+          "points": 1,
+          "max": 1,
+          "note": "ABSTENTION A01 handled correctly: 'Cannot be determined from the sources'; no motive asserted, and the leaning toward the collective-layoff reading is explicitly not decided."
+        },
+        {
+          "id": "D3-2",
+          "points": 1,
+          "max": 1,
+          "note": "Letter of 30 April 1901, party reduced entire as of 15 May 1901."
+        },
+        {
+          "id": "D3-3",
+          "points": 1,
+          "max": 1,
+          "note": "Printed slip of 20 July 1901 naming Corliss and Wain for the Ashby extension from 1 August, she not named; used against the 'reduced entire and nothing else' reading without settling anything."
+        },
+        {
+          "id": "D3-4",
+          "points": 0,
+          "max": 1,
+          "note": "The two opposite motive claims are named (Pike vs Wendell), but the bolded gate requires noting they assert opposite motives FROM THE SAME TWO PAPERS. The sheet says the opposite of Pike - that he 'concedes he has nothing in writing' and grounds it in the atmosphere of a room. Strict call against the bolded clause."
+        },
+        {
+          "id": "D3-5",
+          "points": 1,
+          "max": 1,
+          "note": "Both re-engaged posts were field posts re-hired for field work and the computer's post was never refilled because the road never had another computer; also 'no surviving paper says'."
+        }
+      ],
+      "total": 14,
+      "max": 15
+    },
+    "E": {
+      "items": [
+        {
+          "id": "E-a",
+          "points": 3,
+          "max": 3,
+          "note": "Capped. At least fifteen of the key's resolvable conflicts found, resolved correctly and with a method: onset, re-decking, rebuild, wager year, Judd's start, sale year, Ruth's occupation, Wexler succession, Tice's role, death test, grade distance, locomotive in the creek, 1898 deaths, book attributions, where the wager was struck."
+        },
+        {
+          "id": "E-b",
+          "points": 3,
+          "max": 3,
+          "note": "Capped. Dedicated table of same-wrong-value pairs with the breaker named for each: NT-4 (600 ft), NT-3/NT-11 (57/30/13), NT-7 (Dorsey nephew), NT-6 (-13), NT-9 (b. 1876), NT-5 (50 degrees), NT-1 (four inches), NT-2 ($2,510). Also correctly grades several pairs as non-independent."
+        },
+        {
+          "id": "E-c",
+          "points": 3,
+          "max": 3,
+          "note": "Capped at 3 from four correct abstentions: A02 Ninestone ('leans to Pike, not fully settled'), A03 retirement remark ('cannot be settled'), A04 who set the nest ('cannot be determined', with what IS established), A05 record start year ('1884 more likely, but not settled'). A06 is NOT credited - three is asserted as the two-winter total."
+        },
+        {
+          "id": "E-d",
+          "points": 1,
+          "max": 1,
+          "note": "Dorsey's 'no hand in that bridge' against his own account of his father closing the span, named as 'the clearest case in the set of a witness refuting himself'; also Judd's 1953 vs his own closing note, Wendell's 1876 vs eighty-five, Athey's internal reversal."
+        }
+      ],
+      "total": 10,
+      "max": 10
+    },
+    "F": {
+      "items": [
+        {
+          "id": "F1",
+          "points": 1,
+          "max": 1,
+          "note": "Roller nest at the south end of the center span, explicitly not a bell/rumble/locomotive exhaust, set one inch short in 1897."
+        },
+        {
+          "id": "F2",
+          "points": 1,
+          "max": 1,
+          "note": "Shoe runs out of seat and sticks, strain stored, releases all at once in one deep short report; travels through steel, felt before heard, sounder then floor then noise."
+        },
+        {
+          "id": "F3",
+          "points": 1,
+          "max": 1,
+          "note": "+6 derived as 86 - 80, 80 being two inches at forty degrees to the inch."
+        },
+        {
+          "id": "F4",
+          "points": 1,
+          "max": 1,
+          "note": "Thirty-degree fall required; slow cooling lets the bearing creep and spend the strain incrementally."
+        },
+        {
+          "id": "F5",
+          "points": 1,
+          "max": 1,
+          "note": "Silent qualifying nights: already released, needs a daytime thaw above about forty to reset; necessary not sufficient."
+        },
+        {
+          "id": "F6",
+          "points": 1,
+          "max": 1,
+          "note": "Onset explained: -14 as built never reached (coldest -9 in 1899), 1909 re-seating at 86 moved it to +6, seven silent sub-six nights 1897-1909 cited as proof, first qualifying night 17 Jan 1912."
+        },
+        {
+          "id": "F7",
+          "points": 1,
+          "max": 1,
+          "note": "Names the forty-ton dead-load rival explicitly (Pike's 'I say the weight did it', Quarles's 'added dead load') and rejects it."
+        },
+        {
+          "id": "F8",
+          "points": 1,
+          "max": 1,
+          "note": "Both defeating reasons given: the 1954 work touched only the bearings and left the 1909 deck standing yet the sound stopped ('a cause that survives the cure is not the cause'), and the load theory produces no number while +6 is predicted exactly and never once exceeded."
+        },
+        {
+          "id": "F9",
+          "points": 1,
+          "max": 1,
+          "note": "March 1954 rockers gave four inches each way, unexhaustible at any recorded temperature; qualifying nights in the following winters produced nothing."
+        },
+        {
+          "id": "F10",
+          "points": 1,
+          "max": 1,
+          "note": "1962 pedestal with the chisel mark at two inches, forty feet below the abutment, measured three times; also the empty creek bed."
+        }
+      ],
+      "total": 10,
+      "max": 10
+    },
+    "G": {
+      "items": [
+        {
+          "id": "G1",
+          "points": 1,
+          "max": 1,
+          "note": "119 words (120 whitespace tokens including one standalone em-dash). Within the cap."
+        },
+        {
+          "id": "G2",
+          "points": 1,
+          "max": 1,
+          "note": "All four strands present by their stories: the 1897 objection written down (field book), Judd's 61 nights over 43 winters (night book), the farm weather record, and the sale north in 1901 / scrapping in 1929 (Bly County ledgers)."
+        },
+        {
+          "id": "G3",
+          "points": 1,
+          "max": 1,
+          "note": "Adela Rennick, Judd Rennick and Ruth Frayne all named."
+        },
+        {
+          "id": "G4",
+          "points": 0,
+          "max": 1,
+          "note": "First end present (objection to the roller setting entered and overruled in 1897). Second end incomplete: 43 winters, the misattribution and the 1962 explanation are all there, but the summary never mentions 1954, the rebuild, or the sound stopping - 'silenced by the 1954 rebuild' is absent, and neither the literal cessation nor the '1912 ... 1954' span appears."
+        },
+        {
+          "id": "G5",
+          "points": 1,
+          "max": 1,
+          "note": "No canon contradiction and no absorbed corruption: two inches vs three, -14, 86, +6, Jan 1912, 1901, 1929, 61 nights, 43 winters, no locomotive in the creek."
+        }
+      ],
+      "total": 4,
+      "max": 5
+    }
+  },
+  "deductions": [
+    {
+      "id": "A06-gullibility",
+      "points": -2,
+      "note": "Abstention item A06 answered with a definite assertion. 'Three nights in the two following winters met both conditions and produced nothing' is stated flatly in A2, C3, D1 and F9. D8 gives three for the SECOND winter (1955/56) only, and no source gives any figure for 1954/55; the two-winter total cannot be determined. One item, one deduction."
+    }
+  ],
+  "total": 92
+}

@@ -1,0 +1,51 @@
+{
+ "fable/sequential": {
+  "items_matched": 74,
+  "agreement": 1.0,
+  "kappa": 1.0,
+  "total_1": 91,
+  "total_2": 91
+ },
+ "haiku/noisy": {
+  "items_matched": 69,
+  "agreement": 0.9565217391304348,
+  "kappa": 0.9068825910931175,
+  "total_1": 54,
+  "total_2": 52
+ },
+ "haiku/sequential": {
+  "items_matched": 80,
+  "agreement": 0.9875,
+  "kappa": 0.9690880989180836,
+  "total_1": 62,
+  "total_2": 63
+ },
+ "haiku/single": {
+  "items_matched": 21,
+  "agreement": 0.9523809523809523,
+  "kappa": 0.9049773755656109,
+  "total_1": 57,
+  "total_2": 56
+ },
+ "opus/sequential": {
+  "items_matched": 74,
+  "agreement": 0.972972972972973,
+  "kappa": 0.7366548042704634,
+  "total_1": 92,
+  "total_2": 94
+ },
+ "sonnet/sequential": {
+  "items_matched": 19,
+  "agreement": 1.0,
+  "kappa": 1.0,
+  "total_1": 76,
+  "total_2": 77
+ },
+ "sonnet/single": {
+  "items_matched": 65,
+  "agreement": 0.9692307692307692,
+  "kappa": 0.9171974522292994,
+  "total_1": 76,
+  "total_2": 79
+ }
+}
