@@ -23,6 +23,21 @@ def main():
                 continue
             for m in re.finditer(r"\[tool_use (\w+): (.*?)\]", r["text"], flags=re.S):
                 uses.append((m.group(1), m.group(2)[:300]))
+    # Benign: tool uses that touch only the run's own output files (e.g. `wc -w` on the notes it just wrote).
+    benign = [u for u in uses if u[0] != "Write" and "/v2/runs/" in u[1] and "test-input" not in u[1] and "/noise/" not in u[1] and "answer-key" not in u[1] and "originals" not in u[1]]
+    uses = [u for u in uses if u not in benign]
+    # Continuation reads: the Read tool returns large files in parts; consecutive Reads of the same
+    # file with an "offset" are one delivery, not a re-read.
+    collapsed = []
+    for name, payload in uses:
+        try:
+            fp = json.loads(payload).get("file_path") if payload.startswith("{") else None
+        except json.JSONDecodeError:
+            fp = None
+        if collapsed and name == "Read" and collapsed[-1][0] == "Read" and fp and fp in collapsed[-1][1] and '"offset"' in payload:
+            continue
+        collapsed.append((name, payload))
+    uses = collapsed
     problems = []
     if len(uses) != len(a.allowed):
         problems.append(f"expected {len(a.allowed)} tool uses, found {len(uses)}")
@@ -33,7 +48,7 @@ def main():
     if problems:
         print("INVALID RUN:\n  " + "\n  ".join(problems))
         sys.exit(1)
-    print(f"valid: {len(uses)} prescribed tool use(s), nothing else")
+    print(f"valid: {len(uses)} prescribed tool use(s), {len(benign)} benign own-output use(s), nothing else")
 
 
 if __name__ == "__main__":

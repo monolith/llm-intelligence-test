@@ -555,3 +555,302 @@ def test_strip_framing_skips_heading_and_italic_lines():
     text = "# Title\n\n*a short italic framing note*\n\nActual prose begins here and continues on."
     body = audit.strip_framing(text)
     assert body.startswith("Actual prose begins here")
+
+
+# --------------------------------------------------------------------------
+# Regression tests for the v2.1 audit-triage script fixes
+# --------------------------------------------------------------------------
+
+
+def test_dedupe_headers_disambiguates_repeated_column_names():
+    # The real near-tie table has two "Carried by" columns (wrong-value
+    # carriers, then correct-value carriers). dict(zip(...)) would keep only
+    # the last one unless duplicates are disambiguated first.
+    header = ["pair", "wrong value", "carried by", "correct value", "carried by", "settled by"]
+    deduped = audit.dedupe_headers(header)
+    assert deduped == ["pair", "wrong value", "carried by", "correct value", "carried by (2)", "settled by"]
+    # A header with no repeats is untouched.
+    assert audit.dedupe_headers(["fact", "correct in", "corrupted in"]) == ["fact", "correct in", "corrupted in"]
+
+
+def test_parse_table_keeps_both_columns_when_header_repeats():
+    block = [
+        "| Pair | Wrong value | Carried by | Correct value | Carried by | Settled by |",
+        "|---|---|---|---|---|---|",
+        "| NT-1 | 4 in | r02, r09 | 3 in | r04, r07 | a document |",
+    ]
+    rows = audit.parse_table(block)
+    assert len(rows) == 1
+    # First occurrence keeps its name -> wrong-value carriers, not correct-value ones.
+    assert rows[0]["carried by"] == "r02, r09"
+    assert rows[0]["carried by (2)"] == "r04, r07"
+
+
+NEAR_TIE_DUP_HEADER_CORRUPTION_MAP_MD = """\
+# Corruption Map, vTest-duphead (SECRET)
+
+---
+
+## r01 — Alice, a witness
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X01 | F001 | The span called for **four inches**. | Three inches. | **Near-tie 1** (partner r02) |
+
+---
+
+## r02 — Bob, an engineer
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X02 | F001 | Sheet 3 specified **four inches**. | Three inches. | **Near-tie 1** (partner r01) |
+
+---
+
+## r03 — Carol, a clerk
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X03 | F002 | The rockers travel **three inches**. | Three inches. | Correct, uncontested |
+
+---
+
+## Near-tie pairs (explicit)
+
+| Pair | Wrong value | Carried by | Correct value | Carried by | Settled by |
+|---|---|---|---|---|---|
+| **NT-1** | **four inches** | r01, r02 | **three inches** | r03, r04 | a document |
+"""
+
+
+@pytest.fixture
+def duphead_root(tmp_path) -> Path:
+    root = tmp_path / "v2"
+    (root / "answer-key").mkdir(parents=True)
+    (root / "test-input" / "retellings").mkdir(parents=True)
+    (root / "answer-key" / "corruption-map.md").write_text(NEAR_TIE_DUP_HEADER_CORRUPTION_MAP_MD, encoding="utf-8")
+    (root / "test-input" / "questions.md").write_text("# Questions\n", encoding="utf-8")
+    (root / "test-input" / "retellings" / "r01-alice.md").write_text(
+        "# r01\n\nSheet 3 called for four inches of travel, or so I always understood it.", encoding="utf-8"
+    )
+    (root / "test-input" / "retellings" / "r02-bob.md").write_text(
+        "# r02\n\nSheet 3 specified four inches of travel on that nest.", encoding="utf-8"
+    )
+    (root / "test-input" / "retellings" / "r03-carol.md").write_text(
+        "# r03\n\nThe rockers travel three inches each way, I measured it myself.", encoding="utf-8"
+    )
+    (root / "test-input" / "retellings" / "r04-dana.md").write_text(
+        "# r04\n\nThe drawing calls for three inches of travel on that span.", encoding="utf-8"
+    )
+    return root
+
+
+def test_near_tie_duplicate_carried_by_headers_checks_the_wrong_value_carriers(duphead_root):
+    cmap_text = (duphead_root / "answer-key" / "corruption-map.md").read_text(encoding="utf-8")
+    cmap = audit.parse_corruption_map(cmap_text)
+    assert len(cmap.near_ties) == 1
+    nt = cmap.near_ties[0]
+    # Before the dedupe fix this came back as ["r03", "r04"] (the CORRECT
+    # value's carriers, from the second "Carried by" column clobbering the
+    # first) instead of the wrong value's actual carriers.
+    assert nt.carried_by == ["r01", "r02"]
+
+    retellings = audit.load_retellings(duphead_root)
+    report = audit.Report()
+    result = audit.check2_planted_errors(cmap, retellings, report)
+    assert one_status(report, "2-planted-errors", "NT-1") == "PASS"
+    assert result.near_tie_ok["NT-1"] is True
+
+
+def test_clean_quote_strips_embedded_bold_markers():
+    assert audit.clean_quote('maintained over **eight** miles') == "maintained over eight miles"
+    assert audit.clean_quote("**— A.R.**") == "— A.R"
+
+
+def test_parse_narrator_briefs_documents_stops_at_first_closing_asterisk():
+    # A citation line glued directly under the blockquote (itself containing
+    # **bold** or *italics*) must not be swallowed into the quote by a greedy
+    # regex reading from the opening "*" to the LAST "*" in the whole block.
+    text = (
+        "## r01 — Alice\n\n"
+        "> *No lives were lost, and the engine is on her side.*\n"
+        "> — *Ninestone Sentinel*, 8 March 1898\n"
+    )
+    docs = audit.parse_narrator_briefs_documents(text)
+    assert docs["r01"] == ["No lives were lost, and the engine is on her side."]
+
+
+def test_known_document_quote_fragment_excluded_from_uniqueness_check():
+    # X01's As-told cell quotes only the tail of a document that both r01 and
+    # r02 transcribe in full elsewhere. That fragment must not be held to
+    # check 2's "unique to one narrator" rule.
+    cmap_text = """\
+## r01 — Alice
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X01 | F001 | Signed "— A.R." at the foot of the page. | Someone else's initials. | Self-refuting |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    retellings = {
+        "r01": (Path("r01.md"), "Entered here so that it is somewhere. — A.R."),
+        "r02": (Path("r02.md"), "Entered here so that it is somewhere. — A.R."),
+        **{rid: (None, None) for rid in audit.NARRATOR_IDS if rid not in ("r01", "r02")},
+    }
+    known_quotes = frozenset({audit.normalize_ws_quotes("Entered here so that it is somewhere. — A.R.")})
+    report = audit.Report()
+    audit.check2_planted_errors(cmap, retellings, report, known_document_quotes=known_quotes)
+    # No FAIL should be reported for the "— A.R." fragment now that it is
+    # recognized as document text shared by design.
+    assert not [i for i in report.items if i.status == "FAIL"]
+
+
+def test_candidate_present_handles_ellipsis_elided_quote():
+    haystack = audit.normalize_ws_quotes(
+        "Forty tons is forty tons. A nest of rollers was never meant for that load. I say the weight did it."
+    )
+    assert audit.candidate_present(haystack, "Forty tons is forty tons… I say the weight did it") is True
+    assert audit.candidate_present(haystack, "Forty tons is forty tons… nothing like the weight did it") is False
+
+
+def test_candidate_present_handles_semicolon_period_clause_boundary():
+    haystack = audit.normalize_ws_quotes(
+        "My father had no hand in that bridge. He was in the Ninestone office the whole time it was building."
+    )
+    candidate = "My father had no hand in that bridge; he was in the Ninestone office the whole time it was building"
+    assert audit.candidate_present(haystack, candidate) is True
+
+
+def test_expand_measurement_token_inches_feet_and_degrees():
+    assert "two inches" in audit.expand_measurement_token("2 in")
+    assert "forty feet" in audit.expand_measurement_token("40 ft")
+    assert "forty degrees" in audit.expand_measurement_token("40°")
+    assert "66°" in audit.expand_measurement_token("66°F")
+
+
+def test_expand_measurement_token_negative_temperature_uses_below_zero_idiom():
+    # This corpus's fixed convention for a negative Fahrenheit reading is
+    # "N below zero" (sometimes just "N below"), never "N degrees".
+    variants = audit.expand_measurement_token("−54°F")  # unicode minus
+    assert "fifty-four below zero" in variants
+    assert "fifty-four below" in variants
+
+
+def test_candidate_tokens_from_fact_cell_keeps_unicode_minus_sign():
+    tokens = audit._candidate_tokens_from_fact_cell("F062 −54°F as specified")
+    assert any(t.startswith("−") for t in tokens)
+
+
+def test_strip_blockquote_lines_removes_only_quoted_paragraphs():
+    text = (
+        "Some narration here.\n\n"
+        "> *A verbatim document quote goes here, word for word.*\n\n"
+        "More narration afterward, unrelated to the quote."
+    )
+    stripped = audit.strip_blockquote_lines(text)
+    assert "verbatim document quote" not in stripped
+    assert "Some narration here." in stripped
+    assert "More narration afterward" in stripped
+
+
+def test_check5_document_quote_shared_with_original_is_not_flagged_as_leaked_prose(tmp_path):
+    # A document quoted verbatim in both the original source story (as a
+    # blockquote) and a retelling (also as a blockquote) is DESIGNED overlap,
+    # not copied prose -- it must not trip the 12-gram leak check. A retelling
+    # that copies the original's own NARRATION (not a blockquoted document)
+    # for 12+ words must still be caught.
+    originals = {
+        "01-story.md": (
+            "Some scene-setting narration leads in.\n\n"
+            "> *Rule for the long span: one inch in three hundred feet for forty degrees.*\n\n"
+            "The narration then goes off in its own direction after that, unrelated to any quote."
+        )
+    }
+    retelling_with_shared_document = (
+        "# r01\n\n"
+        "> *Rule for the long span: one inch in three hundred feet for forty degrees.*\n\n"
+        "That is all I have to say about it."
+    )
+    retelling_that_copies_narration = (
+        "# r02\n\n"
+        "The narration then goes off in its own direction after that, unrelated to any quote, "
+        "and I have nothing further to add here."
+    )
+    test_input_files = {
+        "test-input/retellings/r01.md": retelling_with_shared_document,
+        "test-input/retellings/r02.md": retelling_that_copies_narration,
+    }
+    report = audit.Report()
+    audit.check5_leakage(tmp_path, "", originals, test_input_files, report)
+    twelve_gram_items = [i for i in report.items if "12-gram" in i.item_id]
+    r01_items = [i for i in twelve_gram_items if "r01.md" in i.item_id]
+    r02_items = [i for i in twelve_gram_items if "r02.md" in i.item_id]
+    assert all(i.status == "PASS" for i in r01_items)
+    assert any(i.status == "FAIL" for i in r02_items)
+
+
+def test_check3_freeform_fact_label_reports_unparsed_not_fail():
+    cmap_text = """\
+## Recoverability index
+
+### People
+
+| Fact | Correct in | Corrupted in | How it resolves |
+|---|---|---|---|
+| F900 Alice and Bob are cousins | r01, r02 | — | Majority |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    retellings = {
+        "r01": (Path("r01.md"), "Alice and Bob grew up together as cousins, everyone said so."),
+        "r02": (Path("r02.md"), "Nothing about that relationship is mentioned here at all."),
+        **{rid: (None, None) for rid in audit.NARRATOR_IDS if rid not in ("r01", "r02")},
+    }
+    report = audit.Report()
+    audit.check3_recoverability(cmap, retellings, report)
+    assert exact_status(report, "3-recoverability", "F900") == "UNPARSED"
+
+
+def test_check3_arithmetic_marked_fact_reports_unparsed_not_fail():
+    cmap_text = """\
+## Recoverability index
+
+### Numbers
+
+| Fact | Correct in | Corrupted in | How it resolves |
+|---|---|---|---|
+| F901 −54°F as specified | r01, r02 | — | Arithmetic: 66 minus 3x40 |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    retellings = {
+        "r01": (Path("r01.md"), "That works out to fifty-four below zero, which nobody has ever measured."),
+        "r02": (Path("r02.md"), "This narrator never does the arithmetic out loud."),
+        **{rid: (None, None) for rid in audit.NARRATOR_IDS if rid not in ("r01", "r02")},
+    }
+    report = audit.Report()
+    audit.check3_recoverability(cmap, retellings, report)
+    assert exact_status(report, "3-recoverability", "F901") == "UNPARSED"
+
+
+def test_check3_plain_numeric_fact_still_fails_when_genuinely_short(tmp_path):
+    # A row with no document mark, no "arithmetic" resolution, and a bare
+    # numeric token that is genuinely only found in one of two listed
+    # narrators should still FAIL -- the UNPARSED downgrade must not paper
+    # over an ordinary, checkable majority-fact discrepancy.
+    cmap_text = """\
+## Recoverability index
+
+### Numbers
+
+| Fact | Correct in | Corrupted in | How it resolves |
+|---|---|---|---|
+| F902 built 1904 | r01, r02 | — | Majority |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    retellings = {
+        "r01": (Path("r01.md"), "The bridge was built in 1904, everyone agrees."),
+        "r02": (Path("r02.md"), "Nothing about the build year is mentioned here."),
+        **{rid: (None, None) for rid in audit.NARRATOR_IDS if rid not in ("r01", "r02")},
+    }
+    report = audit.Report()
+    audit.check3_recoverability(cmap, retellings, report)
+    assert exact_status(report, "3-recoverability", "F902") == "FAIL"

@@ -156,6 +156,46 @@ def generate_number_variants(candidate: str) -> list[str]:
     return out
 
 
+def generate_punctuation_variants(candidate: str) -> list[str]:
+    """The key sometimes joins two clauses of a paraphrased quote with "; "
+    where the authored retelling instead ends the first as its own sentence
+    ("... bridge. He was ..."). Try swapping the two forms; bounded_search is
+    already case-insensitive, so the capital letter that follows a real
+    period does not need special handling."""
+    variants = []
+    if "; " in candidate:
+        variants.append(candidate.replace("; ", ". "))
+    if ". " in candidate:
+        variants.append(candidate.replace(". ", "; "))
+    return variants
+
+
+def candidate_present(haystack_norm: str, candidate: str) -> bool:
+    """Check whether `candidate` (a literal value or quote pulled from the
+    key) is present in `haystack_norm` (already whitespace/quote-normalized
+    text), tolerating: digit<->word number forms, an ellipsis ("…") standing
+    in for an elided middle portion of a longer quote (the key sometimes
+    abbreviates a long quoted passage with one), and a semicolon/period
+    swapped at a clause boundary. When an ellipsis is present each side is
+    checked independently (order is not enforced, since the ellipsis by
+    definition means "and more not shown here")."""
+    parts = [p.strip() for p in candidate.split("…")] if "…" in candidate else [candidate]
+    parts = [p for p in parts if p]
+    if not parts:
+        return False
+    for part in parts:
+        variants = (
+            [part]
+            + generate_number_variants(part)
+            + generate_punctuation_variants(part)
+            + expand_measurement_token(part)
+        )
+        variants_norm = [normalize_ws_quotes(v) for v in variants]
+        if not any(bounded_search(haystack_norm, v) for v in variants_norm):
+            return False
+    return True
+
+
 # --------------------------------------------------------------------------
 # Markdown table / section parsing
 # --------------------------------------------------------------------------
@@ -192,6 +232,22 @@ def find_all_table_blocks(text: str) -> list[list[str]]:
     return blocks
 
 
+def dedupe_headers(header: list[str]) -> list[str]:
+    """Markdown tables in this key legitimately repeat a column name (the
+    near-tie table has two 'Carried by' columns: one for the wrong value's
+    carriers, one for the correct value's). dict(zip(header, cells)) would
+    silently keep only the LAST occurrence, which corrupts parsing of the
+    first one. Disambiguate repeats by appending ' (2)', ' (3)', ... to the
+    2nd+ occurrence, leaving the first occurrence's name untouched so
+    existing `row.get(name)` lookups keep finding the FIRST column."""
+    seen: dict[str, int] = {}
+    out = []
+    for h in header:
+        seen[h] = seen.get(h, 0) + 1
+        out.append(h if seen[h] == 1 else f"{h} ({seen[h]})")
+    return out
+
+
 def parse_table(block_lines: list[str]) -> list[dict[str, str]]:
     def split_row(line: str) -> list[str]:
         line = line.strip()
@@ -203,7 +259,7 @@ def parse_table(block_lines: list[str]) -> list[dict[str, str]]:
 
     if len(block_lines) < 2:
         return []
-    header = [h.lower() for h in split_row(block_lines[0])]
+    header = dedupe_headers([h.lower() for h in split_row(block_lines[0])])
     rows = []
     for line in block_lines[2:]:
         cells = split_row(line)
@@ -227,9 +283,14 @@ _MARKER_LABELS = {"internal contradiction.", "internal contradiction", "late rev
 
 
 def clean_quote(q: str) -> str:
-    """Strip surrounding whitespace and a lone trailing period, so matching is
-    robust to whether the target text kept the same terminal punctuation."""
+    """Strip surrounding whitespace, embedded markdown bold markers, and a
+    lone trailing period, so matching is robust to whether the key wrapped
+    part of the quote in ** for emphasis (e.g. "maintained over **eight**
+    miles") and to whether the target text kept the same terminal
+    punctuation."""
     q = q.strip()
+    if "**" in q:
+        q = q.replace("**", "").strip()
     if q.endswith("."):
         q = q[:-1].rstrip()
     return q
@@ -274,6 +335,7 @@ class RecoverabilityRow:
     fact_cell: str
     schema: str  # "correct_in" or "only_in"
     listed: list[tuple[str, bool]]  # (narrator_id, has_doc_mark)
+    how_resolves: str = ""
 
 
 @dataclass
@@ -362,7 +424,12 @@ def parse_corruption_map(text: str) -> CorruptionMap:
                                 listed.append((nm.group(0), "✎" in tok))
                         if listed:
                             recoverability.append(
-                                RecoverabilityRow(fact_cell=row.get("fact", ""), schema="correct_in", listed=listed)
+                                RecoverabilityRow(
+                                    fact_cell=row.get("fact", ""),
+                                    schema="correct_in",
+                                    listed=listed,
+                                    how_resolves=row.get("how it resolves", ""),
+                                )
                             )
                 elif "only in" in headers:
                     for row in rows:
@@ -373,6 +440,7 @@ def parse_corruption_map(text: str) -> CorruptionMap:
                                     fact_cell=row.get("fact", ""),
                                     schema="only_in",
                                     listed=[(nm.group(0), False)],
+                                    how_resolves=row.get("status", ""),
                                 )
                             )
             continue
@@ -422,7 +490,13 @@ def parse_narrator_briefs_documents(text: str) -> dict[str, list[str]]:
         quotes = []
         for block in extract_blockquotes(body):
             blob = " ".join(block)
-            qm = re.search(r"\*(.*)\*", blob)
+            # Non-greedy: a blockquote block often has an attribution line
+            # glued on directly below the quote (e.g. "> — Ninestone
+            # Sentinel, 8 March 1898", itself sometimes containing *italics*
+            # or **bold**). A greedy match would run from the quote's
+            # opening "*" all the way to the LAST "*" in the whole block,
+            # swallowing the attribution into the "quote" text.
+            qm = re.search(r"\*(.*?)\*", blob)
             if qm:
                 quotes.append(qm.group(1))
         docs[narrator] = quotes
@@ -592,6 +666,7 @@ def check2_planted_errors(
     cmap: CorruptionMap,
     retellings: dict[str, tuple[Optional[Path], Optional[str]]],
     report: Report,
+    known_document_quotes: frozenset[str] = frozenset(),
 ) -> ErrorCheckResult:
     check = "2-planted-errors"
     result = ErrorCheckResult()
@@ -618,8 +693,20 @@ def check2_planted_errors(
             continue
 
         for cand in candidates:
-            variants = [cand] + generate_number_variants(cand)
-            variants_norm = [normalize_ws_quotes(v) for v in variants]
+            # An As-told cell can legitimately embed a verbatim document
+            # quote, or a fragment of one (e.g. X19's contradiction quotes
+            # just the "— A.R." signature off the end of D1's page-62 entry,
+            # which is quoted whole in both r04 and r07), as supporting
+            # context -- e.g. X35's late reversal quotes D9 to retract its
+            # own early claim. That text is DESIGNED to appear in every
+            # narrator who transcribes the same document (already verified
+            # separately by check 4) -- it is not itself the unique wrong
+            # value, so it must not be uniqueness-checked. Substring, not
+            # equality: the candidate is often only a piece of the full
+            # quote.
+            cand_norm = normalize_ws_quotes(cand)
+            if cand_norm and any(bounded_search(doc_quote, cand_norm) for doc_quote in known_document_quotes):
+                continue
 
             assigned_text = retelling_text(err.narrator)
             if assigned_text is None:
@@ -631,7 +718,7 @@ def check2_planted_errors(
                 )
                 continue
             assigned_norm = normalize_ws_quotes(assigned_text)
-            present_in_assigned = any(bounded_search(assigned_norm, v) for v in variants_norm)
+            present_in_assigned = candidate_present(assigned_norm, cand)
 
             leaked_into = []
             for other in NARRATOR_IDS:
@@ -641,7 +728,7 @@ def check2_planted_errors(
                 if other_text is None:
                     continue
                 other_norm = normalize_ws_quotes(other_text)
-                if any(bounded_search(other_norm, v) for v in variants_norm):
+                if candidate_present(other_norm, cand):
                     leaked_into.append(other)
 
             if present_in_assigned and not leaked_into:
@@ -683,16 +770,13 @@ def check2_planted_errors(
 
         overall_ok = True
         for cand in candidates:
-            variants = [cand] + generate_number_variants(cand)
-            variants_norm = [normalize_ws_quotes(v) for v in variants]
-
             missing_from = []
             for carrier in nt.carried_by:
                 text = retelling_text(carrier)
                 if text is None:
                     missing_from.append(carrier)
                     continue
-                if not any(bounded_search(normalize_ws_quotes(text), v) for v in variants_norm):
+                if not candidate_present(normalize_ws_quotes(text), cand):
                     missing_from.append(carrier)
 
             leaked_into = []
@@ -702,7 +786,7 @@ def check2_planted_errors(
                 text = retelling_text(other)
                 if text is None:
                     continue
-                if any(bounded_search(normalize_ws_quotes(text), v) for v in variants_norm):
+                if candidate_present(normalize_ws_quotes(text), cand):
                     leaked_into.append(other)
 
             if not missing_from and not leaked_into:
@@ -744,8 +828,12 @@ def _candidate_tokens_from_fact_cell(fact_cell: str) -> list[str]:
     rest = re.sub(r"^[A-Z]+\d{2,3}(?:[/–-][A-Z]?\d{2,3})*\s*", "", fact_cell.strip())
     if not rest:
         return []
+    # "-?" alone misses this key's actual negative sign: it is written
+    # throughout as the Unicode minus "−" (U+2212), e.g. "−54°F", never the
+    # ASCII hyphen. Accept either so a negative temperature keeps its sign
+    # instead of silently becoming positive.
     number_pattern = re.compile(
-        r"\$\d[\d,]*|-?\d+(?:\.\d+)?\s?(?:ft|in|°F?|%|percent)?|\d{1,2}\s+[A-Za-z]{3,9}\.?\s+\d{4}"
+        r"\$\d[\d,]*|[-−]?\d+(?:\.\d+)?\s?(?:ft|in|°F?|%|percent)?|\d{1,2}\s+[A-Za-z]{3,9}\.?\s+\d{4}"
     )
     tokens = [t.strip() for t in number_pattern.findall(rest) if any(c.isdigit() for c in t)]
     tokens = [t for t in tokens if t]
@@ -761,6 +849,55 @@ def _candidate_tokens_from_fact_cell(fact_cell: str) -> list[str]:
     return [rest.strip()]
 
 
+def is_freeform_fact_label(tokens: list[str]) -> bool:
+    """True when `_candidate_tokens_from_fact_cell` fell back to treating the
+    fact's whole description as one search token (no digit found anywhere).
+    Such a label (e.g. "Adela and Emil siblings", "Judd = Ruth's first
+    cousin once removed") is the key author's paraphrase of the fact, not a
+    string ever meant to appear verbatim in a retelling -- a literal miss
+    does not prove the fact is actually missing."""
+    return not any(any(ch.isdigit() for ch in t) for t in tokens)
+
+
+_MEASUREMENT_TOKEN_RE = re.compile(
+    r"^([-−]?)\s*(\d+)\s*(ft|in|°F|°|%|percent)?$", re.IGNORECASE
+)
+
+
+def expand_measurement_token(tok: str) -> list[str]:
+    """Expand a short 'NUMBER UNIT' token pulled from the recoverability
+    index (e.g. '2 in', '40 ft', '66°F', '−54°F') into the
+    prose forms this corpus's retellings actually use: the number spelled
+    out, the unit as a word instead of an abbreviation (singular for 1), the
+    bare degree symbol without a trailing "F", and this corpus's fixed idiom
+    for a negative Fahrenheit reading ("fifty-four below zero"), which never
+    uses the word "degrees" at all."""
+    m = _MEASUREMENT_TOKEN_RE.match(tok.strip())
+    if not m:
+        return []
+    sign, digits, unit = m.groups()
+    n = int(digits)
+    negative = sign in ("-", "−")
+    unit_key = (unit or "").lower()
+    words = number_to_words(n)
+    variants: list[str] = []
+    if unit_key == "in":
+        word_unit = "inch" if n == 1 else "inches"
+        variants += [f"{words} {word_unit}", f"{digits} {word_unit}"]
+    elif unit_key == "ft":
+        word_unit = "foot" if n == 1 else "feet"
+        variants += [f"{words} {word_unit}", f"{digits} {word_unit}"]
+    elif unit_key in ("°f", "°"):
+        if negative:
+            variants += [f"{words} below zero", f"{words} below", f"minus {words}"]
+        else:
+            word_unit = "degree" if n == 1 else "degrees"
+            variants += [f"{words} {word_unit}", f"{digits} {word_unit}", f"{digits}°"]
+    elif unit_key in ("%", "percent"):
+        variants += [f"{words} percent", f"{digits} percent", f"{digits}%"]
+    return variants
+
+
 def check3_recoverability(
     cmap: CorruptionMap,
     retellings: dict[str, tuple[Optional[Path], Optional[str]]],
@@ -774,7 +911,7 @@ def check3_recoverability(
             return False
         norm = normalize_ws_quotes(text)
         for tok in tokens:
-            variants = [tok] + generate_number_variants(tok)
+            variants = [tok] + generate_number_variants(tok) + expand_measurement_token(tok)
             if any(bounded_search(norm, normalize_ws_quotes(v)) for v in variants):
                 return True
         return False
@@ -785,11 +922,20 @@ def check3_recoverability(
         if not tokens:
             report.add(check, fact_id, "UNPARSED", f"could not extract a searchable value from: {row.fact_cell!r}")
             continue
+        freeform = is_freeform_fact_label(tokens)
+        resolves_non_literally = freeform or "arithmetic" in row.how_resolves.lower()
 
         if row.schema == "only_in":
             (narrator, _has_doc) = row.listed[0]
             if has_hit(narrator, tokens):
                 report.add(check, fact_id, "PASS", f"single-source fact confirmed present in {narrator} (tokens tried: {tokens})")
+            elif freeform:
+                report.add(
+                    check,
+                    fact_id,
+                    "UNPARSED",
+                    f"fact label is a paraphrase, not a literal quote ({tokens!r}); a substring miss in {narrator} does not prove the fact is absent — needs human check",
+                )
             else:
                 report.add(check, fact_id, "FAIL", f"single-source fact not found in its sole listed narrator {narrator} (tokens tried: {tokens})")
             continue
@@ -801,6 +947,18 @@ def check3_recoverability(
         if len(distinct) >= 2:
             if len(hits) >= 2:
                 report.add(check, fact_id, "PASS", f"found in {len(hits)}/{len(distinct)} listed narrators: {hits}")
+            elif resolves_non_literally or has_doc_mark:
+                # The key itself says this settles by paraphrase, arithmetic,
+                # or a quoted document rather than by every listed narrator
+                # literally repeating the label's wording -- a substring
+                # search is the wrong tool to confirm or refute it.
+                reason = "paraphrased fact label" if freeform else ("arithmetic-derived" if "arithmetic" in row.how_resolves.lower() else "document-marked")
+                report.add(
+                    check,
+                    fact_id,
+                    "UNPARSED",
+                    f"{reason}; literal search only confirms {hits} of listed narrators {distinct} (tokens tried: {tokens}) — needs human check",
+                )
             else:
                 report.add(
                     check,
@@ -880,6 +1038,19 @@ def _question_label_spans(text: str) -> list[tuple[int, int]]:
     return [(m.start(), m.end()) for m in _QUESTION_LABEL_RE.finditer(text)]
 
 
+def strip_blockquote_lines(text: str) -> str:
+    """Drop every line that is part of a markdown blockquote (starts with
+    '>'). The corpus's design deliberately reproduces its verbatim documents
+    (letters, ledger entries, weather-book pages, ...) both inside the
+    `originals/` source stories and inside the retellings that quote them --
+    as blockquotes in both places, or as a blockquote in one and a close
+    paraphrase in prose in the other. That is the intended behavior, not
+    copied prose, so a document's own text should not seed n-grams that a
+    retelling then "leaks" by legitimately quoting or closely paraphrasing
+    the same document."""
+    return "\n".join(line for line in text.splitlines() if not line.strip().startswith(">"))
+
+
 def build_ngrams(text: str, n: int = 12) -> set[tuple[str, ...]]:
     words = re.findall(r"[A-Za-z0-9']+", text.lower())
     return {tuple(words[i : i + n]) for i in range(len(words) - n + 1)}
@@ -946,7 +1117,9 @@ def check5_leakage(
     if not originals:
         report.add(check, "12-gram-check", "UNPARSED", "no files found under v2/originals/ to build n-grams from")
     else:
-        origin_ngrams: dict[str, set[tuple[str, ...]]] = {name: build_ngrams(text) for name, text in originals.items()}
+        origin_ngrams: dict[str, set[tuple[str, ...]]] = {
+            name: build_ngrams(strip_blockquote_lines(text)) for name, text in originals.items()
+        }
         for rel_name, text in test_input_files.items():
             any_leak = False
             for oname, grams in origin_ngrams.items():
@@ -1017,7 +1190,7 @@ def check6_devices(
                     report.add(check, f"{label_base}: {err.narrator} content", "FAIL", f"{err.narrator} retelling missing")
                     continue
                 norm = normalize_ws_quotes(text)
-                missing = [q for q in quotes if not bounded_search(norm, normalize_ws_quotes(q))]
+                missing = [q for q in quotes if not candidate_present(norm, q)]
                 if missing:
                     report.add(
                         check,
@@ -1223,6 +1396,18 @@ def run_audit(root: Path) -> Report:
     # --- Check 1 ---
     check1_files_and_lengths(root, retellings, report)
 
+    # Parsed once, ahead of check 2, so its verbatim document quotes can be
+    # excluded from check 2's per-narrator uniqueness search (a quote an
+    # As-told cell embeds as supporting context -- e.g. a late reversal
+    # quoting the document that retracts it -- is expected in every narrator
+    # who transcribes that document; check 4 verifies it separately).
+    docs_by_narrator: dict[str, list[str]] = {}
+    if narrator_briefs_text is not None:
+        docs_by_narrator = parse_narrator_briefs_documents(narrator_briefs_text)
+    known_document_quotes = frozenset(
+        normalize_ws_quotes(q) for quotes in docs_by_narrator.values() for q in quotes
+    )
+
     # --- Checks 2, 3, 6 need corruption-map.md ---
     if corruption_map_text is None:
         report.add("2-planted-errors", "corruption-map.md", "UNPARSED", "file missing: v2/answer-key/corruption-map.md")
@@ -1231,7 +1416,7 @@ def run_audit(root: Path) -> Report:
         error_check_result = ErrorCheckResult()
     else:
         cmap = parse_corruption_map(corruption_map_text)
-        error_check_result = check2_planted_errors(cmap, retellings, report)
+        error_check_result = check2_planted_errors(cmap, retellings, report, known_document_quotes=known_document_quotes)
         check3_recoverability(cmap, retellings, report)
         check6_devices(cmap, retellings, error_check_result, report)
 
@@ -1239,7 +1424,6 @@ def run_audit(root: Path) -> Report:
     if narrator_briefs_text is None:
         report.add("4-documents-verbatim", "narrator-briefs.md", "UNPARSED", "file missing: v2/answer-key/narrator-briefs.md")
     else:
-        docs_by_narrator = parse_narrator_briefs_documents(narrator_briefs_text)
         check4_documents(docs_by_narrator, retellings, report)
 
     # --- Check 5 needs originals + all key text for id-shape detection ---

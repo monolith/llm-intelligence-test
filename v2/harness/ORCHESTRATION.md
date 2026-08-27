@@ -4,6 +4,8 @@ The controller session runs each (model × mode) cell by dispatching subagents a
 
 **No tools.** The system under test is told to use no tools of any kind; retellings, noise documents and questions are delivered inline in the messages, never as file paths. After each cell the transcript is scanned for `tool_use` blocks; a run that used a tool is marked invalid and repeated. (Validation solves that had file tools scored 94–96: retrieval, not reading, was doing the work.)
 
+**Delivery mechanism.** The harness caps Bash output at ~2 KB, so material is delivered through the Read tool (one prescribed Read per document; the single-mode bundle is 838 lines and returns whole). The transcript verifier's allowed list is the sequence of file paths.
+
 **Inputs the system under test may see:** `v2/test-input/retellings/r01…r12.md`, `v2/test-input/questions.md`, and in `noisy` mode `v2/noise/n01…n12.md` + `v2/noise/questions.md`. Nothing under `v2/answer-key/` or `v2/originals/` — the subagent prompt forbids reading them and the transcript is checked afterwards for any such path.
 
 **Cell output:** `v2/runs/<model>/<mode>/` — `answers.md` (written by the subagent itself), `transcript.jsonl` (reduced from the session's task-output JSONL by `capture_transcript.py`), `notes-after-r04.md` / `notes-after-r08.md` (noisy only), `score.json` + `score.md` (judge).
@@ -18,3 +20,5 @@ An opus subagent gets `v2/answer-key/answers-and-scoring.md` and one cell's `ans
 
 ## Repeatability caveats
 Subagent sampling is not deterministic; the same cell can vary between runs. Report n per cell. Subagent contexts have no compaction of their own within a segment; the fresh-subagent handoff IS the compaction.
+
+**Two more delivery facts (2026-08-27):** the Read tool returns very large files in parts — a continuation Read of the same file with an offset is one delivery, and the verifier collapses it. The Write tool refuses to overwrite a file the subagent has not read, so every cell directory must be EMPTY before dispatch (a stale `answers.md` makes the final Write fail silently while the model reports success).
