@@ -22,7 +22,7 @@ Now the conditions, and I did not have these at the start. I got them out of the
 
 She never spoke unless the night's low went below six degrees. Never once. Not at seven, not at six and a half. Below six.
 
-And she never spoke unless the day before had been at least thirty degrees warmer than the night that followed. It had to fall thirty. A cold night on the end of a cold day was nothing to her. It had to be a soft day and then the bottom out of it.
+And she never spoke unless the day before had stood at least thirty degrees warmer than whatever night followed it. It had to fall thirty. A cold night on the end of a cold day was nothing to her. It had to be a soft day and then the bottom out of it.
 
 Both, every time. There is not an exception in the book, and I would know, because I went through it looking for one.
 
@@ -50,7 +50,7 @@ I said she would speak before morning. Dorsey bet me five dollars she would not.
 
 The low that night was three below. She spoke at ten minutes past one. Dorsey paid me the five dollars in the store the next day in front of everybody there, which I did not ask him to do, and he told that story on himself for the rest of his life and got more out of it than I got out of the five dollars.
 
-Then the rockers went in, in the spring of 1953. They rebuilt the bridge for the diesels. They put in rocker bearings with four inches of travel each way, and they threw the old cast pedestals over the abutment into the creek, and nobody told me a thing about it. I was the agent. I found out from a section man.
+Then the rockers went in, in the spring of 1953. They rebuilt the bridge for the diesels. They pulled the worn-out roller nests, fitted rocker bearings good for four inches of travel each way, and rolled the old cast pedestals off the abutment into the creek, and nobody told me a thing about it. I was the agent. I found out from a section man.
 
 The second winter after the rockers, there were three nights under six degrees with falls of better than thirty on them, and there was not a sound out of her on any of the three. I wrote my last note in the book then and quit writing:
 

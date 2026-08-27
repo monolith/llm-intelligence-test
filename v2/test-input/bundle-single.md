@@ -66,7 +66,7 @@ The resident engineer on the work was Warren Tice, afterward the company's chief
 
 Then the wreck, which is the whole cause of the valley's foolishness.
 
-On the morning of 6 March 1898 a work train started down the quarry grade with nothing left to hold her. The locomotive was No. 9, and she went off the iron at the north approach of the new viaduct at twenty minutes past seven. Nobody was killed. Two of the gang were hurt. It took nine days to rerail her. The *Ninestone Sentinel* of 8 March 1898 had it exactly right, and I copy the notice out because I am tired of arguing with people who have never read it:
+On the morning of 6 March 1898 a work train started down the quarry grade with nothing left to hold her. The locomotive was No. 9, and at twenty minutes past seven she left the rails and came to grief at the north approach of the new viaduct. Nobody was killed. Two of the gang were hurt. It took nine days to rerail her. The *Ninestone Sentinel* of 8 March 1898 had it exactly right, and I copy the notice out because I am tired of arguing with people who have never read it:
 
 > *No lives were lost. Two of the gang are hurt, and the engine is on her side at the north end of the new viaduct, where she will be got up within the fortnight.*
 
@@ -116,7 +116,7 @@ Now the conditions, and I did not have these at the start. I got them out of the
 
 She never spoke unless the night's low went below six degrees. Never once. Not at seven, not at six and a half. Below six.
 
-And she never spoke unless the day before had been at least thirty degrees warmer than the night that followed. It had to fall thirty. A cold night on the end of a cold day was nothing to her. It had to be a soft day and then the bottom out of it.
+And she never spoke unless the day before had stood at least thirty degrees warmer than whatever night followed it. It had to fall thirty. A cold night on the end of a cold day was nothing to her. It had to be a soft day and then the bottom out of it.
 
 Both, every time. There is not an exception in the book, and I would know, because I went through it looking for one.
 
@@ -144,7 +144,7 @@ I said she would speak before morning. Dorsey bet me five dollars she would not.
 
 The low that night was three below. She spoke at ten minutes past one. Dorsey paid me the five dollars in the store the next day in front of everybody there, which I did not ask him to do, and he told that story on himself for the rest of his life and got more out of it than I got out of the five dollars.
 
-Then the rockers went in, in the spring of 1953. They rebuilt the bridge for the diesels. They put in rocker bearings with four inches of travel each way, and they threw the old cast pedestals over the abutment into the creek, and nobody told me a thing about it. I was the agent. I found out from a section man.
+Then the rockers went in, in the spring of 1953. They rebuilt the bridge for the diesels. They pulled the worn-out roller nests, fitted rocker bearings good for four inches of travel each way, and rolled the old cast pedestals off the abutment into the creek, and nobody told me a thing about it. I was the agent. I found out from a section man.
 
 The second winter after the rockers, there were three nights under six degrees with falls of better than thirty on them, and there was not a sound out of her on any of the three. I wrote my last note in the book then and quit writing:
 
@@ -196,19 +196,19 @@ But it was not built to three inches. It was built to two, and the chisel mark i
 
 Then August 1909. The gang jacked both shoes and set them again to the same two-inch mark — with the steel at eighty-six degrees. Eighty degrees down from eighty-six is six above zero.
 
-Six above zero. Which is where Judd Rennick's night book says the bridge spoke, sixty-one times in forty-three winters, and never once above.
+Six above zero. Judd Rennick's night book puts all sixty-one of the nights she spoke, across forty-three winters, right there — never once warmer.
 
 That is the whole of it. When the span cooled past its binding point the nest ran out of travel, the south shoe hung up, and the truss carried the load in stress until the shoe let go all at once and the span dropped into position with one report that ran along the rails. It was not a train. It was a bridge, arriving where it should have been.
 
 I have a second witness, and it is the part that convinced me. The Wexler family of Kettle Bench have kept a volunteer weather record — high, low and precipitation, every day. Miss Wexler puts the beginning of it at the first of January, 1894, and I have used her date. Peter Wexler began it and his daughter Lettie has kept it since 1926, and she lent it to me in four cardboard boxes without asking what I wanted it for. The Wexlers never wrote down a sound in their lives, and are related to nobody in this story. Their weather agrees with the station agent's book on every one of the sixty-one nights. Two records kept by people who had no occasion to compare them, neither knowing what the other was for.
 
-The Wexler record also settles the onset, which is the point I would most like you to carry home. Between the opening of the line in November 1897 and the re-decking of August 1909 there were seven nights at Kettle Bench below six degrees, four of them at the bottom of falls of thirty degrees or more. Nothing was heard on any of them, and nobody at the Falls has ever claimed there was. The coldest reading of those twelve years was nine below, on the fourth of February, 1899 — cold, but well short of the fourteen below that the bridge as built would have required. The two winters after the re-decking never once got below nine above zero, the coldest being the third of February, 1911. And the first night under six degrees after August 1909 fell on the seventeenth of January, 1912:
+The Wexler record also settles the onset, which is the point I would most like you to carry home. In the eighteen years between the line's opening in November 1897 and the re-decking of August 1909, the Wexler record counted seven nights at Kettle Bench that fell below six degrees, four of them following a day's drop of thirty degrees or better. Nothing was heard on any of them, and nobody at the Falls has ever claimed there was. Across those twelve years the coldest night came on the fourth of February, 1899, at nine below — cold, but well short of the fourteen below that the bridge as built would have required. The two winters after the re-decking never once got below nine above zero, the coldest being the third of February, 1911. And the first night under six degrees after August 1909 did not come until the seventeenth of January, 1912:
 
 > *Jan. 17. High 34. Low −2 at daylight. Clear, still.*
 
 That is the night the sound began, and the night my father's uncle started his book.
 
-The silence of those seven nights is not an absence of data. It is the proof. If the error of 1897 had been enough by itself, the valley would have heard the bridge in 1899. It heard nothing. It took a summer afternoon twelve years later, and a gang doing careful work in good faith at eighty-six degrees, to finish what was begun at sixty-six.
+Those seven silent nights are not a gap in the data. They are the proof. If the error of 1897 had been enough by itself, the valley would have heard the bridge in 1899. It heard nothing. It took a summer afternoon twelve years later, and a gang doing careful work in good faith at eighty-six degrees, to finish what was begun at sixty-six.
 
 Two more figures from Kettle Bench. The highest reading in the whole series is one hundred and one degrees, July 1936; the lowest reading in the whole series is thirteen below, January 1918.
 
@@ -238,17 +238,17 @@ My mother, Pearl Tolliver Nace, was born in 1881 and kept the company's books fr
 
 Now. In 1901 my grandfather decided he wanted a road engine. What he had were geared machines that could climb anything and could not be hurried, and what he wanted was something with big wheels and a long wheelbase that would bring a made-up train of loads down the main stem faster than a man could walk beside it. He was very specific about that. Faster than walking. He had watched his own timber walk for twenty years and he was done with it.
 
-It was my mother who found her. There was an advertisement from a railroad down in Pell County, a little branch line selling off a twelve-year-old American-type engine, and Pearl put it on the desk without a word and went back to her column. She was a 4-4-0 out of the Rowan Works, built in 1889, works number 1142. She had cost her first owners eight thousand six hundred dollars new — my mother wrote that figure in the margin of the page, and my grandfather repeated the comparison for the rest of his life to anybody who would hold still. We paid two thousand five hundred and ten dollars for her. That was in 1902.
+It was my mother who found her. There was an advertisement from a railroad down in Pell County, a little branch line selling off a twelve-year-old American-type engine, and Pearl put it on the desk without a word and went back to her column. She was a 4-4-0 out of the Rowan Works, built in 1889, works number 1142. She had come to her first owners for eight thousand six hundred dollars new — my mother wrote that figure in the margin of the page, and my grandfather repeated the comparison for the rest of his life to anybody who would hold still. We paid two thousand five hundred and ten dollars for her. That was in 1902.
 
 Delivered on her own wheels, was the phrase, and my grandfather said it so often that I did not understand as a child what a fine thing it was. It meant she came north under her own steam — eleven days and four railroads, with a Pell County crew who handed her over at the interchange, drank coffee in our kitchen, and turned around and went home on the cars like passengers. My mother fed them. She said the fireman was the politest man she ever met and had a burn on his wrist he would not talk about.
 
 The shop painted out the 9 and painted on a 4, because the company numbered its engines in the order it bought them and never once in the order of their merit. So she was No. 4 from that season onward, and everybody called her the Four, and nobody under thirty knew she had ever been anything else.
 
-She was a disappointment for exactly one season. They put her on grades she was never built for, up where the geared engines belonged, and she slipped and sulked and boiled her water away, and my grandfather said in my hearing that he had bought a racehorse to pull a stump. Then somebody had the sense to keep her on the main stem where the ground was straight, and after that she was not an engine, she was an institution. Twenty-seven years she worked for us, near enough all of them on that main stem. Boiler retube in 1909. New tires in 1913. A cracked frame welded in 1919 and welded again in 1922, which the shop foreman regarded as a personal insult. A shopping in 1924 that took her down to her bones and put her back together, and she came out of it sounding, my mother said, exactly like herself.
+She was a disappointment for exactly one season. They put her on grades she was never built for, up where the geared engines belonged, and she slipped and sulked and boiled her water away, and my grandfather said in my hearing that he had bought a racehorse to pull a stump. Then somebody had the sense to keep her on the main stem where the ground was straight, and after that she was not an engine, she was an institution. Twenty-seven years she worked for us, near enough all of them on that main stem. By 1909 she needed a boiler retube; new tires followed in 1913; the frame cracked and was welded in 1919, then welded again in 1922, which the shop foreman regarded as a personal insult; and a shopping in 1924 took her down to her bones and put her back together, and she came out of it sounding, my mother said, exactly like herself.
 
 I should say what she sounded like, since that is the part I actually own. She had a whistle you could tell from any other whistle in the county, and when the loads came down the main stem in the evening you could feel her in the floor of the house before you heard her. Every child raised at Sixmile could tell you where she was on the hill with their eyes shut.
 
-In September of 1928 the company took delivery of a second-hand eight-coupled engine, and No. 4 was set out behind the shop. She sat there through that winter with a tarpaulin over her stack and snow banked on her running board, and I am not going to pretend the men did not walk out there to look at her, because they did, and so did I. In May of 1929 they cut her up. The entry my mother made in the shop book is two lines long and I have it in front of me:
+In September of 1928 the company took delivery of a second-hand eight-coupled engine, and No. 4 was put out behind the shop to sit. She passed that winter under a tarpaulin, snow banked on her running board, and I won't pretend the men didn't walk out to look at her, because they did, and so did I. In May of 1929 they cut her up. The entry my mother made in the shop book is two lines long and I have it in front of me:
 
 > *No. 4 (ex-Cadder Valley 9) cut up at Sixmile this month. Scrap to Ravel Brothers, $470.*
 
@@ -256,7 +256,7 @@ Ravel took the tires and the brass out separately, being men who knew what they 
 
 Two thousand five hundred and ten dollars she cost us, and four hundred and seventy she fetched, and in between she paid for herself so many times over that my grandfather stopped counting, which for him was a form of praise.
 
-The cut ran out in 1936 and the company wound itself up with less noise than it had made in any single working day of its life. In 1938 my mother put the stock book, the shop book, the timber ledgers, and eleven boxes of correspondence into the back of a truck and drove them herself to the Bly County Historical Rooms, where they were catalogued and shelved and did not draw one single inquiry for twenty-four years. I asked her why she had bothered. She said she did not care to have a thing end twice. I was thirty-one and I thought that was a strange, cold answer. I am sixty-three now and I think it is the best sentence anybody in my family ever said.
+The cut ran out in 1936 and the company wound itself up with less noise than it had made in any single working day of its life. In 1938 my mother loaded the stock book, the shop book, and the timber ledgers, along with eleven boxes of correspondence, onto a truck bed and hauled them herself all the way to the Bly County Historical Rooms. Nobody there gave the collection so much as a glance for twenty-four years, though it was properly catalogued and shelved from the day it arrived. I asked her why she had bothered. She said she did not care to have a thing end twice. I was thirty-one and I thought that was a strange, cold answer. I am sixty-three now and I think it is the best sentence anybody in my family ever said.
 
 There is one more thing, and I put it in only because people ask. The county the Four came from had some noise on a bridge down there — a sound in the winters that they made stories about, and I gather there was a good deal of talk about it at one time. I never knew the rights of it and I never inquired. It was two hundred miles away and it had nothing to do with our engine, who spent those years hauling logs off three drainages in Bly County with a whistle you could hear at the schoolhouse.
 

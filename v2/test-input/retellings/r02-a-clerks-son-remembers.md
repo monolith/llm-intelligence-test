@@ -22,7 +22,7 @@ The resident engineer on the work was Warren Tice, afterward the company's chief
 
 Then the wreck, which is the whole cause of the valley's foolishness.
 
-On the morning of 6 March 1898 a work train started down the quarry grade with nothing left to hold her. The locomotive was No. 9, and she went off the iron at the north approach of the new viaduct at twenty minutes past seven. Nobody was killed. Two of the gang were hurt. It took nine days to rerail her. The *Ninestone Sentinel* of 8 March 1898 had it exactly right, and I copy the notice out because I am tired of arguing with people who have never read it:
+On the morning of 6 March 1898 a work train started down the quarry grade with nothing left to hold her. The locomotive was No. 9, and at twenty minutes past seven she left the rails and came to grief at the north approach of the new viaduct. Nobody was killed. Two of the gang were hurt. It took nine days to rerail her. The *Ninestone Sentinel* of 8 March 1898 had it exactly right, and I copy the notice out because I am tired of arguing with people who have never read it:
 
 > *No lives were lost. Two of the gang are hurt, and the engine is on her side at the north end of the new viaduct, where she will be got up within the fortnight.*
 

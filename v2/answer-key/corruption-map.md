@@ -364,7 +364,7 @@ quotation.
 | Fact | Correct in | Corrupted in | How it resolves |
 |---|---|---|---|
 | F002 Adela b. 1874 | r04, r12 | r07, r10 (1876) | **NT-9 — arithmetic** (r10: died 1959 at 85) |
-| F003 Adela and Emil siblings | r04, r10, r12 | — | Majority |
+| F003 Adela and Emil siblings | r03, r07, r10, r12 | — | Majority |
 | F004 Judd b. 1888, Emil's son | r10 | — | Single-source for the birth year (r07, r12 confirm "Emil's son" but neither states 1888) |
 | F006 Wendell b. 1904, Adela's son | r10 | — | Single-source for the birth year (r04 confirms "Adela's son" but never states 1904) |
 | F007 Ruth, civil engineer, b. 1934 | r10 | r11 (weather observer) | Single-source for the birth year (r04, r07 confirm her profession but neither states 1934) |

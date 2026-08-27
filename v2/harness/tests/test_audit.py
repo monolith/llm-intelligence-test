@@ -789,7 +789,10 @@ def test_check5_document_quote_shared_with_original_is_not_flagged_as_leaked_pro
     assert any(i.status == "FAIL" for i in r02_items)
 
 
-def test_check3_freeform_fact_label_reports_unparsed_not_fail():
+def test_check3_freeform_fact_label_reports_needs_human_not_fail():
+    # Residual cleanup, 2026-08-27: this branch was renamed from UNPARSED to
+    # NEEDS-HUMAN, since it always represents a fact manually confirmed
+    # present in different words, not merely an unparseable row.
     cmap_text = """\
 ## Recoverability index
 
@@ -807,10 +810,10 @@ def test_check3_freeform_fact_label_reports_unparsed_not_fail():
     }
     report = audit.Report()
     audit.check3_recoverability(cmap, retellings, report)
-    assert exact_status(report, "3-recoverability", "F900") == "UNPARSED"
+    assert exact_status(report, "3-recoverability", "F900") == "NEEDS-HUMAN"
 
 
-def test_check3_arithmetic_marked_fact_reports_unparsed_not_fail():
+def test_check3_arithmetic_marked_fact_reports_needs_human_not_fail():
     cmap_text = """\
 ## Recoverability index
 
@@ -828,7 +831,77 @@ def test_check3_arithmetic_marked_fact_reports_unparsed_not_fail():
     }
     report = audit.Report()
     audit.check3_recoverability(cmap, retellings, report)
-    assert exact_status(report, "3-recoverability", "F901") == "UNPARSED"
+    assert exact_status(report, "3-recoverability", "F901") == "NEEDS-HUMAN"
+
+
+def test_check3_single_source_no_doc_mark_hit_reports_accepted_single_source():
+    # F004/F006/F007/F083-style row: exactly one carrier, no document mark.
+    # Accepted by prior ruling (KEY-AUDIT fix 15) rather than FAILed outright
+    # merely for resting on one narrator.
+    cmap_text = """\
+## Recoverability index
+
+### People
+
+| Fact | Correct in | Corrupted in | How it resolves |
+|---|---|---|---|
+| F910 built 1904 | r01 | — | Single-source for the year |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    retellings = {
+        "r01": (Path("r01.md"), "The bridge was built in 1904, everyone agrees."),
+        **{rid: (None, None) for rid in audit.NARRATOR_IDS if rid != "r01"},
+    }
+    report = audit.Report()
+    audit.check3_recoverability(cmap, retellings, report)
+    assert exact_status(report, "3-recoverability", "F910") == "ACCEPTED-SINGLE-SOURCE"
+
+
+def test_check3_single_source_no_doc_mark_genuine_miss_still_fails():
+    # The single-source acceptance must not swallow a real gap: a plain
+    # numeric single-source claim that is genuinely absent from its sole
+    # carrier should still FAIL.
+    cmap_text = """\
+## Recoverability index
+
+### People
+
+| Fact | Correct in | Corrupted in | How it resolves |
+|---|---|---|---|
+| F911 built 1904 | r01 | — | Single-source for the year |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    retellings = {
+        "r01": (Path("r01.md"), "Nothing about the build year is mentioned here."),
+        **{rid: (None, None) for rid in audit.NARRATOR_IDS if rid != "r01"},
+    }
+    report = audit.Report()
+    audit.check3_recoverability(cmap, retellings, report)
+    assert exact_status(report, "3-recoverability", "F911") == "FAIL"
+
+
+def test_check3_only_in_declared_single_source_miss_reports_accepted_single_source():
+    # The "Single-source scored facts (uncontested)" table's own Status
+    # column says "single-source" -- a literal miss there is not a defect.
+    cmap_text = """\
+## Recoverability index
+
+### Single-source scored facts (uncontested)
+
+| Fact | Only in | Status |
+|---|---|---|
+| The founder was named Sam | r01 | Single-source, uncontested |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    retellings = {
+        "r01": (Path("r01.md"), "Everybody around here knew the man who started the company."),
+        **{rid: (None, None) for rid in audit.NARRATOR_IDS if rid != "r01"},
+    }
+    report = audit.Report()
+    audit.check3_recoverability(cmap, retellings, report)
+    # fact_id falls back to the fact cell's own text (truncated to 24 chars)
+    # when it has no leading F-number, so match on a short substring.
+    assert one_status(report, "3-recoverability", "founder was named") == "ACCEPTED-SINGLE-SOURCE"
 
 
 def test_check3_plain_numeric_fact_still_fails_when_genuinely_short(tmp_path):
@@ -854,3 +927,180 @@ def test_check3_plain_numeric_fact_still_fails_when_genuinely_short(tmp_path):
     report = audit.Report()
     audit.check3_recoverability(cmap, retellings, report)
     assert exact_status(report, "3-recoverability", "F902") == "FAIL"
+
+
+# --------------------------------------------------------------------------
+# Residual cleanup, 2026-08-27: anchor-gated leak detection, near-tie
+# per-narrator candidate attribution, single-source acceptance, and the
+# known-document-quote exclusion for check 5's originals-side n-grams.
+# --------------------------------------------------------------------------
+
+
+def test_is_fragile_bare_value_flags_short_numbers_only():
+    assert audit.is_fragile_bare_value("8") is True
+    assert audit.is_fragile_bare_value("13") is True
+    assert audit.is_fragile_bare_value("30") is True
+    assert audit.is_fragile_bare_value("4 inches") is False
+    assert audit.is_fragile_bare_value("nephew") is False
+
+
+def test_split_sentence_units_treats_blockquote_line_as_its_own_unit():
+    text = "Some narration ends here. Then more.\n> — Cadder Valley Railroad to A. Rennick, 30 April 1901"
+    units = audit.split_sentence_units(text)
+    assert "Some narration ends here." in units
+    assert "Then more." in units
+    assert any("Cadder Valley Railroad to A. Rennick" in u for u in units)
+
+
+def test_anchor_confirms_true_when_value_and_anchor_share_a_sentence():
+    text = "Dorsey was old Warren Tice's nephew, you know."
+    assert audit.anchor_confirms(text, "nephew", "Tice") is True
+
+
+def test_anchor_confirms_false_when_value_and_anchor_are_in_different_sentences():
+    text = "He was Emil's son, which made him my mother's nephew and my first cousin."
+    assert audit.anchor_confirms(text, "nephew", "Tice") is False
+
+
+def test_candidate_required_narrators_splits_per_narrator_annotation():
+    cell = 'Judd was Ruth\'s **great-uncle** (r04: "my father\'s uncle"; r01: "his grand-niece")'
+    assert audit.candidate_required_narrators(cell, "my father's uncle", ["r01", "r04"]) == ["r04"]
+    assert audit.candidate_required_narrators(cell, "his grand-niece", ["r01", "r04"]) == ["r01"]
+
+
+def test_candidate_required_narrators_falls_back_when_no_parenthetical_narrows_it():
+    cell = "**four inches** of travel"
+    assert audit.candidate_required_narrators(cell, "four inches", ["r02", "r09"]) == ["r02", "r09"]
+
+
+def test_candidate_required_narrators_main_clause_value_keeps_full_requirement():
+    # A candidate that lives OUTSIDE the parenthetical (the shared "8") is
+    # not narrowed just because a different candidate's parenthetical
+    # mentions one carrier by name.
+    cell = "**8** silent nights (r09 states only this; r06 additionally sums it to **69** in all)"
+    assert audit.candidate_required_narrators(cell, "8", ["r06", "r09"]) == ["r06", "r09"]
+    assert audit.candidate_required_narrators(cell, "69", ["r06", "r09"]) == ["r06"]
+
+
+def test_strip_known_document_quotes_removes_quote_text():
+    text = "Some narration. No lives were lost. Two of the gang are hurt. More narration."
+    known = frozenset({audit.normalize_ws_quotes("No lives were lost. Two of the gang are hurt.")})
+    out = audit.strip_known_document_quotes(text, known)
+    assert "no lives were lost" not in out.lower()
+    assert "some narration" in out.lower()
+    assert "more narration" in out.lower()
+
+
+def test_check2_anchor_excludes_unrelated_use_of_a_short_value():
+    # X16-style: the planted value ("1902") is a bare year that also occurs,
+    # unrelated, in another narrator -- but only alongside its own row's
+    # anchor word ("purchase") in the assigned narrator, not in the other
+    # narrator's unrelated sentence.
+    cmap_text = """\
+## r01 — Alice
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X01 | F001 | The purchase was in **1902**. | 1901. | Off-by-one |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    retellings = {
+        "r01": (Path("r01.md"), "The purchase was made in 1902, my father always said."),
+        "r02": (Path("r02.md"), "She married Josiah Frayne in 1902, an unrelated fact entirely."),
+        **{rid: (None, None) for rid in audit.NARRATOR_IDS if rid not in ("r01", "r02")},
+    }
+    report = audit.Report()
+    audit.check2_planted_errors(cmap, retellings, report)
+    assert one_status(report, "2-planted-errors", "X01") == "PASS"
+
+
+def test_check2_near_tie_bare_value_leak_downgrades_to_needs_human():
+    cmap_text = """\
+## r06 — Farm book
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X18 | F900 | **8** silent nights. | 5. | **Near-tie 1** (partner r09) |
+
+## r09 — Memorandum
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X47 | F900 | **8** silent nights. | 5. | **Near-tie 1** (partner r06) |
+
+## Near-tie pairs (explicit)
+
+| Pair | Wrong value | Carried by | Correct value | Settled by |
+|---|---|---|---|---|
+| **NT-1** | **8** silent nights | r06, r09 | **5** | a document |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    retellings = {
+        "r06": (Path("r06.md"), "There were eight silent nights, by my own count."),
+        "r09": (Path("r09.md"), "Eight such nights appear in the depot record."),
+        "r11": (Path("r11.md"), "Eight miles of descending grade, unrelated to any of this."),
+        **{rid: (None, None) for rid in audit.NARRATOR_IDS if rid not in ("r06", "r09", "r11")},
+    }
+    report = audit.Report()
+    audit.check2_planted_errors(cmap, retellings, report)
+    assert one_status(report, "2-planted-errors", "NT-1") == "NEEDS-HUMAN"
+
+
+def test_check2_near_tie_per_narrator_annotation_passes():
+    # NT-8-style: each carrier states its OWN different wrong phrasing, not
+    # a shared literal value -- the row's parenthetical annotation says so.
+    cmap_text = """\
+## r01 — Alice
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X37 | F008 | Ruth was Judd's **grand-niece**. | First cousin once removed. | **Near-tie 1** (partner r04) |
+
+## r04 — Dana
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X14 | F008 | Judd was **my father's uncle**. | First cousin once removed. | **Near-tie 1** (partner r01) |
+
+## Near-tie pairs (explicit)
+
+| Pair | Wrong value | Carried by | Correct value | Settled by |
+|---|---|---|---|---|
+| **NT-1** | Judd was Ruth's **great-uncle** (r04: "my father's uncle"; r01: "his grand-niece") | r01, r04 | first cousin once removed | a derivation |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    retellings = {
+        "r01": (Path("r01.md"), "She was his grand-niece, they told me."),
+        "r04": (Path("r04.md"), "Judd Rennick, my father's uncle, lent me the book."),
+        **{rid: (None, None) for rid in audit.NARRATOR_IDS if rid not in ("r01", "r04")},
+    }
+    report = audit.Report()
+    audit.check2_planted_errors(cmap, retellings, report)
+    found = [i for i in report.items if i.check == "2-planted-errors" and i.item_id.startswith("NT-1")]
+    assert len(found) == 2
+    assert all(i.status == "PASS" for i in found)
+
+
+def test_check5_document_quote_as_inline_italics_in_original_is_not_flagged():
+    # The same document can appear verbatim in the ORIGINAL story as inline
+    # italics (not a '>' blockquote), which `strip_blockquote_lines` alone
+    # does not catch. `strip_known_document_quotes` must exclude it too.
+    known_quotes = frozenset(
+        {audit.normalize_ws_quotes("No lives were lost. Two of the gang are hurt, and the engine is on her side.")}
+    )
+    originals = {
+        "01-story.md": (
+            "The paper said the same thing in longer words: *No lives were lost. Two of the "
+            "gang are hurt, and the engine is on her side.* Nothing else in this passage matters."
+        )
+    }
+    test_input_files = {
+        "test-input/retellings/r01.md": (
+            "# r01\n\n> *No lives were lost. Two of the gang are hurt, and the engine is on her side.*\n\n"
+            "That is all I have to say about it."
+        ),
+    }
+    report = audit.Report()
+    audit.check5_leakage(Path("."), "", originals, test_input_files, report, known_document_quotes=known_quotes)
+    twelve_gram_items = [i for i in report.items if "12-gram" in i.item_id]
+    assert all(i.status == "PASS" for i in twelve_gram_items)

@@ -38,19 +38,19 @@ But it was not built to three inches. It was built to two, and the chisel mark i
 
 Then August 1909. The gang jacked both shoes and set them again to the same two-inch mark — with the steel at eighty-six degrees. Eighty degrees down from eighty-six is six above zero.
 
-Six above zero. Which is where Judd Rennick's night book says the bridge spoke, sixty-one times in forty-three winters, and never once above.
+Six above zero. Judd Rennick's night book puts all sixty-one of the nights she spoke, across forty-three winters, right there — never once warmer.
 
 That is the whole of it. When the span cooled past its binding point the nest ran out of travel, the south shoe hung up, and the truss carried the load in stress until the shoe let go all at once and the span dropped into position with one report that ran along the rails. It was not a train. It was a bridge, arriving where it should have been.
 
 I have a second witness, and it is the part that convinced me. The Wexler family of Kettle Bench have kept a volunteer weather record — high, low and precipitation, every day. Miss Wexler puts the beginning of it at the first of January, 1894, and I have used her date. Peter Wexler began it and his daughter Lettie has kept it since 1926, and she lent it to me in four cardboard boxes without asking what I wanted it for. The Wexlers never wrote down a sound in their lives, and are related to nobody in this story. Their weather agrees with the station agent's book on every one of the sixty-one nights. Two records kept by people who had no occasion to compare them, neither knowing what the other was for.
 
-The Wexler record also settles the onset, which is the point I would most like you to carry home. Between the opening of the line in November 1897 and the re-decking of August 1909 there were seven nights at Kettle Bench below six degrees, four of them at the bottom of falls of thirty degrees or more. Nothing was heard on any of them, and nobody at the Falls has ever claimed there was. The coldest reading of those twelve years was nine below, on the fourth of February, 1899 — cold, but well short of the fourteen below that the bridge as built would have required. The two winters after the re-decking never once got below nine above zero, the coldest being the third of February, 1911. And the first night under six degrees after August 1909 fell on the seventeenth of January, 1912:
+The Wexler record also settles the onset, which is the point I would most like you to carry home. In the eighteen years between the line's opening in November 1897 and the re-decking of August 1909, the Wexler record counted seven nights at Kettle Bench that fell below six degrees, four of them following a day's drop of thirty degrees or better. Nothing was heard on any of them, and nobody at the Falls has ever claimed there was. Across those twelve years the coldest night came on the fourth of February, 1899, at nine below — cold, but well short of the fourteen below that the bridge as built would have required. The two winters after the re-decking never once got below nine above zero, the coldest being the third of February, 1911. And the first night under six degrees after August 1909 did not come until the seventeenth of January, 1912:
 
 > *Jan. 17. High 34. Low −2 at daylight. Clear, still.*
 
 That is the night the sound began, and the night my father's uncle started his book.
 
-The silence of those seven nights is not an absence of data. It is the proof. If the error of 1897 had been enough by itself, the valley would have heard the bridge in 1899. It heard nothing. It took a summer afternoon twelve years later, and a gang doing careful work in good faith at eighty-six degrees, to finish what was begun at sixty-six.
+Those seven silent nights are not a gap in the data. They are the proof. If the error of 1897 had been enough by itself, the valley would have heard the bridge in 1899. It heard nothing. It took a summer afternoon twelve years later, and a gang doing careful work in good faith at eighty-six degrees, to finish what was begun at sixty-six.
 
 Two more figures from Kettle Bench. The highest reading in the whole series is one hundred and one degrees, July 1936; the lowest reading in the whole series is thirteen below, January 1918.
 
