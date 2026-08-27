@@ -1,0 +1,492 @@
+{
+  "sections": {
+    "A": {
+      "items": [
+        {
+          "id": "A1.1",
+          "points": 1,
+          "max": 1,
+          "note": "Adela Rennick, computer and rodman, hired 1895, engagement to 1901, own duplicate field book in black oilcloth."
+        },
+        {
+          "id": "A1.2",
+          "points": 1,
+          "max": 1,
+          "note": "120+300+120=540 ft, pin-connected 300 ft center truss, 97 ft above the water, begun April 1896."
+        },
+        {
+          "id": "A1.3",
+          "points": 1,
+          "max": 1,
+          "note": "North end pinned, south end free on a roller nest in a cast pedestal; Sheet 11 called for three inches."
+        },
+        {
+          "id": "A1.4",
+          "points": 1,
+          "max": 1,
+          "note": "Closed 12 September 1897 at 66 degrees; nest set at two inches."
+        },
+        {
+          "id": "A1.5",
+          "points": 1,
+          "max": 1,
+          "note": "Reported to Warren Tice, resident engineer, overruled, pedestal could not be recast before the fall haul; page 62 and the 'A.R.' signature appear in A4 and E1.28."
+        },
+        {
+          "id": "A1.6",
+          "points": 1,
+          "max": 1,
+          "note": "One inch in three hundred feet for forty degrees, quoted from the field book front matter."
+        },
+        {
+          "id": "A1.7",
+          "points": 1,
+          "max": 1,
+          "note": "Runaway of 6 March 1898 (north approach, nobody killed, two hurt, nine days to rerail) and the 19 June 1901 sale for $2,150 are given in full, but in A3 rather than A1; credited as present within Section A."
+        },
+        {
+          "id": "A1.8",
+          "points": 1,
+          "max": 1,
+          "note": "Party reduced entire 15 May 1901; field book the only surviving account after the 4 April 1911 Ninestone fire; no punitive motive asserted here."
+        },
+        {
+          "id": "A2.1",
+          "points": 1,
+          "max": 1,
+          "note": "Judd Rennick b. 1888, son of Emil, nephew of Adela, night operator 1909, agent 1915, retired June 1954."
+        },
+        {
+          "id": "A2.2",
+          "points": 1,
+          "max": 1,
+          "note": "August 1909: 85-lb steel, new ties, both shoes jacked and re-set to the same mark, north-pier thermometer 86, deck forty tons heavier."
+        },
+        {
+          "id": "A2.3",
+          "points": 1,
+          "max": 1,
+          "note": "First heard 17 January 1912, high 34 low -2, book ruled up next morning, forty-three winters."
+        },
+        {
+          "id": "A2.4",
+          "points": 0,
+          "max": 1,
+          "note": "LOST. Section A never states the lore the sound was attached to (the 1898 runaway inflated into a drowned engine and a dead crew). A2 gives only the death-omen belief, which the key scores separately at A2.7. The engine lore is handled in D2/E1.15-16 but not in any Section A narrative."
+        },
+        {
+          "id": "A2.5",
+          "points": 1,
+          "max": 1,
+          "note": "Both conditions stated: low below +6 and a fall of at least thirty degrees; no exception in the book."
+        },
+        {
+          "id": "A2.6",
+          "points": 1,
+          "max": 1,
+          "note": "61 heard, 34 speaking winters, 9 silent, 5 silent qualifying nights, 66 in all, plus the no-second-speech-without-a-forty-degree-thaw rule."
+        },
+        {
+          "id": "A2.7",
+          "points": 1,
+          "max": 1,
+          "note": "190 deaths over the life of the book, seven within a week of a night she spoke."
+        },
+        {
+          "id": "A2.8",
+          "points": 1,
+          "max": 1,
+          "note": "Wager January 1936 with Dorsey Tice for $5, last heard 9 February 1954, rebuilt the following month (rockers named in A4), three silent qualifying nights after, final note 2 March 1956. Day of month (the 14th) omitted, though r08 and r12 both give it; scored as substance present."
+        },
+        {
+          "id": "A3.1",
+          "points": 1,
+          "max": 1,
+          "note": "Tolliver Lumber Company of Bly County, founded by Silas Tolliver, the Sixmile tram."
+        },
+        {
+          "id": "A3.2",
+          "points": 1,
+          "max": 1,
+          "note": "Pearl Tolliver Nace, bookkeeper, found the advertisement and wrote the cost in her margin."
+        },
+        {
+          "id": "A3.3",
+          "points": 1,
+          "max": 1,
+          "note": "19 June 1901, $2,150, 'delivered on her own wheels'; $8,600 new in 1889, Rowan Works no. 1142, a 4-4-0."
+        },
+        {
+          "id": "A3.4",
+          "points": 1,
+          "max": 1,
+          "note": "Renumbered 4 (the 9 painted out), numbering in order of purchase."
+        },
+        {
+          "id": "A3.5",
+          "points": 1,
+          "max": 1,
+          "note": "Main stem 1901-1928, twenty-seven years, set out when a second-hand eight-coupled engine arrived September 1928."
+        },
+        {
+          "id": "A3.6",
+          "points": 1,
+          "max": 1,
+          "note": "Cut up at Sixmile May 1929, scrap to Ravel Brothers for $470."
+        },
+        {
+          "id": "A3.7",
+          "points": 1,
+          "max": 1,
+          "note": "Books driven to the Bly County Historical Rooms in 1938 by Pearl Nace, no inquiry for twenty-four years (= 1962)."
+        },
+        {
+          "id": "A4.1",
+          "points": 1,
+          "max": 1,
+          "note": "September 1962 flood-control draw-down, Ruth Frayne, county highway civil engineer, Adela's granddaughter. Birth year 1934 not given; not treated as load-bearing."
+        },
+        {
+          "id": "A4.2",
+          "points": 1,
+          "max": 1,
+          "note": "Negative finding: no locomotive, no frame, no boiler shell, nothing of iron larger than a spike."
+        },
+        {
+          "id": "A4.3",
+          "points": 1,
+          "max": 1,
+          "note": "South pedestal forty feet below the abutment, chisel mark measured three times at two inches against Sheet 11's three; 1954 rockers at four inches."
+        },
+        {
+          "id": "A4.4",
+          "points": 1,
+          "max": 1,
+          "note": "Field book handed over by her father Wendell; night book lent by Judd Rennick himself."
+        },
+        {
+          "id": "A4.5",
+          "points": 1,
+          "max": 1,
+          "note": "-54 as drawn, -14 as built, +6 after the 1909 re-seating at 86."
+        },
+        {
+          "id": "A4.6",
+          "points": 1,
+          "max": 1,
+          "note": "Wexler register agreed on all 61 nights, seven nights below +6 in 1897-1909 with nothing heard, coldest nine below 4 February 1899, first qualifying night after August 1909 = 17 January 1912. Start date 1 January 1894 omitted (the sheet abstains on it at E1.17) and the two mild post-1909 winters appear in F, not A4; core substance present."
+        },
+        {
+          "id": "A4.7",
+          "points": 0,
+          "max": 1,
+          "note": "LOST. A4 says only 'Photostats from Bly County closed out the locomotive.' The second half of the key item - deposit of the material with the Pell County Historical Society, 1963/1967/1969 - appears nowhere in Section A (only the 1969 night-book route in B5). No partial credit."
+        }
+      ],
+      "total": 28,
+      "max": 30
+    },
+    "B": {
+      "items": [
+        {
+          "id": "B1",
+          "points": 2,
+          "max": 2,
+          "note": "Brother and sister, Emil elder b. 1866, Adela younger b. 1874, three concordant sources."
+        },
+        {
+          "id": "B2",
+          "points": 2,
+          "max": 2,
+          "note": "Nephew (1) plus resolution (1): r03's stated parentage, Wendell's explicit correction of the courtesy 'uncle', r07's provenance. r07's swapped attributions are resolved at E1.28 rather than in B2; birth years not invoked here but the required resolution is present."
+        },
+        {
+          "id": "B3",
+          "points": 2,
+          "max": 2,
+          "note": "First cousin once removed, with the full derivation (siblings -> Judd and Wendell first cousins -> Ruth is Wendell's daughter)."
+        },
+        {
+          "id": "B4",
+          "points": 2,
+          "max": 2,
+          "note": "Warren Tice named as father and resident engineer (1); significance stated - the bettor was the son of the man who overruled the objection, betting against the sound his father's ruling produced (1). The sheet argues Dorsey later knew the family had a stake, where the key's I05 says neither knew; treated as a defensible inference, not a factual error."
+        },
+        {
+          "id": "B5",
+          "points": 2,
+          "max": 2,
+          "note": "All four chains correct (field book Adela->Wendell->Ruth; night book lent by Judd in person; Wexler Peter->Lettie 1926->lent 1962; Tolliver Nace->Bly County 1938->photostats 1962). Four or more links = 2."
+        }
+      ],
+      "total": 10,
+      "max": 10
+    },
+    "C": {
+      "items": [
+        {
+          "id": "C1",
+          "points": 4,
+          "max": 4,
+          "note": "(a) -54, (b) -14, (c) +6, (d) 20 degrees. The -94 four-inch variant is given as a rejected alternative, not asserted."
+        },
+        {
+          "id": "C2",
+          "points": 4,
+          "max": 4,
+          "note": "Working shown (38-6=32, 32/4=8 h), about midnight, 41-(-3)=44 degrees, yes it satisfies the thirty-degree condition."
+        },
+        {
+          "id": "C3",
+          "points": 4,
+          "max": 4,
+          "note": "1.4, 66, 1.8, and the exclusion of the post-March-1954 qualifying nights as outside the 43 logged winters and after the mechanism was removed."
+        },
+        {
+          "id": "C4",
+          "points": 4,
+          "max": 4,
+          "note": "Working plus 40 years old, 25.0 percent exactly, 27 years worked (ownership variant flagged, not substituted)."
+        },
+        {
+          "id": "C5",
+          "points": 4,
+          "max": 4,
+          "note": "540 ft; 9 x 5,280 = 47,520 x 0.022 = 1,045.44 ft with working; 101-(-11)=112, 112/40 = 2.8 in. The 2.85 figure appears only as the rejected -13 variant."
+        }
+      ],
+      "total": 20,
+      "max": 20
+    },
+    "D": {
+      "items": [
+        {
+          "id": "D1.1",
+          "points": 1,
+          "max": 1,
+          "note": "'Necessary but not sufficient - individually necessary and jointly insufficient.'"
+        },
+        {
+          "id": "D1.2",
+          "points": 1,
+          "max": 1,
+          "note": "Grounded in the log: every one of the 61 nights had both, cross-checked against the Wexler register."
+        },
+        {
+          "id": "D1.3",
+          "points": 1,
+          "max": 1,
+          "note": "States insufficiency without conflating the terms."
+        },
+        {
+          "id": "D1.4",
+          "points": 1,
+          "max": 1,
+          "note": "Five qualifying nights inside the book produced nothing; one counterexample destroys sufficiency."
+        },
+        {
+          "id": "D1.5",
+          "points": 1,
+          "max": 1,
+          "note": "Reason given: already released in the same cold spell, no daytime thaw above about forty degrees since."
+        },
+        {
+          "id": "D2.1",
+          "points": 1,
+          "max": 1,
+          "note": "Reason 1: 1962 physical search of eight hundred feet of dry bed, nothing of iron larger than a spike."
+        },
+        {
+          "id": "D2.2",
+          "points": 1,
+          "max": 1,
+          "note": "Reason 2: contemporaneous wreck record - Sentinel 8 March 1898 and field book p. 71, north approach, nobody killed."
+        },
+        {
+          "id": "D2.3",
+          "points": 1,
+          "max": 1,
+          "note": "Reason 3: sold out of the county 19 June 1901, cut up at Sixmile May 1929 two hundred miles away; plus the 1912 onset and the 1954 cessation."
+        },
+        {
+          "id": "D2.4",
+          "points": 1,
+          "max": 1,
+          "note": "Every reason attributed to a named narrator or document (r02, r03, r04, r05, r07, r09, r10, r11, r12)."
+        },
+        {
+          "id": "D2.5",
+          "points": 1,
+          "max": 1,
+          "note": "Reasons drawn from far more than three narrators."
+        },
+        {
+          "id": "D3.1",
+          "points": 0,
+          "max": 1,
+          "note": "LOST + gullibility deduction. Abstention item A01. The sheet answers definitely: 'No - the objection did not cause her departure, and the one surviving document says so plainly.' It reserves only Tice's private feelings. Per the key's rule an assertion either way scores 0 here and triggers -2. See key problems."
+        },
+        {
+          "id": "D3.2",
+          "points": 1,
+          "max": 1,
+          "note": "Letter of 30 April 1901 quoted in full: party reduced entire on 15 May, pay to that day."
+        },
+        {
+          "id": "D3.3",
+          "points": 1,
+          "max": 1,
+          "note": "Substance present in altered form: the sheet separates the documented occasion from motive and states that Tice's private view is not recoverable from the sources. It does not say the recommendation 'cuts both ways' - it reads it one way - so this is credited on the first branch only."
+        },
+        {
+          "id": "D3.4",
+          "points": 1,
+          "max": 1,
+          "note": "Opposite motive claims noted (r02's retaliation vs r10/r12's 'over in an afternoon') with r02's admission that he has nothing in writing; E1.12 adds that neither side has a document."
+        },
+        {
+          "id": "D3.5",
+          "points": 1,
+          "max": 1,
+          "note": "Notes that nothing survives from Tice either way - his son says he never spoke of the bridge, 'consistent with a grudge, with embarrassment, or with nothing at all.'"
+        }
+      ],
+      "total": 14,
+      "max": 15
+    },
+    "E": {
+      "items": [
+        {
+          "id": "E.resolvable",
+          "points": 6,
+          "max": 6,
+          "note": "18 of the key's 20 resolvable conflicts found, correctly resolved, with a method stated (key rows 1-10, 12-16, 18-20). Capped at 6. Missed: row 11 (Kettle Bench start year - the sheet declines to settle it at E1.17) and row 17 (Ruth's occupation - r11's 'weather observer' is never listed as a conflict). Neither miss costs a point because the cap is reached."
+        },
+        {
+          "id": "E.abstention",
+          "points": 2,
+          "max": 2,
+          "note": "All three keyed abstentions declared unsettleable: A02 Ninestone (E1.26), A03 the retirement-dinner remark (E1.11), A04 who set the nest (E1.9). Capped at 2."
+        },
+        {
+          "id": "E.bonus",
+          "points": 2,
+          "max": 2,
+          "note": "r07's internal inconsistency identified as self-refuting at E1.28 and again in the self-contradiction notes: the wrapper labels are transposed relative to the 'A.R.' initials, the hands, the contents and the provenance slips. The age-nine arithmetic is not spelled out, but the self-refutation is explicit."
+        }
+      ],
+      "total": 10,
+      "max": 10
+    },
+    "F": {
+      "items": [
+        {
+          "id": "F1",
+          "points": 1,
+          "max": 1,
+          "note": "Names the south roller nest / expansion bearing of the center span as the source."
+        },
+        {
+          "id": "F2",
+          "points": 1,
+          "max": 1,
+          "note": "Two inches where Sheet 11 called for three - one inch short."
+        },
+        {
+          "id": "F3",
+          "points": 1,
+          "max": 1,
+          "note": "Binds, stores strain, releases in one stroke; one deep report, never a rattle, never twice in a night."
+        },
+        {
+          "id": "F4",
+          "points": 1,
+          "max": 1,
+          "note": "Rail-borne: sounder in its bracket first, then the floor, then the room; felt before heard."
+        },
+        {
+          "id": "F5",
+          "points": 1,
+          "max": 1,
+          "note": "+6 derived as 86 - (2 in x 40 deg)."
+        },
+        {
+          "id": "F6",
+          "points": 1,
+          "max": 1,
+          "note": "Thirty-degree fall tied to rapid contraction outrunning creep, versus slow decline relieving itself."
+        },
+        {
+          "id": "F7",
+          "points": 1,
+          "max": 1,
+          "note": "Five silent qualifying nights explained by prior release plus the need for a forty-degree thaw to reset; necessity vs sufficiency held apart."
+        },
+        {
+          "id": "F8",
+          "points": 1,
+          "max": 1,
+          "note": "Onset: -14 as built never reached (coldest nine below, 4 February 1899), seven silent cold nights 1897-1909, re-seating at 86 moved it to +6, first qualifying night 17 January 1912."
+        },
+        {
+          "id": "F9",
+          "points": 1,
+          "max": 1,
+          "note": "Cessation: March 1954 rockers, four inches = 160 degrees, unreachable; three qualifying nights afterwards silent."
+        },
+        {
+          "id": "F10",
+          "points": 1,
+          "max": 1,
+          "note": "1962 evidence: discarded south pedestal forty feet below the abutment with the two-inch chisel mark, plus the empty creek bed."
+        }
+      ],
+      "total": 10,
+      "max": 10
+    },
+    "G": {
+      "items": [
+        {
+          "id": "G1",
+          "points": 1,
+          "max": 1,
+          "note": "117 words, within the 120-word cap."
+        },
+        {
+          "id": "G2",
+          "points": 0,
+          "max": 1,
+          "note": "LOST. All four strands are named and Adela, Judd and Ruth all appear, but the summary never states the family link between them (nephew / granddaughter). The key requires both halves in one yes/no item."
+        },
+        {
+          "id": "G3",
+          "points": 1,
+          "max": 1,
+          "note": "Arc start: nest set at two inches where Sheet 11 called for three, reported, overruled, written down."
+        },
+        {
+          "id": "G4",
+          "points": 1,
+          "max": 1,
+          "note": "Arc end: forty-three winters logged, ended by new bearings in 1954, explained by Ruth Frayne in 1962. The word 'misattributed' is not used, but the summary corrects the locomotive story in the same breath."
+        },
+        {
+          "id": "G5",
+          "points": 1,
+          "max": 1,
+          "note": "No canon contradiction and no absorbed corruption; no locomotive in the creek, no wrong headline number."
+        }
+      ],
+      "total": 4,
+      "max": 5
+    }
+  },
+  "deductions": [
+    {
+      "id": "A01",
+      "points": -2,
+      "note": "Gullibility deduction: abstention item A01 (D3) answered with a definite assertion - 'the objection did not cause her departure, and the one surviving document says so plainly' - rather than a declared inability to settle it. No corruption deductions: every flagged planted value in the sheet is quoted as a rejected or unresolved claim, never asserted as fact."
+    }
+  ],
+  "total": 94
+}
