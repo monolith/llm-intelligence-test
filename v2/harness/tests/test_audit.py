@@ -1506,3 +1506,360 @@ def test_check7_bullet_id_with_parenthetical_before_period_is_recognized():
     answers_text = "- **C1 (4 points, 1 each).**\n  (a) something"
     scored_items, *_ = audit.parse_answers_scoring(answers_text)
     assert "C1" in scored_items
+
+
+# --------------------------------------------------------------------------
+# v3 audit-triage, 2026-08-28
+# --------------------------------------------------------------------------
+
+
+def test_strip_blockquote_markers_removes_leading_marker_but_keeps_content():
+    text = "> Ostrey Hollow station. Begun this 4th day of May, 1896. Glass borrowed\n> of Larrow Green until our own comes."
+    assert audit.strip_blockquote_markers(text) == (
+        "Ostrey Hollow station. Begun this 4th day of May, 1896. Glass borrowed\nof Larrow Green until our own comes."
+    )
+
+
+def test_normalize_ws_quotes_does_not_leave_a_stray_gt_at_a_line_wrap():
+    # A multi-line blockquote's continuation lines each start with '> ' in the
+    # source markdown; naive whitespace collapse alone turns the line break
+    # into a plain space and leaves a literal '>' glued mid-sentence.
+    text = "> Every patron shall be paid for the milk he delivers according to the number\n> of pounds of butter fat."
+    normalized = audit.normalize_ws_quotes(text)
+    assert ">" not in normalized
+    assert "number of pounds" in normalized
+
+
+def test_normalize_ws_quotes_strips_per_line_italics_in_a_wrapped_blockquote():
+    # Some retellings wrap EACH line of a multi-line document quote in its
+    # own italics ("> *line one*\n> *line two*") rather than opening the
+    # span once across the whole quote -- left in place, the per-line
+    # closing/reopening asterisks survive as literal '*' characters glued
+    # between lines.
+    text = "> *Sold to the Association, for the station:*\n> *6 doz. pipettes at .35 — 25.20*"
+    normalized = audit.normalize_ws_quotes(text)
+    assert "*" not in normalized
+    assert "station: 6 doz. pipettes" in normalized
+
+
+def test_strip_markdown_tables_drops_table_lines_keeps_prose():
+    text = "Some prose.\n| Season | Test |\n|---|---|\n| 1915 | 3.79 |\nMore prose."
+    stripped = audit.strip_markdown_tables(text)
+    assert "|" not in stripped
+    assert "Some prose." in stripped
+    assert "More prose." in stripped
+
+
+def test_word_count_after_framing_excludes_tables_and_blockquote_markers(tmp_path):
+    text = (
+        "# Title\n\n*Framing note.*\n\none two three\n"
+        "| a | b |\n|---|---|\n| c | d |\n"
+        "> four\n> five\n"
+    )
+    # "one two three four five" = 5 words; the table's cells/pipes and the
+    # blockquote's '>' markers must not be counted.
+    assert audit.word_count_after_framing(text) == 5
+
+
+def test_number_to_words_handles_millions_and_mixed_thousands():
+    assert audit.number_to_words(44_000_000) == "forty-four million"
+    assert audit.number_to_words(40_000_000) == "forty million"
+    assert audit.number_to_words(1_600_000) == "one million six hundred thousand"
+    assert audit.number_to_words(67_000) == "sixty-seven thousand"
+    assert audit.number_to_words(19_600) == "nineteen thousand six hundred"
+    # Small-number behavior from before this pass must be unchanged.
+    assert audit.number_to_words(2510, with_and=True) == "two thousand five hundred and ten"
+
+
+def test_number_to_hundreds_idiom_only_fires_for_round_thousands():
+    assert audit.number_to_hundreds_idiom(3500) == "thirty-five hundred"
+    assert audit.number_to_hundreds_idiom(1900) == "nineteen hundred"
+    assert audit.number_to_hundreds_idiom(3542) is None  # has its own remainder
+    assert audit.number_to_hundreds_idiom(500) is None  # below 1,100
+
+
+def test_generate_number_variants_includes_hundreds_idiom():
+    variants = audit.generate_number_variants("$3,500")
+    assert any("thirty-five hundred" in v for v in variants)
+
+
+def test_expand_measurement_token_handles_pounds_and_dozen():
+    assert "sixty-seven thousand pounds" in audit.expand_measurement_token("67,000 lb")
+    assert "forty-four million pounds" in audit.expand_measurement_token("44,000,000 lb")
+    assert "five dozen" in audit.expand_measurement_token("5 doz.")
+    assert "six dozen" in audit.expand_measurement_token("6 dozen")
+
+
+def test_expand_decimal_token_handles_hundredths_tenths_and_two_part_forms():
+    assert "three sixty-one" in audit.expand_decimal_token("3.61")
+    assert "three eighty-five" in audit.expand_decimal_token("3.85")
+    assert "nineteen hundredths" in audit.expand_decimal_token("0.19")
+    variants = audit.expand_decimal_token("0.20")
+    assert "twenty hundredths" in variants
+    assert "two tenths" in variants
+
+
+def test_expand_year_token_gives_two_part_and_round_century_forms():
+    assert "eighteen sixty-eight" in audit.expand_year_token("1868")
+    assert "nineteen hundred" in audit.expand_year_token("1900")
+    assert "nineteen hundred and seven" in audit.expand_year_token("1907")
+
+
+def test_expand_year_shorthand_gives_bare_tail_only():
+    # r17 (a taped interview) and r23 (a first-person memoir) both drop the
+    # century for their own wrong dates ("in ninety-nine", "in twenty-two").
+    # Deliberately a SEPARATE function from `expand_year_token` -- see
+    # `candidate_present`'s `strict` flag.
+    assert audit.expand_year_shorthand("1899") == ["ninety-nine"]
+    assert audit.expand_year_shorthand("1922") == ["twenty-two"]
+    assert audit.expand_year_shorthand("1900") == []  # round century has no bare tail
+    assert "ninety-nine" not in audit.expand_year_token("1899")
+
+
+def test_candidate_present_strict_omits_fragile_year_shorthand():
+    # The bare shorthand form collides with an unrelated count/age/duration
+    # far too easily to trust when checking whether a value has LEAKED into
+    # some OTHER narrator (v2's own corpus: "eighteen seventy-six" against
+    # an unrelated "written at seventy-six").
+    text = "written at seventy-six by the keeper of the record"
+    assert audit.candidate_present(text, "1876") is True
+    assert audit.candidate_present(text, "1876", strict=True) is False
+    # Non-shorthand forms still work under strict mode.
+    full_text = "she was born in eighteen seventy-six, by her own account"
+    assert audit.candidate_present(full_text, "1876", strict=True) is True
+
+
+def test_expand_date_token_gives_ordinal_prose_form():
+    assert audit.expand_date_token("1 May 1898") == ["the first of May, 1898"]
+    assert audit.expand_date_token("12 July 1923") == ["the twelfth of July, 1923"]
+    assert audit.expand_date_token("not a date") == []
+
+
+def test_expand_currency_token_gives_dollars_and_cents_prose():
+    assert audit.expand_currency_token("$77.39") == ["seventy-seven dollars and thirty-nine cents"]
+
+
+def test_generate_plural_variants_gives_singular_cousin_form():
+    variants = audit.generate_plural_variants("Ivy and Hazel first cousins once removed")
+    assert any("first cousin once removed" in v and "cousins" not in v for v in variants)
+
+
+def test_candidate_present_finds_hundred_idiom_decimal_and_ordinal_date_forms():
+    # Each of these mirrors an actual v3 retelling sentence that a plain
+    # digit<->word conversion could not have matched before this pass.
+    assert audit.candidate_present("they paid thirty-five hundred dollars and called it settled", "$3,500")
+    assert audit.candidate_present("the average of this station was three eighty-five", "3.85")
+    assert audit.candidate_present("went into use on the first of may, 1898, and remained", "1 May 1898")
+    assert audit.candidate_present("she went up that ladder in the winter of nineteen thirteen", "1913")
+
+
+def test_extract_fact_id_accepts_trailing_lowercase_letter_suffix():
+    # canon.md's own convention (F098, F098a, F098b, F098c are four DIFFERENT
+    # facts) must not collapse "F098a ..." and a separate "F098 ..." row to
+    # the same extracted id.
+    assert audit._extract_fact_id("F098a Larrow Green's own average 3.78") == "F098a"
+    assert audit._extract_fact_id("F098 sixteen seasons, ~0.19 higher") == "F098"
+
+
+def test_candidate_tokens_from_fact_cell_strips_lettered_fact_id():
+    tokens = audit._candidate_tokens_from_fact_cell("F098a Larrow Green's own average 3.78")
+    assert tokens == ["3.78"]
+
+
+def test_recoverability_parsing_captures_every_narrator_id_in_one_token():
+    # A "Correct in" cell can cram several ids into one comma-separated
+    # segment via ';'/'and' inside a parenthetical gloss.
+    cmap_text = """\
+## Recoverability index
+
+| Fact | Correct in | Corrupted in | How it resolves |
+|---|---|---|---|
+| F098a Larrow Green's own average 3.78 | r14, r22 (the figure); r07 and r09 (the comparison) | — | Two sources |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    assert len(cmap.recoverability) == 1
+    ids = sorted(n for n, _ in cmap.recoverability[0].listed)
+    assert ids == ["r07", "r09", "r14", "r22"]
+
+
+def test_is_known_document_fragment_handles_ellipsis_across_two_pieces():
+    known = frozenset(
+        {audit.normalize_ws_quotes(
+            "Ostrey Hollow station. Begun this 4th day of May, 1896. Glass borrowed of "
+            "Larrow Green until our own comes. A. Keddie."
+        )}
+    )
+    cand = audit.normalize_ws_quotes("Begun this 4th day of May, 1896 … A. Keddie")
+    assert audit.is_known_document_fragment(cand, known)
+    assert not audit.is_known_document_fragment(
+        audit.normalize_ws_quotes("An entirely unrelated sentence"), known
+    )
+
+
+def test_check2_document_fragment_exclusion_requires_quoted_context():
+    # X94-style: a bare **bold** wrong-value candidate (no quotation marks at
+    # all in the As-told cell) must NOT be excluded just because the same
+    # short digit string happens to appear, unrelated, inside some other
+    # document's own verbatim text (D5's "the nine weeks of 1911").
+    cmap_text = """\
+## r01 — Alice
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X01 | F001 | Selby Vose became manager in **1911**. | 1913. | Date drift |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    known_document_quotes = frozenset(
+        {"the recorded average held steady, save the nine weeks of 1911 that are noted in their place"}
+    )
+    retellings = {
+        "r01": (Path("r01.md"), "Selby Vose became manager in 1911, everyone agreed."),
+        **{rid: (None, None) for rid in audit.NARRATOR_IDS if rid != "r01"},
+    }
+    report = audit.Report()
+    audit.check2_planted_errors(
+        cmap, retellings, report, known_document_quotes=known_document_quotes, narrator_ids=audit.NARRATOR_IDS
+    )
+    assert one_status(report, "2-planted-errors", "X01") == "PASS"
+
+
+def test_find_leaked_ngram_skips_a_run_that_is_itself_a_known_document_quote():
+    # An original story can quote only a short CLAUSE of a longer document
+    # sentence inline (e.g. its closing words, as an aside) -- too irregular
+    # a fragment for whole-quote stripping upstream to catch, so the found
+    # 12-word run itself must be checked against the known document quotes.
+    known = frozenset(
+        {
+            "i have never taken a pound of cream out of that station and there is not a "
+            "man in this room who thinks i have when he is by himself"
+        }
+    )
+    # Twelve words, all drawn verbatim from the known D9-style quote above.
+    origin_text = "his own denial there is not a man in this room who thinks i have when he is by himself was accurate"
+    origin_ngrams = audit.build_ngrams(origin_text)
+    retelling_text = "and there is not a man in this room who thinks i have when he is by himself either"
+    assert audit.find_leaked_ngram(retelling_text, origin_ngrams, known_document_quotes=known) is None
+    # Without the known-document exclusion, the same run is (correctly) still flagged.
+    assert audit.find_leaked_ngram(retelling_text, origin_ngrams) is not None
+
+
+def test_strip_known_document_quotes_does_not_touch_unrelated_short_words():
+    # Guards against the failure mode a sentence-level fragment stripper
+    # would have: a known quote beginning with a bare initial ("A. Keddie")
+    # must never turn into a pattern that matches every "A" in unrelated text.
+    known = frozenset({"begun this 4th day of may, 1896. a. keddie."})
+    text = "A man walked a long way and saw a bird."
+    assert audit.strip_known_document_quotes(text, known) == audit.normalize_ws_quotes(text)
+
+
+def test_is_fragile_bare_value_flags_spelled_out_bare_numbers():
+    assert audit.is_fragile_bare_value("Seven")
+    assert audit.is_fragile_bare_value("eleven")
+    assert audit.is_fragile_bare_value("twenty-six")
+    # A digit string of 3+ characters (an exact year, in practice) is a
+    # trustworthy fingerprint on its own.
+    assert not audit.is_fragile_bare_value("1868")
+    # A number combined with other context is unaffected -- it is governed
+    # by LEAK_ANCHORS instead, not blanket fragility.
+    assert not audit.is_fragile_bare_value("4 inches")
+    assert not audit.is_fragile_bare_value("nephew")
+
+
+def test_check2_standalone_bare_number_word_leak_downgrades_to_needs_human():
+    # X07-style: the wrong value is nothing but a common spelled-out number
+    # ("Seven"), which recurs constantly elsewhere in the corpus for
+    # unrelated counts/distances -- present in its assigned narrator, but a
+    # leak elsewhere should be NEEDS-HUMAN, not a hard FAIL.
+    cmap_text = """\
+## r01 — Alice
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X01 | F001 | **Seven** farms had rights on the bottom. | Six. | Unique |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    retellings = {
+        "r01": (Path("r01.md"), "Seven farms had rights on the bottom, everyone agreed."),
+        "r02": (Path("r02.md"), "Seven miles of hill road, unrelated to any of this."),
+        **{rid: (None, None) for rid in audit.NARRATOR_IDS if rid not in ("r01", "r02")},
+    }
+    report = audit.Report()
+    audit.check2_planted_errors(cmap, retellings, report)
+    assert one_status(report, "2-planted-errors", "X01") == "NEEDS-HUMAN"
+
+
+def test_check2_standalone_still_fails_a_genuine_leak_of_a_distinctive_value():
+    # The fragile-value downgrade must not swallow a REAL leak of a
+    # distinctive (non-bare-number) wrong value.
+    cmap_text = """\
+## r01 — Alice
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X01 | F001 | The bridge was **crimson**. | Blue. | Off-by-color |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    retellings = {
+        "r01": (Path("r01.md"), "The bridge was crimson, everybody said so."),
+        "r02": (Path("r02.md"), "I too remember the bridge being crimson that year."),
+        **{rid: (None, None) for rid in audit.NARRATOR_IDS if rid not in ("r01", "r02")},
+    }
+    report = audit.Report()
+    audit.check2_planted_errors(cmap, retellings, report)
+    assert one_status(report, "2-planted-errors", "X01") == "FAIL"
+
+
+def test_parse_narrator_document_ids_excludes_none_verbatim_caveat():
+    # r19-style: "**Documents.** None verbatim; it paraphrases D14 loosely
+    # and must not be allowed to quote it." must not be read as r19
+    # transcribing D14 -- check 4 would otherwise demand a verbatim match
+    # the key explicitly forbids.
+    text = """\
+## r19 — A newspaper feature
+
+**Documents.** None verbatim; it paraphrases D14 loosely and must not be allowed to quote it.
+"""
+    ids = audit.parse_narrator_document_ids(text)
+    assert ids == {}
+
+
+def test_parse_narrator_document_ids_still_reads_a_genuine_bolded_list():
+    text = """\
+## r07 — Accession notes
+
+**Documents.** **D1, D2, D3** — all verbatim.
+"""
+    ids = audit.parse_narrator_document_ids(text)
+    assert ids == {"r07": ["D1", "D2", "D3"]}
+
+
+def test_parse_corruption_map_skips_a_withdrawn_struck_through_error_row():
+    # A validation pass can withdraw a previously-live error after re-keying
+    # its fact a different way; the row is kept (struck through) as a
+    # record, and must not be checked as if it were still live.
+    cmap_text = """\
+## r06 — Merle Strawn
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| ~~X23~~ | — | ~~He took the circuit in **1907**.~~ | — | **WITHDRAWN (validation ruling 2).** Re-keyed as NT-23. |
+| X24 | F001 | The book was **blue**. | Red. | Unique |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    ids = [e.error_id for e in cmap.errors]
+    assert "X24" in ids
+    assert not any("X23" in i for i in ids)
+
+
+def test_missing_retellings_summary_line_excludes_word_count_failures(capsys):
+    # A retelling that EXISTS but is outside the word-count band is a
+    # "1-files-and-lengths" FAIL under the bare "rNN" item id, same as a
+    # truly absent file -- the summary line must not call the former
+    # "missing".
+    report = audit.Report()
+    report.add("1-files-and-lengths", "r10", "FAIL", "r10-letter.md: 1554 words (after framing) — outside 1,000-1,500")
+    report.add("1-files-and-lengths", "r11", "FAIL", "missing retelling r11: no file matching r11-*.md in test-input/retellings/")
+    audit.print_report(report)
+    out = capsys.readouterr().out
+    assert "Missing retellings: r11" in out
+    assert "r10" not in out.split("Missing retellings:")[1].split("\n")[0]

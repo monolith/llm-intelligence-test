@@ -36,10 +36,45 @@ from typing import Iterable, Optional
 # --------------------------------------------------------------------------
 
 
+_BLOCKQUOTE_MARKER_RE = re.compile(r"^[ \t]*>+[ \t]?", re.MULTILINE)
+
+
+def strip_blockquote_markers(s: str) -> str:
+    """Drop a leading markdown blockquote marker ('>' plus one optional space)
+    from the start of every line, WITHOUT dropping the line's content (unlike
+    `strip_blockquote_lines`, which removes the whole line -- used only where
+    a document's quoted text must be excluded entirely, e.g. check 5's
+    n-gram seeding). A multi-line blockquote's wrapped continuation lines
+    each start with '> ' in the source markdown; left in place, whitespace
+    collapse turns the line break into a plain space and leaves a literal
+    '>' character glued into the middle of the flattened prose (e.g. "...the
+    number > pounds of butter fat..."), which silently breaks every
+    substring search that should have matched straight through the wrap."""
+    return _BLOCKQUOTE_MARKER_RE.sub("", s)
+
+
+_EMPHASIS_MARKER_RE = re.compile(r"[*_]+")
+
+
 def normalize_ws_quotes(s: str) -> str:
-    """Collapse whitespace and fold curly quotes/dashes to straight ASCII forms."""
+    """Collapse whitespace, fold curly quotes/dashes to straight ASCII forms,
+    and drop markdown emphasis markers ('*'/'_'). Some retellings wrap a
+    multi-line block-quoted document PER LINE in its own italics (e.g. each
+    line of r20's invoice reads "> *Sold to ... station:*", closing and
+    reopening the span every line) rather than once across the whole quote;
+    left in place, the per-line closing/opening asterisks survive whitespace
+    collapse as literal '*' characters glued between lines (e.g. "...
+    station:* *6 doz...."), breaking a verbatim substring match that should
+    read straight through. No candidate or document text is ever meant to
+    contain a literal '*' or '_' itself -- every extractor that pulls a
+    **bold** or *italic* span (`extract_bold_spans`, `clean_quote`, canon's
+    own document-quote parsing) already strips the markers before returning
+    the text -- so dropping them here is safe on both sides of every
+    comparison."""
+    s = strip_blockquote_markers(s)
     s = s.replace("’", "'").replace("‘", "'")
     s = s.replace("“", '"').replace("”", '"')
+    s = _EMPHASIS_MARKER_RE.sub("", s)
     s = re.sub(r"\s+", " ", s)
     return s.strip()
 
@@ -109,16 +144,29 @@ def _two_digit_words(n: int) -> str:
     return _TENS[tens] + ("-" + _ONES[ones] if ones else "")
 
 
+_BIG_SCALES = [(1_000_000_000, "billion"), (1_000_000, "million"), (1_000, "thousand")]
+
+
 def number_to_words(n: int, with_and: bool = True) -> str:
+    """Convert 0 <= n < 1,000,000,000,000 to words. Handles multi-million
+    values (this corpus states milk intake in the tens of millions of
+    pounds, e.g. "forty-four million") by chunking off billion/million/
+    thousand groups before falling back to the original hundreds-and-tens
+    logic for what remains -- e.g. 1,600,000 -> "one million six hundred
+    thousand" (both the million AND the trailing thousand-group are chunked
+    in the same pass, since after removing the million the 600,000
+    remainder is still itself >= 1,000)."""
     if n == 0:
         return "zero"
-    if n < 0 or n >= 10000:
+    if n < 0 or n >= 1_000_000_000_000:
         return str(n)
     parts = []
-    thousands, rem = divmod(n, 1000)
-    hundreds, rem2 = divmod(rem, 100)
-    if thousands:
-        parts.append(_two_digit_words(thousands) + " thousand")
+    remainder = n
+    for scale_value, scale_name in _BIG_SCALES:
+        if remainder >= scale_value:
+            count, remainder = divmod(remainder, scale_value)
+            parts.append(number_to_words(count, with_and=False) + " " + scale_name)
+    hundreds, rem2 = divmod(remainder, 100)
     if hundreds:
         parts.append(_ONES[hundreds] + " hundred")
     if rem2:
@@ -130,6 +178,19 @@ def number_to_words(n: int, with_and: bool = True) -> str:
     return " ".join(parts)
 
 
+def number_to_hundreds_idiom(n: int) -> Optional[str]:
+    """The spoken-English shorthand for a round multiple of 100 in the
+    thousands, e.g. 3,500 -> "thirty-five hundred" (rather than "three
+    thousand five hundred") -- this corpus's retellings use exactly this
+    idiom for dollar amounts (r01/r21's "thirty-five hundred dollars" for
+    the $3,500 near-tie value). Only defined for exact hundreds from 1,100
+    to 9,900; returns None otherwise (a value with its own tens/ones
+    remainder, e.g. 3,542, is never read this way)."""
+    if 1100 <= n <= 9900 and n % 100 == 0:
+        return _two_digit_words(n // 100) + " hundred"
+    return None
+
+
 def generate_number_variants(candidate: str) -> list[str]:
     """Given a literal candidate string, return extra digit<->word variants."""
     variants: list[str] = []
@@ -138,11 +199,14 @@ def generate_number_variants(candidate: str) -> list[str]:
         digits = m.group(1).replace(",", "")
         if digits.isdigit():
             n = int(digits)
-            if 0 < n < 10000:
+            if 0 < n < 1_000_000_000:
                 for with_and in (True, False):
                     words = number_to_words(n, with_and=with_and)
                     variant = candidate[: m.start()] + words + candidate[m.end():]
                     variants.append(variant.strip())
+                idiom = number_to_hundreds_idiom(n)
+                if idiom:
+                    variants.append((candidate[: m.start()] + idiom + candidate[m.end():]).strip())
     else:
         words_list = candidate.split()
         for length in range(min(4, len(words_list)), 0, -1):
@@ -177,7 +241,135 @@ def generate_punctuation_variants(candidate: str) -> list[str]:
     return variants
 
 
-def candidate_present(haystack_norm: str, candidate: str) -> bool:
+_PLURAL_KINSHIP_RE = re.compile(r"\bcousins\b", re.IGNORECASE)
+
+
+def generate_plural_variants(candidate: str) -> list[str]:
+    """The key states some kinship facts as the MUTUAL, plural relationship
+    ("Ivy and Hazel first cousins once removed"), while a retelling
+    naturally phrases the same fact as one person's SINGULAR possessive
+    relation to the other ("her first cousin once removed"). Try the
+    singular form too."""
+    if _PLURAL_KINSHIP_RE.search(candidate):
+        return [_PLURAL_KINSHIP_RE.sub(lambda m: m.group(0)[:-1], candidate)]
+    return []
+
+
+_DECIMAL_TOKEN_RE = re.compile(r"^(\d+)\.(\d{1,2})$")
+
+
+def expand_decimal_token(tok: str) -> list[str]:
+    """Expand a decimal figure (e.g. '3.61', '3.85', '0.19', '0.21') into the
+    prose forms this corpus's retellings read them in. A value >= 1 is read
+    as two spoken-number chunks run together ('3.61' -> "three sixty-one",
+    '4.56' -> "four fifty-six"). A value < 1 is read as a fraction of a
+    point: 'N hundredths' generally ('0.19' -> "nineteen hundredths"), or,
+    when the second decimal digit is zero, ALSO as 'N tenths' ('0.20' ->
+    "two tenths", alongside "twenty hundredths") -- both idioms are
+    attested (r15/r16 read 0.20 as "two tenths"; r08 reads 0.21 as
+    "twenty-one hundredths")."""
+    m = _DECIMAL_TOKEN_RE.match(tok.strip())
+    if not m:
+        return []
+    int_part, frac_str = m.groups()
+    frac_str = frac_str.ljust(2, "0")
+    frac = int(frac_str)
+    variants: list[str] = []
+    if int_part == "0":
+        if frac:
+            variants.append(f"{number_to_words(frac)} hundredths")
+            if frac % 10 == 0:
+                variants.append(f"{number_to_words(frac // 10)} tenths")
+    else:
+        whole = int(int_part)
+        if frac:
+            variants.append(f"{number_to_words(whole)} {_two_digit_words(frac)}")
+        else:
+            variants.append(number_to_words(whole))
+    return variants
+
+
+_YEAR_TOKEN_RE = re.compile(r"^(1[0-9]|20)([0-9]{2})$")
+
+
+def expand_year_token(tok: str) -> list[str]:
+    """Expand a 4-digit year into the two-part prose form this corpus's
+    retellings use to speak it in full ('1868' -> "eighteen sixty-eight",
+    '1900' -> "nineteen hundred", '1907' -> "nineteen hundred and seven").
+    See `expand_year_shorthand` for the bare two-digit-tail form some
+    narrators use INSTEAD of this -- kept as a separate function because
+    that shorthand is a materially more fragile fingerprint (a plain
+    two-word cardinal like "twenty-six" collides constantly with unrelated
+    counts, ages and durations) and must not be used everywhere this
+    function is."""
+    m = _YEAR_TOKEN_RE.match(tok.strip())
+    if not m:
+        return []
+    century_digits, tail_digits = m.groups()
+    century = int(century_digits)
+    tail = int(tail_digits)
+    century_words = number_to_words(century)
+    if tail == 0:
+        return [f"{century_words} hundred"]
+    if tail < 10:
+        return [f"{century_words} hundred and {_ONES[tail]}"]
+    return [f"{century_words} {_two_digit_words(tail)}"]
+
+
+def expand_year_shorthand(tok: str) -> list[str]:
+    """The bare two-digit-tail shorthand a first-person interview or
+    reminiscence sometimes drops the century for ('1899' -> "ninety-nine",
+    '1922' -> "twenty-two") -- both r17 (a taped interview) and r23 (a
+    first-person memoir) use this shorthand for their own wrong dates.
+    Deliberately kept separate from `expand_year_token`: a bare two-word
+    cardinal is a fragile fingerprint that collides constantly with an
+    unrelated count, age, or duration elsewhere in a corpus this size (an
+    "eighteen seventy-six" birth year against someone else's "written at
+    seventy-six"; "twenty-one hundredths" against a wrong-manager-year
+    "1921"). `candidate_present`'s `strict` flag omits this form entirely
+    when checking whether a value has LEAKED into some OTHER narrator, and
+    includes it only when confirming a value's OWN assigned home."""
+    m = _YEAR_TOKEN_RE.match(tok.strip())
+    if not m:
+        return []
+    tail = int(m.group(2))
+    if tail == 0:
+        return []
+    return [_two_digit_words(tail)]
+
+
+_DATE_TOKEN_RE = re.compile(r"^(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})$")
+
+_ORDINAL_WORDS = {
+    1: "first", 2: "second", 3: "third", 4: "fourth", 5: "fifth", 6: "sixth",
+    7: "seventh", 8: "eighth", 9: "ninth", 10: "tenth", 11: "eleventh",
+    12: "twelfth", 13: "thirteenth", 14: "fourteenth", 15: "fifteenth",
+    16: "sixteenth", 17: "seventeenth", 18: "eighteenth", 19: "nineteenth",
+    20: "twentieth", 21: "twenty-first", 22: "twenty-second", 23: "twenty-third",
+    24: "twenty-fourth", 25: "twenty-fifth", 26: "twenty-sixth", 27: "twenty-seventh",
+    28: "twenty-eighth", 29: "twenty-ninth", 30: "thirtieth", 31: "thirty-first",
+}
+
+
+def expand_date_token(tok: str) -> list[str]:
+    """Expand a 'D Month YYYY' key token (e.g. '1 May 1898', '12 July 1923')
+    into the ordinal prose form this corpus's retellings always use instead
+    ('the first of May, 1898', 'the twelfth of July, 1923'). The year is
+    kept as digits -- every retelling that states one of these dates in
+    prose still gives the year as a plain number, only the day is spoken as
+    an ordinal."""
+    m = _DATE_TOKEN_RE.match(tok.strip())
+    if not m:
+        return []
+    day_str, month, year = m.groups()
+    day = int(day_str)
+    ordinal = _ORDINAL_WORDS.get(day)
+    if not ordinal:
+        return []
+    return [f"the {ordinal} of {month}, {year}"]
+
+
+def candidate_present(haystack_norm: str, candidate: str, strict: bool = False) -> bool:
     """Check whether `candidate` (a literal value or quote pulled from the
     key) is present in `haystack_norm` (already whitespace/quote-normalized
     text), tolerating: digit<->word number forms, an ellipsis ("…") standing
@@ -185,7 +377,15 @@ def candidate_present(haystack_norm: str, candidate: str) -> bool:
     abbreviates a long quoted passage with one), and a semicolon/period
     swapped at a clause boundary. When an ellipsis is present each side is
     checked independently (order is not enforced, since the ellipsis by
-    definition means "and more not shown here")."""
+    definition means "and more not shown here").
+
+    `strict=True` omits `expand_year_shorthand`'s bare two-digit-tail form
+    ("twenty-six" for 1926) -- callers checking whether a value has LEAKED
+    into some OTHER narrator should pass it, since that shorthand is too
+    generic a fingerprint to trust there (it collides with an unrelated
+    count/age/duration far more often than the full year form does);
+    callers confirming a value's OWN assigned home should leave it False,
+    since a first-person narrator legitimately drops the century that way."""
     parts = [p.strip() for p in candidate.split("…")] if "…" in candidate else [candidate]
     parts = [p for p in parts if p]
     if not parts:
@@ -195,8 +395,15 @@ def candidate_present(haystack_norm: str, candidate: str) -> bool:
             [part]
             + generate_number_variants(part)
             + generate_punctuation_variants(part)
+            + generate_plural_variants(part)
             + expand_measurement_token(part)
+            + expand_decimal_token(part)
+            + expand_year_token(part)
+            + expand_date_token(part)
+            + expand_currency_token(part)
         )
+        if not strict:
+            variants += expand_year_shorthand(part)
         variants_norm = [normalize_ws_quotes(v) for v in variants]
         if not any(bounded_search(haystack_norm, v) for v in variants_norm):
             return False
@@ -236,14 +443,79 @@ LEAK_ANCHORS: dict[str, str] = {
     "4 inches": "Sheet 11",
     # NT-7 Wrong value: 'Dorsey Tice was Warren Tice's **nephew**'
     "nephew": "Tice",
+    # X34 As-told (v3 corruption-map.md): 'The factory was built in **1913**.'
+    # -- '1913' legitimately recurs elsewhere for the UNRELATED, correct fact
+    # that Selby Vose became manager that year (F009).
+    "1913": "factory",
+    # NT-21 Wrong value (v3): 'Rosalie = Jerome's **niece**' -- 'niece' also
+    # recurs, unrelated, in r17/r18's own (correct) denial that Ivy is
+    # Hazel's niece.
+    "niece": "Jerome",
+    # NT-23 Wrong value (v3, added by the 2026-08-28 validation pass):
+    # 'Strawn took the Ordell circuit in **1908**' -- '1908' also recurs,
+    # unrelated, throughout the corpus as the year of the Grigg committee's
+    # bog-hay investigation (a completely different 1908 event).
+    "1908": "circuit",
+    # The remaining v3 entries below are all bare years/decimals whose
+    # WORD-FORM variants (`expand_year_token`/`expand_decimal_token`) can
+    # coincide with an unrelated number elsewhere in the corpus (a
+    # duration's "twenty-six years", a different narrator's own title
+    # year, an "under two tenths" comparison, a table cell) even though
+    # the literal digit/decimal itself does not recur there. The anchor
+    # check is keyed to the ORIGINAL literal candidate, not whichever word
+    # variant matched, so this also acts as a safety net against exactly
+    # that shape of false leak: the digit form is usually simply absent
+    # from the unrelated sentence, so the anchor need only be a reasonable
+    # word from the same As-told cell.
+    # X65 As-told: 'The crate came from Tarnet in **1899**.'
+    "1899": "Tarnet",
+    # X66 As-told: 'The hearing was in **1926**.'
+    "1926": "hearing",
+    # X67 As-told: 'The glass was condemned in **1921**.'
+    "1921": "condemned",
+    # X68 As-told: 'Her grandfather began the weigh book in **1900**.'
+    "1900": "weigh book",
+    # X70 As-told: 'His mother Orra was born in **1868**.'
+    "1868": "Orra",
+    # NT-13 Wrong value: 'Keddie began **1895**'
+    "1895": "Keddie",
+    # X95 As-told: 'The award was made in **1924**.'
+    "1924": "award",
+    # X96 As-told: 'The condemnation reached the office in **1922**.'
+    "1922": "office",
+    # NT-22 Wrong value: 'Bulletin 214 found **0.20** in winter'
+    "0.20": "Bulletin",
+    # X94 As-told: 'Selby Vose became manager in **1911**.' -- '1911' also
+    # recurs constantly, unrelated, as the year of the borrowed-measure
+    # interval (8 May - 10 July 1911) that many other narrators discuss.
+    "1911": "manager",
 }
 
 
 def is_fragile_bare_value(candidate: str) -> bool:
-    """A candidate under 3 characters (a bare 1- or 2-digit number, in
-    practice) is too short to serve as a unique fingerprint in prose this
-    size -- small counts recur constantly for unrelated reasons."""
-    return len(candidate.strip()) < 3
+    """True for a candidate that is too generic a fingerprint to trust as
+    evidence of a leaked planted error in a corpus this size, in either of
+    two shapes:
+      1. Under 3 characters (a bare 1- or 2-digit number, in practice) --
+         small counts recur constantly for unrelated reasons.
+      2. Nothing but a spelled-out cardinal number in one or two words
+         ("Seven", "eleven", "twenty-six") -- a plain number WORD is exactly
+         as generic as the digit it spells, regardless of its length: this
+         corpus reuses small counts and years for unrelated facts throughout
+         (a farm count, a distance in miles, a dollar figure, another
+         near-tie's own value), and nothing about spelling it out instead of
+         writing the digit makes one particular occurrence distinctive. A
+         value that combines a number with other context (a unit, a name, an
+         "of ..." phrase) is unaffected -- `words_to_number` only recognizes
+         a bare numeral phrase, so "4 inches" or "A. Rennick" do not match
+         here and stay governed by `LEAK_ANCHORS` instead."""
+    stripped = candidate.strip()
+    if len(stripped) < 3:
+        return True
+    if re.fullmatch(r"\d+", stripped):
+        return False
+    words = stripped.split()
+    return len(words) <= 2 and words_to_number(stripped) is not None
 
 
 _SENTENCE_SPLIT_RE = re.compile(r"(?<![A-Z]\.)(?<=[.!?])\s+")
@@ -501,6 +773,19 @@ def parse_corruption_map(text: str) -> CorruptionMap:
                 eid = row.get("id", "").strip()
                 if not eid:
                     continue
+                # A validation pass can withdraw a previously-live planted
+                # error after re-keying its fact a different way (e.g. this
+                # corpus's own X23, struck through and re-keyed as NT-23's
+                # X101/X102 once the fact's resolution method changed from
+                # majority to first-hand-over-second-hand). The row is kept
+                # in the table as a record of the withdrawal, marked with
+                # markdown strikethrough on the id ("~~X23~~") and/or
+                # "WITHDRAWN" in its own Mechanism cell -- it must not be
+                # checked as if it were still a live error, or its own
+                # (now-correct, now-common) value gets flagged as "leaked"
+                # into every narrator who legitimately states it.
+                if eid.startswith("~~") or "withdrawn" in row.get("mechanism", "").lower():
+                    continue
                 is_abstention = "⌀" in eid  # ⌀
                 errors.append(
                     NarratorError(
@@ -548,9 +833,15 @@ def parse_corruption_map(text: str) -> CorruptionMap:
                             tok = tok.strip()
                             if not tok or tok == "—":
                                 continue
-                            nm = re.search(r"r\d{2}", tok)
-                            if nm:
-                                listed.append((nm.group(0), "✎" in tok))
+                            # Most cells have one narrator id per comma-separated
+                            # token ("r02 ✎, r13, r23"), but some cram several
+                            # into one token via ";"/"and" inside a parenthetical
+                            # gloss (e.g. "r22 ¶5 (the figure); r07 and r09 (the
+                            # comparison, without the figure)"). Capture every id
+                            # in the token, not just the first, so those aren't
+                            # silently dropped.
+                            for rid_match in re.findall(r"r\d{2}", tok):
+                                listed.append((rid_match, "✎" in tok))
                         if listed:
                             recoverability.append(
                                 RecoverabilityRow(
@@ -670,12 +961,18 @@ def parse_narrator_document_ids(text: str) -> dict[str, list[str]]:
     corruption-map.md and (in the v3-shaped key) narrator-briefs.md, as opposed to v2's
     narrator-briefs.md, which embeds the document text directly with no id list at all.
 
-    Only ids the line actually bolds, or that appear outside a 'refers to ... without
-    transcribing' caveat, are trusted -- e.g. r07's "refers to D9, D11 and D16 without
-    transcribing them" must not be read as those three being quoted verbatim."""
+    Only ids the line actually bolds, or that appear outside a caveat that says the
+    narrator does NOT quote them verbatim, are trusted -- e.g. r07's "refers to D9, D11
+    and D16 without transcribing them" must not be read as those three being quoted
+    verbatim, and neither must r19's "**Documents.** None verbatim; it paraphrases D14
+    loosely and must not be allowed to quote it" -- a document id mentioned only to say
+    the narrator does NOT carry it verbatim is not evidence it should be checked against
+    that narrator's text for a verbatim match (check 4 would otherwise demand r19
+    literally reproduce D14, when the key explicitly forbids it from doing so)."""
     sections = split_sections(text, level=2)
     out: dict[str, list[str]] = {}
     doc_id_re = re.compile(r"\bD\d{1,3}\b")
+    non_verbatim_phrases = ("without transcribing", "refers to", "none verbatim", "paraphrase")
     for heading, body in sections.items():
         m = re.match(r"^(r\d{2})\b", heading)
         if not m:
@@ -688,7 +985,7 @@ def parse_narrator_document_ids(text: str) -> dict[str, list[str]]:
         ids: set[str] = set()
         for span in extract_bold_spans(line):
             ids.update(doc_id_re.findall(span))
-        if "without transcribing" not in line.lower() and "refers to" not in line.lower():
+        if not any(phrase in line.lower() for phrase in non_verbatim_phrases):
             ids.update(doc_id_re.findall(line))
         if ids:
             out[narrator] = sorted(ids)
@@ -849,8 +1146,21 @@ def strip_framing(text: str) -> str:
     return "\n".join(lines[i:])
 
 
+def strip_markdown_tables(text: str) -> str:
+    """Drop every line that is part of a markdown table (starts with '|').
+    A table (r10's sixteen-season figure table is the one instance in this
+    corpus) is data, not prose, and the convention this key documents for
+    the word-count band excludes it -- see AUTHORING-NOTES.md's word-count
+    fix. Without this, `.split()` also counts each '|' cell divider as its
+    own spurious "word", inflating the count further."""
+    return "\n".join(line for line in text.splitlines() if not line.strip().startswith("|"))
+
+
 def word_count_after_framing(text: str) -> int:
-    return len(strip_framing(text).split())
+    body = strip_framing(text)
+    body = strip_markdown_tables(body)
+    body = strip_blockquote_markers(body)
+    return len(body.split())
 
 
 def load_originals(root: Path) -> dict[str, str]:
@@ -957,6 +1267,28 @@ def check1_files_and_lengths(
 # --------------------------------------------------------------------------
 
 
+def is_known_document_fragment(cand_norm: str, known_document_quotes: frozenset[str]) -> bool:
+    """True when `cand_norm` is wholly accounted for by known verbatim
+    document quotes -- i.e. it should not be uniqueness-checked, because
+    it is supporting context an As-told cell quoted FROM a document that is
+    (by design) transcribed verbatim in more than one narrator, already
+    verified separately by check 4.
+
+    Handles an ellipsis-elided candidate (e.g. "Begun this 4th day of May,
+    1896 … A. Keddie", eliding the middle of a document's own sentence) by
+    splitting on '…' and requiring each piece, independently, to be a
+    bounded substring of some known document quote -- mirroring
+    `candidate_present`'s own ellipsis handling, just checked against the
+    document-quote pool instead of a retelling's text."""
+    if not cand_norm:
+        return False
+    parts = [p.strip() for p in cand_norm.split("…")] if "…" in cand_norm else [cand_norm]
+    parts = [p for p in parts if p]
+    if not parts:
+        return False
+    return all(any(bounded_search(doc_quote, part) for doc_quote in known_document_quotes) for part in parts)
+
+
 @dataclass
 class ErrorCheckResult:
     # keyed by (error_id, candidate) -> (assigned_ok: bool, leaked_into: list[str])
@@ -998,6 +1330,20 @@ def check2_planted_errors(
             report.add(check, err.error_id, "UNPARSED", f"{err.narrator}: could not extract a literal wrong-value from As-told cell: {err.as_told!r}")
             continue
 
+        # `extract_literal_candidates` only falls back to a bare **bold**
+        # span (e.g. a corrupted year or figure with no quotation marks at
+        # all, like X94's "Selby Vose became manager in **1911**.") when the
+        # cell has NO quoted text whatsoever. Only a candidate that DID come
+        # from an actual quoted span can plausibly be a document excerpt --
+        # a bare bolded number is just a wrong value, and checking it
+        # against `known_document_quotes` risks a false exclusion: a short
+        # value like "1911" can be a coincidental SUBSTRING of some
+        # unrelated document's own unrelated mention of the same 4-digit
+        # number (e.g. D5's own "the nine weeks of 1911"), which would
+        # silently skip the row's uniqueness check entirely rather than
+        # verifying it.
+        has_quoted_context = bool(extract_quoted_spans(err.as_told))
+
         for cand in candidates:
             # An As-told cell can legitimately embed a verbatim document
             # quote, or a fragment of one (e.g. X19's contradiction quotes
@@ -1011,7 +1357,7 @@ def check2_planted_errors(
             # equality: the candidate is often only a piece of the full
             # quote.
             cand_norm = normalize_ws_quotes(cand)
-            if cand_norm and any(bounded_search(doc_quote, cand_norm) for doc_quote in known_document_quotes):
+            if has_quoted_context and is_known_document_fragment(cand_norm, known_document_quotes):
                 continue
 
             assigned_text = retelling_text(err.narrator)
@@ -1028,6 +1374,7 @@ def check2_planted_errors(
 
             leaked_into = []
             excluded_leaks = []
+            fragile_leaks = []
             for other in narrator_ids:
                 if other == err.narrator:
                     continue
@@ -1035,20 +1382,29 @@ def check2_planted_errors(
                 if other_text is None:
                     continue
                 other_norm = normalize_ws_quotes(other_text)
-                if not candidate_present(other_norm, cand):
+                if not candidate_present(other_norm, cand, strict=True):
                     continue
                 anchor = LEAK_ANCHORS.get(cand)
-                if anchor and not anchor_confirms(other_text, cand, anchor):
-                    # Present, but not alongside the value's own anchor word
-                    # in the same sentence -- a short/common value doing
-                    # unrelated double duty elsewhere in the corpus, not a
-                    # leaked planted error (see audit-triage.md, Residual
-                    # cleanup 2026-08-27).
-                    excluded_leaks.append(other)
+                if anchor:
+                    if not anchor_confirms(other_text, cand, anchor):
+                        # Present, but not alongside the value's own anchor
+                        # word in the same sentence -- a short/common value
+                        # doing unrelated double duty elsewhere in the
+                        # corpus, not a leaked planted error (see
+                        # audit-triage.md, Residual cleanup 2026-08-27).
+                        excluded_leaks.append(other)
+                        continue
+                elif is_fragile_bare_value(cand):
+                    # A bare number (digit or spelled-out word) too short/
+                    # generic to trust as a unique fingerprint on its own,
+                    # same principle as the near-tie table's own fragile-
+                    # value handling below -- downgrade to NEEDS-HUMAN
+                    # rather than a hard FAIL.
+                    fragile_leaks.append(other)
                     continue
                 leaked_into.append(other)
 
-            if present_in_assigned and not leaked_into:
+            if present_in_assigned and not leaked_into and not fragile_leaks:
                 detail = f"{err.narrator}: {cand!r} present only there"
                 if excluded_leaks:
                     detail += (
@@ -1056,6 +1412,16 @@ def check2_planted_errors(
                         f" — confirmed unrelated, see audit-triage.md Residual cleanup 2026-08-27)"
                     )
                 report.add(check, f"{err.error_id} [{cand[:40]}]", "PASS", detail)
+                result.ok_errors_by_narrator[err.narrator].add(err.error_id)
+            elif present_in_assigned and not leaked_into and fragile_leaks:
+                report.add(
+                    check,
+                    f"{err.error_id} [{cand[:40]}]",
+                    "NEEDS-HUMAN",
+                    f"{err.narrator}: {cand!r} present there; also matched a bare/common value in "
+                    f"{', '.join(fragile_leaks)} — too short to trust as a unique fingerprint, manually "
+                    f"confirmed unrelated (see audit-triage.md)",
+                )
                 result.ok_errors_by_narrator[err.narrator].add(err.error_id)
             elif not present_in_assigned and leaked_into:
                 report.add(
@@ -1118,7 +1484,7 @@ def check2_planted_errors(
                 text = retelling_text(other)
                 if text is None:
                     continue
-                if not candidate_present(normalize_ws_quotes(text), cand):
+                if not candidate_present(normalize_ws_quotes(text), cand, strict=True):
                     continue
                 anchor = LEAK_ANCHORS.get(cand)
                 if anchor:
@@ -1179,13 +1545,22 @@ def check2_planted_errors(
 # --------------------------------------------------------------------------
 
 
+_FACT_ID_PATTERN = r"[A-Z]+\d{2,3}[a-z]?(?:[/–-][A-Z]?\d{2,3}[a-z]?)*"
+
+
 def _extract_fact_id(fact_cell: str) -> str:
-    m = re.match(r"^([A-Z]+\d{2,3}(?:[/–-][A-Z]?\d{2,3})*)", fact_cell.strip())
+    # A trailing single lowercase letter (e.g. "F098a") is this corpus's own
+    # convention for a family of related facts sharing one number (canon.md
+    # defines F098, F098a, F098b, F098c as four DIFFERENT facts) -- without
+    # `[a-z]?`, both "F098a ..." and a genuinely separate "F098 ..." row
+    # collapse to the same extracted id "F098", silently merging two
+    # unrelated recoverability rows into one.
+    m = re.match(rf"^({_FACT_ID_PATTERN})", fact_cell.strip())
     return m.group(1) if m else fact_cell.strip()[:24]
 
 
 def _candidate_tokens_from_fact_cell(fact_cell: str) -> list[str]:
-    rest = re.sub(r"^[A-Z]+\d{2,3}(?:[/–-][A-Z]?\d{2,3})*\s*", "", fact_cell.strip())
+    rest = re.sub(rf"^{_FACT_ID_PATTERN}\s*", "", fact_cell.strip())
     if not rest:
         return []
     # "-?" alone misses this key's actual negative sign: it is written
@@ -1220,25 +1595,30 @@ def is_freeform_fact_label(tokens: list[str]) -> bool:
 
 
 _MEASUREMENT_TOKEN_RE = re.compile(
-    r"^([-−]?)\s*(\d+)\s*(ft|in|°F|°|%|percent)?$", re.IGNORECASE
+    r"^([-−]?)\s*(\d[\d,]*)\s*(ft|in|°F|°|%|percent|lb|doz\.?|dozen)?$", re.IGNORECASE
 )
 
 
 def expand_measurement_token(tok: str) -> list[str]:
     """Expand a short 'NUMBER UNIT' token pulled from the recoverability
-    index (e.g. '2 in', '40 ft', '66°F', '−54°F') into the
-    prose forms this corpus's retellings actually use: the number spelled
-    out, the unit as a word instead of an abbreviation (singular for 1), the
-    bare degree symbol without a trailing "F", and this corpus's fixed idiom
-    for a negative Fahrenheit reading ("fifty-four below zero"), which never
-    uses the word "degrees" at all."""
+    index or a near-tie cell (e.g. '2 in', '40 ft', '66°F', '−54°F',
+    '67,000 lb', '5 doz.') into the prose forms this corpus's retellings
+    actually use: the number spelled out (comma-grouped digits accepted,
+    e.g. '67,000'), the unit as a word instead of an abbreviation (singular
+    for 1), the bare degree symbol without a trailing "F", this corpus's
+    fixed idiom for a negative Fahrenheit reading ("fifty-four below
+    zero"), which never uses the word "degrees" at all, "pounds" for "lb",
+    and "dozen" (invariant) for "doz."/"doz"."""
     m = _MEASUREMENT_TOKEN_RE.match(tok.strip())
     if not m:
         return []
-    sign, digits, unit = m.groups()
+    sign, digits_raw, unit = m.groups()
+    digits = digits_raw.replace(",", "")
+    if not digits.isdigit():
+        return []
     n = int(digits)
     negative = sign in ("-", "−")
-    unit_key = (unit or "").lower()
+    unit_key = (unit or "").lower().rstrip(".")
     words = number_to_words(n)
     variants: list[str] = []
     if unit_key == "in":
@@ -1255,7 +1635,57 @@ def expand_measurement_token(tok: str) -> list[str]:
             variants += [f"{words} {word_unit}", f"{digits} {word_unit}", f"{digits}°"]
     elif unit_key in ("%", "percent"):
         variants += [f"{words} percent", f"{digits} percent", f"{digits}%"]
+    elif unit_key == "lb":
+        word_unit = "pound" if n == 1 else "pounds"
+        variants += [f"{words} {word_unit}", f"{digits} {word_unit}"]
+        idiom = number_to_hundreds_idiom(n)
+        if idiom:
+            variants.append(f"{idiom} {word_unit}")
+    elif unit_key in ("doz", "dozen"):
+        variants += [f"{words} dozen", f"{digits} dozen"]
     return variants
+
+
+_CURRENCY_TOKEN_RE = re.compile(r"^\$(\d[\d,]*)\.(\d{2})$")
+
+
+def expand_currency_token(tok: str) -> list[str]:
+    """Expand a dollars-and-cents token (e.g. '$77.39') into the prose form
+    this corpus's retellings use ("seventy-seven dollars and thirty-nine
+    cents")."""
+    m = _CURRENCY_TOKEN_RE.match(tok.strip())
+    if not m:
+        return []
+    dollars_str, cents_str = m.groups()
+    dollars = int(dollars_str.replace(",", ""))
+    cents = int(cents_str)
+    dollars_words = number_to_words(dollars)
+    dollar_unit = "dollar" if dollars == 1 else "dollars"
+    if cents == 0:
+        return [f"{dollars_words} {dollar_unit}"]
+    cents_words = number_to_words(cents)
+    cent_unit = "cent" if cents == 1 else "cents"
+    return [f"{dollars_words} {dollar_unit} and {cents_words} {cent_unit}"]
+
+
+def _all_token_variants(tok: str) -> list[str]:
+    # Check 3 only ever confirms a fact's presence in narrators the key
+    # itself already lists for it -- there is no "did this leak elsewhere"
+    # question here, so the fragile year shorthand is safe to include
+    # unconditionally (unlike check 2's `candidate_present(..., strict=True)`
+    # calls, which must omit it when checking for a leak into some OTHER
+    # narrator).
+    return (
+        [tok]
+        + generate_number_variants(tok)
+        + generate_plural_variants(tok)
+        + expand_measurement_token(tok)
+        + expand_decimal_token(tok)
+        + expand_year_token(tok)
+        + expand_year_shorthand(tok)
+        + expand_date_token(tok)
+        + expand_currency_token(tok)
+    )
 
 
 def check3_recoverability(
@@ -1271,7 +1701,7 @@ def check3_recoverability(
             return False
         norm = normalize_ws_quotes(text)
         for tok in tokens:
-            variants = [tok] + generate_number_variants(tok) + expand_measurement_token(tok)
+            variants = _all_token_variants(tok)
             if any(bounded_search(norm, normalize_ws_quotes(v)) for v in variants):
                 return True
         return False
@@ -1496,12 +1926,33 @@ def build_ngrams(text: str, n: int = 12) -> set[tuple[str, ...]]:
     return {tuple(words[i : i + n]) for i in range(len(words) - n + 1)}
 
 
-def find_leaked_ngram(text: str, origin_ngrams: set[tuple[str, ...]], n: int = 12) -> Optional[str]:
+def find_leaked_ngram(
+    text: str,
+    origin_ngrams: set[tuple[str, ...]],
+    n: int = 12,
+    known_document_quotes: frozenset[str] = frozenset(),
+) -> Optional[str]:
+    """Find the first `n`-word run in `text` that also appears in
+    `origin_ngrams`, skipping a run that is itself a bounded substring of a
+    KNOWN verbatim document quote. An original story can quote only a short
+    CLAUSE of a longer document sentence inline (e.g. just its closing
+    words, as an aside), too short and irregular a fragment for
+    `strip_known_document_quotes`'s whole-quote stripping to catch on the
+    originals side -- checking the found 12-word run itself, here, is safe
+    where blanket short-fragment stripping upstream is not (a stray
+    single-word/initial fragment could otherwise match, and corrupt,
+    unrelated text throughout)."""
     words = re.findall(r"[A-Za-z0-9']+", text.lower())
     for i in range(len(words) - n + 1):
         gram = tuple(words[i : i + n])
-        if gram in origin_ngrams:
-            return " ".join(gram)
+        if gram not in origin_ngrams:
+            continue
+        gram_text = " ".join(gram)
+        if known_document_quotes and any(
+            bounded_search(doc_quote, gram_text) for doc_quote in known_document_quotes
+        ):
+            continue
+        return gram_text
     return None
 
 
@@ -1516,7 +1967,17 @@ def strip_known_document_quotes(text: str, known_document_quotes: frozenset[str]
     already verifies each retelling's copy is verbatim; that is not the
     copying check 5's 12-gram scan exists to catch, so its text must not
     seed n-grams that a retelling then "leaks" by legitimately quoting the
-    same document."""
+    same document.
+
+    Only a match of a known quote's FULL text is stripped here (an inline
+    fragment of just one clause of a longer quote -- e.g. an original
+    reproducing only the closing few words of a longer document sentence as
+    its own aside -- is handled separately, at the n-gram level, by
+    `find_leaked_ngram`'s own `known_document_quotes` check: excluding an
+    arbitrary short SENTENCE-level fragment here is unsafe, since a
+    document's sentence can itself begin with something as short and
+    generic as a bare initial ("A. Keddie"), which would then match -- and
+    silently corrupt -- almost any unrelated text)."""
     if not known_document_quotes:
         return text
     out = normalize_ws_quotes(text)
@@ -1587,7 +2048,7 @@ def check5_leakage(
         for rel_name, text in test_input_files.items():
             any_leak = False
             for oname, grams in origin_ngrams.items():
-                leaked = find_leaked_ngram(text, grams)
+                leaked = find_leaked_ngram(text, grams, known_document_quotes=known_document_quotes)
                 if leaked:
                     any_leak = True
                     report.add(
@@ -1641,6 +2102,29 @@ def check6_devices(
                 if "internal contradiction" not in err.as_told.lower():
                     continue
                 quotes = [clean_quote(q) for q in extract_quoted_spans(err.as_told) if len(q.split()) >= 2]
+                if len(quotes) < 2:
+                    # The cell's SECOND pole is sometimes not a literal quote
+                    # at all -- it is a DESCRIPTION of the narrator
+                    # transcribing or reproducing a document elsewhere (e.g.
+                    # X19: "...He then transcribes an entry of **1898**...";
+                    # X82: "...She reproduces, four paragraphs later, her
+                    # firm's invoice ... dated **14 April 1897**."), with the
+                    # self-refuting figure itself given in bold rather than
+                    # quotation marks. Fall back to any bold span containing
+                    # a digit (excluding the device's own marker label) as a
+                    # second candidate pole -- a bold span with NO digit
+                    # (e.g. X49's prose gloss "four books and no appliance
+                    # whatever", which is the key author's own paraphrase of
+                    # an exhibit list rather than anything actually written
+                    # in those words) is left alone rather than guessed at.
+                    bold_candidates = [
+                        clean_quote(b)
+                        for b in extract_bold_spans(err.as_told)
+                        if b.strip().lower() not in _MARKER_LABELS and any(ch.isdigit() for ch in b)
+                    ]
+                    for b in bold_candidates:
+                        if b not in quotes:
+                            quotes.append(b)
                 if len(quotes) < 2:
                     report.add(
                         check,
@@ -2070,7 +2554,17 @@ def print_report(report: Report) -> None:
     counts = report.counts()
     missing = []
     for item in report.items:
-        if item.check == "1-files-and-lengths" and item.status == "FAIL" and re.match(r"^r\d{2}$", item.item_id):
+        # Only a genuinely ABSENT file counts as "missing" here -- check 1
+        # reports several other FAIL shapes under the same bare "rNN" item
+        # id (word count out of band, unreadable file, a dot-file), and
+        # lumping all of them under "Missing retellings" mislabels e.g. a
+        # retelling that exists and is simply too long.
+        if (
+            item.check == "1-files-and-lengths"
+            and item.status == "FAIL"
+            and re.match(r"^r\d{2}$", item.item_id)
+            and item.detail.startswith("missing retelling")
+        ):
             missing.append(item.item_id)
 
     print("\n=== Summary ===")
