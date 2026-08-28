@@ -1,16 +1,23 @@
 #!/usr/bin/env python3
-"""Mechanical audit for the v2 synthesis test.
+"""Mechanical audit for a synthesis test, root-agnostic across versions (v2, v3, ...).
 
-Checks the answer key (v2/answer-key/*.md) against the test input
-(v2/test-input/**) and reports PASS/FAIL/UNPARSED per item, with evidence.
+Checks the answer key (<root>/answer-key/*.md) against the test input
+(<root>/test-input/**) and reports PASS/FAIL/UNPARSED/NEEDS-HUMAN/ACCEPTED-SINGLE-SOURCE
+per item, with evidence. The number of narrators, the word-count band, and the exact id
+shapes used by the key (X-ids, near-tie ids, fact ids, document ids, abstention ids) are
+all read from the corpus itself rather than assumed -- see discover_narrator_ids and
+check7_questions_coverage's Section A handling for the two places that matters most.
 
 The key files are markdown written by a person, so every parser here is
 defensive: where a value cannot be extracted, the item is reported as
-UNPARSED rather than silently skipped or silently passed.
+UNPARSED rather than silently skipped or silently passed. Likewise, a retelling that has
+not been drafted yet (or cannot be read) is reported as a FAIL row -- "missing retelling
+rNN" -- rather than crashing.
 
 Usage:
-    python3 audit.py --root v2                # print report, exit 0
-    python3 audit.py --root v2 --strict        # exit 1 if any FAIL/UNPARSED
+    python3 audit.py --root v2                                       # print report, exit 0
+    python3 audit.py --root v2 --strict                               # exit 1 if any FAIL/UNPARSED
+    python3 audit.py --root v3 --min-words 1000 --max-words 1500      # different word-count band
 
 Standard library only, Python 3.12.
 """
@@ -625,14 +632,172 @@ def parse_narrator_briefs_documents(text: str) -> dict[str, list[str]]:
     return docs
 
 
+def parse_canon_documents(canon_text: str) -> dict[str, str]:
+    """doc id -> verbatim quote text, from canon.md's '## N. Documents' section.
+
+    This is the v3-shaped key's source of truth for document text: unlike v2, where each
+    document's full verbatim text is embedded directly under the narrator(s) that quote it
+    in narrator-briefs.md, v3's narrator-briefs.md only says WHICH document ids a narrator
+    quotes (see parse_narrator_document_ids) and gives the text itself once, here, per
+    document id. Each entry is a '**D<n> -- description**' line followed immediately by one
+    or more '>' blockquote lines whose content (joined) is wrapped as a single '*...*' span
+    -- the same non-greedy-asterisk convention parse_narrator_briefs_documents already
+    relies on, so an attribution glued onto the same line cannot be swallowed into it."""
+    doc_texts: dict[str, str] = {}
+    heading_re = re.compile(r"^\*\*(D\d{1,3})\s*[-–—].*?\*\*\s*$", re.MULTILINE)
+    matches = list(heading_re.finditer(canon_text))
+    for i, m in enumerate(matches):
+        doc_id = m.group(1)
+        start = m.end()
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(canon_text)
+        block_lines = [
+            line.strip()[1:].strip()
+            for line in canon_text[start:end].splitlines()
+            if line.strip().startswith(">")
+        ]
+        if not block_lines:
+            continue
+        blob = " ".join(block_lines)
+        qm = re.search(r"\*(.*?)\*", blob)
+        if qm and qm.group(1).strip():
+            doc_texts[doc_id] = qm.group(1)
+    return doc_texts
+
+
+def parse_narrator_document_ids(text: str) -> dict[str, list[str]]:
+    """narrator id -> list of document ids (e.g. ['D1', 'D8']) that narrator's own
+    '**Documents.** ...' line declares verbatim -- the per-narrator convention used by
+    corruption-map.md and (in the v3-shaped key) narrator-briefs.md, as opposed to v2's
+    narrator-briefs.md, which embeds the document text directly with no id list at all.
+
+    Only ids the line actually bolds, or that appear outside a 'refers to ... without
+    transcribing' caveat, are trusted -- e.g. r07's "refers to D9, D11 and D16 without
+    transcribing them" must not be read as those three being quoted verbatim."""
+    sections = split_sections(text, level=2)
+    out: dict[str, list[str]] = {}
+    doc_id_re = re.compile(r"\bD\d{1,3}\b")
+    for heading, body in sections.items():
+        m = re.match(r"^(r\d{2})\b", heading)
+        if not m:
+            continue
+        narrator = m.group(1)
+        doc_line = re.search(r"\*\*Documents\.\*\*\s*(.+)", body)
+        if not doc_line:
+            continue
+        line = doc_line.group(1)
+        ids: set[str] = set()
+        for span in extract_bold_spans(line):
+            ids.update(doc_id_re.findall(span))
+        if "without transcribing" not in line.lower() and "refers to" not in line.lower():
+            ids.update(doc_id_re.findall(line))
+        if ids:
+            out[narrator] = sorted(ids)
+    return out
+
+
+def build_docs_by_narrator(
+    narrator_briefs_text: Optional[str],
+    corruption_map_text: Optional[str],
+    canon_text: Optional[str],
+) -> dict[str, list[str]]:
+    """narrator id -> list of verbatim document quote texts, whichever of the two key
+    shapes this root uses:
+
+    - v2-shaped: narrator-briefs.md embeds each document's full text directly under the
+      narrator(s) quoting it (parse_narrator_briefs_documents finds these blockquotes
+      directly and nothing further is needed).
+    - v3-shaped: narrator-briefs.md has no document blockquotes at all -- only canon.md's
+      '## Documents' section carries the verbatim text (keyed by doc id), and each
+      narrator's own '**Documents.** D1, D8, ...' line (in corruption-map.md and/or
+      narrator-briefs.md) says which ids that narrator quotes. Both are needed to
+      reconstruct the same narrator -> [quote text] shape check4_documents expects."""
+    if narrator_briefs_text:
+        v2_style = parse_narrator_briefs_documents(narrator_briefs_text)
+        if any(v2_style.values()):
+            return v2_style
+
+    if not canon_text:
+        return {}
+    doc_texts = parse_canon_documents(canon_text)
+    if not doc_texts:
+        return {}
+
+    narrator_doc_ids: dict[str, list[str]] = {}
+    for text in (corruption_map_text, narrator_briefs_text):
+        if not text:
+            continue
+        for narrator, ids in parse_narrator_document_ids(text).items():
+            existing = narrator_doc_ids.setdefault(narrator, [])
+            for did in ids:
+                if did not in existing:
+                    existing.append(did)
+
+    result: dict[str, list[str]] = {}
+    for narrator, ids in narrator_doc_ids.items():
+        quotes = [doc_texts[d] for d in ids if d in doc_texts]
+        if quotes:
+            result[narrator] = quotes
+    return result
+
+
 # --------------------------------------------------------------------------
 # Loading test-input / originals
 # --------------------------------------------------------------------------
 
 
-def load_retellings(root: Path) -> dict[str, tuple[Optional[Path], Optional[str]]]:
+def discover_narrator_ids(
+    root: Path, corruption_map_text: Optional[str], narrator_briefs_text: Optional[str]
+) -> list[str]:
+    """The narrator ids this root's corpus actually describes.
+
+    A fixed range (the old `NARRATOR_IDS = r01..r12` constant) is exactly what made this
+    script crash on a bigger corpus: corruption-map.md went on to describe narrators up to
+    r24, but every lookup kept assuming only twelve existed, so the first reference to
+    r13+ raised a KeyError instead of a FAIL row. Read the census off the corpus itself
+    instead: every '## rNN -- ...' section heading in corruption-map.md and
+    narrator-briefs.md (whichever are present), unioned with whatever 'rNN-*.md' files
+    already exist under test-input/retellings/ -- so a retelling drafted for a narrator id
+    that, for whatever reason, has no key section of its own is still counted."""
+    heading_re = re.compile(r"^##\s+(r\d{2})\b", re.MULTILINE)
+    ids: set[str] = set()
+    for text in (corruption_map_text, narrator_briefs_text):
+        if text:
+            ids.update(heading_re.findall(text))
     retellings_dir = root / "test-input" / "retellings"
-    mapping: dict[str, tuple[Optional[Path], Optional[str]]] = {rid: (None, None) for rid in NARRATOR_IDS}
+    if retellings_dir.is_dir():
+        try:
+            for p in retellings_dir.iterdir():
+                m = re.match(r"^(r\d{2})-.+\.md$", p.name)
+                if m:
+                    ids.add(m.group(1))
+        except OSError:
+            pass
+    return sorted(ids)
+
+
+def get_retelling(
+    retellings: dict[str, tuple[Optional[Path], Optional[str]]], rid: str
+) -> tuple[Optional[Path], Optional[str]]:
+    """Safe lookup: a narrator id with no entry (its retelling has not been drafted yet, or
+    the id is simply not one this root's retellings/ contains) resolves to (None, None)
+    rather than raising KeyError. Every check below that needs a specific narrator's file or
+    text goes through this (or get_retelling_text), never `retellings[rid]` directly -- so a
+    root whose retellings are incomplete, or entirely missing, is reported as FAIL rows,
+    never a crash."""
+    return retellings.get(rid, (None, None))
+
+
+def get_retelling_text(retellings: dict[str, tuple[Optional[Path], Optional[str]]], rid: str) -> Optional[str]:
+    return get_retelling(retellings, rid)[1]
+
+
+def load_retellings(root: Path) -> dict[str, tuple[Optional[Path], Optional[str]]]:
+    """narrator id -> (path, text) for every 'rNN-*.md' file actually present under
+    test-input/retellings/. An id the corpus's key describes but that has no file yet
+    simply has no entry here -- callers read through get_retelling()/get_retelling_text()
+    (which default a missing id to (None, None)) rather than indexing this dict directly."""
+    mapping: dict[str, tuple[Optional[Path], Optional[str]]] = {}
+    retellings_dir = root / "test-input" / "retellings"
     if not retellings_dir.is_dir():
         return mapping
     try:
@@ -717,6 +882,11 @@ class Item:
 @dataclass
 class Report:
     items: list[Item] = field(default_factory=list)
+    # Informational counts of what the key parsed to -- how many planted errors, near-tie
+    # pairs, documents, recoverability rows, devices, and check-7 scored items were found.
+    # Populated by run_audit(); printed by print_report() alongside the PASS/FAIL summary,
+    # never fed into the PASS/FAIL/UNPARSED counters themselves.
+    structure_counts: dict[str, int] = field(default_factory=dict)
 
     def add(self, check: str, item_id: str, status: str, detail: str) -> None:
         self.items.append(Item(check, item_id, status, detail))
@@ -731,7 +901,12 @@ class Report:
 
 
 def check1_files_and_lengths(
-    root: Path, retellings: dict[str, tuple[Optional[Path], Optional[str]]], report: Report
+    root: Path,
+    retellings: dict[str, tuple[Optional[Path], Optional[str]]],
+    narrator_ids: Iterable[str],
+    report: Report,
+    min_words: int = 1200,
+    max_words: int = 1800,
 ) -> None:
     check = "1-files-and-lengths"
 
@@ -752,10 +927,12 @@ def check1_files_and_lengths(
     else:
         report.add(check, "dot-files-excluded", "PASS", "no dot-files present in retellings/")
 
-    for rid in NARRATOR_IDS:
-        path, text = retellings[rid]
+    for rid in narrator_ids:
+        path, text = get_retelling(retellings, rid)
         if path is None:
-            report.add(check, rid, "FAIL", f"missing: no file matching {rid}-*.md in test-input/retellings/")
+            report.add(
+                check, rid, "FAIL", f"missing retelling {rid}: no file matching {rid}-*.md in test-input/retellings/"
+            )
             continue
         if text is None:
             report.add(check, rid, "FAIL", f"{path}: could not be read")
@@ -764,10 +941,15 @@ def check1_files_and_lengths(
             report.add(check, rid, "FAIL", f"{path.name} is a dot-file and should not count as a retelling")
             continue
         wc = word_count_after_framing(text)
-        if 1200 <= wc <= 1800:
+        if min_words <= wc <= max_words:
             report.add(check, rid, "PASS", f"{path.name}: {wc} words (after framing)")
         else:
-            report.add(check, rid, "FAIL", f"{path.name}: {wc} words (after framing) — outside 1,200-1,800")
+            report.add(
+                check,
+                rid,
+                "FAIL",
+                f"{path.name}: {wc} words (after framing) — outside {min_words:,}-{max_words:,}",
+            )
 
 
 # --------------------------------------------------------------------------
@@ -789,12 +971,14 @@ def check2_planted_errors(
     retellings: dict[str, tuple[Optional[Path], Optional[str]]],
     report: Report,
     known_document_quotes: frozenset[str] = frozenset(),
+    narrator_ids: Iterable[str] = NARRATOR_IDS,
 ) -> ErrorCheckResult:
     check = "2-planted-errors"
     result = ErrorCheckResult()
+    narrator_ids = list(narrator_ids)
 
     def retelling_text(rid: str) -> Optional[str]:
-        return retellings[rid][1]
+        return get_retelling_text(retellings, rid)
 
     # Which error ids are part of a near-tie pair (by Mechanism column mentioning "near-tie N")
     near_tie_error_ids: set[str] = set()
@@ -836,7 +1020,7 @@ def check2_planted_errors(
                     check,
                     f"{err.error_id} [{cand[:40]}]",
                     "FAIL",
-                    f"assigned narrator {err.narrator} retelling missing; cannot verify placement of {cand!r}",
+                    f"missing retelling {err.narrator}; cannot verify placement of {cand!r}",
                 )
                 continue
             assigned_norm = normalize_ws_quotes(assigned_text)
@@ -844,7 +1028,7 @@ def check2_planted_errors(
 
             leaked_into = []
             excluded_leaks = []
-            for other in NARRATOR_IDS:
+            for other in narrator_ids:
                 if other == err.narrator:
                     continue
                 other_text = retelling_text(other)
@@ -916,17 +1100,19 @@ def check2_planted_errors(
             required_for = candidate_required_narrators(nt.wrong_value_cell, cand, nt.carried_by)
 
             missing_from = []
+            missing_retellings = []
             for carrier in required_for:
                 text = retelling_text(carrier)
                 if text is None:
                     missing_from.append(carrier)
+                    missing_retellings.append(carrier)
                     continue
                 if not candidate_present(normalize_ws_quotes(text), cand):
                     missing_from.append(carrier)
 
             leaked_into = []
             fragile_leaks = []
-            for other in NARRATOR_IDS:
+            for other in narrator_ids:
                 if other in nt.carried_by:
                     continue
                 text = retelling_text(other)
@@ -968,8 +1154,11 @@ def check2_planted_errors(
             else:
                 overall_ok = False
                 bits = []
-                if missing_from:
-                    bits.append(f"missing from {', '.join(missing_from)}")
+                if missing_retellings:
+                    bits.append(f"missing retelling(s) {', '.join(missing_retellings)}")
+                value_not_found = [m for m in missing_from if m not in missing_retellings]
+                if value_not_found:
+                    bits.append(f"missing from {', '.join(value_not_found)}")
                 if leaked_into:
                     bits.append(f"leaked into {', '.join(leaked_into)}")
                 if fragile_leaks:
@@ -1077,7 +1266,7 @@ def check3_recoverability(
     check = "3-recoverability"
 
     def has_hit(rid: str, tokens: list[str]) -> bool:
-        text = retellings[rid][1]
+        text = get_retelling_text(retellings, rid)
         if text is None:
             return False
         norm = normalize_ws_quotes(text)
@@ -1100,6 +1289,14 @@ def check3_recoverability(
 
         if row.schema == "only_in":
             (narrator, _has_doc) = row.listed[0]
+            if get_retelling_text(retellings, narrator) is None:
+                report.add(
+                    check,
+                    fact_id,
+                    "FAIL",
+                    f"missing retelling {narrator}; cannot verify single-source fact (tokens tried: {tokens})",
+                )
+                continue
             if has_hit(narrator, tokens):
                 report.add(check, fact_id, "PASS", f"single-source fact confirmed present in {narrator} (tokens tried: {tokens})")
             elif is_declared_single_source:
@@ -1132,6 +1329,19 @@ def check3_recoverability(
 
         distinct = sorted({n for n, _ in row.listed})
         has_doc_mark = any(d for _, d in row.listed)
+        missing_retellings = [n for n in distinct if get_retelling_text(retellings, n) is None]
+        if missing_retellings and len(missing_retellings) == len(distinct):
+            # Every listed narrator's retelling is missing outright -- there is nothing to
+            # search, so falling through to the ordinary "not found" branches below would
+            # misreport why (e.g. a false ACCEPTED-SINGLE-SOURCE for a fact nobody has
+            # written yet). Report the real reason and move on.
+            report.add(
+                check,
+                fact_id,
+                "FAIL",
+                f"missing retelling(s) {', '.join(missing_retellings)}; cannot verify (tokens tried: {tokens})",
+            )
+            continue
         hits = [n for n in distinct if has_hit(n, tokens)]
 
         if len(distinct) >= 2:
@@ -1224,7 +1434,7 @@ def check4_documents(
     for narrator, quotes in docs_by_narrator.items():
         if not quotes:
             continue
-        text = retellings[narrator][1]
+        text = get_retelling_text(retellings, narrator)
         for i, q in enumerate(quotes, start=1):
             label = f"{narrator} doc#{i}"
             qn = normalize_ws_quotes(q)
@@ -1232,7 +1442,7 @@ def check4_documents(
                 report.add(check, label, "UNPARSED", "could not extract quote text from blockquote block")
                 continue
             if text is None:
-                report.add(check, label, "FAIL", f"{narrator} retelling missing; cannot verify quote: {qn[:60]}...")
+                report.add(check, label, "FAIL", f"missing retelling {narrator}; cannot verify quote: {qn[:60]}...")
                 continue
             tn = normalize_ws_quotes(text)
             if qn in tn:
@@ -1368,7 +1578,7 @@ def check5_leakage(
 
     # 12-gram check against originals
     if not originals:
-        report.add(check, "12-gram-check", "UNPARSED", "no files found under v2/originals/ to build n-grams from")
+        report.add(check, "12-gram-check", "UNPARSED", f"no files found under {root / 'originals'} to build n-grams from")
     else:
         origin_ngrams: dict[str, set[tuple[str, ...]]] = {
             name: build_ngrams(strip_known_document_quotes(strip_blockquote_lines(text), known_document_quotes))
@@ -1387,7 +1597,7 @@ def check5_leakage(
                         f"copied 12+ word run from {oname}: \"{leaked}\"",
                     )
             if not any_leak:
-                report.add(check, f"{rel_name}: 12-gram", "PASS", "no 12-word run copied from v2/originals/*.md")
+                report.add(check, f"{rel_name}: 12-gram", "PASS", f"no 12-word run copied from {root / 'originals'}/*.md")
 
 
 # --------------------------------------------------------------------------
@@ -1404,7 +1614,7 @@ def check6_devices(
     check = "6-devices"
 
     def file_exists(rid: str) -> bool:
-        return retellings[rid][0] is not None
+        return get_retelling(retellings, rid)[0] is not None
 
     for dev in cmap.devices:
         mentioned = sorted(set(re.findall(r"r\d{2}", dev.where)))
@@ -1416,7 +1626,7 @@ def check6_devices(
                 check,
                 f"{label_base}: files",
                 "FAIL",
-                f"implementing narrator file(s) missing: {', '.join(missing_files)}",
+                f"missing retelling(s) for implementing narrator(s): {', '.join(missing_files)}",
             )
         else:
             report.add(check, f"{label_base}: files", "PASS", f"all implementing narrator files exist: {mentioned}")
@@ -1439,9 +1649,9 @@ def check6_devices(
                         f"could not extract two conflicting quotes from {err.error_id}'s As-told cell",
                     )
                     continue
-                text = retellings[err.narrator][1]
+                text = get_retelling_text(retellings, err.narrator)
                 if text is None:
-                    report.add(check, f"{label_base}: {err.narrator} content", "FAIL", f"{err.narrator} retelling missing")
+                    report.add(check, f"{label_base}: {err.narrator} content", "FAIL", f"missing retelling {err.narrator}")
                     continue
                 norm = normalize_ws_quotes(text)
                 missing = [q for q in quotes if not candidate_present(norm, q)]
@@ -1470,9 +1680,9 @@ def check6_devices(
                         f"could not extract early/late quotes from {err.error_id}'s As-told cell",
                     )
                     continue
-                text = retellings[err.narrator][1]
+                text = get_retelling_text(retellings, err.narrator)
                 if text is None:
-                    report.add(check, f"{label_base}: {err.narrator} content", "FAIL", f"{err.narrator} retelling missing")
+                    report.add(check, f"{label_base}: {err.narrator} content", "FAIL", f"missing retelling {err.narrator}")
                     continue
                 norm = normalize_ws_quotes(text)
                 early, late = quotes[0], quotes[-1]
@@ -1540,8 +1750,13 @@ def check6_devices(
 
 
 def parse_answers_scoring(text: str) -> tuple[set[str], Optional[int], dict[str, int], dict[str, int]]:
-    header_ids = set(re.findall(r"^###\s+([A-D]\d)\b", text, re.MULTILINE))
-    bullet_ids = set(re.findall(r"-\s+\*\*([A-D]\d)\.\*\*", text))
+    # `\b` rather than a literal trailing '.' on the bullet id: v2's checklist bullets
+    # close the bold span immediately after the id ("- **B1.** **Sister and brother**"),
+    # but v3's sometimes fold more text into the same bold span ("- **B4. Abstention item
+    # (A01).**") or put a parenthetical before the period ("- **C1 (4 points, 1 each).**") --
+    # either way the id itself always ends at a word boundary.
+    header_ids = set(re.findall(r"^###\s+([A-G]\d+)\b", text, re.MULTILINE))
+    bullet_ids = set(re.findall(r"-\s+\*\*([A-G]\d+)\b", text))
     scored_items = header_ids | bullet_ids
 
     declared_total = None
@@ -1560,17 +1775,126 @@ def parse_answers_scoring(text: str) -> tuple[set[str], Optional[int], dict[str,
 
 
 def parse_questions_ids(text: str) -> set[str]:
-    return set(re.findall(r"\*\*([A-G]\d)\.\*\*", text))
+    return set(re.findall(r"\*\*([A-G]\d+)\b", text))
 
 
-def check7_questions_coverage(answers_text: str, questions_text: str, report: Report) -> None:
+_SECTION_A_COUNT_WORDS = {
+    "one": 1,
+    "two": 2,
+    "three": 3,
+    "four": 4,
+    "five": 5,
+    "six": 6,
+    "seven": 7,
+    "eight": 8,
+    "nine": 9,
+    "ten": 10,
+    "eleven": 11,
+    "twelve": 12,
+}
+
+
+def section_a_declared_story_count(questions_text: str) -> Optional[int]:
+    """The story count questions.md's own Section A body declares in prose (v3: 'There were
+    originally **eight** stories... Reconstruct each of the eight.') -- used only for the
+    cue-less design, where there is no per-story bulleted id to match against the key's
+    headers at all. None if no such count phrase is found."""
+    section_a_body = ""
+    for heading, body in split_sections(questions_text, level=2).items():
+        if heading.strip().lower().startswith("section a"):
+            section_a_body = body
+            break
+    if not section_a_body:
+        return None
+    words = "|".join(_SECTION_A_COUNT_WORDS)
+    m = re.search(rf"\b({words})\b[^.]{{0,40}}\bstories\b", section_a_body, re.IGNORECASE)
+    if not m:
+        return None
+    return _SECTION_A_COUNT_WORDS[m.group(1).lower()]
+
+
+def check7_questions_coverage(answers_text: str, questions_text: str, report: Report) -> Optional[set[str]]:
     check = "7-questions-cover-key"
     scored_items, declared_total, breakdown, section_headers = parse_answers_scoring(answers_text)
     question_ids = parse_questions_ids(questions_text)
 
     if not scored_items:
-        report.add(check, "scored-item-ids", "UNPARSED", "could not find any A/B/C/D item ids in answers-and-scoring.md")
-    for item_id in sorted(scored_items):
+        report.add(
+            check, "scored-item-ids", "UNPARSED", "could not find any lettered checklist item ids in answers-and-scoring.md"
+        )
+
+    # Section A's own per-story headers ('### A1 -- ...') need a different coverage test
+    # from every other section's ids. v2 cues each story with its own '**A1.**' bullet in
+    # questions.md, so an ordinary per-id match (like B/C/D below) works. v3's Section A is
+    # deliberately cue-less -- "there were eight stories; reconstruct each," no per-story
+    # label anywhere -- so an id-for-id match would FAIL every one of them by design, not by
+    # defect (AUTHORING-NOTES.md, lever 2). Tell the two shapes apart by whether the key's
+    # Section A ids show up individually in questions.md at all.
+    section_a_ids = {i for i in scored_items if re.fullmatch(r"A\d+", i)}
+    other_ids = scored_items - section_a_ids
+    section_a_cued = {i for i in section_a_ids if i in question_ids}
+    section_a_uncued = section_a_ids - section_a_cued
+
+    ids_to_match = other_ids
+    if not section_a_ids or not section_a_uncued:
+        # No Section A ids at all, or every one of them is individually cued (v2-shaped):
+        # match them exactly like any other section's ids, in the loop below.
+        ids_to_match = other_ids | section_a_ids
+    elif section_a_uncued == section_a_ids:
+        # v3-shaped: none of them are cued. Confirm the cue-less design is actually in play
+        # -- questions.md's Section A states the same story count the key defines -- rather
+        # than assuming it, so a genuine gap still surfaces instead of being waved through.
+        declared_count = section_a_declared_story_count(questions_text)
+        if declared_count == len(section_a_ids):
+            for item_id in sorted(section_a_ids):
+                report.add(
+                    check,
+                    item_id,
+                    "PASS",
+                    f"{item_id} is a Section A story heading; Section A is cue-less by design "
+                    f"(no per-story id in questions.md), and questions.md declares the same "
+                    f"{declared_count} stories -- see AUTHORING-NOTES.md, lever 2",
+                )
+            report.add(
+                check,
+                "section-A-story-count",
+                "PASS",
+                f"key defines {len(section_a_ids)} Section A story headings ({sorted(section_a_ids)}); "
+                f"questions.md's Section A declares {declared_count} stories",
+            )
+        else:
+            for item_id in sorted(section_a_ids):
+                report.add(
+                    check,
+                    item_id,
+                    "FAIL",
+                    f"{item_id} is a Section A story heading with no matching id in questions.md, and "
+                    f"questions.md's declared story count ({declared_count!r}) does not confirm "
+                    f"cue-less design against the key's {len(section_a_ids)} headings",
+                )
+            report.add(
+                check,
+                "section-A-story-count",
+                "FAIL",
+                f"key defines {len(section_a_ids)} Section A story headings; questions.md's Section A "
+                f"declares {declared_count!r} -- counts do not match",
+            )
+    else:
+        # A mixed state this script has no model for: some Section A ids are individually
+        # cued and some are not. Flag it rather than silently guessing which convention
+        # applies -- this is exactly the "parse defensively" case.
+        report.add(
+            check,
+            "section-A-cue-shape",
+            "UNPARSED",
+            f"{len(section_a_uncued)} of {len(section_a_ids)} Section A story ids "
+            f"({sorted(section_a_uncued)}) have no matching id in questions.md while "
+            f"{sorted(section_a_cued)} do -- cannot tell whether Section A is meant to be "
+            f"individually cued (v2-style) or cue-less (v3-style); skipping the per-story "
+            f"Section A check",
+        )
+
+    for item_id in sorted(ids_to_match):
         if item_id in question_ids:
             report.add(check, item_id, "PASS", f"{item_id} appears in questions.md")
         else:
@@ -1601,6 +1925,8 @@ def check7_questions_coverage(answers_text: str, questions_text: str, report: Re
                 )
             else:
                 report.add(check, "point-totals-consistency", "PASS", "breakdown line agrees with each section header's point count")
+
+    return scored_items
 
 
 # --------------------------------------------------------------------------
@@ -1636,7 +1962,7 @@ def load_test_input_files(root: Path) -> dict[str, str]:
     return files
 
 
-def run_audit(root: Path) -> Report:
+def run_audit(root: Path, min_words: int = 1200, max_words: int = 1800) -> Report:
     report = Report()
 
     corruption_map_text = read_text_or_none(root / "answer-key" / "corruption-map.md")
@@ -1645,38 +1971,60 @@ def run_audit(root: Path) -> Report:
     answers_text = read_text_or_none(root / "answer-key" / "answers-and-scoring.md")
     questions_text = read_text_or_none(root / "test-input" / "questions.md") or ""
 
+    # The narrator census this root's key actually describes -- NOT a fixed count. See
+    # discover_narrator_ids's docstring for why a hardcoded range crashes on a root with
+    # more (or fewer, or differently-numbered) narrators than the constant assumed.
+    narrator_ids = discover_narrator_ids(root, corruption_map_text, narrator_briefs_text)
+
     retellings = load_retellings(root)
 
     # --- Check 1 ---
-    check1_files_and_lengths(root, retellings, report)
+    check1_files_and_lengths(root, retellings, narrator_ids, report, min_words=min_words, max_words=max_words)
 
     # Parsed once, ahead of check 2, so its verbatim document quotes can be
     # excluded from check 2's per-narrator uniqueness search (a quote an
     # As-told cell embeds as supporting context -- e.g. a late reversal
     # quoting the document that retracts it -- is expected in every narrator
     # who transcribes that document; check 4 verifies it separately).
-    docs_by_narrator: dict[str, list[str]] = {}
-    if narrator_briefs_text is not None:
-        docs_by_narrator = parse_narrator_briefs_documents(narrator_briefs_text)
+    #
+    # build_docs_by_narrator tries the v2 shape first (each document's verbatim text
+    # embedded directly under the narrator(s) quoting it, in narrator-briefs.md) and falls
+    # back to the v3 shape (verbatim text keyed by document id in canon.md, cross-referenced
+    # against each narrator's own id list) when the first finds nothing.
+    docs_by_narrator = build_docs_by_narrator(narrator_briefs_text, corruption_map_text, canon_text)
+    if not docs_by_narrator and narrator_briefs_text and re.search(r"\bD\d{1,3}\b", narrator_briefs_text):
+        # The brief clearly references document ids, but neither parse path extracted any
+        # quoted text for them -- flag it rather than silently reporting nothing in check 4.
+        report.add(
+            "4-documents-verbatim",
+            "docs-parse",
+            "UNPARSED",
+            "narrator-briefs.md references document ids, but no verbatim quote text could be "
+            "extracted from narrator-briefs.md's own blockquotes or from canon.md's Documents "
+            "section",
+        )
     known_document_quotes = frozenset(
         normalize_ws_quotes(q) for quotes in docs_by_narrator.values() for q in quotes
     )
 
     # --- Checks 2, 3, 6 need corruption-map.md ---
+    cmap: Optional[CorruptionMap] = None
     if corruption_map_text is None:
-        report.add("2-planted-errors", "corruption-map.md", "UNPARSED", "file missing: v2/answer-key/corruption-map.md")
-        report.add("3-recoverability", "corruption-map.md", "UNPARSED", "file missing: v2/answer-key/corruption-map.md")
-        report.add("6-devices", "corruption-map.md", "UNPARSED", "file missing: v2/answer-key/corruption-map.md")
+        report.add("2-planted-errors", "corruption-map.md", "UNPARSED", "file missing: answer-key/corruption-map.md")
+        report.add("3-recoverability", "corruption-map.md", "UNPARSED", "file missing: answer-key/corruption-map.md")
+        report.add("6-devices", "corruption-map.md", "UNPARSED", "file missing: answer-key/corruption-map.md")
         error_check_result = ErrorCheckResult()
     else:
         cmap = parse_corruption_map(corruption_map_text)
-        error_check_result = check2_planted_errors(cmap, retellings, report, known_document_quotes=known_document_quotes)
+        error_check_result = check2_planted_errors(
+            cmap, retellings, report, known_document_quotes=known_document_quotes, narrator_ids=narrator_ids
+        )
         check3_recoverability(cmap, retellings, report)
         check6_devices(cmap, retellings, error_check_result, report)
 
     # --- Check 4 needs narrator-briefs.md ---
     if narrator_briefs_text is None:
-        report.add("4-documents-verbatim", "narrator-briefs.md", "UNPARSED", "file missing: v2/answer-key/narrator-briefs.md")
+        report.add("4-documents-verbatim", "narrator-briefs.md", "UNPARSED", "file missing: answer-key/narrator-briefs.md")
     else:
         check4_documents(docs_by_narrator, retellings, report)
 
@@ -1685,15 +2033,26 @@ def run_audit(root: Path) -> Report:
     key_text_for_ids = "\n".join(t for t in (corruption_map_text, narrator_briefs_text, canon_text, answers_text) if t)
     test_input_files = load_test_input_files(root)
     if not test_input_files:
-        report.add("5-no-key-leakage", "test-input", "UNPARSED", "no files found under v2/test-input/")
+        report.add("5-no-key-leakage", "test-input", "UNPARSED", "no files found under test-input/")
     else:
         check5_leakage(root, key_text_for_ids, originals, test_input_files, report, known_document_quotes=known_document_quotes)
 
     # --- Check 7 needs answers-and-scoring.md + questions.md ---
+    scored_items: Optional[set[str]] = None
     if answers_text is None:
-        report.add("7-questions-cover-key", "answers-and-scoring.md", "UNPARSED", "file missing: v2/answer-key/answers-and-scoring.md")
+        report.add("7-questions-cover-key", "answers-and-scoring.md", "UNPARSED", "file missing: answer-key/answers-and-scoring.md")
     else:
-        check7_questions_coverage(answers_text, questions_text, report)
+        scored_items = check7_questions_coverage(answers_text, questions_text, report)
+
+    report.structure_counts = {
+        "narrators": len(narrator_ids),
+        "planted errors": len(cmap.errors) if cmap is not None else 0,
+        "near-tie pairs": len(cmap.near_ties) if cmap is not None else 0,
+        "documents": len(parse_canon_documents(canon_text)) if canon_text else 0,
+        "recoverability rows": len(cmap.recoverability) if cmap is not None else 0,
+        "devices": len(cmap.devices) if cmap is not None else 0,
+        "scored items (check 7)": len(scored_items) if scored_items is not None else 0,
+    }
 
     return report
 
@@ -1724,15 +2083,24 @@ def print_report(report: Report) -> None:
     else:
         print("Missing retellings: none")
 
+    if report.structure_counts:
+        print("Key structure: " + ", ".join(f"{v} {k}" for k, v in report.structure_counts.items()))
+
 
 def main(argv: Optional[list[str]] = None) -> int:
-    parser = argparse.ArgumentParser(description="Mechanical audit for the v2 synthesis test.")
-    parser.add_argument("--root", default="v2", help="Path to the v2 directory (default: v2)")
+    parser = argparse.ArgumentParser(description="Mechanical audit for a synthesis test (root-agnostic).")
+    parser.add_argument("--root", default="v2", help="Path to the test root directory (default: v2)")
     parser.add_argument("--strict", action="store_true", help="Exit 1 if any FAIL or UNPARSED item is found")
+    parser.add_argument(
+        "--min-words", type=int, default=1200, help="Minimum retelling word count after framing (default: 1200)"
+    )
+    parser.add_argument(
+        "--max-words", type=int, default=1800, help="Maximum retelling word count after framing (default: 1800)"
+    )
     args = parser.parse_args(argv)
 
     root = Path(args.root)
-    report = run_audit(root)
+    report = run_audit(root, min_words=args.min_words, max_words=args.max_words)
     print_report(report)
 
     if args.strict:

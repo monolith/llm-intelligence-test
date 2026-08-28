@@ -60,6 +60,24 @@ Design rules placeholder.
 
 ---
 
+## r04 — Dana, a witness (never authored)
+
+Placeholder section; no retelling was ever written for this narrator in the fixture.
+
+---
+
+## r05 — Eli, a witness (never authored)
+
+Placeholder section; no retelling was ever written for this narrator in the fixture.
+
+---
+
+## r12 — Mallory, a witness (never authored)
+
+Placeholder section; no retelling was ever written for this narrator in the fixture.
+
+---
+
 ## Near-tie pairs (explicit)
 
 | Pair | Wrong value | Carried by | Correct value | Settled by |
@@ -1104,3 +1122,387 @@ def test_check5_document_quote_as_inline_italics_in_original_is_not_flagged():
     audit.check5_leakage(Path("."), "", originals, test_input_files, report, known_document_quotes=known_quotes)
     twelve_gram_items = [i for i in report.items if "12-gram" in i.item_id]
     assert all(i.status == "PASS" for i in twelve_gram_items)
+
+
+# --------------------------------------------------------------------------
+# v3 root-agnostic support: missing retellings never crash, the word-count
+# band is a parameter, narrator census is discovered (not a fixed range),
+# document text can live in canon.md keyed by id instead of embedded per
+# narrator, and Section A can be cue-less.
+# --------------------------------------------------------------------------
+
+
+def test_check1_missing_retelling_detail_names_the_narrator():
+    report = audit.Report()
+    audit.check1_files_and_lengths(Path("."), {}, ["r09"], report)
+    item = [i for i in report.items if i.check == "1-files-and-lengths" and i.item_id == "r09"][0]
+    assert item.status == "FAIL"
+    assert "missing retelling r09" in item.detail
+
+
+def test_check1_word_band_is_parameterised_lower_bound():
+    retellings = {"r01": (Path("r01.md"), "word " * 1100)}  # below v2's 1,200 floor
+
+    report_default = audit.Report()
+    audit.check1_files_and_lengths(Path("."), retellings, ["r01"], report_default)
+    assert exact_status(report_default, "1-files-and-lengths", "r01") == "FAIL"
+
+    report_v3_band = audit.Report()
+    audit.check1_files_and_lengths(Path("."), retellings, ["r01"], report_v3_band, min_words=1000, max_words=1500)
+    assert exact_status(report_v3_band, "1-files-and-lengths", "r01") == "PASS"
+
+
+def test_check1_word_band_is_parameterised_upper_bound():
+    retellings = {"r01": (Path("r01.md"), "word " * 1600)}  # inside v2's band, above v3's 1,500 ceiling
+
+    report_default = audit.Report()
+    audit.check1_files_and_lengths(Path("."), retellings, ["r01"], report_default)
+    assert exact_status(report_default, "1-files-and-lengths", "r01") == "PASS"
+
+    report_v3_band = audit.Report()
+    audit.check1_files_and_lengths(Path("."), retellings, ["r01"], report_v3_band, min_words=1000, max_words=1500)
+    assert exact_status(report_v3_band, "1-files-and-lengths", "r01") == "FAIL"
+
+
+def test_check1_word_band_defaults_stay_v2_shaped():
+    retellings = {"r01": (Path("r01.md"), "word " * 1300)}
+    report = audit.Report()
+    audit.check1_files_and_lengths(Path("."), retellings, ["r01"], report)
+    assert exact_status(report, "1-files-and-lengths", "r01") == "PASS"
+
+
+def test_main_wires_min_words_max_words_flags_through(tmp_path, capsys):
+    root = tmp_path / "root"
+    (root / "answer-key").mkdir(parents=True)
+    (root / "test-input" / "retellings").mkdir(parents=True)
+    (root / "test-input" / "questions.md").write_text("# Q\n", encoding="utf-8")
+    (root / "test-input" / "retellings" / "r01-a.md").write_text("word " * 1100, encoding="utf-8")
+
+    rc_default = audit.main(["--root", str(root)])
+    assert rc_default == 0
+    out_default = capsys.readouterr().out
+    assert "[FAIL] r01" in out_default
+
+    rc_custom = audit.main(["--root", str(root), "--min-words", "1000", "--max-words", "1500"])
+    assert rc_custom == 0
+    out_custom = capsys.readouterr().out
+    assert "[PASS] r01" in out_custom
+
+
+def test_discover_narrator_ids_reads_headings_beyond_a_fixed_range(tmp_path):
+    # The old NARRATOR_IDS constant stopped at r12; a corpus describing narrators past that
+    # (v3 goes to r24) must still be discovered in full.
+    root = tmp_path / "root"
+    cmap_text = "## r01 — Alice\n\n## r14 — Someone\n\n## r24 — Someone else\n"
+    assert audit.discover_narrator_ids(root, cmap_text, None) == ["r01", "r14", "r24"]
+
+
+def test_discover_narrator_ids_unions_briefs_and_retellings_dir(tmp_path):
+    root = tmp_path / "root"
+    (root / "test-input" / "retellings").mkdir(parents=True)
+    (root / "test-input" / "retellings" / "r05-someone.md").write_text("x", encoding="utf-8")
+    cmap_text = "## r01 — Alice\n"
+    briefs_text = "## r01 — Alice\n\n## r02 — Bob\n"
+    assert audit.discover_narrator_ids(root, cmap_text, briefs_text) == ["r01", "r02", "r05"]
+
+
+def test_discover_narrator_ids_returns_empty_list_when_nothing_found(tmp_path):
+    root = tmp_path / "root"
+    assert audit.discover_narrator_ids(root, None, None) == []
+
+
+def test_check2_narrator_beyond_legacy_range_reports_missing_retelling_not_crash(tmp_path):
+    # Direct regression test for the reported crash: `KeyError: 'r14'` inside
+    # retelling_text() the instant corruption-map.md described a narrator beyond the old
+    # hardcoded NARRATOR_IDS = r01..r12 range, with no retelling on disk for it at all.
+    root = tmp_path / "v3-like"
+    (root / "answer-key").mkdir(parents=True)
+    (root / "test-input" / "retellings").mkdir(parents=True)
+    (root / "answer-key" / "corruption-map.md").write_text(
+        """\
+## r14 — Someone, a narrator well beyond the old twelve-narrator range
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X99 | F200 | The gate was **red**. | Blue. | Unique |
+""",
+        encoding="utf-8",
+    )
+    (root / "test-input" / "questions.md").write_text("# Questions\n", encoding="utf-8")
+
+    report = audit.run_audit(root)  # must not raise KeyError
+    item = [i for i in report.items if i.check == "2-planted-errors" and i.item_id == "X99 [red]"][0]
+    assert item.status == "FAIL"
+    assert "missing retelling" in item.detail and "r14" in item.detail
+
+
+def test_check3_single_source_all_narrators_missing_reports_fail_not_accepted():
+    # With the narrator's retelling entirely absent there is nothing to confirm -- must not
+    # be reported as ACCEPTED-SINGLE-SOURCE (which would misleadingly claim the fact was
+    # manually confirmed present).
+    cmap_text = """\
+## Recoverability index
+
+### Single-source scored facts (uncontested)
+
+| Fact | Only in | Status |
+|---|---|---|
+| The founder was named Sam | r09 | Single-source, uncontested |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    report = audit.Report()
+    audit.check3_recoverability(cmap, {}, report)
+    item = [i for i in report.items if i.check == "3-recoverability"][0]
+    assert item.status == "FAIL"
+    assert "missing retelling" in item.detail and "r09" in item.detail
+
+
+def test_check3_majority_fact_all_narrators_missing_reports_fail_not_needs_human():
+    cmap_text = """\
+## Recoverability index
+
+### People
+
+| Fact | Correct in | Corrupted in | How it resolves |
+|---|---|---|---|
+| F950 Alice and Bob are cousins | r01, r02 | — | Majority |
+"""
+    cmap = audit.parse_corruption_map(cmap_text)
+    report = audit.Report()
+    audit.check3_recoverability(cmap, {}, report)
+    assert exact_status(report, "3-recoverability", "F950") == "FAIL"
+    item = [i for i in report.items if i.check == "3-recoverability" and i.item_id == "F950"][0]
+    assert "missing retelling" in item.detail
+
+
+def test_run_audit_end_to_end_no_crash_beyond_legacy_range_with_all_retellings_missing(tmp_path):
+    root = tmp_path / "v3-like"
+    (root / "answer-key").mkdir(parents=True)
+    (root / "test-input" / "retellings").mkdir(parents=True)
+    (root / "answer-key" / "corruption-map.md").write_text(
+        """\
+## r13 — First narrator beyond the old range
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X01 | F001 | The gate was **red**. | Blue. | Unique |
+
+## r14 — Second narrator beyond the old range
+
+| id | Corrupts | As told | Truth | Mechanism |
+|---|---|---|---|---|
+| X02 | F002 | The flag was **green**. | Yellow. | **Near-tie 1** (partner r13) |
+
+## Near-tie pairs (explicit)
+
+| Pair | Wrong value | Carried by | Correct value | Settled by |
+|---|---|---|---|---|
+| **NT-1** | **green** | r13, r14 | yellow | a document |
+
+## Recoverability index
+
+### People
+
+| Fact | Correct in | Corrupted in | How it resolves |
+|---|---|---|---|
+| F900 something true | r13, r14 | — | Majority |
+
+## Device checklist
+
+| Device | Where implemented | Facts touched |
+|---|---|---|
+| **Internal contradictions in one retelling** | r13, r14 | F001 |
+""",
+        encoding="utf-8",
+    )
+    (root / "test-input" / "questions.md").write_text("# Questions\n", encoding="utf-8")
+
+    report = audit.run_audit(root)  # must not raise
+    counts = report.counts()
+    assert counts["FAIL"] > 0
+    assert any("missing retelling" in i.detail and ("r13" in i.detail or "r14" in i.detail) for i in report.items)
+    assert report.structure_counts["narrators"] == 2
+    assert report.structure_counts["planted errors"] == 2
+    assert report.structure_counts["near-tie pairs"] == 1
+
+
+def test_parse_canon_documents_extracts_verbatim_text_by_id():
+    canon_text = """\
+## 6. Documents (verbatim — these outrank memory)
+
+**D1 — By-laws of the Association, Article VII**
+> *Article VII. Every patron shall be paid by test.*
+
+**D2 — Invoice, Ammon & Sons, 14 April 1897**
+> *Sold to the Association: 6 doz. pipettes, 17.6 c.c.*
+"""
+    docs = audit.parse_canon_documents(canon_text)
+    assert docs["D1"] == "Article VII. Every patron shall be paid by test."
+    assert docs["D2"] == "Sold to the Association: 6 doz. pipettes, 17.6 c.c."
+
+
+def test_build_docs_by_narrator_falls_back_to_canon_when_briefs_has_no_blockquotes():
+    # v3-shaped key: narrator-briefs.md never embeds document text directly (no '>' lines
+    # at all), only says which ids a narrator quotes; the text itself lives once, in
+    # canon.md, keyed by document id.
+    narrator_briefs_text = """\
+## r02 — Effie Loomis
+
+**Documents.** **D1** and **D8**, both verbatim.
+"""
+    canon_text = """\
+## 6. Documents (verbatim — these outrank memory)
+
+**D1 — By-laws, Article VII**
+> *Article VII. Every patron shall be paid by test.*
+
+**D8 — Minutes of the board**
+> *The board awards the patrons thirty-eight hundred dollars.*
+"""
+    docs_by_narrator = audit.build_docs_by_narrator(narrator_briefs_text, None, canon_text)
+    assert docs_by_narrator["r02"] == [
+        "Article VII. Every patron shall be paid by test.",
+        "The board awards the patrons thirty-eight hundred dollars.",
+    ]
+
+
+def test_build_docs_by_narrator_excludes_ids_only_referred_to_without_transcribing():
+    narrator_briefs_text = """\
+## r13 — Alonzo Frick
+
+**Documents.** The exhibit list (his own reproduction); he refers to D8 without transcribing it.
+"""
+    canon_text = """\
+## 6. Documents (verbatim — these outrank memory)
+
+**D8 — Minutes of the board**
+> *The board awards the patrons thirty-eight hundred dollars.*
+"""
+    docs_by_narrator = audit.build_docs_by_narrator(narrator_briefs_text, None, canon_text)
+    assert "r13" not in docs_by_narrator
+
+
+def test_build_docs_by_narrator_prefers_v2_style_embedded_blockquotes():
+    # When narrator-briefs.md already embeds the document text directly (v2 shape), that
+    # must win even if a canon.md Documents section also happens to be present.
+    narrator_briefs_text = (
+        "## r01 — Alice\n\n"
+        "**Documents she quotes verbatim.**\n\n"
+        "> *No lives were lost.*\n"
+        "> — *Ninestone Sentinel*, 8 March 1898\n"
+    )
+    canon_text = """\
+## 6. Documents (verbatim — these outrank memory)
+
+**D1 — Some other document**
+> *Completely different text.*
+"""
+    docs_by_narrator = audit.build_docs_by_narrator(narrator_briefs_text, None, canon_text)
+    assert docs_by_narrator["r01"] == ["No lives were lost."]
+
+
+def test_check7_section_a_cueless_design_passes_when_story_count_matches():
+    answers_text = """\
+Total: **20 points.** A 12 / B 8
+
+## Section A -- Reconstruction (12 points)
+
+### A1 -- first story (6 points)
+1. Something. **F001**
+
+### A2 -- second story (6 points)
+
+## Section B -- Relationships (8 points)
+
+- **B1.** Something. **F010**
+"""
+    questions_text = """\
+## Section A -- Reconstruction (12 points)
+
+There were originally **two** stories. Reconstruct each of the two.
+
+## Section B -- Relationships (8 points)
+
+- **B1.** What was the relationship?
+"""
+    report = audit.Report()
+    scored_items = audit.check7_questions_coverage(answers_text, questions_text, report)
+    assert exact_status(report, "7-questions-cover-key", "A1") == "PASS"
+    assert exact_status(report, "7-questions-cover-key", "A2") == "PASS"
+    assert exact_status(report, "7-questions-cover-key", "section-A-story-count") == "PASS"
+    assert exact_status(report, "7-questions-cover-key", "B1") == "PASS"
+    assert scored_items == {"A1", "A2", "B1"}
+
+
+def test_check7_section_a_cueless_design_fails_when_story_count_does_not_match():
+    answers_text = """\
+### A1 -- first story (6 points)
+### A2 -- second story (6 points)
+### A3 -- third story (6 points)
+"""
+    questions_text = """\
+## Section A -- Reconstruction (18 points)
+
+There were originally **two** stories. Reconstruct each of the two.
+"""
+    report = audit.Report()
+    audit.check7_questions_coverage(answers_text, questions_text, report)
+    assert exact_status(report, "7-questions-cover-key", "A1") == "FAIL"
+    assert exact_status(report, "7-questions-cover-key", "section-A-story-count") == "FAIL"
+
+
+def test_check7_section_a_v2_style_cued_ids_still_matched_individually():
+    # Regression: when every Section A id IS individually cued in questions.md (v2 shape),
+    # behavior must be unchanged -- an ordinary per-id match, no cue-less machinery kicks in.
+    answers_text = """\
+### A1 -- first story (8 points)
+### A2 -- second story (8 points)
+"""
+    questions_text = """\
+## Section A -- Reconstruction (16 points)
+
+- **A1.** The first story.
+- **A2.** The second story.
+"""
+    report = audit.Report()
+    audit.check7_questions_coverage(answers_text, questions_text, report)
+    assert exact_status(report, "7-questions-cover-key", "A1") == "PASS"
+    assert exact_status(report, "7-questions-cover-key", "A2") == "PASS"
+    assert not [i for i in report.items if i.item_id == "section-A-story-count"]
+
+
+def test_check7_section_a_mixed_cue_state_reports_unparsed_rather_than_guessing():
+    answers_text = """\
+### A1 -- first story (6 points)
+### A2 -- second story (6 points)
+"""
+    questions_text = """\
+## Section A -- Reconstruction (12 points)
+
+- **A1.** The first story, named for the solver.
+
+There were originally **two** stories.
+"""
+    report = audit.Report()
+    audit.check7_questions_coverage(answers_text, questions_text, report)
+    assert exact_status(report, "7-questions-cover-key", "section-A-cue-shape") == "UNPARSED"
+    assert not [i for i in report.items if i.item_id in ("A1", "A2")]
+
+
+def test_check7_bullet_id_bold_span_may_extend_past_the_id():
+    # v3's answers-and-scoring.md sometimes folds more text into the same bold span as the
+    # id ("- **B4. Abstention item (A01).**"), unlike v2's immediate-close style
+    # ("- **B1.** ..."). Both must be recognized, and the abstention id folded into the same
+    # span must NOT itself be picked up as a separate scored item.
+    answers_text = "- **B4. Abstention item (A01).** States that whether it can be determined."
+    scored_items, *_ = audit.parse_answers_scoring(answers_text)
+    assert "B4" in scored_items
+    assert "A01" not in scored_items
+
+
+def test_check7_bullet_id_with_parenthetical_before_period_is_recognized():
+    # v3's Section C bullets put a parenthetical between the id and the period
+    # ("- **C1 (4 points, 1 each).**") rather than closing the bold immediately.
+    answers_text = "- **C1 (4 points, 1 each).**\n  (a) something"
+    scored_items, *_ = audit.parse_answers_scoring(answers_text)
+    assert "C1" in scored_items
