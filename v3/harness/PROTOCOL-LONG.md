@@ -23,3 +23,26 @@ Four models × two long modes = 8 cells; batch-level results give 24 scored poin
 
 ## Coverage note (2026-08-28)
 Fable's monthly spend limit was reached during the run. Its completed cells are the short-variant `single` and `sequential`; `noisy` and the long variant were **not run** (not "failed to score"). Its long-variant ingest is banked through segment 2 and resumes from segment 3 whenever the limit is raised — the notes and verified transcripts are on disk. Every table must mark those cells "not run", never blank or zero.
+
+## Ruling — long-reread is one pass per model, not three (2026-08-28)
+The spec's per-batch re-read would run the full material three times per model. The re-read is the dominant cost of the whole suite, and repeating it buys no additional signal about the model: the same fresh reader reads the same bytes in the same order each time. So `long-reread` is administered as ONE chain per model, and the final reader answers all three batches in sequence, each batch written to its own answer file and judged separately against its slice of the key.
+
+Cost is reported as: shared re-read cost (attributed once, and shown divided three ways where a per-batch number is needed, marked "shared"), plus each batch's own answer cost. Per-batch re-read costs are therefore correlated rather than independent — per-batch variance is understated, totals are exact. Every table carrying a per-batch re-read cost must carry that note.
+
+## Defect and repair — the impossible read (2026-08-28)
+`split_big_reads.py` split a prescribed Read by line count only. The Read tool refuses any slice over ~25k tokens, and a reader's own retention notes are few lines of enormous length: sonnet's `notes-11.md` was 276 lines and 30,086 tokens, so the prescribed read of it could never succeed. The reader was told to note an error and continue, so it continued — with no memory of segments 1–11. The transcript verifier passed the segment, because it checks which files were opened, not whether the read returned.
+
+Found by scanning every captured transcript for the cap message. Damage, from `read_coverage.py` (new: compares each segment's prescribed line spans against the spans actually returned):
+
+- **haiku seg11** — lost 700 of 800 lines of `notes-10.md`; the chain's notes fell from 12,384 words to 2,456 and never recovered.
+- **sonnet seg12** — lost all of `notes-11.md`.
+- Noise gaps in haiku seg3–7, seg11 and sonnet seg5 (L1/L2 documents, several thousand lines): the reader retried most and skipped some.
+- **No scored content was lost in any live chain.** Every gap inside a wrapped document (`r09`, `r12`, `r15`) fell in filler; checked against the needle line span computed from `MANIFEST.jsonl`. `fable` seg2 did lose needle lines of `r06-long.md`, and fable's long variant is not run.
+
+Repairs:
+1. `split_big_reads.py` splits on measured **bytes** as well as lines (`--max-bytes 40000`, ≈15k tokens at the densest ratio observed); five tests in `tests/test_split_big_reads.py` cover long-line, many-line, contiguity, no-op, and unmeasurable-file cases.
+2. `ingest_step.sh` now greps each captured transcript for the cap message, runs `read_coverage.py` for that segment, and prints a loud line if either fires. It also splits the next segment itself, so a rendered segment can no longer reach a reader unsplit.
+3. Reader prompts now say: a read that fails because the slice is too large must be retried in halves until every part returns — never skipped. Same instruction to every model.
+4. Invalidated segments were quarantined, not deleted, in `runs/<model>/long-notes/ingest/void-token-cap-notes-loss/`: sonnet from seg12, haiku from seg11 (13 segments of haiku work discarded). Both chains restart from the last segment whose carried notes were read in full.
+
+The noise-document gaps in haiku's seg3–7 are left as they are and reported: they cost haiku some distraction load, which if anything helped it, and re-running them would discard sound scored content to fix an unscored one.
