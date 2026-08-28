@@ -1,0 +1,61 @@
+{
+  "run": "fable/single",
+  "judge": "score-2",
+  "key_version": "answers-and-scoring.md as of 2026-08-28 (revised: REQUIRED lines, operational verdict test, collisions rule, A6 Strawn 1907)",
+  "sections": {
+    "A": { "max": 50, "score": 48 },
+    "B": { "max": 8, "score": 8 },
+    "C": { "max": 14, "score": 14 },
+    "D": { "max": 10, "score": 7 },
+    "E": { "max": 8, "score": 8 },
+    "F": { "max": 6, "score": 4 },
+    "G": { "max": 4, "score": 2 }
+  },
+  "section_a_subsheet": {
+    "A1": { "max": 6, "score": 6 },
+    "A2": { "max": 6, "score": 5 },
+    "A3": { "max": 7, "score": 7 },
+    "A4": { "max": 6, "score": 6 },
+    "A5": { "max": 6, "score": 6 },
+    "A6": { "max": 6, "score": 6 },
+    "A7": { "max": 6, "score": 6 },
+    "A8": { "max": 7, "score": 6 }
+  },
+  "section_e_buckets": {
+    "E_a_ordinary_conflicts": { "cap": 3, "score": 3 },
+    "E_b_near_tie_pairs": { "cap": 3, "score": 3 },
+    "E_c_abstention_conflicts": { "cap": 3, "score": 3 },
+    "E_d_self_refutation": { "cap": 1, "score": 1 },
+    "raw": 10,
+    "capped": 8
+  },
+  "subtotal": 91,
+  "deductions": {
+    "corruption": {
+      "count": 1,
+      "points": -1,
+      "items": [
+        "Alder Corners Cheese Company 'built in 1913' asserted as fact (story 6 and E-list item 50, 'built one year, opened the next'); key A5.1 states that asserting 1913 still takes the corruption deduction"
+      ]
+    },
+    "gullibility": {
+      "count": 5,
+      "points": -10,
+      "items": [
+        "A03 (D3, did the manager know) — headline verdict 'Yes'",
+        "A05 (F, what the tester believed) — headline verdict 'Best answer: he suspected the glass from 1911'",
+        "A07 (F, did the board examine the glassware) — headline verdict 'No.'",
+        "A08 (full vs half siblings) — abstained at B2 (point earned) but resolved 'full' in story 4 and E-list item 40; collisions rule applies",
+        "A09 (D2, did the bookkeeper question the entries) — headline verdict 'No.'"
+      ]
+    },
+    "total_deduction_events": 6,
+    "total_deduction_points": -11
+  },
+  "total": 80,
+  "band": "80+ excellent (at the boundary)",
+  "abstention_items": {
+    "correct": ["A01", "A02", "A04", "A06", "A08 (at B2)", "A10"],
+    "asserted": ["A03", "A05", "A07", "A08 (elsewhere)", "A09"]
+  }
+}

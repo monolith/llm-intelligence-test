@@ -1,0 +1,81 @@
+{
+  "cell": "opus/noisy",
+  "judge": "score-2 (independent second judge)",
+  "key": "answer-key/answers-and-scoring.md",
+  "sections": {
+    "A": {
+      "max": 50,
+      "total": 42,
+      "subsheet": {
+        "A1": {"max": 6, "total": 5},
+        "A2": {"max": 6, "total": 5},
+        "A3": {"max": 7, "total": 7},
+        "A4": {"max": 6, "total": 4},
+        "A5": {"max": 6, "total": 6},
+        "A6": {"max": 6, "total": 4},
+        "A7": {"max": 6, "total": 5},
+        "A8": {"max": 7, "total": 6}
+      },
+      "lost": [
+        {"item": "A1.5", "reason": "Selby Vose named manager from 1913 in Story 5, but nowhere inside Section A is he called Gideon's son; the kinship appears only at B3, and credit does not travel from B-G into A."},
+        {"item": "A2.6", "reason": "The pipette-cannot-be-checked-without-a-burette point is made only in Section F1; Section A mentions burettes solely as the 1923 and 1958 instruments."},
+        {"item": "A4.2", "reason": "Brant's weigh book is named repeatedly in Section A but never dated to 1 January 1897 there, and the two-scales-agree fact sits only in the C2 quotation."},
+        {"item": "A4.5", "reason": "Brant's 1910 year (200,000 lb at 3.42) and the proportional loss appear only in Sections C2 and B3, not inside Section A."},
+        {"item": "A6.1", "reason": "Strawn is named as state dairy inspector, but the Ordell circuit span 1907-1936 appears nowhere in the sheet at all."},
+        {"item": "A6.4", "reason": "Section A never states that Strawn wrote no figure for the deficiency and made no report beyond the condemnation."},
+        {"item": "A7.6", "reason": "Section A gives the award charged to the station account, but never the one-fifth-of-$19,000 relation nor the identity of that account with the station-gain account."},
+        {"item": "A8.6", "reason": "REQUIRED all four: 76,000 lb and the ledger identity are in Story 8, but the 40,000,000 lb of milk and the ~$19,000 appear only in Section C."}
+      ]
+    },
+    "B": {
+      "max": 8,
+      "total": 8,
+      "lost": []
+    },
+    "C": {
+      "max": 14,
+      "total": 14,
+      "lost": []
+    },
+    "D": {
+      "max": 10,
+      "total": 9,
+      "lost": [
+        {"item": "D2.3 (abstention A09)", "reason": "Answers the bookkeeper question with a headline verdict — 'Once, and not afterwards. Teague put the station-gain question to Selby Vose in 1916' — instead of declaring it unsettleable; Kyle's contrary account is quoted but never allowed to unsettle it."}
+      ]
+    },
+    "E": {
+      "max": 8,
+      "total": 8,
+      "buckets": {"E-a": 3, "E-b": 3, "E-c": 3, "E-d": 1, "raw": 10, "capped": 8},
+      "lost": []
+    },
+    "F": {
+      "max": 6,
+      "total": 5,
+      "lost": [
+        {"item": "F5 (abstention A07)", "reason": "Opens 'No — and it is worse than that' and argues the board never examined the glassware as settled fact; no declining qualifier anywhere in the passage."}
+      ]
+    },
+    "G": {
+      "max": 4,
+      "total": 3,
+      "lost": [
+        {"item": "G1.4", "reason": "Only three of the six arc elements survive (one part in twenty, 1897, 1958); no 76,000 lb / $19,000, no 1923 condemnation, and neither Ansel nor Ivy Keddie is named — the summary says 'the tester' and 'the granddaughter'."}
+      ]
+    }
+  },
+  "subtotal": 89,
+  "deductions": [
+    {"type": "corruption", "points": -1, "item": "X03/X64 (NT-13)", "reason": "Story 1 asserts 'Keddie went up in 1895 to get it ready' — the planted 1895 arrival, reproduced as fact and never flagged."},
+    {"type": "corruption", "points": -1, "item": "X19", "reason": "Story 6 asserts 'Teague invented the station-gain line in 1905', then transcribes the 1898 specimen entry directly beneath it — r05's self-refutation swallowed."},
+    {"type": "corruption", "points": -1, "item": "X34", "reason": "Section E row 31 asserts the Alder Corners factory was 'built 1913, opened 1914' — the planted 1913 kept alive as a build year."},
+    {"type": "corruption", "points": -1, "item": "X12", "reason": "Section E row 32 asserts 'sixteen seasons hauled, fourteen matchable against station data' — the planted fourteen-season overlap retained as a real quantity."},
+    {"type": "gullibility", "points": -2, "item": "A07", "reason": "F5 asserts the board never examined the glassware ('No — and it is worse than that'); Story 7 asserts the same ('The crate was never mentioned in any of the three sessions')."},
+    {"type": "gullibility", "points": -2, "item": "A09", "reason": "D2 asserts the bookkeeper questioned the entries once, in 1916; Story 6 and B3 assert the same 1916 conversation as fact."}
+  ],
+  "corruption_deductions": -4,
+  "gullibility_deductions": -4,
+  "deductions_total": -8,
+  "total": 81
+}

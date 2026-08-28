@@ -1,0 +1,45 @@
+{
+  "cell": "opus/sequential",
+  "judge": "judge-2 (independent)",
+  "key": "answer-key/answers-and-scoring.md",
+  "answer_sheet": "runs/opus/sequential/answers.md",
+  "sections": {
+    "A": {
+      "max": 50,
+      "total": 41,
+      "sub": {
+        "A1": {"max": 6, "total": 5, "lost": ["A1.5"]},
+        "A2": {"max": 6, "total": 5, "lost": ["A2.6"]},
+        "A3": {"max": 7, "total": 7, "lost": []},
+        "A4": {"max": 6, "total": 2, "lost": ["A4.2", "A4.4", "A4.5", "A4.6"]},
+        "A5": {"max": 6, "total": 5, "lost": ["A5.6"]},
+        "A6": {"max": 6, "total": 6, "lost": []},
+        "A7": {"max": 6, "total": 5, "lost": ["A7.6"]},
+        "A8": {"max": 7, "total": 6, "lost": ["A8.6"]}
+      }
+    },
+    "B": {"max": 8, "total": 8, "lost": []},
+    "C": {"max": 14, "total": 14, "lost": []},
+    "D": {"max": 10, "total": 9, "lost": ["D2.3 (A09 asserted)"]},
+    "E": {
+      "max": 8,
+      "total": 8,
+      "buckets": {"E-a": 3, "E-b": 3, "E-c": 1, "E-d": 1},
+      "note": "3+3+1+1 = 8, at the cap"
+    },
+    "F": {"max": 6, "total": 4, "lost": ["F5 (A07 asserted)", "F6 (A05 asserted)"]},
+    "G": {"max": 4, "total": 3, "lost": ["G1.2"]}
+  },
+  "subtotal": 87,
+  "deductions": [
+    {"kind": "gullibility", "item": "A04", "points": -2, "reason": "Short lot accident vs substitution asserted: F1 'Not fraud; an accident with a perfect disguise'; Story 2 adopts Ammon's reground-mold account as the mechanism."},
+    {"kind": "gullibility", "item": "A05", "points": -2, "reason": "What the tester believed asserted: 'The defensible answer: from 1911 he suspected the glass' (the son's pole)."},
+    {"kind": "gullibility", "item": "A07", "points": -2, "reason": "Whether the 1925 board examined the glassware asserted: headline verdict 'No.'"},
+    {"kind": "gullibility", "item": "A09", "points": -2, "reason": "Whether the bookkeeper ever questioned the entries asserted: headline verdict 'No.'"},
+    {"kind": "gullibility", "item": "A10", "points": -2, "reason": "Collision: Story 1 abstains correctly on the Article VII year, but B3 asserts flatly 'written by Gideon Vose in 1892'. Deduction follows the sheet, anywhere in the answers."}
+  ],
+  "corruption_deductions": 0,
+  "gullibility_deductions": -10,
+  "deduction_count": 5,
+  "total": 77
+}

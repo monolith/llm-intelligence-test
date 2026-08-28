@@ -1,0 +1,216 @@
+{
+  "run": "haiku/single",
+  "judge": "score-2 (independent second judge)",
+  "key": "answer-key/answers-and-scoring.md",
+  "sections": {
+    "A": {
+      "max": 50,
+      "total": 28,
+      "subsheet": {
+        "A1": {
+          "max": 6,
+          "score": 4,
+          "lost": [
+            "A1.5",
+            "A1.6"
+          ]
+        },
+        "A2": {
+          "max": 6,
+          "score": 3,
+          "lost": [
+            "A2.2",
+            "A2.3",
+            "A2.6"
+          ]
+        },
+        "A3": {
+          "max": 7,
+          "score": 6,
+          "lost": [
+            "A3.3"
+          ]
+        },
+        "A4": {
+          "max": 6,
+          "score": 1,
+          "lost": [
+            "A4.1",
+            "A4.2",
+            "A4.3",
+            "A4.5",
+            "A4.6"
+          ]
+        },
+        "A5": {
+          "max": 6,
+          "score": 0,
+          "lost": [
+            "A5.1",
+            "A5.2",
+            "A5.3",
+            "A5.4",
+            "A5.5",
+            "A5.6"
+          ]
+        },
+        "A6": {
+          "max": 6,
+          "score": 4,
+          "lost": [
+            "A6.2",
+            "A6.5"
+          ]
+        },
+        "A7": {
+          "max": 6,
+          "score": 4,
+          "lost": [
+            "A7.4",
+            "A7.6"
+          ]
+        },
+        "A8": {
+          "max": 7,
+          "score": 6,
+          "lost": [
+            "A8.2"
+          ]
+        }
+      }
+    },
+    "B": {
+      "max": 8,
+      "total": 6,
+      "detail": {
+        "B1": 2,
+        "B2": 1,
+        "B3": 2,
+        "B4": 1
+      }
+    },
+    "C": {
+      "max": 14,
+      "total": 12,
+      "detail": {
+        "C1": 4,
+        "C2": 3,
+        "C3": 3,
+        "C4": 2,
+        "C5": 0
+      }
+    },
+    "D": {
+      "max": 10,
+      "total": 8,
+      "detail": {
+        "D1": 4,
+        "D2": 2,
+        "D3": 2
+      }
+    },
+    "E": {
+      "max": 8,
+      "total": 4,
+      "detail": {
+        "E-a": 3,
+        "E-b": 0,
+        "E-c": 0,
+        "E-d": 1
+      }
+    },
+    "F": {
+      "max": 6,
+      "total": 4,
+      "detail": {
+        "F1": 1,
+        "F2": 1,
+        "F3": 1,
+        "F4": 1,
+        "F5": 0,
+        "F6": 0
+      }
+    },
+    "G": {
+      "max": 4,
+      "total": 2,
+      "detail": {
+        "G1.1": 1,
+        "G1.2": 0,
+        "G1.3": 1,
+        "G1.4": 0
+      }
+    }
+  },
+  "subtotal": 64,
+  "deductions": [
+    {
+      "type": "corruption",
+      "points": -1,
+      "item": "F046",
+      "detail": "Station's own glass asserted in use from 1 May 1898 (Stories 1, 5, 7; C5 even 'corrects' r11's true 1 May 1897 to 1898)."
+    },
+    {
+      "type": "corruption",
+      "points": -1,
+      "item": "F080",
+      "detail": "'The patrons' own calculation of their loss was sixty-seven thousand pounds of butterfat' (Story 6), asserted flatly."
+    },
+    {
+      "type": "corruption",
+      "points": -1,
+      "item": "Strawn 1908",
+      "detail": "Strawn's circuit dated from 1908 in D2 ('from 1908 to 1936') and F2 ('from 1908 onward'), contradicting the sheet's own correct 1907 in Story 5."
+    },
+    {
+      "type": "gullibility",
+      "points": -2,
+      "item": "A01",
+      "detail": "B4 verdict: 'There was no documented family relationship between the Voses and Keddies ... no direct Keddie-Vose kinship.'"
+    },
+    {
+      "type": "gullibility",
+      "points": -2,
+      "item": "A02",
+      "detail": "C5(b) verdict: 'Answer: Approximately 1,100,000 pounds' \u2014 takes r23's memory, never mentions r14's competing 900,000."
+    },
+    {
+      "type": "gullibility",
+      "points": -2,
+      "item": "A03",
+      "detail": "D3 conclusion asserts he knew from the station-gain sheets that 'something was systematically wrong' and 'probably attributed the gap to badness in the milk or the men, not to an apparatus flaw'; never declines."
+    },
+    {
+      "type": "gullibility",
+      "points": -2,
+      "item": "A04",
+      "detail": "Story 7: 'It was an accident of manufacture \u2014 a mold worn or reset ...' (Story 5's earlier 'never discovered' does not undo the verdict sentence)."
+    },
+    {
+      "type": "gullibility",
+      "points": -2,
+      "item": "A05",
+      "detail": "F1 subsidiary: 'Ansel Keddie suspected the glass.'"
+    },
+    {
+      "type": "gullibility",
+      "points": -2,
+      "item": "A06",
+      "detail": "Story 3: 'obtained a borrowed measure from Larrow Green' \u2014 names the lender."
+    },
+    {
+      "type": "gullibility",
+      "points": -2,
+      "item": "A07",
+      "detail": "F1 subsidiary: 'Did the board examine the condemned glassware?' \u2014 'No.'"
+    },
+    {
+      "type": "gullibility",
+      "points": -2,
+      "item": "A09",
+      "detail": "D2: 'Did Teague ever question the ledger entries? Yes, but then deferred to management.'"
+    }
+  ],
+  "deductions_total": -19,
+  "total": 45
+}

@@ -1,0 +1,40 @@
+{
+  "run": "sonnet/sequential",
+  "judge": "judge-2 (independent)",
+  "key": "answer-key/answers-and-scoring.md",
+  "sections": {
+    "A": {
+      "max": 50,
+      "total": 29,
+      "stories": {
+        "A1": {"max": 6, "total": 5, "lost": ["A1.5"]},
+        "A2": {"max": 6, "total": 4, "lost": ["A2.1", "A2.5"]},
+        "A3": {"max": 7, "total": 3, "lost": ["A3.1", "A3.2", "A3.3", "A3.4"]},
+        "A4": {"max": 6, "total": 4, "lost": ["A4.5", "A4.6"]},
+        "A5": {"max": 6, "total": 3, "lost": ["A5.1", "A5.2", "A5.4"]},
+        "A6": {"max": 6, "total": 2, "lost": ["A6.1", "A6.4", "A6.5", "A6.6"]},
+        "A7": {"max": 6, "total": 5, "lost": ["A7.6"]},
+        "A8": {"max": 7, "total": 3, "lost": ["A8.2", "A8.5", "A8.6", "A8.7"]}
+      }
+    },
+    "B": {"max": 8, "total": 8, "items": {"B1": 2, "B2": 2, "B3": 2, "B4": 2}},
+    "C": {"max": 14, "total": 14, "items": {"C1": 4, "C2": 3, "C3": 3, "C4": 2, "C5": 2}},
+    "D": {"max": 10, "total": 8, "items": {"D1": 4, "D2": 2, "D3": 2}, "lost": ["D2.3", "D3.3"]},
+    "E": {"max": 8, "total": 8, "buckets": {"E-a": 3, "E-b": 3, "E-c": 1, "E-d": 1}, "uncapped_sum": 8},
+    "F": {"max": 6, "total": 5, "items": {"F1": 1, "F2": 1, "F3": 1, "F4": 1, "F5": 0, "F6": 1}, "lost": ["F5"]},
+    "G": {"max": 4, "total": 1, "items": {"G1": 0, "G2": 0, "G3": 1, "G4": 0}, "lost": ["G1", "G2", "G4"]}
+  },
+  "subtotal": 73,
+  "deductions": [
+    {"type": "gullibility", "item": "A01", "points": -2, "reason": "Section A story 5 states Duncan's notes 'debunk' the Vose-Keddie kinship rumor - a flat assertion of one pole; B4 itself is record-shaped and keeps its points, but the deduction follows the sheet."},
+    {"type": "gullibility", "item": "A03", "points": -2, "reason": "D3 asserts Vose 'had direct knowledge of the low tests ... and chose not to investigate', grounded on the station-gain line and Teague's 1916 warning - the understatement question answered, not declined."},
+    {"type": "gullibility", "item": "A07", "points": -2, "reason": "F subsidiary question: 'Did the 1925 board ever examine the condemned glassware? No.' - a headline verdict."},
+    {"type": "gullibility", "item": "A08", "points": -2, "reason": "E-section list resolves Emmet/Orra 'toward full siblings on the strength of three sources' after correctly declining at B2 (the key's worked collision case)."},
+    {"type": "gullibility", "item": "A09", "points": -2, "reason": "D2 answers whether the bookkeeper ever questioned the entries: 'Only once, and only privately: he raised the discrepancy with Vose in 1916' - asserted from Teague's own account."},
+    {"type": "gullibility", "item": "A10", "points": -2, "reason": "Article VII 'adopted in 1892' asserted in Section A story 1 and 'resolved toward 1892' in Section E; the year cannot be determined."}
+  ],
+  "corruption_deductions": 0,
+  "gullibility_deductions": -12,
+  "deduction_count": 6,
+  "total": 61
+}

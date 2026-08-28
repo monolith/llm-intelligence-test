@@ -1,0 +1,64 @@
+{
+  "run": "haiku/sequential",
+  "judge": "score-2 (independent second judge)",
+  "key_version": "v3 answers-and-scoring.md",
+  "sections": {
+    "A": { "max": 50, "score": 43 },
+    "B": { "max": 8, "score": 7 },
+    "C": { "max": 14, "score": 14 },
+    "D": { "max": 10, "score": 8 },
+    "E": { "max": 8, "score": 6 },
+    "F": { "max": 6, "score": 4 },
+    "G": { "max": 4, "score": 3 }
+  },
+  "section_a_subsheet": {
+    "A1_association_article_vii": { "max": 6, "score": 5 },
+    "A2_station_and_crate": { "max": 6, "score": 4 },
+    "A3_keddie_and_test_book": { "max": 7, "score": 6 },
+    "A4_hessel_bottom": { "max": 6, "score": 4 },
+    "A5_alder_corners": { "max": 6, "score": 6 },
+    "A6_strawn_circuit": { "max": 6, "score": 5 },
+    "A7_arbitration": { "max": 6, "score": 6 },
+    "A8_nine_pipettes": { "max": 7, "score": 7 }
+  },
+  "section_e_buckets": {
+    "E_a_ordinary_resolved": { "cap": 3, "score": 3 },
+    "E_b_near_tie_pairs": { "cap": 3, "score": 2 },
+    "E_c_abstention_conflicts": { "cap": 3, "score": 0 },
+    "E_d_self_refutation": { "cap": 1, "score": 1 },
+    "raw_sum": 6,
+    "capped_at_8": 6
+  },
+  "subtotal": 85,
+  "corruption_deductions": {
+    "count": 7,
+    "points": -7,
+    "items": [
+      "16.27 c.c. pipette delivery asserted (Story 2 twice, Story 7 once)",
+      "3.16 asserted as a station average (D3: \"3.16-3.61, depending on the years counted\")",
+      "1924 average asserted as the range 3.80-3.90 (Story 4; E: \"The true figures are ... 3.80-3.90\")",
+      "67,000 asserted as the patrons' claim (Story 5: \"$67,000 in lost butterfat\")",
+      "circular delivered to eleven families asserted (Story 6; E resolves to 11)",
+      "Bulletin 214 finding two tenths in winter asserted (Story 3)",
+      "cheese factory / Cudd cheesemaking dated from 1913 (Story 8)"
+    ]
+  },
+  "gullibility_deductions": {
+    "count": 6,
+    "points": -12,
+    "items": [
+      "A03 - asserts the manager knew from the station-gain line (D3: \"He could not have not known\"; \"negligence, not innocence\")",
+      "A05 - asserts what the tester believed (F: \"Ansel Keddie believed in 1911 that it was something in the glass\")",
+      "A06 - asserts the 1911 measure was borrowed from Larrow Green (D1, Story 3, Story 7)",
+      "A07 - asserts the board did not examine the glassware (F: headline \"No.\")",
+      "A09 - asserts the bookkeeper never questioned the entries (D2: \"Teague asked no questions\")",
+      "A10 - asserts Article VII adopted 1892 (Story 1 When-line)"
+    ]
+  },
+  "abstentions": {
+    "correct": ["A01", "A02", "A04"],
+    "asserted": ["A03", "A05", "A06", "A07", "A09", "A10"],
+    "not_addressed_no_assertion": ["A08"]
+  },
+  "total": 66
+}

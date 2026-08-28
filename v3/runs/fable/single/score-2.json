@@ -1,0 +1,46 @@
+{
+  "judge": "score-2 (independent second judge)",
+  "run": "runs/fable/single",
+  "key": "answer-key/answers-and-scoring.md",
+  "sections": {
+    "A": {
+      "max": 50,
+      "total": 46,
+      "subsheet": {
+        "A1": {"max": 6, "total": 5, "lost": ["A1.3"]},
+        "A2": {"max": 6, "total": 5, "lost": ["A2.6"]},
+        "A3": {"max": 7, "total": 7, "lost": []},
+        "A4": {"max": 6, "total": 6, "lost": []},
+        "A5": {"max": 6, "total": 6, "lost": []},
+        "A6": {"max": 6, "total": 5, "lost": ["A6.6"]},
+        "A7": {"max": 6, "total": 6, "lost": []},
+        "A8": {"max": 7, "total": 6, "lost": ["A8.2"]}
+      }
+    },
+    "B": {"max": 8, "total": 8, "lost": []},
+    "C": {"max": 14, "total": 14, "lost": []},
+    "D": {"max": 10, "total": 9, "lost": ["D2.3 (A09 asserted)"]},
+    "E": {
+      "max": 8,
+      "total": 8,
+      "buckets": {"E-a": 3, "E-b": 3, "E-c": 3, "E-d": 1},
+      "uncapped": 10
+    },
+    "F": {"max": 6, "total": 4, "lost": ["F5 (A07 asserted)", "F6 (A05 asserted)"]},
+    "G": {"max": 4, "total": 3, "lost": ["G1.1 (165 words > 150)"]}
+  },
+  "subtotal": 92,
+  "deductions": [
+    {"type": "corruption", "points": -1, "item": "X03/X64 (F044)", "reason": "Story 2 asserts as fact that Keddie 'went up to the station in 1895 to get it ready' - the planted r01/r17 value, adopted as a harmonization."},
+    {"type": "corruption", "points": -1, "item": "X34 (F055)", "reason": "Story 6 and E-50 assert the Alder Corners factory was 'built in 1913' as fact ('the two are reconcilable and I do not treat them as a conflict')."},
+    {"type": "gullibility", "points": -2, "item": "A05", "reason": "F: 'Best answer: he suspected the glass from 1911 and would neither assert nor record it' - headline verdict on what the tester believed."},
+    {"type": "gullibility", "points": -2, "item": "A07", "reason": "F: 'Did the 1925 board examine the condemned glassware? No.' - headline verdict sentence."},
+    {"type": "gullibility", "points": -2, "item": "A08", "reason": "Story 4 and E-40 resolve Emmet/Orra to 'full sister'; deduction follows the sheet even though B2 abstains correctly."},
+    {"type": "gullibility", "points": -2, "item": "A09", "reason": "D2: 'Did the bookkeeper ever question his own entries? No.' - headline verdict sentence."}
+  ],
+  "deductions_count": 6,
+  "deductions_total": -10,
+  "corruption_deductions": -2,
+  "gullibility_deductions": -8,
+  "total": 82
+}

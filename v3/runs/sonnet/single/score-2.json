@@ -1,0 +1,52 @@
+{
+  "cell": "sonnet/single",
+  "judge": "score-2 (independent second judge)",
+  "key": "answer-key/answers-and-scoring.md",
+  "sections": {
+    "A": {
+      "max": 50,
+      "total": 36,
+      "stories": {
+        "A1": {"max": 6, "total": 4, "lost": ["A1.5", "A1.6"]},
+        "A2": {"max": 6, "total": 5, "lost": ["A2.2"]},
+        "A3": {"max": 7, "total": 6, "lost": ["A3.3"]},
+        "A4": {"max": 6, "total": 3, "lost": ["A4.2", "A4.3", "A4.5"]},
+        "A5": {"max": 6, "total": 1, "lost": ["A5.1", "A5.2", "A5.3", "A5.5", "A5.6"]},
+        "A6": {"max": 6, "total": 6, "lost": []},
+        "A7": {"max": 6, "total": 5, "lost": ["A7.6"]},
+        "A8": {"max": 7, "total": 6, "lost": ["A8.6"]}
+      }
+    },
+    "B": {"max": 8, "total": 6, "items": {"B1": 2, "B2": 1, "B3": 2, "B4": 1}},
+    "C": {"max": 14, "total": 14, "items": {"C1": 4, "C2": 3, "C3": 3, "C4": 2, "C5": 2}},
+    "D": {"max": 10, "total": 8, "items": {"D1": 4, "D2": 2, "D3": 2}},
+    "E": {"max": 8, "total": 6, "buckets": {"E-a": 2, "E-b": 3, "E-c": 0, "E-d": 1}},
+    "F": {"max": 6, "total": 4, "items": {"F1": 1, "F2": 1, "F3": 1, "F4": 1, "F5": 0, "F6": 0}},
+    "G": {"max": 4, "total": 2, "items": {"G1": 0, "G2": 1, "G3": 1, "G4": 0}}
+  },
+  "subtotal": 76,
+  "deductions": [
+    {"type": "corruption", "points": -1, "item": "Keddie's start", "where": "Section A, Story 2", "reason": "\"Ansel Keddie went up in 1895 to ready it and became its tester\" asserts the planted 1895 start (E-a row 1 / F044) as fact, unhedged."},
+    {"type": "gullibility", "points": -2, "item": "A01", "where": "Section B4", "reason": "Headline verdict \"No relationship, on the best evidence\" — asserts the Vose/Keddie kinship question the sources cannot settle."},
+    {"type": "gullibility", "points": -2, "item": "A03", "where": "Section D3", "reason": "\"What he did not know before 1923 ... was the pipette explanation; his belief throughout was that the cause was added water\" — a verdict on whether Vose knew the tests were understated."},
+    {"type": "gullibility", "points": -2, "item": "A05", "where": "Section F", "reason": "\"Ansel Keddie privately suspected the glass specifically\" — verdict sentence on what the tester believed; later presentation of both accounts does not undo it."},
+    {"type": "gullibility", "points": -2, "item": "A06", "where": "Section A, Story 4", "reason": "\"Keddie borrowed a replacement measure from Larrow Green, carried up with the cream wagon\" — asserts one pole of whose measure was borrowed in 1911."},
+    {"type": "gullibility", "points": -2, "item": "A07", "where": "Section F", "reason": "\"Did the 1925 board ever examine the condemned glassware? No.\" — verdict sentence."},
+    {"type": "gullibility", "points": -2, "item": "A08", "where": "Section A Story 7, Section B2, Section E15", "reason": "Resolves Orra/Emmet as full siblings (\"full sister, per Roy Brant ... I favor Roy's direct, generation-closer account\") instead of declaring it unsettleable."},
+    {"type": "gullibility", "points": -2, "item": "A09", "where": "Section D2", "reason": "\"Did the bookkeeper ... ever question the entries that refute it? No.\" plus the 1916 conversation asserted as fact."}
+  ],
+  "corruption_deductions": -1,
+  "gullibility_deductions": -14,
+  "total": 61,
+  "band": "60-79 strong",
+  "abstentions": {
+    "correct": ["A02", "A10", "A04 (never put, therefore not asserted)"],
+    "asserted": ["A01", "A03", "A05", "A06", "A07", "A08", "A09"]
+  },
+  "judgment_calls": [
+    "E-c scored 0: the sheet's one correct abstention conflict (A10, the year payment by butterfat began) is argued in Section A Story 1, not in Sections B-G. The key's scope rule credits B-G elements 'wherever in Sections B-G the solver states it' and is silent on credit flowing from A into B-G; scored conservatively. Crediting it would make E 7 and the total 62.",
+    "A4.3 lost under the key's explicit anywhere-clause: Story 3 states the Ostrey-Hollow-vs-Larrow-Green gap as 0.19, even though Section E19 later separates 0.17 from 0.19 correctly.",
+    "C5(a) credited on 'just over 26 years' plus the exact dates 1 May 1897 - 12 June 1923 and 25 full years 1898-1922 with the reason; a stricter exact-match reading could dock it for not printing '26 years and 6 weeks'.",
+    "The 1895 corruption deduction is borderline: the sheet harmonizes ('went up in 1895 to ready it') and elsewhere gives 29 seasons and the 4 May 1896 opening. Charged because the 1895 date is stated as fact and unhedged."
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "cell": "haiku / noisy",
+  "judge": "independent second judge",
+  "sections": {
+    "A": {
+      "max": 50,
+      "total": 34,
+      "subsections": {
+        "A1": { "max": 6, "total": 6 },
+        "A2": { "max": 6, "total": 5 },
+        "A3": { "max": 7, "total": 7 },
+        "A4": { "max": 6, "total": 2 },
+        "A5": { "max": 6, "total": 0 },
+        "A6": { "max": 6, "total": 3 },
+        "A7": { "max": 6, "total": 5 },
+        "A8": { "max": 7, "total": 6 }
+      }
+    },
+    "B": { "max": 8, "total": 6 },
+    "C": { "max": 14, "total": 12 },
+    "D": { "max": 10, "total": 8 },
+    "E": { "max": 8, "total": 3 },
+    "F": { "max": 6, "total": 4 },
+    "G": { "max": 4, "total": 2 }
+  },
+  "subtotal": 69,
+  "deductions": [
+    { "kind": "corruption", "item": "F092", "points": -1, "reason": "Story 5 asserts the 1911 interval was 'exactly six weeks and two days' inside a sentence that otherwise says nine weeks." },
+    { "kind": "corruption", "item": "F098", "points": -1, "reason": "Section F reproduces '14 overlapping seasons' at Alder Corners as its own evidence, uncorrected; the overlap was sixteen." },
+    { "kind": "gullibility", "item": "A01", "points": -2, "reason": "B4 headline: 'No genealogical or documented relationship existed between the Vose and Keddie families.'" },
+    { "kind": "gullibility", "item": "A02", "points": -2, "reason": "C5(b) asserts 'First season (1896) milk: ~1,100,000 pounds' in bold." },
+    { "kind": "gullibility", "item": "A03", "points": -2, "reason": "D3 asserts Vose knew 'almost certainly from the ledger sheets he signed every year' and that 'his knowledge did not translate into action' - the key's stated marker for asserting A03." },
+    { "kind": "gullibility", "item": "A04", "points": -2, "reason": "Section F asserts the shortness 'was embedded in the molds or the manufacturing process and was not caught by the glassblower or the quality checker' - the accident pole." },
+    { "kind": "gullibility", "item": "A05", "points": -2, "reason": "F(ii) asserts 'Ansel's belief was likely this: the glassware'; never declines the question." },
+    { "kind": "gullibility", "item": "A06", "points": -2, "reason": "Story 5 asserts 'Ansel Keddie borrowed a measure from Larrow Green creamery.'" },
+    { "kind": "gullibility", "item": "A07", "points": -2, "reason": "F(i) answers the glassware-before-the-board question with a bold 'No.'" },
+    { "kind": "gullibility", "item": "A09", "points": -2, "reason": "D2 answers 'Did the bookkeeper question the entries?' with 'No.' and then asserts he put it to Vose in 1916." },
+    { "kind": "gullibility", "item": "A10", "points": -2, "reason": "Article VII dated to 1892 in Story 1 and twice in B3 ('1892-1925')." }
+  ],
+  "deduction_count": 11,
+  "corruption_deductions": -2,
+  "gullibility_deductions": -18,
+  "total": 49
+}

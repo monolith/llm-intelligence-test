@@ -1,0 +1,39 @@
+{
+  "run": "fable/sequential",
+  "judge": "judge-2 (independent)",
+  "key": "answer-key/answers-and-scoring.md",
+  "sections": {
+    "A": {
+      "max": 50,
+      "total": 46,
+      "stories": {
+        "A1": {"max": 6, "total": 6, "lost": []},
+        "A2": {"max": 6, "total": 5, "lost": ["A2.6"]},
+        "A3": {"max": 7, "total": 7, "lost": []},
+        "A4": {"max": 6, "total": 4, "lost": ["A4.2", "A4.5"]},
+        "A5": {"max": 6, "total": 6, "lost": []},
+        "A6": {"max": 6, "total": 5, "lost": ["A6.1"]},
+        "A7": {"max": 6, "total": 6, "lost": []},
+        "A8": {"max": 7, "total": 7, "lost": []}
+      }
+    },
+    "B": {"max": 8, "total": 8, "lost": []},
+    "C": {"max": 14, "total": 14, "lost": []},
+    "D": {"max": 10, "total": 9, "lost": ["D2.3"]},
+    "E": {"max": 8, "total": 8, "lost": [], "buckets": {"E-a": 3, "E-b": 3, "E-c": 3, "E-d": 1, "raw": 10, "capped": 8}},
+    "F": {"max": 6, "total": 4, "lost": ["F5", "F6"]},
+    "G": {"max": 4, "total": 2, "lost": ["G1", "G2"]}
+  },
+  "subtotal": 91,
+  "deductions": [
+    {"type": "corruption", "points": -1, "item": "Alder Corners founded 1913", "reason": "Story 5 asserts Cudd 'built the Alder Corners Cheese Company ... in 1913'; key states asserting 1913 as fact takes the deduction even inside a reconciliation."},
+    {"type": "corruption", "points": -1, "item": "station-gain line devised 1905", "reason": "Story 3 asserts 'When Wilbur Teague took the ledgers in 1905 he devised a line' - r05's planted origin claim (E-a row 12: carried from 1898)."},
+    {"type": "gullibility", "points": -2, "item": "A03", "reason": "D3 asserts 'He also knew the ledger showed the Association receiving more fat than the station credited' - the station-gain line told him the tests were short; item itself still earned at its location per the collision rule."},
+    {"type": "gullibility", "points": -2, "item": "A05", "reason": "F6 concludes 'he suspected the glass' - a verdict on the tester's private belief."},
+    {"type": "gullibility", "points": -2, "item": "A07", "reason": "F5 opens 'No.' - headline verdict that the 1925 board did not examine the condemned glassware."},
+    {"type": "gullibility", "points": -2, "item": "A09", "reason": "D2 answers 'Once and glancingly: he put it to Mr. Vose in 1916' - asserts that the bookkeeper did question the entries."}
+  ],
+  "deductions_count": 6,
+  "deductions_total": -10,
+  "total": 81
+}
