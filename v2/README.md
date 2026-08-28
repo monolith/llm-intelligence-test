@@ -252,6 +252,8 @@ README without noting which path produced it.
 
 ## Known limitations
 
+- **The noise corpus is public-domain text (Darwin, Twain, Mill, …) that every model has seen in training.** A model can recognize such a passage on sight, segregate it, and answer its distraction question from memory, so the noise occupies context without fully competing for attention. Version 3 replaces it with original, never-published distractor documents in the same period and register as the retellings. The v2 noisy-mode numbers should be read with that in mind.
+
 - **No repeats yet.** Every cell is n = 1. Repeats (and reporting mean ± range) are
   deferred until there's a specific reason to think the ranking above might not hold.
 - **Simulated vs. real compaction.** As above — the two administration paths
