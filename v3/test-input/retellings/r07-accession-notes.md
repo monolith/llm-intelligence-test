@@ -104,6 +104,6 @@ The sampling was of January, February and March 1908 only, as the report states.
 > of butter fat — stands credited in the Association's own ledgers, year by year, as station
 > gain.*
 
-**Item 16. Receiving and churn books of the Larrow Green creamery**, water-damaged at the foot. Cream in, butter out, and the creamery's own tests. Over the same years for which the station's 3.61 is recorded, the Larrow Green average runs about three-quarters of a point better.
+**Item 16. Receiving and churn books of the Larrow Green creamery**, water-damaged at the foot. Cream in, butter out, and the creamery's own tests. Over the same years for which the station's 3.61 is recorded, the Larrow Green average runs a little under two tenths of a point better.
 
 *Notes and queries.* — The station's intake for its first season, 4 May to the end of 1896, is not in the ledgers and is nowhere else; the station column begins with 1897, and inquirers wanting a figure for 1896 must be told there is none. — Item 5 wants a case with a lock. — Accession numbers still to be cut for Items 13 and 16.

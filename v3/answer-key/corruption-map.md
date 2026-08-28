@@ -353,7 +353,7 @@ the three months.
 | X55 | F096 | **INTERNAL CONTRADICTION.** Covering letter: "we sampled those herds through **the whole of 1908**." The attached report: *"We have sampled the herds of Hessel Bottom through January, February and March."* | **Three months only.** | Self-refuting on the page |
 | X56 | F095 | Bulletin No. 214 found a depression of **two tenths** in winter. | **Five hundredths** in winter and nothing in summer. | **Near-tie 22** (partner r16) — anachronistic in the 1908 letter; the corpus's text is the 1919 reprint with the author's added note |
 | X57 | F107 | **DECOY THEORY 3.** "The remedy lies with the land and not with the station." | The land had nothing to do with it. | Decoy pole (partner r16) |
-| ⌀X58 | A10 | "Payment by test came in with the **1893** meeting." | Undeterminable. | Abstention pole (year 3 of 3) |
+| ⌀X58 | A10 | "Payment by test came in with the **1893** meeting, as I have always understood it." **In the 1919 covering letter only** — the 1908 report itself carries no year. | Undeterminable. | Abstention pole (year 3 of 3); it must stay outside the quoted report, or a document would settle A10 |
 
 **Documents.** D15 verbatim.
 
@@ -501,7 +501,7 @@ withdraws it on the strength of the trial's own figure.
 
 | id | Corrupts | As told | Truth | Mechanism |
 |---|---|---|---|---|
-| X90 | F075 | The true average was **3.85**. | **3.80.** | **Near-tie 3** (partner r14) |
+| X90 | F075, F061 | The true average was **3.85** (¶5 gives 3.61 and 3.78 correctly; ¶11 puts **3.85** on the **1924** average). | **3.80** for both. | **Near-tie 3** on F075 (partner r14); on F061 it is a **second wrong carrier** beside r08's 3.90, so the 1924 figure has no majority and must be taken from arithmetic |
 | X91 | F005 | Ivy Keddie is Ansel's **great-niece**. | His **granddaughter**. | **Near-tie 18** (partner r19) — and **withdrawn in his own closing note**, where he corrects it from the family's own record |
 | X92 | F107 | **LATE REVERSAL.** Body: "the wet hay of that bottom must be allowed as a real if partial factor, and the 1908 committee was not simply wrong." Closing note: he prints D12 verbatim and writes, "Five hundredths in winter and nothing in summer will not carry nineteen hundredths in July. I withdraw the concession made on page four." | The bog hay had no part in it. | Decoy conceded early, retracted late by a quoted document |
 
@@ -566,7 +566,7 @@ consistency** breaks it. **Twenty-two pairs.**
 | **NT-1** | Pipettes measured **16.27 c.c.** | r11 (X35), r19 (X73) | **16.72** | r04 ✎, r07 ✎ | **Document + arithmetic.** D13 lists nine readings, none below 16.70; and only 16.72 ÷ 17.6 = 0.95 turns the recorded 3.61 into the 3.80 that D5, D11 and the 1924 average all report. 16.27 gives 0.9244 and a true average of 3.905, which nothing supports |
 | **NT-2** | Station average **3.16** | r05 (X15), r13 (X47) | **3.61** | r03 ✎, r07 ✎, r04 | **Document.** D5's summary leaf, quoted verbatim twice |
 | **NT-3** | True average **3.85** | r14 (X51), r22 (X90) | **3.80** | r04, r10 ✎ | **Document + arithmetic.** D11's four 1919 figures average 3.80; D5 gives 3.80 for 1896 and the 1924 average is 3.80; and 3.61 ÷ 0.95 = 3.80 exactly |
-| **NT-4** | Gap **0.21** | r08 (X27), r16 (X59) | **0.19** | r04, r09 | **Arithmetic.** 3.80 − 3.61 |
+| **NT-4** | Gap **0.21** | r08 (X27), r16 (X59) | **0.19** | r04, r22 | **Arithmetic.** 3.80 − 3.61 |
 | **NT-5** | **44,000,000 lb** of milk | r05 (X16), r12 (X40) | **40,000,000** | r02, r07 ✎, r23 | **Arithmetic.** 25 years × 1,600,000; and 76,000 ÷ 0.0019 = 40,000,000 |
 | **NT-6** | **67,000 lb** of fat | r13 (X48), r21 (X84) | **76,000** | r04 ✎, r07 ✎ | **Document.** D14 quoted verbatim twice; and 40,000,000 × 0.0019 |
 | **NT-7** | Fat at **27 cents** | r14 (X52), r16 (X60) | **25 cents** | r02, r09, r23 | **Arithmetic.** $19,000 ÷ 76,000 lb = $0.25 |
@@ -579,7 +579,7 @@ consistency** breaks it. **Twenty-two pairs.**
 | **NT-14** | Invoice total **$77.39** | r19 (X75), r20 (X81) | **$77.93** | r07 ✎, r04 | **Arithmetic.** 25.20 + 31.68 + 0.90 + 18.00 + 2.15, and D2 is transcribed line by line by both r07 and r20 — r20 adds her own transcription up wrong |
 | **NT-15** | **5 doz.** pipettes | r11 (X37), r21 (X86) | **6 doz. (72)** | r07 ✎, r20 | **Document.** D2's first line |
 | **NT-16** | **11** pipettes survived | r12 (X43), r19 (X76) | **9** | r04 ✎, r11 | **Document.** D13 lists exactly nine readings |
-| **NT-17** | Selby = Gideon's **nephew** | r01 (X04), r12 (X44) | **son** | r02, r18, r23 | **Testimony + document.** The minute book (r02) records "Selby Vose, son of the late president"; r18 is the family's record-keeper; r23 worked for him |
+| **NT-17** | Selby = Gideon's **nephew** | r01 (X04), r12 (X44) | **son** | r02, r18, r23 | **Testimony.** r02, who kept the minute book for forty years, calls him "son of the late president" in her own account; r18 is the family's record-keeper; r23 worked for him |
 | **NT-18** | Ivy = Ansel's **great-niece** | r19 (X77), r22 (X91) | **granddaughter** | r04, r18 | **Derivation + late reversal.** Ivy is Duncan's daughter and Duncan is Ansel's son (r18, r04, r24); and r22 corrects itself in its own closing note |
 | **NT-19** | Ivy and Hazel **first cousins once removed** | r01 (X05), r21 (X87) | **second cousins** | r18, r09, r17 | **Derivation.** Emmet and Orra are siblings; Roy and Duncan are their children, hence first cousins; Hazel and Ivy are the children of first cousins |
 | **NT-20** | Station gain = 5.26 % **of the true fat** | r05 (X18), r11 (X38) | **5.00 % of true; 5.26 % of credited** | r04, r07 ✎ | **Arithmetic.** 76,000 ÷ 1,520,000 = 5.00 %; 76,000 ÷ 1,444,000 = 5.26 % |
@@ -592,7 +592,7 @@ consistency** breaks it. **Twenty-two pairs.**
 |---|---|
 | NT-1 (16.27) | A8.4, A8.5, C1(a)–(d) cascade, F1, E-b, −1 corruption ≈ **8** |
 | NT-2 (3.16) | A3.3, A8.5, C1(b), C3(a), E-b, −1 ≈ **5** |
-| NT-3 (3.85) | A2.6, A8.5, C1(b), C3(b), E-b, −1 ≈ **5** |
+| NT-3 (3.85) | A3.3, A8.5, C1(b), C3(b), E-b, −1 ≈ **5** |
 | NT-5 (44 M) | A8.6, C1(c), C3(a)(b), E-b, −1 ≈ **5** |
 | NT-6 (67,000) | A8.6, C1(c), C3, F1, E-b, −1 ≈ **6** |
 | NT-7 (27¢) | C1(d), C2(c), E-b, −1 ≈ **3** |
@@ -624,9 +624,9 @@ that derives it, or the document that settles it. "✎" marks a verbatim documen
 | F003 Emmet Brant, weigh book from 1 Jan 1897 | r07 ✎, r17 | r09 (1898), r17 (1900) | **Document** — D10's series and r07's accession note |
 | F005 Ivy = Ansel's granddaughter | r04, r18 | r19, r22 (great-niece) | **NT-18 — derivation + r22's own reversal** |
 | F007 Hazel and Ivy second cousins | r18, r09, r17 | r01, r21 (1c1r) | **NT-19 — derivation** |
-| F009 Selby = Gideon's son; manager 1913 | r02, r18, r23 | r01, r12 (nephew); r23 (1911) | **NT-17 — minute book + family record** |
+| F009 Selby = Gideon's son; manager 1913 | r02, r18, r23 (the son); r02, r08, r06 (the 1913 date) | r01, r12 (nephew); r23 (1911) | **NT-17 — the secretary's own account + family record** |
 | F010–F012 Loomis, Teague, Sill and their terms | r02, r05, r14, r23 | — | Majority |
-| F013 Strawn, circuit 1908–1936, unrelated to all | r06, r07, r23 | r06 (1907 start) | Majority; r06's own error is on his start year only |
+| F013 Strawn, circuit 1908–1936, unrelated to all | r04, r22 (the 1908 start); r06, r07, r18 (the retirement and the notebooks) | r06 (1907 start) | Majority; r06's own error is on his start year only |
 | F017 Rosalie = Jerome's daughter | r10, r12, r18 | r04, r19 (niece) | **NT-21 — direct testimony** |
 | F020–F024 the five custody chains | r07 ✎, r18, r04 | r07 (X24 swapped attributions; X25 the crate's find-place) | **Majority + r07's own transcriptions** |
 
@@ -642,7 +642,7 @@ that derives it, or the document that settles it. "✎" marks a verbatim documen
 | F034 short 0.88 c.c.; ratio 0.95 | r04 ✎, r11 (qualitatively) | — | **Arithmetic** from F032/F033 |
 | F035 crate ordered 14 Apr 1897, in use 1 May 1897 | r07 ✎, r20 ✎ | r11, r23 (1898), r17 (1899) | **NT-10 — D2** |
 | F036 crate in the station loft; two sessions in the weigh room below | r13, r21, r04 | r07 (office at Ashlin) | Majority |
-| F098a Larrow Green's own average 3.78 | r14, r07 | — | Two sources; the comparison that produced the 1902 complaints |
+| F098a Larrow Green's own average 3.78 | r14, r22 ¶5 (the figure); r07 and r09 (the comparison, without the figure) | — | Two sources for the figure; the comparison that produced the 1902 complaints. The gap it makes is **0.17** — not the 0.19 of F076, and no narrator may state it as 0.19 |
 
 ### Dates
 
@@ -657,7 +657,7 @@ that derives it, or the document that settles it. "✎" marks a verbatim documen
 | F055 Alder Corners opens 1914 | r09, r12 | r10 (1913) | Majority |
 | F058 the 1919 circular | r03, r09, r24, r08 | r24 (eleven families) | Majority |
 | F059 condemned 12 June 1923 | r06 ✎, r07 ✎ | r08, r12 (12 July), r17 (1921), r23 (1922) | **NT-11 — D6 + D16's 28 June order** |
-| F061 1924 average 3.80 | r03 ✎ (D5 stops at 1922; he states 1924 in text), r06, r04 | r08 (3.90) | Majority |
+| F061 1924 average 3.80 | r03 (D5 stops at 1922; he states 1924 in text), r06 (his 1924 entry gives the year at 3.80) | r08 (3.90), r22 (3.85) | **Arithmetic** — 3.61 ÷ 0.95, with D5's 1896 season and the 1911 interval; there is no majority |
 | F063/F064/F065 arbitration 17 Mar – 4 May 1925; dismissal 30 Apr; award $3,800 | r02 ✎, r13, r24, r23 (award figure) | r17 (1926), r23 (1924 for the award year) | **D8 + majority** |
 | F070/F071 crate found Feb 1958; measured 9 Mar 1958 | r04 ✎, r07 ✎ | — | **D13** |
 | F072 Bulletin 471, October 1958 | r04 ✎, r11 ✎, r19 | — | **D14** |
@@ -668,7 +668,7 @@ that derives it, or the document that settles it. "✎" marks a verbatim documen
 |---|---|---|---|
 | F074 recorded average 3.61 | r03 ✎, r07 ✎, r04 | r05, r13 (3.16) | **NT-2 — D5** |
 | F075 true average 3.80 | r04, r10 ✎ | r14, r22 (3.85) | **NT-3 — D11 + arithmetic (3.61 ÷ 0.95)** |
-| F076 gap 0.19 | r04, r09 | r08, r16 (0.21) | **NT-4 — arithmetic** |
+| F076 gap 0.19 | r04, r22 ¶5 | r08, r16 (0.21) | **NT-4 — arithmetic.** r09 and r07 give the *visible* Larrow Green gap (0.17), which is a different quantity and is not this fact |
 | F077 40,000,000 lb / 1,600,000 a year | r02, r07 ✎, r23 | r05, r12 (44 M) | **NT-5 — arithmetic + ledger** |
 | F078/F079 1,444,000 and 1,520,000 lb | r04, r07 ✎ | — | **Arithmetic** from F074/F075/F077, and the ledger's own two lines |
 | F080 76,000 lb | r04 ✎, r07 ✎ | r13, r21 (67,000) | **NT-6 — D14** |
@@ -695,16 +695,16 @@ that derives it, or the document that settles it. "✎" marks a verbatim documen
 | F100 0.19 = 5 % of 3.80 = 0.88 ÷ 17.6 | r04, r11 | — | **Arithmetic** |
 | F101 onset: 3.80 in 1896 → 3.61 in 1898 | r03 ✎, r07 ✎ | — | **D5** |
 | F102 the 1911 natural experiment | r03 ✎, r04, r24 | r05, r16 (six weeks) | **D4** |
-| F103 cessation: 3.80 from 1924 | r03, r06, r04 | r08 (3.90) | Majority |
+| F103 cessation: 3.80 from 1924 | r03, r06 | r08 (3.90), r22 (3.85) | Arithmetic + D5 |
 | F104 the ledger mirror, "station gain" | r05 ✎, r07 ✎, r12 ✎ (late) | — | **D7 quoted verbatim three times** |
-| F105 watering refuted | r06 (15 years of lactometer), r10 ✎, r09 (the two scales), r04 | r08, r14 | **Record + arithmetic (5 % = 80,000 lb a year)** |
+| F105 watering refuted | r06 (the lactometer on every visit, 1908–1936), r10 ✎, r09 (the two scales), r04 | r08, r14 | **Record + arithmetic (5 % = 80,000 lb a year)** |
 | F106 theft refuted | r05 ✎ (his own entry), r12 ✎ (late), r04, r07 ✎ | r05, r21, r01 | **The ledger surplus + the 1911 interval** |
 | F107 bog hay refuted | r04 ✎, r11 ✎, r22 ✎ (late), r10 ✎ | r15, r16 | **D12 + the Alder Corners comparison + seasonality** |
 | F108 cure 35 years before diagnosis | r04, r06 | — | **Arithmetic** |
 
 ### Single-source scored facts (uncontested)
 
-Five scored facts appear correctly in only **one** narrator. None is contradicted anywhere, so
+Three scored facts appear correctly in only **one** narrator. None is contradicted anywhere, so
 each remains available — but each is lost outright by a solver that discounts its carrier
 wholesale.
 
@@ -712,13 +712,12 @@ wholesale.
 |---|---|---|
 | The 1910 price of fat, 24 cents | r09 | Single-source, uncontested (the 25-cent period average is separately carried) |
 | The Vose home farm's recorded 4.56 | r08 | Single-source, uncontested — inside a decoy carrier |
-| Larrow Green's own 3.78 average | r14 | Single-source for the figure — inside a decoy carrier; r07 confirms "about three-quarters of a point better" without the number |
-| The four exhibits before the board | r13 | Single-source, uncontested |
 | The station's closing in 1946 | r21 | Single-source, uncontested |
 
-**Three of the five sit in narrators carrying a decoy theory** (r08, r14) or four near-tie values
-(r21). That is the fragility to watch when grading A4.5, A7.4 and C2(c): those narrators must be
-discounted on their named values and trusted on everything else.
+**Two of the three sit in narrators carrying a decoy theory** (r08) or four near-tie values
+(r21). That is the fragility to watch when grading A4.5 and C2(c): those narrators must be
+discounted on their named values and trusted on everything else. Larrow Green's 3.78 is carried by
+r14 **and** r22 ¶5, and the four exhibits by r13 **and** r23; neither is single-source.
 
 ---
 
@@ -729,7 +728,7 @@ discounted on their named values and trusted on everything else.
 | **Near-tie broken only by document, arithmetic, or internal consistency** | **Twenty-two pairs.** Document: NT-2, NT-6, NT-9, NT-10, NT-13, NT-15, NT-16, NT-22. Arithmetic: NT-4, NT-5, NT-7, NT-8, NT-12, NT-14, NT-20. Document + arithmetic: NT-1, NT-3, NT-11. Derivation: NT-18, NT-19. Testimony: NT-17, NT-21 | F002–F009, F017, F033, F046, F059, F074–F083, F088, F089, F095 |
 | **3–5 hop arithmetic across ≥3 retellings** | **C1** (D13's 16.72 in r04/r07 → ratio → D5's 3.61 in r03/r07 → 3.80 → 0.19 → r02/r07/r23's 40,000,000 → 76,000 → r02/r09/r23's 25¢ → $19,000 → r02's $3,800 → one fifth: **five hops, six narrators**). **C2** (D10's 200,000 and 3.42 in r09 → ÷0.95 → 3.60 → 360 lb → r09's 24¢ → $86.40: **four hops, three narrators**). **C3** (40,000,000 × 3.61 % → 1,444,000; × 3.80 % → 1,520,000; difference 76,000; two denominators → 5.00 % and 5.26 %: **four hops, four narrators**) | F073–F087 |
 | **Unit / off-by-one traps the key resolves explicitly** | 26 years and 6 weeks (the glass) against 25 full delivery years (the money) — both right, for different things; 5.00 % of true against 5.26 % of credited — both right, for different denominators; 8 May – 10 July = 63 days against "six weeks"; D16's 28 June order against a "12 July" condemnation | F090, F091, F083, F092, F059 |
-| **Three decoy theories, each in ≥2 narrators, each refuted by a document and by arithmetic** | **Watering** (r08, r14): refuted by r06's fifteen years of lactometer readings and r10's D11, and by 5 % = 80,000 lb a year absent from the receiving books. **Theft** (r05, r21): refuted by D7's surplus, quoted by the accuser himself, and by the fact that a theft makes the cream arrive light. **Bog hay** (r15, r16): refuted by D12 (0.05 winter, none summer) and by the flatness of 0.19 across twelve months for 26 years | F105, F106, F107 |
+| **Three decoy theories, each in ≥2 narrators, each refuted by a document and by arithmetic** | **Watering** (r08, r14): refuted by r06's lactometer readings on every visit from 1908 to 1936 and r10's D11, and by 5 % = 80,000 lb a year absent from the receiving books. **Theft** (r05, r21): refuted by D7's surplus, quoted by the accuser himself, and by the fact that a theft makes the cream arrive light. **Bog hay** (r15, r16): refuted by D12 (0.05 winter, none summer) and by the flatness of 0.19 across twelve months for 26 years | F105, F106, F107 |
 | **A narrator wrong only on dates** | **r17** (Hazel Brant): five date errors, every quantity and relationship correct. **r23** (Bertram Kyle): four date errors, every figure correct — and his figures are the money figures | F044, F045, F046, F054, F059, F063, F065 |
 | **A late reversal inside a retelling** | **r12** (theft asserted in the body, withdrawn in a *Note added while in press* quoting D7). **r22** (bog hay conceded in the body, withdrawn in a closing note quoting D12; it also corrects its own "great-niece") | F106, F107, F005 |
 | **Internal contradictions** | **r03** (Ashlin vs his own D3), **r05** (the 1905 boast vs his 1898 transcription; the theft claim vs his own entry), **r07** (swapped catalogue attributions vs D3 and D10 beneath them), **r11** (16.27 cascade vs the D14 paragraph it prints), **r13** ("every appliance before us" vs a four-book exhibit list), **r15** ("the whole of 1908" vs D15's three months), **r18** (1868 vs "eighty-two in 1948"), **r20** ("nothing before 1900" vs her 1897 invoice) — **eight** | F044, F049, F020/F021, F033, A07, F096, F002, F045 |

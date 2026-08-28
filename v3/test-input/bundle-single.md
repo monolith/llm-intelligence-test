@@ -233,7 +233,7 @@ I put down what I found. I did not put down what I thought about it, and I have 
 
 **1923, October.** Ostrey Hollow. New glass in use since July. Ran the new pipettes against the burette. They deliver their mark. Scales true.
 
-**1924.** Ostrey Hollow. Scales true, no added water, tests improved.
+**1924.** Ostrey Hollow. Scales true, no added water, tests improved. Their book gives the year at 3.80.
 
 **1925.** Ostrey Hollow, in the fall. Scales true, no added water, tests improved. New man at the tester's bench this year. He is quick, and quick is not the thing I look for.
 
@@ -357,7 +357,7 @@ The sampling was of January, February and March 1908 only, as the report states.
 > of butter fat — stands credited in the Association's own ledgers, year by year, as station
 > gain.*
 
-**Item 16. Receiving and churn books of the Larrow Green creamery**, water-damaged at the foot. Cream in, butter out, and the creamery's own tests. Over the same years for which the station's 3.61 is recorded, the Larrow Green average runs about three-quarters of a point better.
+**Item 16. Receiving and churn books of the Larrow Green creamery**, water-damaged at the foot. Cream in, butter out, and the creamery's own tests. Over the same years for which the station's 3.61 is recorded, the Larrow Green average runs a little under two tenths of a point better.
 
 *Notes and queries.* — The station's intake for its first season, 4 May to the end of 1896, is not in the ledgers and is nowhere else; the station column begins with 1897, and inquirers wanting a figure for 1896 must be told there is none. — Item 5 wants a case with a lock. — Accession numbers still to be cut for Items 13 and 16.
 
@@ -419,9 +419,9 @@ Two hundred thousand pounds even. He was pleased about the evenness of it; he wr
 
 He wrote at the kitchen table after the second milking, in the lamp, with his hat still on, and my mother would not have the table cleared till he was done. It took him no time at all, and it is the only reason there is anything left to argue about now.
 
-**The trouble.** Our milk at the Hollow ran nineteen hundredths of a point under what the same class of milk was making down at Larrow Green. Nineteen hundredths is nothing to look at on one pay slip. Set the slips in a row for a lifetime of farming and it is a farm.
+**The trouble.** Our milk at the Hollow ran seventeen hundredths of a point under what the same class of milk was making down at Larrow Green. Seventeen hundredths is nothing to look at on one pay slip. Set the slips in a row for a lifetime of farming and it is a farm.
 
-The first men to say so out loud said it in 1902, and they were laughed at, and one of them was my father. What I would have anybody notice is this: it was nineteen hundredths in July and it was nineteen hundredths in February. It did not come and go with the season. It did not care whether the cows were on the meadow or on hay in the barn. Nobody would take account of that, then or since, though it was in front of them.
+The first men to say so out loud said it in 1902, and they were laughed at, and one of them was my father. What I would have anybody notice is this: it was seventeen hundredths in July and it was seventeen hundredths in February. It did not come and go with the season. It did not care whether the cows were on the meadow or on hay in the barn. Nobody would take account of that, then or since, though it was in front of them.
 
 In 1908 the Association appointed a committee, with Nyle Grigg of Larrow Green at the head of it, and the committee came up and sampled the Bottom herds through the winter and reported that the wet hay of this bottom thins the cream, and that the remedy lay with the land and not with the station. My father read that report twice and put it in the drawer and said that the land had been wet since the flood and the tests had not.
 
@@ -730,7 +730,7 @@ To the officers and patrons of the Larrow Valley Cooperative Creamery Associatio
 
 Gentlemen: I am asked to let the report of our committee be printed again, the Ostrey Hollow question having been reopened this season by men who were boys when we made it. I consent willingly and I have nothing in it to take back. I ask leave only to add a page, because a report is a dry thing and does not say why it was written, and because eleven years have brought us some light from a quarter that had none to give us in 1908.
 
-You will remember the state of things. From about 1902 there had been grumbling out of Ostrey Hollow that the milk of that station tested under the milk of the rest of this valley. It was not one man and it was not one season. It went on and it grew, and it got into the talk at the annual meeting and into the talk at every crossroads store between here and Ashlin, and it took the shape such things always take, which is that somebody must be doing it on purpose. By the winter in which we were named, the board could not let it alone any longer without seeming to have an interest in letting it alone, and we three were named to look into it. I have never in my life been given a duty I liked less. I had known the men of that bottom since I was a young man and I have bought hay off two of them.
+You will remember the state of things. From about 1902 there had been grumbling out of Ostrey Hollow that the milk of that station tested under the milk of the rest of this valley. It was not one man and it was not one season. It went on and it grew, and it got into the talk at the annual meeting and into the talk at every crossroads store between here and Ashlin, and it took the shape such things always take, which is that somebody must be doing it on purpose. By the winter in which we were named, the board could not let it alone any longer without seeming to have an interest in letting it alone, and we three were named to look into it. I have never in my life been given a duty I liked less. Payment by test came in with the 1893 meeting, as I have always understood it, and from that year a difference of this kind stopped being a matter of opinion and became a matter of money. I had known the men of that bottom since I was a young man and I have bought hay off two of them.
 
 We went at it as plain farmers do. We sampled those herds through the whole of 1908 — every month of that year, in the barn and on the pasture, out of the night's milk and the morning's, and we did not let a man know which day we were coming. We weighed. We watched the test made and we watched it made again. And what we found, we put in the report, and the report is below and I will not repeat it here.
 
@@ -750,7 +750,7 @@ Respectfully, NYLE GRIGG, Larrow Green.
 >
 > Your committee, appointed in January last, respectfully reports as follows.
 >
-> The complaint before us is of some years' standing and is in substance this: that the milk delivered at the Ostrey Hollow skimming station is returned by the test at a figure below that of milk delivered elsewhere in this valley, and that the patrons of that station are in consequence paid less for the same labor and the same cows than their neighbors are paid. Since the meeting of 1893, when payment by test came in among us and the pound of butter fat took the place of the pound of milk as the measure of a man's month, a difference of this kind is no longer a matter of opinion. It is a matter of money, and it comes out of the same pocket every month, and your committee has approached it in that light and not as a quarrel.
+> The complaint before us is of some years' standing and is in substance this: that the milk delivered at the Ostrey Hollow skimming station is returned by the test at a figure below that of milk delivered elsewhere in this valley, and that the patrons of that station are in consequence paid less for the same labor and the same cows than their neighbors are paid. Since payment by test came in among us and the pound of butter fat took the place of the pound of milk as the measure of a man's month, a difference of this kind is no longer a matter of opinion. It is a matter of money, and it comes out of the same pocket every month, and your committee has approached it in that light and not as a quarrel.
 >
 > Hessel Bottom, where six farms cut hay and turn out stock, is a wet meadow lying along the creek under Ostrey Hollow. Its ground is springy the year round and is under water in part every spring. Its herbage is sedge, rush, and the coarse sour grasses that come in on such land, and its hay is cut late and heavy and is fed as the main dependence of those farms from November to April. There is no better winter keep to be had there. We say this without reproach to any man on that bottom; the land is what it is, and they took it as their fathers left it to them.
 >

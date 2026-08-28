@@ -400,3 +400,98 @@ deviations they record:
 | **r03's nine-sentence statement** (D9 is two sentences) | ✅ Verified by count: the statement block is exactly nine sentences, D9 verbatim as sentences 8–9, the preceding seven introducing no new figure, date, name or document. |
 | **r22's two figures** (¶5 correct, ¶11 X90) — flagged by the author "in case the coverage audit assumed r22 would carry only one" | ⚠️ The author was right to flag it, and the consequence is larger than "internal inconsistency by design": placing 3.85 on the **1924** average rather than on the true average makes r22 a **second uncatalogued wrong carrier of F061**, which is what leaves the 1924 figure at one correct carrier against two wrong ones. Fix 1 addresses it. |
 | **the 0.19 / 0.17 canon gap** | ❌ **Not flagged anywhere in the author checks.** The r09 check marks F076 "correct"; the r22 check marks ¶5 "correct"; the r07 check marks "about three-quarters of a point better" "correct" and notes only that the figure 3.78 is absent. The defect is upstream in `canon.md` (F098a vs F076) and in the r07 and r09 narrator briefs, which instruct exactly what was written. Fixes 10, 11, 12, 13. |
+
+---
+
+# Fixes applied 2026-08-28
+
+All twenty-three required fixes applied, plus the four controller rulings and the consequential
+edits each forced. Line numbers are **post-edit**. Paths are relative to `v3/`.
+
+## The four rulings
+
+**Ruling 1 — Section A scope.** The per-story filing gate is withdrawn: a checklist fact is now
+credited wherever it appears inside the eight reconstructions, and credit still never travels in
+from B–G. `answers-and-scoring.md` 25–47 (the rule rewritten, five clauses to four). The
+checklist was deduped: the one true duplicate — the test book's summary leaf, scored at both A2.5
+and A3.3 — is merged into **A3.3** (138–143), and the freed point is spent on a new **A2.5**
+(123–127): *the shortfall was flat at 0.19 in every month of the year*, canon **F097/F100**,
+carried correctly by r03, r04, r17 and r22 — a distinct fact, scored nowhere else in Section A.
+Section A therefore stays at 50 items and the sub-sheet is unchanged (6·6·7·6·6·6·6·7). **No
+partition item was added**: the merge freed one point and the offered partition item costs two,
+and no second genuine duplicate exists. Instead, the four cases where two or three items rest on
+one record — A1.6/A7.6/A8.6, A3.1/A7.5, A6.6/A8.3, A6.5/A7.1 — are enumerated in clause 4 and each
+is credited **on its own aspect only**, which is fix 15 in its new form. Consequential:
+`narrator-briefs.md` 1085 (the ≥2-carrier check row for A2.5); `corruption-map.md` 595 (the NT-3
+consequence row pointed at A2.6 and should always have pointed at the leaf — now A3.3);
+`AUTHORING-NOTES.md` 36–41, 114, 137, 168–172, 176–179 (lever 2, § 3 and soft spots S1/S2 restated
+against the revised rule). `test-input/questions.md` needed no edit: its Section A note already
+said credit is given for what appears *inside this section*, which the revised rule now matches.
+
+**Ruling 2 — the 1924 average.** r06 is the second carrier, per fix 1. One sentence added in his
+voice to the 1924 extract — *"Their book gives the year at 3.80."* —
+`test-input/retellings/r06-extracts-from-the-circuit-books.md` 44 and `test-input/bundle-single.md`
+236. His brief forbade every test average, so the brief moved with him:
+`narrator-briefs.md` 290–293 (the 1924 extract now carries the figure) and 302–306 (the
+must-not-mention list gains the single exception). Carrier lists corrected at
+`answers-and-scoring.md` 408 (E-a row 3), `corruption-map.md` 698 (F103) and 660 (F061).
+
+**Ruling 3 — A10's third pole.** The 1893 date is out of the quoted 1908 report and into Grigg's
+own 1919 covering letter, where it is memory: `r15-grigg-committee-report.md` 13 (the new
+sentence) and 33 (the clause struck from the quoted report); `bundle-single.md` 733 and 753. D15
+itself is untouched. Map updated at `corruption-map.md` 356 (⌀X58 now records that the pole must
+stay outside the quoted report or a document would settle A10); brief updated at
+`narrator-briefs.md` 674–677.
+
+**Ruling 4 — the 0.17 gap.** Canon is authoritative and now says so: `canon.md` 191 (F098a states
+the visible gap as **0.17** and forbids stating the Larrow Green comparison as 0.19). The map
+assigns r09 no planted error on the figure, so r09 was corrected to canon rather than catalogued:
+`r09-my-fathers-book.md` 23 and 25, four occurrences of *nineteen hundredths* → *seventeen
+hundredths* (`bundle-single.md` 422, 424); brief at `narrator-briefs.md` 406–410. The map likewise
+assigns r07 no error on "about three-quarters of a point", so it too was corrected to canon (fix
+10): `r07-accession-notes.md` 107, `bundle-single.md` 360, brief at `narrator-briefs.md` 331–334.
+Consequential: F076's correct carriers become **r04 and r22 ¶5** (`corruption-map.md` 671, and
+NT-4 at 569), and F098a's row now separates the figure (r14, r22) from the comparison (r07, r09)
+at 645.
+
+## The twenty-three fixes
+
+| # | What | Files and lines |
+|---|---|---|
+| 1 | The 1924 average has one correct carrier and two wrong ones | `r06…md` 44; `bundle-single.md` 236; `answers-and-scoring.md` 408; `corruption-map.md` 698, and consequentially 660 (F061) and 504 (X90 recorded as a second wrong carrier of F061); `narrator-briefs.md` 290–293, 302–306 |
+| 2 | Strawn's first circuit — wrong carriers named | `answers-and-scoring.md` 413; `corruption-map.md` 629; `narrator-briefs.md` 1099 |
+| 3 | Selby Vose's start as manager — wrong carrier named | `answers-and-scoring.md` 420; `corruption-map.md` 627 |
+| 4 | Weigh-book start — two correct carriers uncredited | `answers-and-scoring.md` 410 |
+| 5 | The 1908 sampling — r09 is not a Jan–Mar carrier | `answers-and-scoring.md` 407 |
+| 6 | E-a row 1 is also NT-13 — double credit possible | `answers-and-scoring.md` 423–424 |
+| 7 | The burned church register is not in the corpus | `answers-and-scoring.md` 267–269 (B2), 281–282 (B4); `canon.md` 100 (F039), 335 (A01), 342 (A08) |
+| 8 | The "glass, pipette or measure" claim is false of r08 | `answers-and-scoring.md` 384–386 (D3.2), 388–390 (D3.3); consequentially `canon.md` 337 (A03 carried the same false gate) |
+| 9 | A10's third pole sat inside a quoted document | see ruling 3 |
+| 10 | r07's Larrow Green comparison was arithmetically impossible | see ruling 4 |
+| 11 | r09 attached the true shortfall to the Larrow Green comparison | see ruling 4 — resolved by the ruling's fallback (0.17), not by fix 11's rewrite, which would have had a 1955 farmer state a figure first established in 1958 |
+| 12 | A4.3's parenthetical misstated the record | `answers-and-scoring.md` 165–168 |
+| 13 | The single-source table is wrong on two of its five rows | `corruption-map.md` 707 (five → three), 711–715 (the 3.78 and four-exhibits rows deleted), 717–720 (paragraph rewritten; the stale A7.4 reference dropped and both facts' second carriers named) |
+| 14 | A2.5 and A3.3 score the same leaf twice | `answers-and-scoring.md` 123–127, 138–143 — applied in ruling 1's form (merge, not disambiguation) |
+| 15 | The station-gain line is gated three times | `answers-and-scoring.md` 41–47 — applied in ruling 1's form: an enumerated no-double-credit clause, since credit now travels anyway |
+| 16 | "Fifteen years" of lactometer readings is in no source | `answers-and-scoring.md` 203–204 (A6.2), 359 (D2), 475 (F2); consequentially `corruption-map.md` 700 (F105) and 731 (device checklist), `narrator-briefs.md` 280–281 (r06's vantage) |
+| 16b | One word-count convention | `AUTHORING-NOTES.md` 232–236 |
+| 17 | G2 lists nine items for "eight record series" | `answers-and-scoring.md` 508 |
+| 18 | C5(a) should accept equivalent exact spans | `answers-and-scoring.md` 324–325 |
+| 19 | The corruption-deduction list reads as exhaustive | `answers-and-scoring.md` 73–79 |
+| 20 | NT-17's breaker is overstated | `corruption-map.md` 582 |
+| 21 | Two bolded gates rest on a single narrator | `answers-and-scoring.md` 186–187 (A5.3), 200–201 (A6.1) |
+| 22 | A06's negative pole is refuted on dates | `answers-and-scoring.md` 447 |
+| 23 | A07's negative lean should be explicitly creditable | `answers-and-scoring.md` 494–496 |
+
+## Verification
+
+- **Word counts.** Prose only (title line, italic framing note and r10's figure table excluded),
+  all twenty-four retellings **1,365–1,499**. The four edited files: r06 1,451 · r07 1,447 · r09
+  1,493 · r15 1,425. All inside 1,000–1,500.
+- **Score sheet.** Section A = 50 items across eight stories (6·6·7·6·6·6·6·7); A 50 + B 8 + C 14 +
+  D 10 + E 8 + F 6 + G 4 = **100**. No point value changed.
+- **Block quotes.** All sixteen canon documents were matched against the retellings after editing
+  and every one is byte-identical where it stood before. The only block-quoted line touched is the
+  body of r15's expanded 1908 report, which is not a canon document; **D15**, the canonical
+  paragraph inside it, is untouched.
+- **Not applied.** Nothing. `test-input/questions.md` was examined and needed no change (above).

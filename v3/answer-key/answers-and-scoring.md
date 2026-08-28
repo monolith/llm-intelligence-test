@@ -22,23 +22,29 @@ names two bolded things, both are required; that is stated in the item.
 **Scope rule (Sections B–G).** A required element is credited **wherever in Sections B–G the
 solver states it** — filing location does not gate a point.
 
-**Scope rule (Section A) — stricter in v3.** Credit **never** travels into Section A from
-Sections B–G. Within Section A, a checklist item is credited only where the fact appears in the
-solver's reconstruction **of that story**. Because the solver draws its own boundaries cue-lessly:
+**Scope rule (Section A) — revised.** Credit **never** travels into Section A from Sections
+B–G: a fact stated only in B–G earns nothing here. **Within** Section A credit travels freely — a
+checklist fact is credited if it appears correctly **anywhere inside the eight reconstructions**,
+whatever story the solver filed it under. Filing location does not gate a point.
 
 1. The grader first **maps** each of the solver's numbered narratives onto the key's eight by
-   subject matter, before scoring anything.
-2. A checklist is then scored against the mapped narrative, **plus** any narrative the solver has
-   clearly split off from it (for example a solver who divides the 1925 arbitration into "the
-   hearing" and "the award" is scored on both together against A7).
-3. A fact filed under a **different** story — the 1911 interval reported only in the 1958
-   narrative, the invoice total reported only in the arbitration narrative — is **not** credited
-   on the checklist it belongs to. This is the bite of the rule, and it is what distinguishes a
-   solver that has reconstructed eight histories from one that has produced one long history in
-   eight pieces.
-4. A solver who writes fewer or more than eight narratives is scored the same way: each checklist
-   against whatever narrative(s) cover that subject.
-5. No fact is scored twice inside Section A.
+   subject matter. The mapping decides **where a point is recorded** on the sub-sheet, not whether
+   it is earned.
+2. An item is credited on the strength of the whole of Section A — including any narrative the
+   solver has split off (a solver who divides the 1925 arbitration into "the hearing" and "the
+   award" is scored on both together against A7) and any it has fused. No item is lost for being
+   told under the "wrong" story.
+3. A solver who writes fewer or more than eight narratives is scored the same way.
+4. **No fact is scored twice inside Section A.** The fifty items are fifty distinct facts. Where
+   two or three items rest on the same record, each is credited **on its own aspect only**, and a
+   solver that states nothing but the shared element takes one of them and not the others. The
+   four cases: **A1.6 / A7.6 / A8.6** — the station-gain ledger (the line's existence, shape and
+   1898 origin · the account the award was charged to · the identity of its total with 76,000 lb);
+   **A3.1 / A7.5** — the dismissal of 30 April 1925 (the tester's service and its end · the
+   dismissal without a finding, beside the award); **A6.6 / A8.3** — the crate in the loft (where
+   it went in 1923 · where it was found in 1958, and that nine survived); **A6.5 / A7.1** — the
+   1924 rise (the replacement glass and the average that followed · the rise as the origin of the
+   patrons' petition).
 
 ---
 
@@ -63,6 +69,13 @@ instead. The flagged values are:
 > of 1908** (F096) · Orra Keddie born **1868** (F002) · the circular sent to **eleven** families
 > (F058) · the crate found **in the Association office** (F070) · **the milk was watered** (F105)
 > · **cream was stolen at the station** (F106) · **the bog hay thinned the cream** (F107)
+
+This list is not exhaustive. **Any** value catalogued as a planted error in `corruption-map.md`
+and asserted as fact takes the deduction — including Strawn's circuit begun in **1907**, Selby
+Vose manager from **1911**, the condemnation reaching the office in **1922**, the award made in
+**1924**, the crate from Tarnet in **1899**, the condemnation in **1921**, the hearing in
+**1926**, the Alder Corners overlap of **fourteen seasons**, a **1924 average of 3.85**, and the
+**1908 committee sitting again in 1925**.
 
 **Gullibility deduction: −2 for each abstention item (A01–A10) answered with a definite
 assertion** rather than a declared inability to settle it. **Maximum −20.** This applies even
@@ -107,9 +120,11 @@ Floor of 0 per section; floor of 0 overall.
    and r23)*
 4. The invoice: **6 dozen milk test pipettes marked 17.6 c.c.**, 12 dozen test bottles, an acid
    measure, a hand tester and freight — **$77.93**. **F088, F089** *(NT-14, NT-15)*
-5. **The 1896 season averaged 3.80 on the borrowed glass; the first full year on the station's own
-   glass, 1898, averaged 3.61, and it stayed at 3.61 for twenty-five years.** Both figures required.
-   **F101, D5** *(NT-2)*
+5. **The shortfall the station's glass produced was flat — the same 0.19 in every month of the
+   year**, in the June flush and the February feeding alike, in every one of the twenty-six years:
+   the signature of an instrument and not of a feed or a season. **F097, F100** *(r03, r04, r17 and
+   r22 all state it. This item replaces the summary-leaf item that stood here in the first draft
+   and duplicated A3.3; the leaf is now scored once, at A3.3.)*
 6. States that a pipette is the instrument the whole scale rests on and **cannot be checked without
    a burette**, of which there was none in the county — so the one object in the room that was
    never verified was the one that defined the answer. **F031, F099**
@@ -121,7 +136,11 @@ Floor of 0 per section; floor of 0 overall.
 2. The bench routine and the **test book** — date, patron, pounds, test, fat — kept in one hand for
    twenty-nine seasons, with corrections crossed and initialed rather than written over. **F001**
 3. The book's **summary leaf**: 1896, 3.80; 1897 part year; **3.61 from 1898 and within three
-   hundredths of it every year since**. **F074, F101, D5** *(NT-2: 3.16 in r05 and r13)*
+   hundredths of it every year since** — the step is at the change of glassware, 1896 having been
+   tested on glass borrowed from Larrow Green and 1898 on the crate from Tarnet, with nothing on
+   the farms changing. Both figures required. **F074, F101, D5** *(NT-2: 3.16 in r05 and r13. This
+   leaf was scored twice in the first draft, here and at A2.5. It is scored once, here, and a
+   solver that gives the two figures anywhere in Section A has earned it.)*
 4. **The nine weeks of 1911**: the station pipette broke on **8 May**, a borrowed measure was used
    until **10 July**, the tests ran at **3.80** through the interval and returned to 3.61 the day
    the station's own measure came back — and Keddie set a **question mark** against it. **F052,
@@ -144,7 +163,9 @@ Floor of 0 per section; floor of 0 overall.
    weight. **F003, D10, F105**
 3. **Complaints from 1902 that Ostrey Hollow milk tested below Larrow Green milk** — the visible
    gap that started everything. (Larrow Green's own average of about 3.78 against the station's
-   3.61 is context and does not gate the point: the figure is single-source.) **F048, F098a**
+   3.61 — carried by r14 and r22 — is context and does not gate the point. Note that the visible
+   gap it produces, 0.17, is **not** the 0.19 true shortfall; a solver that distinguishes them is
+   right to.) **F048, F098a**
 4. The **1908 committee under Nyle Grigg** sampled **January, February and March 1908** and
    reported that the wet hay of the bottom thinned the cream — stated as the finding, not as fact.
    **F050, F096, D15** *(A solver who asserts the hay explanation as true loses this item and takes
@@ -162,7 +183,8 @@ Floor of 0 per section; floor of 0 overall.
 2. From **1915**, **four** of the Hessel Bottom patrons hauled there in the **summer flush** and to
    Ostrey Hollow the rest of the year — for a cheese price, a flush market and a shorter haul.
    **F056**
-3. Cudd tested with **his own glassware** and kept **his own test book**, in another county, and
+3. Cudd tested on his own bench with his own glassware and kept **his own test book**, in another
+   county, and
    never compared it with anybody's. **F023, D11**
 4. **In every overlapping season the same four men's milk tested about 0.19 higher at Alder Corners
    than at Ostrey Hollow** — sixteen seasons, 1915–1930. **F098, F075**
@@ -175,9 +197,11 @@ Floor of 0 per section; floor of 0 overall.
 ### A6 — Strawn's circuit and the condemnation (6 points)
 
 1. **Merle Strawn**, state dairy inspector for the Ordell circuit **1908–1936**, kept a pocket
-   notebook a year and was **related to and employed by nobody in the valley**. **F013**
+   notebook a year and was related to and employed by nobody in the valley (r18 only;
+   uncontested). **F013**
 2. On every visit he checked the scales and **ran the lactometer for added water — and never once
-   found any at Ostrey Hollow**, across fifteen years including 1919 and after. **F058, F105**
+   found any at Ostrey Hollow**, across the whole circuit, 1908 to 1936, including 1919 and
+   after. **F058, F105**
 3. On **12 June 1923** he ran the station's pipettes against a **burette** and **condemned the whole
    lot**. **F059, D6** *(NT-11: 12 July in r08 and r12)*
 4. He **wrote no figure for the deficiency and made no report beyond the condemnation** — "I did not
@@ -240,8 +264,9 @@ Floor of 0 per section; floor of 0 overall.
 - **B2.** **Second cousins**, with the derivation — 1: Emmet Brant and Orra Keddie were siblings, so
   their children Roy Brant and Duncan Keddie were first cousins, and Hazel and Ivy are the children
   of first cousins. **Abstention item (A08)** — 1: states that **whether Emmet and Orra were full or
-  half siblings cannot be determined** (the Ostrey Hollow register burned in 1912; r17 says half,
-  r09 says full, neither cites anything) **and that it does not change the answer**, since half
+  half siblings cannot be determined** (r17 says half, r09 says full, neither cites
+  anything, and r24's editor states that the pages covering her girlhood and her family before
+  1889 were not preserved) **and that it does not change the answer**, since half
   siblings are siblings. Asserting either = 0 on the second point and **−2**. **F002, F007, A08**
   *(NT-19)*
 - **B3.** **Gideon Vose**, his father — 1 *(NT-17: nephew in r01 and r12; resolved by the minute
@@ -253,8 +278,8 @@ Floor of 0 per section; floor of 0 overall.
   largest single loser.)* **F008, F009, F042, I07, I08**
 - **B4. Abstention item (A01).** **States that the sources cannot settle whether the Voses and the
   Keddies were kin** — 1. **States what is established** — 1: two narrators assert a cousinship from
-  talk and one denies it flatly; the Ostrey Hollow church register burned in 1912; no document names
-  or denies a link; and a family member's denial is not a record. Asserting either way = 0 **and
+  talk and one denies it flatly; no document in the corpus names or denies a link; and a family
+  member's denial is not a record. Asserting either way = 0 **and
   −2**. **A01, F039**
 
 ---
@@ -296,8 +321,9 @@ Floor of 0 per section; floor of 0 overall.
   F034** *(NT-15: five dozen in r11 and r21.)*
 
 - **C5 (2 points, 1 each).**
-  (a) The glassware was in use **1 May 1897 to 12 June 1923 — 26 years and 6 weeks**; the money
-  calculation runs over the **25 full delivery years 1898–1922**. **Both figures and the reason for
+  (a) The glassware was in use **1 May 1897 to 12 June 1923 — 26 years and 6 weeks** (accept any
+  exact equivalent: 26 years and 42 days, or 26 years 1 month 11 days); the money calculation runs
+  over the **25 full delivery years 1898–1922**. **Both figures and the reason for
   the difference are required**: 1897 and 1923 are part years and are excluded from the settlement
   arithmetic. Giving one number for both = 0. **F090, F091**
   (b) **ABSTENTION ITEM (A02).** **The 1896 intake cannot be determined from the sources.** The
@@ -330,11 +356,11 @@ Floor of 0 per section; floor of 0 overall.
 
 Valid reasons (any): the **ledger's annual surplus** — the station's cream arrived at Larrow Green
 **heavy**, not light, and a theft can only make it arrive light; **the 1911 interval**, in which the
-same man tested and the figures went up; **Strawn's fifteen years of clean visits**, having watched
-the man make a test through; **the Alder Corners book**, testing the same milk higher in a building
-Keddie never entered; **the 1923 condemnation and the 1924 rise**, which followed a change of glass
-and not a change of tester (Keddie stayed until 1925); **Brant's weigh book**, showing no short
-weight. **F106**
+same man tested and the figures went up; **Strawn's clean lactometer visits from 1908 to 1936**,
+having watched the man make a test through; **the Alder Corners book**, testing the same milk
+higher in a building Keddie never entered; **the 1923 condemnation and the 1924 rise**, which
+followed a change of glass and not a change of tester (Keddie stayed until 1925); **Brant's weigh
+book**, showing no short weight. **F106**
 
 1. **Three valid, distinct reasons**, each attributed to a narrator or a named document, **drawn
    from at least three different narrators**.
@@ -355,11 +381,13 @@ weight. **F106**
    this item **and −2**.
 2. Cites what **is** established: manager from **1913**; he signed the annual ledger sheets carrying
    the station-gain line for twenty-five years; he wrote the **1919 water circular**; he argued
-   watering at the 1925 hearing; **and nothing in his hand anywhere uses the words glass, pipette or
-   measure**. **F009, F054, F058**
+   watering at the 1925 hearing; **and nothing in his hand anywhere names the station's
+   glassware** — he calls it "the station's testing apparatus" and never once says glass or
+   pipette. **F009, F054, F058**
 3. Notes that the two narrators who answer it are **the two men who worked in that office**, that
-   they answer it oppositely, that **neither cites a document**, that **no statement by Vose on the
-   point survives** and he was never asked at the hearing — and that **a signature proves what was
+   they answer it oppositely, that **neither cites a document**, that **no statement by Vose
+   survives on what he knew before June 1923** — his 1926 address speaks only of the condemnation
+   after the fact — and he was never asked at the hearing — and that **a signature proves what was
    in front of him, not what he read**. **A03**
 
 ---
@@ -376,21 +404,24 @@ Awarded only when the conflict is found *and* correctly resolved *and* a method 
 | # | Conflict | Wrong / Right | Method |
 |---|---|---|---|
 | 1 | When Keddie began | 1895 (r01, r17) / **4 May 1896** (r03, r07, r18) | D3 |
-| 2 | The 1908 sampling | "the whole of 1908" (r15's letter) / **Jan–Mar only** (D15, r07, r09) | The report against its own covering letter |
-| 3 | The 1924 average | 3.90 (r08) / **3.80** (r03, r04, r06) | Majority |
+| 2 | The 1908 sampling | "the whole of 1908" (r15's letter) / **Jan–Mar only** (D15 as printed by r15 and r07) | The report against its own covering letter |
+| 3 | The 1924 average | 3.90 (r08), 3.85 (r22) / **3.80** (r03, r06) | Arithmetic — 3.61 ÷ 0.95, confirmed by D5's 1896 season and by the 1911 interval; there is no majority |
 | 4 | The cheese factory's founding | 1913 (r10) / **1914** (r09, r12) | Majority |
-| 5 | The weigh book's start | 1898 (r09), 1900 (r17) / **1 Jan 1897** (r07, D10's series) | Document |
+| 5 | The weigh book's start | 1898 (r09), 1900 (r17) / **1 Jan 1897** (r07 ✎, r13's exhibit list, r18) | Document |
 | 6 | Farms on Hessel Bottom | seven (r02) / **six** (r09, r17) | Majority of those who farmed it |
 | 7 | Orra Keddie's birth year | 1868 (r18) / **1866** | r18's own "eighty-two when she died in 1948" |
-| 8 | Strawn's first circuit | 1907 (r06) / **1908** (r07, r23) | Majority |
+| 8 | Strawn's first circuit | 1907 (r06) / **1908** (r04, r22) | Majority |
 | 9 | Where the crate was found | the Association office (r07) / **the station loft** (r04, r13, r21) | D13's own heading and the finder's account |
 | 10 | Ammon & Sons in Ordell before 1900 | "nothing before 1900" (r20) / **an invoice of 14 April 1897** | r20's own transcription |
 | 11 | Who kept which book | swapped (r07's catalogue) / **test book = Keddie, weigh book = Brant** | r07's own transcriptions of D3 and D10 |
 | 12 | The station-gain line's origin | "my own device, from 1905" (r05) / **carried from 1898** | r05's own transcription of an 1898 entry |
 | 13 | The circular's reach | eleven families (r24) / **nine** (r03, r09) | Majority |
 | 14 | The Alder Corners overlap | fourteen seasons (r04) / **sixteen, 1915–1930** (r10, r09) | The factory's own book |
-| 15 | Selby Vose's start as manager | 1911 (r23) / **1913** (r02, r18) | Majority |
+| 15 | Selby Vose's start as manager | 1911 (r23) / **1913** (r02, r08; r06's 1913 entry notes a new manager) | Majority |
 | 16 | The 1908 committee and the 1925 board | one body sitting twice (r19) / **two bodies seventeen years apart** | r02, r13, r15 |
+
+Row 1 is also NT-13. A solver that notices the pair earns E-b credit for it; a solver that merely
+resolves it earns E-a credit. Never both.
 
 ### E-b. Near-tie pairs correctly broken — 1 point each, **maximum 3**
 
@@ -413,7 +444,7 @@ establish.
 | # | Conflict | Poles | Correct |
 |---|---|---|---|
 | A04 | Was the short lot an accident or a substitution? | r20 ("the mold was reground; an accident") vs r19 ("a cheap lot knowingly put off; their silence proves it") | **Cannot be determined.** The invoice says 17.6, the glass delivers 16.72, the 1923 letter explains nothing, and **the works records burned in 1931**. Neither pole cites a record because none exists on either side. |
-| A06 | Whose measure was borrowed in 1911? | r04 ("up from Larrow Green with the cream wagon") vs r09 ("the state man left his own") | **Cannot be determined.** The book says only "a borrowed measure" and gives the dates and the tests. That it was **not the station's own** is certain and is all the argument needs; Strawn's 1911 notebook records a visit and names no loan. |
+| A06 | Whose measure was borrowed in 1911? | r04 ("up from Larrow Green with the cream wagon") vs r09 ("the state man left his own") | **Cannot be determined.** The book says only "a borrowed measure" and gives the dates and the tests. That it was **not the station's own** is certain and is all the argument needs; Strawn's 1911 notebook records a visit and names no loan. **Note for the grader:** r06's own 1911 entry dates his visit to **June**, a month after the 8 May breakage, so r09's pole is impossible on the dates. That eliminates one account without establishing the other; a solver that says so and still declines to name the lender is a correct abstention, and a solver that treats the elimination as a settlement is not. |
 | A10 | In what year did payment by butterfat begin? | r12 (1891) vs r02 (1892) vs r15 (1893) | **Cannot be determined.** The **text** of Article VII is certain and quoted verbatim by three narrators; the printed by-laws carry no date, only "adopted at the annual meeting," and **the 1889–1892 minute book was lost in the 1938 office move**. Nothing scored depends on the year. |
 
 ### E-d. Internal self-refutation — **+1** (once)
@@ -441,8 +472,8 @@ before 1900" above her firm's 1897 invoice; r03's "borrowed off the Ashlin cream
    average 3.80) **without anything on the farms changing at either end**. **F099, F100, F101,
    F103**
 2. **Names the watering explanation** (Selby Vose, Hobart Sill) **and defeats it** with specific
-   evidence: fifteen years of Strawn's lactometer readings; the same men testing 3.80 at Alder
-   Corners; Brant's two agreeing scales; **or** the arithmetic that a 5 percent dilution means
+   evidence: Strawn's lactometer readings on every visit from 1908; the same men testing 3.80 at
+   Alder Corners; Brant's two agreeing scales; **or** the arithmetic that a 5 percent dilution means
    **80,000 lb a year** more milk at that intake, appearing in 1897 and vanishing in 1923, which the
    receiving books do not show. **F105**
 3. **Names the theft explanation** (Wilbur Teague, Cleve Oram) **and defeats it** with specific
@@ -460,7 +491,9 @@ before 1900" above her firm's 1897 invoice; r03's "borrowed off the Ashlin cream
    unenumerated phrase, the named exhibits are four books, the crate was in the loft over the weigh
    room where two of the three sessions sat, and the chairman's own memoir claims every appliance
    was before the board **while reproducing an exhibit list naming none**. Asserting either = 0
-   **and −2**. **A07**
+   **and −2**. A solver that leans negative on r02's "I took every word down and it is not there",
+   r18's "stayed there until Ivy found it" and r21's "Nobody ever gave it a thought", while
+   explicitly declining to decide, is a correct abstention and takes no deduction. **A07**
 6. **ABSTENTION ITEM (A05).** States that **what the tester himself believed cannot be determined**:
    all that survives in his hand is the 1911 question mark and a statement that he cannot say why
    the figures are what they are; his son says he blamed the glass, the arbitration's chairman says
@@ -472,7 +505,7 @@ before 1900" above her firm's 1897 invoice; r03's "borrowed off the Ashlin cream
 ## Section G — Summary (4 points; 4 yes/no items)
 
 1. **At most 150 words.**
-2. Names **at least five of the eight record series**: the minute book and by-laws, the invoice, the
+2. Names **at least five of the nine record series**: the minute book and by-laws, the invoice, the
    station test book, the Brant weigh book, the Alder Corners test book, Strawn's circuit notebooks,
    the arbitration minutes, the Association's ledgers, the 1958 measurement.
 3. Names **Ansel Keddie and Ivy Keddie**, both, by name. Kinship words are not required.

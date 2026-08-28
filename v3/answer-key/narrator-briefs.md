@@ -277,7 +277,8 @@ theories. He writes about plants the way a good mechanic writes about engines.
 **Form.** A covering note of a page, then dated extracts from the notebooks, arranged by year.
 
 **Vantage.** The corpus's disinterested witness: kin to nobody, patron of nothing, employed by the
-state. He went to Ostrey Hollow between one and three times a year for fifteen years.
+state. He went to Ostrey Hollow between one and three times a year across the whole circuit,
+1908 to 1936.
 
 **What he knows (state these as given).**
 - The circuit: fifty-odd plants in four counties; scales against sealed weights, the lactometer for
@@ -287,8 +288,9 @@ state. He went to Ostrey Hollow between one and three times a year for fifteen y
 - The state's **burette program: burettes issued to field men in 1921, discontinued in 1926.** He
   had carried one **two seasons** before the check. (F098b)
 - **12 June 1923**: quote **D6** verbatim.
-- Extracts for 1924 and 1925 reading "scales true, no added water, tests improved." He draws no
-  inference. (F103)
+- Extracts for 1924 and 1925 reading "scales true, no added water, tests improved." The 1924
+  extract adds one flat line copied off the tester's book — **the year at 3.80** — and nothing
+  else. He draws no inference from either. (F103, F061)
 - His notebooks went to the state office on his retirement. (F022)
 
 **Errors.**
@@ -297,8 +299,11 @@ state. He went to Ostrey Hollow between one and three times a year for fifteen y
 
 *Everything else from r06 is canon-correct.* He must not speculate about causes anywhere.
 
-**Must NOT mention.** Any test average (3.61, 3.80), the ledger, the arbitration, the invoice, the
-Keddie or Brant families by relationship, Alder Corners, or the 1958 study.
+**Must NOT mention.** The station's long-run average (3.61), the ledger, the arbitration, the
+invoice, the Keddie or Brant families by relationship, Alder Corners, or the 1958 study. **One
+exception**, and only in the 1924 extract: the **3.80** he copies off the tester's book, which
+makes him the corpus's second correct carrier of F061. He gives it as a figure he read, with no
+comment.
 
 **Documents.** **D6** verbatim.
 
@@ -324,8 +329,9 @@ single most valuable resource.
   and the award of **$3,800**; **12 June 1923**; **1 May 1897**; **4 May 1896**; **9** surviving
   pipettes; **twenty-nine seasons**; **1 January 1897** for the weigh book; **Jan–Mar 1908** for the
   committee's sampling; **five and a quarter percent of the credited fat, five percent of the fat
-  delivered**; Larrow Green's own average as "about three-quarters of a point better" (**without the
-  figure 3.78**).
+  delivered**; Larrow Green's own average as "a little under two tenths of a point better"
+  (**without the figure 3.78** — and the comparison must agree with canon: 3.78 against 3.61 is
+  **0.17**, not the 0.19 of F076).
 - **X26 — the declared null (A02).** A note stating that the station's intake for 1896 "is not in
   the ledgers and is nowhere else." This is correct and must be included.
 
@@ -398,8 +404,10 @@ all his life.
 - The 1910 leaf: **200,000 lb even, paid on a test of 3.42**. (F084)
 - The price for butterfat **in 1910 was 24 cents**; over the whole period it averaged **25 cents**.
   (F086, F081)
-- The gap between the Hollow and Larrow Green was **nineteen hundredths of a point**, and it was
-  there in July as in February. (F076, F097)
+- The gap between the Hollow and Larrow Green was **seventeen hundredths of a point** — 3.78
+  against 3.61, the gap a man could see on a pay slip — and it was there in July as in February.
+  (F098a) **Not nineteen hundredths.** 0.19 is the shortfall against what the milk actually held
+  (F076), which nobody could know before 1958; it is carried by r04 and r22.
 - Complaints from **1902**; the **Grigg committee of 1908** and what it reported; the **1919
   circular** and how nine families took it. (F048, F050, F058)
 - From **1915**, **four** of the Bottom men hauled over Redlow Ridge to the cheese factory in the
@@ -663,7 +671,10 @@ the 1919 reprint. Formal, careful, entirely sincere, and wrong.
    partner r16.)
 3. **X57 — DECOY THEORY 3, the bog hay.** "The remedy lies with the land and not with the station."
    Asserted as the committee's finding and as his own settled opinion.
-4. **⌀X58 — abstention pole (A10).** "Payment by test came in with the **1893** meeting."
+4. **⌀X58 — abstention pole (A10).** "Payment by test came in with the **1893** meeting, as I
+   have always understood it." Put it in the **1919 covering letter**, in your own voice. It must
+   **not** stand inside the quoted 1908 report: a year inside a quoted document would settle A10,
+   and A10 must stay open.
 
 **Must NOT mention.** Any pipette; the 1911 interval; Alder Corners; the arbitration; the 1958
 study; the station's average test figures.
@@ -1071,7 +1082,7 @@ at least one brief.
 | A2.2 how the system worked | r03, r11, r14, r06 | — |
 | A2.3 invoice 14 Apr 1897, in use 1 May 1897 | r07, r20 | D2 ×2 |
 | A2.4 invoice contents, $77.93 | r07, r04 | D2 ×2 (r20's own transcription) |
-| A2.5 3.80 → 3.61 | r03, r04, r07 | D5 ×3 |
+| A2.5 the shortfall flat in every month | r03, r04, r17, r22 | — |
 | A2.6 the pipette cannot be checked | r11, r04 | — |
 | A3.1–A3.3 Keddie, the book, the leaf | r03, r07, r18 | D3, D5, D9 |
 | A3.4 the nine weeks | r03, r04, r11, r22, r24 | D4 |
@@ -1080,12 +1091,12 @@ at least one brief.
 | A3.7 death 1934; book impounded | r18, r07, r01 | — |
 | A4.1 six farms, Brant largest | r09, r17 | — |
 | A4.2 weigh book, scales agreeing | r07, r09, r17 | D10 ×2 |
-| A4.3 complaints 1902; 3.78 | r09, r15, r03 (complaints); r14 + r07 (the comparison) | — |
+| A4.3 complaints 1902; 3.78 | r09, r15, r03 (complaints); r14 + r22 (the figure); r07 + r09 (the comparison, 0.17) | — |
 | A4.4 the 1908 committee, Jan–Mar | r07, r15, r09 | D15 ×2 |
 | A4.5 1910 leaf; proportionality | r09, r17 (leaf); r04, r08 (4.56) | D10 |
 | A4.6 custody | r09, r17, r18 | — |
 | A5.1–A5.6 Alder Corners | r09, r10, r12 (1914); r10, r09 (four men, sixteen seasons) | D11 |
-| A6.1–A6.6 Strawn | r06, r07, r23, r18 | D6 ×2 |
+| A6.1–A6.6 Strawn | r06, r07, r23, r18; r04 + r22 for the 1908 start; r03, r06 for the 1924 average | D6 ×2 |
 | A7.1–A7.6 arbitration | r02, r13, r23, r05, r24 | D8 ×2 |
 | A8.1–A8.7 the 1958 study | r04, r07, r11, r19, r22 | D13 ×2, D14 ×3 |
 

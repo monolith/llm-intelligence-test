@@ -20,9 +20,9 @@ Two hundred thousand pounds even. He was pleased about the evenness of it; he wr
 
 He wrote at the kitchen table after the second milking, in the lamp, with his hat still on, and my mother would not have the table cleared till he was done. It took him no time at all, and it is the only reason there is anything left to argue about now.
 
-**The trouble.** Our milk at the Hollow ran nineteen hundredths of a point under what the same class of milk was making down at Larrow Green. Nineteen hundredths is nothing to look at on one pay slip. Set the slips in a row for a lifetime of farming and it is a farm.
+**The trouble.** Our milk at the Hollow ran seventeen hundredths of a point under what the same class of milk was making down at Larrow Green. Seventeen hundredths is nothing to look at on one pay slip. Set the slips in a row for a lifetime of farming and it is a farm.
 
-The first men to say so out loud said it in 1902, and they were laughed at, and one of them was my father. What I would have anybody notice is this: it was nineteen hundredths in July and it was nineteen hundredths in February. It did not come and go with the season. It did not care whether the cows were on the meadow or on hay in the barn. Nobody would take account of that, then or since, though it was in front of them.
+The first men to say so out loud said it in 1902, and they were laughed at, and one of them was my father. What I would have anybody notice is this: it was seventeen hundredths in July and it was seventeen hundredths in February. It did not come and go with the season. It did not care whether the cows were on the meadow or on hay in the barn. Nobody would take account of that, then or since, though it was in front of them.
 
 In 1908 the Association appointed a committee, with Nyle Grigg of Larrow Green at the head of it, and the committee came up and sampled the Bottom herds through the winter and reported that the wet hay of this bottom thins the cream, and that the remedy lay with the land and not with the station. My father read that report twice and put it in the drawer and said that the land had been wet since the flood and the tests had not.
 

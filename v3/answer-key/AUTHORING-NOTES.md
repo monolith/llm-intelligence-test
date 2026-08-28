@@ -33,10 +33,12 @@ which reconstruction.
 
 Three further mechanisms make this expensive:
 
-- **The stricter Section A scope rule.** Credit is given only where a fact appears in the
-  reconstruction of the story it belongs to. A solver that writes one long fused history in eight
-  numbered pieces will lose points it would have kept in v2 — which is exactly the behavior that
-  distinguishes "reconstructed eight histories" from "remembered a lot of things."
+- **The Section A scope rule.** Credit never travels in from B–G, but **within** Section A a fact
+  counts wherever the solver states it: the eight reconstructions are scored as one body. The
+  per-story filing gate that stood here in the first draft was withdrawn — it charged points for a
+  boundary judgment the solver is given no cue to make (§ 5, S1 and S2) — and the fifty items were
+  deduped in exchange, so that the fifty points are fifty distinct facts and no record is scored
+  twice.
 - **Three of the eight stories have no dramatic center.** A1 (the Association and Article VII), A5
   (Alder Corners) and A6 (Strawn's circuit) contain no accusation, no crisis and no reveal. They are
   the stories a fluent solver compresses into background, and each is worth six points. Expected
@@ -109,7 +111,7 @@ scored 86–93.
 
 | Section | Max | Expected | Reasoning |
 |---|---|---|---|
-| **A** | 50 | **30–37** | The dominant term, and where v3 is meant to bite. Fifty items, no cues, and the scope rule. A strong solver reliably recovers A3, A7 and A8 (the three stories with narrative centers) at 85–95 % — call it 17–19 of 20. A2 and A4 hold enough concrete numbers to survive at ~75 % — 9 of 12. **A1, A5 and A6 are the exposure**: 18 points across three stories with no crisis in them, and a fluent solver folds them into background. Expect 8–12 of 18 there. Add one or two items lost to misfiling under the scope rule. |
+| **A** | 50 | **30–37** | The dominant term, and where v3 is meant to bite. Fifty items, no cues, and the scope rule. A strong solver reliably recovers A3, A7 and A8 (the three stories with narrative centers) at 85–95 % — call it 17–19 of 20. A2 and A4 hold enough concrete numbers to survive at ~75 % — 9 of 12. **A1, A5 and A6 are the exposure**: 18 points across three stories with no crisis in them, and a fluent solver folds them into background. Expect 8–12 of 18 there. Nothing is now lost to misfiling; the exposure is entirely in what the solver never says. |
 | **B** | 8 | **5–7** | B1 and B3 gate on near-ties (NT-18, NT-17) with clean breakers; B2 gates on a derivation *and* a paired abstention. B4 is a pure abstention item and is the likeliest single loss in the section. |
 | **C** | 14 | **10–13** | The arithmetic itself is easy — the hard part is the inputs. C1 rides four near-ties (NT-1, NT-2, NT-5, NT-7); one swallowed value costs the whole sub-item and often two. C3(c) requires naming a denominator and is failed more often by imprecision than by error. C5(a) requires two numbers and a reason; C5(b) is an abstention. Expect C1 nearly clean, C3(c) and C5 as the losses. |
 | **D** | 10 | **5–8** | D1 is straightforward for a good solver except its second half (what the interval does *not* establish), which is failed about half the time. D2's first two items are v2-shaped and reliable; D2.3 and D3 are both abstention items, and D3 in particular has a strong pull toward "yes, he must have known" — a signature on a ledger looks like knowledge. Expect one of the two asserted. |
@@ -132,9 +134,9 @@ administration, or a fourth retelling tier — is required, as the brainstorm sa
 
 **Where the points actually go, ranked.** (1) Section A's three undramatic stories, ~8 points.
 (2) Abstention discipline across ten items, ~8 points of deductions plus ~6 of items. (3) The
-near-tie density cascading into C1 and A8.6, ~4 points. (4) The scope rule, ~2 points. (5) G's word
-cap, ~2 points. Nothing else is worth more than a point or two, and that concentration is a
-weakness as well as a design: see § 5.
+near-tie density cascading into C1 and A8.6, ~4 points. (4) G's word cap, ~2 points. Nothing else
+is worth more than a point or two, and that concentration is a weakness as well as a design: see
+§ 5.
 
 ---
 
@@ -163,16 +165,18 @@ weakness as well as a design: see § 5.
 
 **S1 — Section A grading is the largest source of inter-grader variance in the test, by far.**
 Fifty checklist items scored against solver-drawn boundaries is a much harder judging problem than
-v2's thirty against named stories. The mapping step in the scope rule is the mitigation, and it is
-not a complete one. **Recommendation: hand-score the first two runs and report Cohen's κ for
-Section A specifically, not just per-section overall.** If κ on A is below 0.75, drop to the v2
-scope rule ("anywhere in Section A") and re-score.
+v2's thirty against named stories. The scope rule has since been dropped to the v2 form —
+**anywhere inside Section A** — which removes the largest source of that variance; what is left is
+the judgment of whether a fact was *stated* at all, plus the four shared-record cases the rule
+enumerates. **Recommendation: hand-score the first two runs and report Cohen's κ for Section A
+specifically, not just per-section overall.**
 
 **S2 — the eight-story boundary is a judgment call the solver may reasonably make differently.**
 A1/A2 could defensibly be one story (the Association and its station); A6/A7 could be one (the
-condemnation and its consequences). The key's mapping rule handles this, but a solver that produces
-six stories will be scored against eight checklists and will look worse than it reasoned. This is
-the single fairness risk in v3 and it is the price of cue-less reconstruction.
+condemnation and its consequences). **Largely resolved by the revised scope rule:** credit now
+travels anywhere inside Section A, so a solver that produces six stories loses nothing but the
+tidiness of the sub-sheet. What remains is that the checklists themselves are cut eight ways, and a
+solver whose seams fall elsewhere must still cover the same fifty facts.
 
 **S3 — Section E is soft.** Buckets summing to 10 against a cap of 8 mean a solver can miss all
 three abstention conflicts and still take 7. The structure was inherited from v2 and it worked
@@ -224,6 +228,12 @@ is lever 1. **Hold r07 to 1,800 and move two transcriptions to r04 if it overrun
 | Corruption map | 1 | ~10,100 |
 | Answers and scoring | 1 | ~6,100 |
 | Narrator briefs | 1 | ~10,500 |
+
+**Word counts — one convention.** Word counts are **prose only**: the title line, the italic
+framing note and r10's figure table are excluded. On that basis every retelling is inside the band
+at **1,365–1,499 words**. On whole-file `wc -w` nine files run **3–107 words over 1,500** — r06,
+r07, r09, r10, r11, r12, r22, r23 and r24 — and that is expected, not a breach. The band is the
+prose figure; use no other measure.
 
 **Devices, counted:** 22 near-tie pairs · 3 decoy theories (6 poles) · 10 abstention items (22
 poles) · 8 internal contradictions · 2 late reversals · 2 date-only-unreliable narrators · 5

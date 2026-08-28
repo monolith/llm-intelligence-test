@@ -41,7 +41,7 @@ I put down what I found. I did not put down what I thought about it, and I have 
 
 **1923, October.** Ostrey Hollow. New glass in use since July. Ran the new pipettes against the burette. They deliver their mark. Scales true.
 
-**1924.** Ostrey Hollow. Scales true, no added water, tests improved.
+**1924.** Ostrey Hollow. Scales true, no added water, tests improved. Their book gives the year at 3.80.
 
 **1925.** Ostrey Hollow, in the fall. Scales true, no added water, tests improved. New man at the tester's bench this year. He is quick, and quick is not the thing I look for.
 
