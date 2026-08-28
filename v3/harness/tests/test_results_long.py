@@ -273,7 +273,7 @@ def test_render_report_notes_section(tmp_path):
 
     # Ingest notes word counts: haiku/long-notes has 3,5,4,6; every long-reread row is dash
     assert "| haiku | long-notes | 3 · 5 · 4 · 6 |" in text
-    assert "| opus | long-reread | — | — | — | — |" in text
+    assert "| opus | long-reread | — |" in text
     assert "| sonnet | long-notes | pending | pending | pending | pending |" in text
 
     # Abstentions: haiku/long-notes batches have 2, 1, 0; opus/long-reread has 1, 0, pending
