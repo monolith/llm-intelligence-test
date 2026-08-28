@@ -20,3 +20,6 @@ Each batch is judged against its slice of the key (`answer-key/batches.md`), twi
 
 ## Cells
 Four models × two long modes = 8 cells; batch-level results give 24 scored points per mode. n = 1 unless a specific difference needs confirming.
+
+## Coverage note (2026-08-28)
+Fable's monthly spend limit was reached during the run. Its completed cells are the short-variant `single` and `sequential`; `noisy` and the long variant were **not run** (not "failed to score"). Its long-variant ingest is banked through segment 2 and resumes from segment 3 whenever the limit is raised — the notes and verified transcripts are on disk. Every table must mark those cells "not run", never blank or zero.
