@@ -1,136 +1,128 @@
-# Answers — Part 1 of 3: Section A, Stories 1–4
+# Answers — Part 1: Section A, Stories 1–4
 
-## Method note
-
-No partition of the twenty-four retellings into eight stories was given; I chose one myself,
-along thematic/chronological lines, since the single overarching mystery (why Ostrey Hollow's
-milk tested low) is carried by eight fairly distinct casts-and-timeframes that combine to explain
-it. Throughout, where sources conflict I resolve using, in rough order of weight: a quoted
-primary document (ledger, invoice, diary entry, book leaf) over paraphrase or memory; arithmetic
-that is internally self-checking over a bare assertion; a narrator with direct, contemporaneous,
-first-hand access over secondhand oral tradition decades later; and independent corroboration
-(counting shared-origin repeats as one source) over raw nose-count. I flag the method used at
-each resolution and say plainly when a conflict cannot be settled.
+Eight-story partition chosen by the answerer: the corpus naturally separates into (1) the
+Association's founding and payment rule, (2) the station and its tester, (3) the Brant family and
+its weigh book, (4) the wet-hay theory, (5) the 1919 water letter and family rift, (6) the Alder
+Corners defection, (7) the 1925 arbitration, and (8) the 1958 discovery and vindication. Every
+retelling touches more than one of these; each is placed where its central event belongs, with
+overlapping documents noted as "bears on" in the other stories too.
 
 ---
 
-## Story 1 — The Association and the Rule That Decided Everything
+## Story 1: The Association and the Rule of Payment by Test (1889–1892)
 
-The Larrow Valley Cooperative Creamery Association was organized in 1889 at a farmers' meeting
-at Larrow Green. Gideon Vose — "heavy, quiet, obstinate" — was elected first president and served
-until 1911 (22 years), personally drafting the by-laws at his own kitchen table rather than
-hiring a lawyer. The main creamery was built at Larrow Green in 1891, on Larrow Creek. The rule
-that made everything else in this history possible was Article VII: every patron was paid on the
-butter-fat *test* of his milk, not its weight. As the county agent later put it, this article "is
-the hinge of the whole matter. Under payment by weight nothing that follows in this report would
-have cost any man a dollar." The pamphlet itself carries no adoption date, and three sources give
-three different years — 1891, 1892, and 1893 (hedged) — none a dated primary document, so this
-one is genuinely unresolved.
+In 1889, farmers of the Larrow Valley meeting at Larrow Green organized the Larrow Valley
+Cooperative Creamery Association, electing Gideon Vose — "heavy, quiet, obstinate," a man who had
+once considered the law — as first president, a post he held twenty-two years until his death in
+1917. Vose personally wrote the by-laws, including Article VII: every patron would be paid by the
+butterfat his milk tested at, not by weight. This single rule is the hinge of everything that
+follows — as one later county report observed, under payment by weight nothing in the rest of the
+history would have cost anyone a dollar. The main creamery was built at Larrow Green in 1891, on
+Larrow Creek, and the valley began being paid in cash monthly for the first time.
 
-Gideon Vose died in 1917. His son Selby Vose (see Story 6/7 and Section B3 for the contested
-"son vs. nephew" question, resolved here to son) became manager in 1913 and served until 1938.
-Effie Loomis was secretary from 1901 to 1940, keeping the minute book in her own hand throughout
-and later writing a short history in 1941. Wilbur Teague was bookkeeper from 1905 to 1945; he is
-the one who invented the "station gain" ledger line that, without his realizing it, recorded the
-truth of the whole mystery every single year for two decades. The Association's earliest minute
-book (1889–1892) was lost in an office move in 1938, which is why the exact date of Article VII
-can never be checked against the original record.
+The exact year Article VII was adopted cannot be settled: 1891 (Rundle), 1892 (Loomis), 1893
+(Grigg, hedged as "I have always understood it"). The printed by-laws pamphlet itself carries no
+date, only "adopted at the annual meeting," and the Association's earliest minute book
+(1889–1892) was lost in a 1938 office move — so no source can adjudicate the three claims.
 
-Documents: institutional history and by-laws (Effie Loomis's account; Dell Rundle's jubilee
-pamphlet); Duncan Keddie's genealogical notes (confirming "son"); the county agent's 1959 report;
-the office clerk Bertram Kyle's memoir.
+Gideon's son Selby Vose (his paternity is affirmed by Selby's own 1926 address and by two
+independent, explicit refutations of a "nephew" rumor — Duncan Keddie and Bertram Kyle both call
+it false talk, against Vira Toland's and Dell Rundle's "nephew") became the Association's second
+manager, serving 1913–1938 — inheriting, and later personally defending, the very payment system
+his father had designed.
 
----
+**Quantities:** 1889 (founding); 22 years (Gideon's presidency, 1889–1911 by other sources'
+framing, d. 1917); 1891 (creamery built); three competing adoption dates (1891/1892/1893).
 
-## Story 2 — Ansel Keddie, Tester of Ostrey Hollow
-
-Ansel Keddie, born 1861, went up to Ostrey Hollow in 1895 to help ready the new skimming station
-and tested its milk from its opening on 4 May 1896 until his dismissal on 30 April 1925 — 29
-seasons. He married Orra Brant in 1889; she was the sister of Emmet Brant, the valley's largest
-patron, so the man later accused of shorting the patrons was, for thirty-six years, married into
-the family of the man he was accused of shorting worst.
-
-He was, by every account, careful and taciturn. On 8 May 1911 his own measuring pipette broke; a
-borrowed one was used until 10 July (about nine weeks — the dates themselves give this exactly:
-23 days left in May, 30 in June, 10 in July). During that window the recorded test rose from 3.61
-to 3.80 and fell back the day his own glass returned. He wrote only a question mark against the
-entry and never committed a theory to paper. Privately, per his son Duncan, he told the family
-that summer it was "something in the glass" — repeating himself twice, out of character — but
-felt he had no proof. Fourteen years later, in a private corridor conversation at his own
-dismissal hearing, he told the board's chairman, Alonzo Frick, the opposite: that he had "always
-thought the patrons were at fault" but would not say so publicly. The sources do not let these
-two private statements be reconciled; what Keddie truly believed, in the end, is not fully
-recoverable.
-
-He was dismissed four days before the 1925 award, "without a finding" either way, and lived out
-his remaining nine years doing carpentry, well regarded for it but never cleared of the
-imputation in his lifetime. He died in February 1934, telling his wife once that "a man cannot be
-cleared of a thing nobody will name." He was cleared in 1958, twenty-four years after his death,
-by the college bulletin his own granddaughter helped write.
-
-Documents: his wife's diary; his son's family notes; the arbitration chairman's memoir; the cream
-hauler's son's oral history; the county agent's report.
+**Documents:** r02 (Effie Loomis), r12 (Dell Rundle), r15 (Nyle Grigg, in passing), r18 (Duncan
+Keddie), r22 (Orin Falke), r23 (Bertram Kyle).
 
 ---
 
-## Story 3 — The Brant Family and the Weigh Book of Hessel Bottom
+## Story 2: Ostrey Hollow Opens, and Ansel Keddie's Twenty-Nine Seasons (1895–1934)
 
-Emmet Brant farmed the largest place on Hessel Bottom — the wet, six-farm meadow below the
-Ostrey Hollow station — and hauled more milk to the station than any other patron every recorded
-year. He began a private farm weigh book on 1 January 1897 (this is the best-supported date: it
-is given identically by the 1972 museum catalogue and by Alonzo Frick's own contemporaneous 1925
-exhibit list, two independent institutional records; Emmet's own son Roy later recalled 1898, and
-Roy's daughter Hazel recalled 1900 — neither of the two family memories, both decades removed,
-displaces the two matching contemporaneous records). In it he wrote his own scale weight beside
-the station's, every delivery day, for over thirty years; the two figures agreed throughout,
-"barring a pound or two." In 1910 he delivered 200,000 pounds even (he underlined "even"),
-"paid on a test of 3.42" — an entry quoted identically, word for word, by three later narrators.
+In the winter of 1895–96 the Association built a skimming station at Ostrey Hollow, seven miles
+up the valley, to serve Hessel Bottom's farms. Ansel Keddie went up in 1895 to ready it and
+tested through its first summer. The station opened 4 May 1896; its own ordered glassware had not
+arrived, so Hobart Sill, the Larrow Green buttermaker, personally lent his own bench glass to open
+it. The outfit ran on borrowed measures until 1 May 1897, when the station's own new pipettes
+(bought from Ammon & Sons of Tarnet, invoice total $77.93) went into service. Keddie kept the test
+book in his own hand every season from 1896 until his 1925 dismissal — "thirty-one times a week
+for twenty-nine seasons." He married Orra Brant in 1889; their son Duncan (b. 1894) became a
+schoolteacher at Ashlin. Keddie tested the milk of every Hessel Bottom farmer, including his own
+brother-in-law Emmet Brant.
 
-The book passed to his son Roy Brant when Emmet died in 1929, was lent (not given — both Roy and
-Hazel insist on the distinction) to Ivy Keddie in 1958 for her research, returned, and passed to
-Roy's daughter Hazel Brant at Roy's death in 1962; she gave it to the Ordell County Historical
-Rooms in 1963.
+From nearly the day the station opened its recorded tests ran low — 3.61 against a valley norm
+near 3.78–3.80 — and complaints, beginning in 1902, dogged Keddie for the rest of his career,
+though the true cause (defective pipettes) was invisible to him and everyone else. In 1911, when
+his own measure broke and a borrowed one was used for nine weeks, the recorded test rose sharply
+and fell back the day his own measure returned; he set only a question mark against the entry,
+telling his son privately he thought "it was something in the glass" but refusing to commit an
+unproven suspicion to the book. The mark stood fourteen years. He died in 1934, nine years after
+his dismissal, without seeing himself cleared.
 
-The Brant and Keddie families were doubly linked: Orra Keddie (Ansel's wife) was Emmet's sister
-(most sources say full sister; Hazel alone claims a half-sister relationship "by his father's
-second wife," contradicted by Duncan's plain account and by Orra's own diary, which calls Emmet
-simply "my brother" throughout — this is unresolved in Hazel's favor by no evidence, and I
-resolve to full sister on the weight of the closer, non-contradicted sources). Their children,
-Duncan Keddie and Roy Brant, were first cousins; Duncan's daughter Ivy and Roy's daughter Hazel
-are, by the family's own repeated and explicit reckoning, second cousins (see Section B2) — not
-the "first cousin once removed" that two outside oral-history narrators mistakenly repeat.
+**Quantities:** 1895 (arrival); 4 May 1896 (opening); 1 May 1897 (own glass); 1896 average 3.80;
+1898-on average 3.61; 29 seasons; 8 May–10 July 1911 (nine-week anomaly); 1934 (death).
 
-Documents: Roy Brant's 1955 memoir; Hazel Brant's 1981 taped interview; Duncan Keddie's
-genealogical notes; Orra Keddie's diary.
+**Documents:** r01 (Vira Toland), r03 (Ansel Keddie), r04 (Ivy Keddie), r06 (Merle Strawn), r14
+(Hobart Sill), r18 (Duncan Keddie), r20 (Junia Ammon), r23 (Bertram Kyle), r24 (Orra Keddie).
 
 ---
 
-## Story 4 — The Wet-Hay Theory and the 1908 Committee
+## Story 3: The Brant Family and the Weigh Book of Hessel Bottom (1897–1963)
 
-From at least 1902, valley talk held that Ostrey Hollow's milk tested low because Hessel Bottom's
-hay — cut off wet, springy, sedge-and-rush meadow, fed November through April — was poor feed. A
-three-man committee, chaired by Larrow Green farmer Nyle Grigg (a disinterested party, hauling to
-Larrow Green himself), was appointed in January 1908. Its own report states it visited each of
-the six Hessel Bottom farms, drew and sealed its own samples, watched the whole chain from
-milking to testing, and checked scales against a known weight — but that the actual sampling ran
-only "through January, February and March" of 1908. It found "no dishonesty of any kind, in any
-quarter," true scales, whole milk, and concluded the wet hay "is what thins the cream." When Grigg
-reprinted the report in 1919 (the complaint having reopened that year), his own covering letter
-misremembered the sampling as having run "through the whole of 1908, every month" — a
-self-contradiction within his own document, since the report he was reprinting, in the very same
-document, says otherwise.
+Hessel Bottom was a roughly 160-acre wet meadow below Ostrey Hollow, with rights held by six
+farms (a lone source says seven), the Brant place the largest — sixty-odd acres, thirty-eight cows
+in a good year. Emmet Brant, Orra Keddie's brother (full sibling per Orra's own diary, Duncan's
+genealogy, and Roy's explicit denial of a rumored half-sister story; Hazel Brant alone calls them
+half-siblings), began a private weigh-book ledger recording his own scale weight against the
+station's returned figure for every delivery. Its start date is disputed three ways: 1 January
+1897 (the book's own catalogue record and Frick's 1925 exhibit list — two independent institutional
+sources), 1898 (Roy's own retelling), and 1900 (Hazel's, a generation further removed). The two
+weight columns agreed for over thirty years, "barring a pound or two" — proof that the weighing,
+as distinct from the fat test, was never at fault. A famous 1910 leaf records 200,000 lb
+delivered, "even," tested at 3.42 — quoted identically by Roy and by the book's own catalogued
+entry.
 
-The theory outlived its own evidence. In 1926 the Ashlin veterinarian Dr. Roland Kepp gave the
-county farm club a paper arguing it was scientifically settled, citing a supposed "twenty-one
-hundredths" gap and — crucially — misquoting the college's 1911 Bulletin No. 214 as finding a
-"two tenths" (0.20) hay effect. Grigg had made the identical misquotation seven years earlier.
-Neither figure is what the bulletin actually says: correctly and identically quoted elsewhere, it
-found the hay effect was "not more than five hundredths of one per cent in winter, and... nothing
-that could be measured on summer pasture" — a four-fold exaggeration shared, apparently
-independently arrived at, by both men. The theory was decisively defeated by two facts neither
-Grigg nor Kepp had: the gap was constant in every month, including summer pasture (when the
-bulletin's own hay effect is zero), and cows from the very same wet meadow tested normally when
-their milk went to a different buyer (Story 5).
+Emmet died in 1929; the book passed to his son Roy, who continued it in the same format. Roy lent
+it to Ivy Keddie in 1958 for her research — insisting on "lent," never "left" — and had it back;
+at his death in 1962 it passed to his daughter Hazel, who gave it to the Ordell County Historical
+Rooms in 1963. Emmet and Ansel Keddie, brothers-in-law who had shared a family table and argued
+amiably about drainage for decades, stopped speaking after the 1919 circular (Story 5) and never
+reconciled before Emmet's 1929 death.
 
-Documents: Grigg's 1919 covering letter and reprinted report; Kepp's 1926 paper and floor
-discussion; the county agent's 1959 correction on obtaining the bulletin's real figures.
+**Quantities:** six farms (majority); three-way start-date dispute (1897/1898/1900); 1910
+delivery, 200,000 lb at 3.42; 1929 (Emmet's death); 1958 (loan); 1962/1963 (final transfer).
+
+**Documents:** r07 (Item 4), r09 (Roy Brant), r13 (Frick's exhibit list), r15 (Grigg), r16 (Kepp),
+r17 (Hazel Brant), r18 (Duncan Keddie), r24 (Orra Keddie).
+
+---
+
+## Story 4: The Wet-Hay Theory — the 1908 Committee and Its Afterlife (1902–1926/1959)
+
+From 1902, Ostrey Hollow patrons complained their milk tested below the rest of the valley. In
+January 1908 the Association appointed a three-man committee under Nyle Grigg, a Larrow Green
+farmer with no stake in the outcome. Over January–March 1908 the committee sampled the six Hessel
+Bottom herds directly, watched milking and testing, checked scales, and found "no dishonesty of
+any kind, in any quarter" — concluding instead that the bottom's wet, sedge-and-rush pasture and
+coarse, late-cut hay "thinned the cream," and that "the remedy lies with the land and not with the
+station." The finding held for eleven years. In 1919, with complaints reopened, Grigg reprinted
+his own report with a covering letter that misremembers the sampling as running "through the whole
+of 1908" — directly contradicted by the very report reprinted beneath it — and that misquotes the
+college's 1911 Bulletin No. 214 as finding a "two tenths" (0.20) feed effect. In 1926 Dr. Roland
+Kepp, an Ashlin veterinarian, elaborated the theory at length to the county Farm Club from his own
+thirty years' field observation, independently repeating the identical "two tenths" error and
+treating the coincidence as triangulated proof.
+
+The theory could not survive its own cited evidence: Bulletin 214's actual, correctly-quoted
+finding is that wet hay depresses the test by "not more than five hundredths of one per cent
+[0.05] in winter, and by nothing... in summer" — a quarter or less of the observed 0.19-point
+gap, and explicitly absent in summer, whereas the real gap ran flat year-round, in July as in
+February. County agent Orin Falke's 1959 report initially conceded some weight to the theory, then
+formally withdrew the concession on obtaining the bulletin's actual text.
+
+**Quantities:** six farms; January–March 1908 (sampling); eleven years (1908–1919); shared "two
+tenths" (0.20) error vs. the real 0.05; observed gap 0.19.
+
+**Documents:** r03, r07 (Items 11–12), r15 (Grigg), r16 (Kepp), r22 (Falke).

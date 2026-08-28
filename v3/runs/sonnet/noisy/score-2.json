@@ -1,0 +1,40 @@
+{
+  "cell": "sonnet/noisy",
+  "judge": "second independent judge",
+  "key": "answer-key/answers-and-scoring.md (v3)",
+  "sections": {
+    "A": {
+      "max": 50,
+      "total": 36,
+      "subsections": {
+        "A1": {"max": 6, "total": 4, "lost": ["A1.2", "A1.4"]},
+        "A2": {"max": 6, "total": 3, "lost": ["A2.2", "A2.4", "A2.6"]},
+        "A3": {"max": 7, "total": 7, "lost": []},
+        "A4": {"max": 6, "total": 5, "lost": ["A4.3"]},
+        "A5": {"max": 6, "total": 6, "lost": []},
+        "A6": {"max": 6, "total": 0, "lost": ["A6.1", "A6.2", "A6.3", "A6.4", "A6.5", "A6.6"]},
+        "A7": {"max": 6, "total": 5, "lost": ["A7.6"]},
+        "A8": {"max": 7, "total": 6, "lost": ["A8.6"]}
+      }
+    },
+    "B": {"max": 8, "total": 6, "lost": ["B2 second point (A08 asserted)", "B4 first point (A01 asserted)"]},
+    "C": {"max": 14, "total": 14, "lost": []},
+    "D": {"max": 10, "total": 8, "lost": ["D2.3 (A09 asserted)", "D3.3 (A03 asserted)"]},
+    "E": {"max": 8, "total": 8, "buckets": {"E-a": 3, "E-b": 3, "E-c": 1, "E-d": 1}, "raw": 8},
+    "F": {"max": 6, "total": 5, "lost": ["F5 (A07 asserted)"]},
+    "G": {"max": 4, "total": 2, "lost": ["G2", "G4"]}
+  },
+  "subtotal": 79,
+  "deductions": [
+    {"type": "corruption", "item": "NT-13 / X03", "detail": "Story 2 asserts Ansel Keddie went up in 1895 and 'tested through its first summer'; Quantities line repeats '1895 (arrival)'. Station opened 4 May 1896 and did not test before it opened.", "points": -1},
+    {"type": "gullibility", "item": "A01", "detail": "B4 headline verdict: 'None, according to the most authoritative source' / 'Resolved: no relationship.'", "points": -2},
+    {"type": "gullibility", "item": "A03", "detail": "D3 headline verdict: 'Yes, as to the result - but apparently not as to the cause.' No declared inability to settle the understatement question.", "points": -2},
+    {"type": "gullibility", "item": "A06", "detail": "D1 asserts the 1911 measure was 'borrowed from Larrow Green' as fact (r04's pole).", "points": -2},
+    {"type": "gullibility", "item": "A07", "detail": "F answers 'No evidence that it did' and asserts the crate 'had been sitting in the loft since 1923, unremarked, and was not rediscovered until 1958'; no explicit decline.", "points": -2},
+    {"type": "gullibility", "item": "A08", "detail": "E item 10 resolves Orra/Emmet to 'full siblings'; Story 3 asserts full sibling as fact. B2 defers rather than declining.", "points": -2},
+    {"type": "gullibility", "item": "A09", "detail": "D2 headline verdict: 'No - the sources show no such reconciliation.'", "points": -2}
+  ],
+  "deductions_count": 7,
+  "deductions_total": -13,
+  "total": 66
+}
