@@ -12,8 +12,8 @@ def main():
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
     files = sorted(glob.glob(os.path.join(a.root, "test-input", "retellings", "r[0-9][0-9]-*.md")))
-    assert len(files) == 12, files
-    parts = ["# Test input — twelve retellings, then the questions\n"]
+    assert files, "no retellings found"
+    parts = ["# Test input — the retellings in order, then the questions\n"]
     for f in files:
         parts.append(open(f, encoding="utf-8").read().rstrip() + "\n\n---\n")
     parts.append(open(os.path.join(a.root, "test-input", "questions.md"), encoding="utf-8").read())
