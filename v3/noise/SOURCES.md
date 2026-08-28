@@ -1,3 +1,5 @@
+> **Superseded (2026-08-28).** Public-domain excerpts are recognizable training data — a model can segregate them on sight and answer their questions from memory, so they compete less for attention. Version 3's noisy mode uses the original distractor documents under `v3/distractors/` instead; this corpus is kept only as an alternative for a far-domain comparison.
+
 # SOURCES
 
 Fixed, offline-repeatable noise corpus: 24 public-domain prose excerpts (pre-1929 publications,
