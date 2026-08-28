@@ -98,13 +98,14 @@ corpus's principal explainer: she is the one who puts the marked capacity, the m
 the recorded average and the true average together, and who states the money.
 
 **Reliability profile.** Authoritative on measurement, on arithmetic and on documents. She quotes
-**D13**, **D14**, **D12** and **D5** exactly. Two errors, both in figures she took from other
+**D13**, **D14**, **D12** and **D5** exactly. Three errors, all in figures she took from other
 people's records rather than measured; and one abstention pole.
 
 | id | Corrupts | As told | Truth | Mechanism |
 |---|---|---|---|---|
 | X12 | F098 | The Alder Corners overlap ran **fourteen seasons**. | **Sixteen** (1915–1930). | Unique; refuted by r10's own span |
 | X13 | F017 | Rosalie Cudd was Jerome's **niece**. | His **daughter**. | **Near-tie 21** (partner r19) |
+| X101 | F013, F051 | Strawn's circuit notebooks were "kept by the state's dairy inspector for this county **from 1908**." | **1907** — his own covering note. | **Near-tie 23** (partner r22). Added 2026-08-28 by validation ruling 2; the text of the retelling is unchanged, only its keying |
 | ⌀X14 | A06 | "The measure they borrowed in 1911 came up from Larrow Green with the cream wagon." | Undeterminable. | Abstention pole (positive) |
 
 **Documents.** D5, D12, D13, D14 — all verbatim.
@@ -146,11 +147,16 @@ condemnation of 12 June 1923, and the "tests improved" entries of 1924 and 1925.
 **Reliability profile.** The corpus's disinterested witness and its cleanest narrator after r03.
 He is kin to nobody, a patron of nothing, and had no theory. His lactometer readings are the
 single most complete refutation of the watering decoy in the corpus, and he does not know that
-they are. One planted error, about his own first year.
+they are. **No planted error** — he is the corpus's one error-free narrator.
 
 | id | Corrupts | As told | Truth | Mechanism |
 |---|---|---|---|---|
-| X23 | F051 | He took the Ordell circuit in **1907**. | **1908.** | Unique; off-by-one |
+| ~~X23~~ | — | ~~He took the Ordell circuit in **1907**.~~ | — | **WITHDRAWN (validation ruling 2, 2026-08-28).** "I took the Ordell circuit in nineteen hundred and seven" is a first-hand statement by the man about his own working life, and the corpus's own arbitration rule puts a first-hand document above a memory and above a count of sources. It was keyed against him by majority, which is the one place in the corpus where counting outranked a document. **1907 is now canon** (F013, F051), and the **1908** of r04 and r22 is the planted error — see **X101**, **X102** and **NT-23**. |
+
+**One internal inconsistency, not an error of fact.** His closing note gives "twenty-eight of
+them, one to the year" for a circuit he dates 1907–1936, which is thirty years — and twenty-nine
+on anybody's 1908. The count fits neither span, so it breaks nothing and cannot be used to prefer
+1908; it is a genuine self-refutation on the page and is creditable at **E-d**.
 
 *Everything else from r06 is canon-correct*, including: the 12 June 1923 date; the burettes
 issued in 1921 and the program discontinued in 1926; no added water at Ostrey Hollow on any
@@ -494,7 +500,7 @@ pole of the theft decoy and he carries four near-tie values.
 — what happened, what it cost, and what the county should learn. **A juxtaposing narrator and the
 second late-reversal narrator.**
 
-**Reliability profile.** Competent, orderly, and secondhand throughout. It carries three near-tie
+**Reliability profile.** Competent, orderly, and secondhand throughout. It carries four near-tie
 values. Its central feature is the reversal: the body concedes the bog hay as "a real if partial
 factor," and a closing note, written after he obtained Bulletin No. 214 from the college,
 withdraws it on the strength of the trial's own figure.
@@ -503,6 +509,7 @@ withdraws it on the strength of the trial's own figure.
 |---|---|---|---|---|
 | X90 | F075, F061 | The true average was **3.85** (¶5 gives 3.61 and 3.78 correctly; ¶11 puts **3.85** on the **1924** average). | **3.80** for both. | **Near-tie 3** on F075 (partner r14); on F061 it is a **second wrong carrier** beside r08's 3.90, so the 1924 figure has no majority and must be taken from arithmetic |
 | X91 | F005 | Ivy Keddie is Ansel's **great-niece**. | His **granddaughter**. | **Near-tie 18** (partner r19) — and **withdrawn in his own closing note**, where he corrects it from the family's own record |
+| X102 | F013, F051 | The state dairy inspector "tested with the lactometer at every visit **from 1908** forward." | **1907** — Strawn's own covering note. The lactometer run itself is correct and is the watering decoy's chief refutation. | **Near-tie 23** (partner r04). Added 2026-08-28 by validation ruling 2; the text of the retelling is unchanged, only its keying |
 | X92 | F107 | **LATE REVERSAL.** Body: "the wet hay of that bottom must be allowed as a real if partial factor, and the 1908 committee was not simply wrong." Closing note: he prints D12 verbatim and writes, "Five hundredths in winter and nothing in summer will not carry nineteen hundredths in July. I withdraw the concession made on page four." | The bog hay had no part in it. | Decoy conceded early, retracted late by a quoted document |
 
 **Documents.** D12 verbatim (closing note).
@@ -558,8 +565,9 @@ Emmet Brant was her brother (without stating full or half); the broken pipette o
 ## Near-tie pairs (explicit)
 
 A near-tie is a wrong value carried by **exactly two** narrators, so that counting sources gives a
-tie or a false majority. Only a **quoted document**, **arithmetic**, or **one narrator's internal
-consistency** breaks it. **Twenty-two pairs.**
+tie or a false majority. Only a **quoted document**, **arithmetic**, **one narrator's internal
+consistency**, or **a first-hand statement against second-hand memory** breaks it. **Twenty-three
+pairs.**
 
 | Pair | Wrong value | Carried by | Correct value | Carried by | Settled by |
 |---|---|---|---|---|---|
@@ -585,6 +593,7 @@ consistency** breaks it. **Twenty-two pairs.**
 | **NT-20** | Station gain = 5.26 % **of the true fat** | r05 (X18), r11 (X38) | **5.00 % of true; 5.26 % of credited** | r04, r07 ✎ | **Arithmetic.** 76,000 ÷ 1,520,000 = 5.00 %; 76,000 ÷ 1,444,000 = 5.26 % |
 | **NT-21** | Rosalie = Jerome's **niece** | r04 (X13), r19 (X78) | **daughter** | r10, r12, r18 | **Direct testimony.** r10 is Rosalie and calls him "my father" throughout |
 | **NT-22** | Bulletin 214 found **0.20** in winter | r15 (X56), r16 (X62) | **0.05 in winter, nothing in summer** | r04 ✎, r11 ✎, r22 ✎ (late) | **Document.** D12 quoted verbatim by three narrators |
+| **NT-23** | Strawn took the Ordell circuit in **1908** | r04 (X101), r22 (X102) | **1907** | r06 | **First-hand statement.** "I took the Ordell circuit in nineteen hundred and seven" is the man's own covering note to his own books, against two later second-hand summaries neither of which cites anything; the corpus's arbitration rule puts a first-hand document above a memory and above a count of sources. *The pair inverts the usual shape — here the false majority is two against one rather than two against two, which is what makes counting fatal.* **His "twenty-eight books, one to the year" breaks nothing**: 1907–1936 is thirty years and 1908–1936 is twenty-nine, so the count fits neither pole |
 
 **Consequences of swallowing a near-tie** (grading diagnostics):
 
@@ -603,6 +612,7 @@ consistency** breaks it. **Twenty-two pairs.**
 | NT-19 (1c1r) | B2, E-b, −1 ≈ **3** |
 | NT-20 (5.26 % of true) | C3(c), E-b, −1 ≈ **3** |
 | NT-22 (0.20) | F4, A4.4, E-b, −1 ≈ **4** |
+| NT-23 (1908) | A6.1, E-a row 8 or E-b, −1 ≈ **3** |
 
 **Two roads to a wrong loss figure.** A solver can reach $19,600 either by taking NT-8 directly
 or by computing 76,000 × 0.2579 from a garbled price. It can reach 118,000 lb only through NT-1.
@@ -626,7 +636,7 @@ that derives it, or the document that settles it. "✎" marks a verbatim documen
 | F007 Hazel and Ivy second cousins | r18, r09, r17 | r01, r21 (1c1r) | **NT-19 — derivation** |
 | F009 Selby = Gideon's son; manager 1913 | r02, r18, r23 (the son); r02, r08, r06 (the 1913 date) | r01, r12 (nephew); r23 (1911) | **NT-17 — the secretary's own account + family record** |
 | F010–F012 Loomis, Teague, Sill and their terms | r02, r05, r14, r23 | — | Majority |
-| F013 Strawn, circuit 1908–1936, unrelated to all | r04, r22 (the 1908 start); r06, r07, r18 (the retirement and the notebooks) | r06 (1907 start) | Majority; r06's own error is on his start year only |
+| F013 Strawn, circuit **1907**–1936, unrelated to all | r06 (the 1907 start, first-hand); r06, r07, r18 (the retirement and the notebooks) | r04, r22 (1908 start) | **NT-23 — first-hand statement.** The start year is single-source and the two second-hand carriers outnumber it; a solver that counts gets it wrong, which is the point of the row. Everything else about Strawn is uncontested |
 | F017 Rosalie = Jerome's daughter | r10, r12, r18 | r04, r19 (niece) | **NT-21 — direct testimony** |
 | F020–F024 the five custody chains | r07 ✎, r18, r04 | r07 (X24 swapped attributions; X25 the crate's find-place) | **Majority + r07's own transcriptions** |
 
@@ -642,7 +652,7 @@ that derives it, or the document that settles it. "✎" marks a verbatim documen
 | F034 short 0.88 c.c.; ratio 0.95 | r04 ✎, r11 (qualitatively) | — | **Arithmetic** from F032/F033 |
 | F035 crate ordered 14 Apr 1897, in use 1 May 1897 | r07 ✎, r20 ✎ | r11, r23 (1898), r17 (1899) | **NT-10 — D2** |
 | F036 crate in the station loft; two sessions in the weigh room below | r13, r21, r04 | r07 (office at Ashlin) | Majority |
-| F098a Larrow Green's own average 3.78 | r14, r22 ¶5 (the figure); r07 and r09 (the comparison, without the figure) | — | Two sources for the figure; the comparison that produced the 1902 complaints. The gap it makes is **0.17** — not the 0.19 of F076, and no narrator may state it as 0.19 |
+| F098a Larrow Green's own average 3.78 | r14, r22 ¶5 (the figure); r07 and r09 (the comparison, without the figure) | — | Two sources for the figure; the comparison that produced the 1902 complaints. The gap it makes is **0.17** — not the 0.19 of F076, and no narrator may state it as 0.19. **A solver that states the Hollow-vs-Green gap as 0.19 loses A4.3** (added 2026-08-28): no narrator carries the conflation, so it is not a corruption deduction, and A4.3 is the one place the key charges for it |
 
 ### Dates
 
@@ -697,7 +707,7 @@ that derives it, or the document that settles it. "✎" marks a verbatim documen
 | F102 the 1911 natural experiment | r03 ✎, r04, r24 | r05, r16 (six weeks) | **D4** |
 | F103 cessation: 3.80 from 1924 | r03, r06 | r08 (3.90), r22 (3.85) | Arithmetic + D5 |
 | F104 the ledger mirror, "station gain" | r05 ✎, r07 ✎, r12 ✎ (late) | — | **D7 quoted verbatim three times** |
-| F105 watering refuted | r06 (the lactometer on every visit, 1908–1936), r10 ✎, r09 (the two scales), r04 | r08, r14 | **Record + arithmetic (5 % = 80,000 lb a year)** |
+| F105 watering refuted | r06 (the lactometer on every visit, 1907–1936), r10 ✎, r09 (the two scales), r04 | r08, r14 | **Record + arithmetic (5 % = 80,000 lb a year)** |
 | F106 theft refuted | r05 ✎ (his own entry), r12 ✎ (late), r04, r07 ✎ | r05, r21, r01 | **The ledger surplus + the 1911 interval** |
 | F107 bog hay refuted | r04 ✎, r11 ✎, r22 ✎ (late), r10 ✎ | r15, r16 | **D12 + the Alder Corners comparison + seasonality** |
 | F108 cure 35 years before diagnosis | r04, r06 | — | **Arithmetic** |
@@ -714,6 +724,13 @@ wholesale.
 | The Vose home farm's recorded 4.56 | r08 | Single-source, uncontested — inside a decoy carrier |
 | The station's closing in 1946 | r21 | Single-source, uncontested |
 
+**One contested single-source fact, added 2026-08-28 (validation ruling 2).** Strawn's start year,
+**1907**, is carried correctly by **r06 alone** and wrongly by two others (NT-23). It is the only
+scored fact in the corpus that is both single-source **and** contradicted — every other
+single-source fact is uncontested — and it is the one row that tests a first-hand document against
+a count of sources. It is listed apart from the three above because those three are uncontested and
+this one is not.
+
 **Two of the three sit in narrators carrying a decoy theory** (r08) or four near-tie values
 (r21). That is the fragility to watch when grading A4.5 and C2(c): those narrators must be
 discounted on their named values and trusted on everything else. Larrow Green's 3.78 is carried by
@@ -725,26 +742,27 @@ r14 **and** r22 ¶5, and the four exhibits by r13 **and** r23; neither is single
 
 | Device | Where implemented | Facts touched |
 |---|---|---|
-| **Near-tie broken only by document, arithmetic, or internal consistency** | **Twenty-two pairs.** Document: NT-2, NT-6, NT-9, NT-10, NT-13, NT-15, NT-16, NT-22. Arithmetic: NT-4, NT-5, NT-7, NT-8, NT-12, NT-14, NT-20. Document + arithmetic: NT-1, NT-3, NT-11. Derivation: NT-18, NT-19. Testimony: NT-17, NT-21 | F002–F009, F017, F033, F046, F059, F074–F083, F088, F089, F095 |
+| **Near-tie broken only by document, arithmetic, internal consistency, or a first-hand statement** | **Twenty-three pairs.** Document: NT-2, NT-6, NT-9, NT-10, NT-13, NT-15, NT-16, NT-22. Arithmetic: NT-4, NT-5, NT-7, NT-8, NT-12, NT-14, NT-20. Document + arithmetic: NT-1, NT-3, NT-11. Derivation: NT-18, NT-19. Testimony: NT-17, NT-21. First-hand against second-hand: NT-23 | F002–F009, F013, F017, F033, F046, F051, F059, F074–F083, F088, F089, F095 |
 | **3–5 hop arithmetic across ≥3 retellings** | **C1** (D13's 16.72 in r04/r07 → ratio → D5's 3.61 in r03/r07 → 3.80 → 0.19 → r02/r07/r23's 40,000,000 → 76,000 → r02/r09/r23's 25¢ → $19,000 → r02's $3,800 → one fifth: **five hops, six narrators**). **C2** (D10's 200,000 and 3.42 in r09 → ÷0.95 → 3.60 → 360 lb → r09's 24¢ → $86.40: **four hops, three narrators**). **C3** (40,000,000 × 3.61 % → 1,444,000; × 3.80 % → 1,520,000; difference 76,000; two denominators → 5.00 % and 5.26 %: **four hops, four narrators**) | F073–F087 |
 | **Unit / off-by-one traps the key resolves explicitly** | 26 years and 6 weeks (the glass) against 25 full delivery years (the money) — both right, for different things; 5.00 % of true against 5.26 % of credited — both right, for different denominators; 8 May – 10 July = 63 days against "six weeks"; D16's 28 June order against a "12 July" condemnation | F090, F091, F083, F092, F059 |
-| **Three decoy theories, each in ≥2 narrators, each refuted by a document and by arithmetic** | **Watering** (r08, r14): refuted by r06's lactometer readings on every visit from 1908 to 1936 and r10's D11, and by 5 % = 80,000 lb a year absent from the receiving books. **Theft** (r05, r21): refuted by D7's surplus, quoted by the accuser himself, and by the fact that a theft makes the cream arrive light. **Bog hay** (r15, r16): refuted by D12 (0.05 winter, none summer) and by the flatness of 0.19 across twelve months for 26 years | F105, F106, F107 |
+| **Three decoy theories, each in ≥2 narrators, each refuted by a document and by arithmetic** | **Watering** (r08, r14): refuted by r06's lactometer readings on every visit from 1907 to 1936 and r10's D11, and by 5 % = 80,000 lb a year absent from the receiving books. **Theft** (r05, r21): refuted by D7's surplus, quoted by the accuser himself, and by the fact that a theft makes the cream arrive light. **Bog hay** (r15, r16): refuted by D12 (0.05 winter, none summer) and by the flatness of 0.19 across twelve months for 26 years | F105, F106, F107 |
 | **A narrator wrong only on dates** | **r17** (Hazel Brant): five date errors, every quantity and relationship correct. **r23** (Bertram Kyle): four date errors, every figure correct — and his figures are the money figures | F044, F045, F046, F054, F059, F063, F065 |
 | **A late reversal inside a retelling** | **r12** (theft asserted in the body, withdrawn in a *Note added while in press* quoting D7). **r22** (bog hay conceded in the body, withdrawn in a closing note quoting D12; it also corrects its own "great-niece") | F106, F107, F005 |
-| **Internal contradictions** | **r03** (Ashlin vs his own D3), **r05** (the 1905 boast vs his 1898 transcription; the theft claim vs his own entry), **r07** (swapped catalogue attributions vs D3 and D10 beneath them), **r11** (16.27 cascade vs the D14 paragraph it prints), **r13** ("every appliance before us" vs a four-book exhibit list), **r15** ("the whole of 1908" vs D15's three months), **r18** (1868 vs "eighty-two in 1948"), **r20** ("nothing before 1900" vs her 1897 invoice) — **eight** | F044, F049, F020/F021, F033, A07, F096, F002, F045 |
+| **Internal contradictions** | **r03** (Ashlin vs his own D3), **r05** (the 1905 boast vs his 1898 transcription; the theft claim vs his own entry), **r07** (swapped catalogue attributions vs D3 and D10 beneath them), **r11** (16.27 cascade vs the D14 paragraph it prints), **r13** ("every appliance before us" vs a four-book exhibit list), **r15** ("the whole of 1908" vs D15's three months), **r18** (1868 vs "eighty-two in 1948"), **r20** ("nothing before 1900" vs her 1897 invoice), **r06** ("twenty-eight books, one to the year" vs a circuit dated 1907–1936) — **nine** | F044, F049, F020/F021, F033, A07, F096, F002, F045, F051 |
 | **Juxtaposing narrators** | **r07** (five collections, eight stories, welded by curatorial guesses), **r11** (mechanism + arithmetic + the bulletin), **r12** (founding + station + trouble + arbitration), **r19** (all eight in eleven column inches; welds 1908 and 1925), **r22** (all eight in an official summary) — **five** | F050/F063, F005 |
 | **Abstention items** | **Ten.** A01 (r01 ⌀X06 + r21 ⌀X89 vs r18 ⌀X72); A02 (r14 ⌀X54 vs r23 ⌀X99); A03 (r05 ⌀X21 vs r23 ⌀X97); A04 (r19 ⌀X80 vs r20 ⌀X83); A05 (r18 ⌀X71 vs r13 ⌀X50, over r03's silence); A06 (r04 ⌀X14 vs r09 ⌀X32); A07 (r13 ⌀X49 vs r02 ⌀X09); A08 (r17 ⌀X69 vs r09 ⌀X33); A09 (r05 ⌀X22 vs r23 ⌀X98); A10 (r02 ⌀X08 vs r12 ⌀X46 vs r15 ⌀X58) | A01–A10 |
 | **Documents quoted verbatim** | **Sixteen** (D1–D16). r07 transcribes twelve; r04 four; r03 four; r20 two; r02 two; r05, r06, r09, r10, r11, r12, r15, r22 one or two each | — |
 
-**Totals.** **100 catalogued entries** (X01–X100), made up of: **68 canon-contradicting fact
+**Totals.** **101 live catalogued entries** (X01–X102, with **X23 withdrawn** by validation
+ruling 2 of 2026-08-28), made up of: **69 canon-contradicting fact
 errors**; **6 decoy-theory poles** (X20, X30, X53, X57, X63, X88); **2 late reversals** (X45,
 X92); **22 abstention poles** (⌀X06, ⌀X08, ⌀X09, ⌀X14, ⌀X21, ⌀X22, ⌀X32, ⌀X33, ⌀X46, ⌀X49,
 ⌀X50, ⌀X54, ⌀X58, ⌀X69, ⌀X71, ⌀X72, ⌀X80, ⌀X83, ⌀X89, ⌀X97, ⌀X98, ⌀X99) across **ten abstention
 items**; and **2 declared nulls** (X11, X26 — narrators who correctly state that a thing is not
-recoverable, and which are not errors and not poles). **22 near-tie pairs.** **3 decoy
-theories.** **8 internal contradictions.** **2 date-only-unreliable narrators.** **5 juxtaposing
+recoverable, and which are not errors and not poles). **23 near-tie pairs.** **3 decoy
+theories.** **9 internal contradictions.** **2 date-only-unreliable narrators.** **5 juxtaposing
 narrators.** **16 verbatim documents.**
 
-**Uniqueness check.** Every planted error sits in exactly one narrator except the forty-four
-values that make up the twenty-two designed pairs, the six decoy poles, and the twenty-two
+**Uniqueness check.** Every planted error sits in exactly one narrator except the forty-six
+values that make up the twenty-three designed pairs, the six decoy poles, and the twenty-two
 abstention poles.

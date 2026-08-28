@@ -495,3 +495,159 @@ at 645.
   body of r15's expanded 1908 report, which is not a canon document; **D15**, the canonical
   paragraph inside it, is untouched.
 - **Not applied.** Nothing. `test-input/questions.md` was examined and needed no change (above).
+
+---
+
+# Fixes applied (validation) 2026-08-28
+
+Source: `harness/validation-blind-solve-score.md` § *Key problems surfaced by this run* — twelve
+items. **All twelve are addressed key-side**; three alternatives that would have required a
+`test-input/` edit are written up below instead of applied, because a test cell is reading
+`test-input/` and the corpus is frozen. No point value changed: the score sheet still sums to
+**100**, Section A still holds **50** items across 6·6·7·6·6·6·6·7, D3 still holds 3, G1 still
+holds 4, and `batches.md` still sums **34 / 35 / 31**. Line numbers are **post-edit**; paths are
+relative to `v3/answer-key/` unless marked.
+
+## The two rulings
+
+**Ruling 1 — D3 versus abstention item A03 (problem 1).** The key yields to the question as
+worded. `questions.md` asks "did he know, before the glassware was condemned, that the station's
+tests ran low?" and the sources settle exactly that — the grievance from 1902, his own 1919
+circular, and his 1926 address in his own voice. So **D3 is re-scoped rather than reworded**: the
+settled question becomes an ordinary item at **D3.1**, and the abstention pole moves to **D3.3**,
+where the unsettleable question lives — did he know the tests were *understated*, that the fault
+was in the station's instrument and not in the milk. This is the smaller of the two offered changes
+(the other needs `questions.md`) and it keeps D3 at three points. A grading discriminator is
+printed under the item, because the whole −2 turns on it: "he knew the station tested low" is
+item 1 and carries no deduction however flatly it is put; "he knew the tests were wrong /
+understated / short", or "he must have known and let it run", is A03 and takes −2.
+`answers-and-scoring.md` 431–474; `canon.md` 337 (the A03 row re-scoped, both columns);
+`batches.md` 43 (D3's row now names item 3 as the abstention).
+
+**Ruling 2 — A6.1, Strawn's start year (problem 2).** Re-keyed to the **first-hand** value. F013
+and F051 now read **1907–1936**, on Strawn's own covering note — "I took the Ordell circuit in
+nineteen hundred and seven" — and the **1908** carried by r04 and r22 is now the planted error, as
+**X101** and **X102**, paired as **NT-23**. **X23 is withdrawn**, and r06 becomes the corpus's one
+error-free narrator. E-a row 8 flips with it, and its method changes from *Majority* to *first-hand
+over second-hand*, which is what the rest of the corpus already does. Two consequences are recorded
+rather than hidden: (i) the 1907 start is now **single-source and contested** — the corpus's only
+such fact, and its only two-against-one near-tie — which is exactly what the row tests; (ii) r06's
+"twenty-eight of them, one to the year" fits **neither** span (1907–1936 is thirty, 1908–1936 is
+twenty-nine), so it breaks nothing, it cannot be used to prefer 1908, and it is now listed as a
+genuine internal self-refutation creditable at E-d. Files: `answers-and-scoring.md` 238–246 (A6.1),
+249 (A6.2's span), 81 (the deduction list swaps 1907 for 1908), 412 (D2), 493 (E-a row 8), 510
+(twenty-three pairs), 539 (E-d), 556 (F2); `canon.md` 45, 67, 119, 207; `corruption-map.md` 108
+(X101), 154 (X23 withdrawn), 156–159 (the book count), 512 (X102), 569 (pair count and the new
+breaker class), 596 (NT-23), 615 (its cost row), 639 (the F013 index row), 727–731 (the contested
+single-source note), 745, 748, 751, 756–763 (device checklist and totals); `narrator-briefs.md`
+217 (r04), 285 and 300–306 (r06), 948 (r22), 1112 (the A6 coverage row), 1148–1155 (the declared
+exception to the ≥2-carrier invariant).
+
+## The twelve items
+
+| # | Item | Applied | File and lines |
+|---|---|---|---|
+| 1 | D3 asks what A03 does not make unsettleable | Ruling 1 — D3 re-scoped, A03 moved to the understatement question, grading discriminator printed | `answers-and-scoring.md` 431–474; `canon.md` 337; `batches.md` 43 |
+| 2 | A6.1 keyed by majority against a first-hand note | Ruling 2 — re-keyed to 1907; 1908 becomes X101/X102 and NT-23; X23 withdrawn; recoverability index adjusted | see ruling 2 above |
+| 3 | A5.1 gates on 1914 where abstention is defensible | 1914 **unbolded** — the company, the ridge, the county and Cudd remain the gates; E-a row 4 now accepts a declared unreconcilable as well as the majority resolution | `answers-and-scoring.md` 211–217, 489 |
+| 4 | Bold-gating does inconsistent work | A **REQUIRED / CONTEXT** convention added to *How to read a checklist item*, and an explicit REQUIRED line printed on each of the six bundled items — A5.3, A8.6, D3.2, D3.3, G1.3, G1.4 | `answers-and-scoring.md` 22–29; 220–228 (A5.3), 302–307 (A8.6), 452–453 (D3.2), 463–464 (D3.3), 592–598 and 599–612 (G1) |
+| 5 | The Section-A-only rule punishes correct filing | **Ruling 3 — unchanged, as ruled.** Credit travels anywhere inside the eight reconstructions and never from B–G. Recorded in `batches.md` that the same rule applies **per batch**, that credit never crosses a batch boundary either, and that both softer alternatives were considered and declined | `batches.md` 81–93 |
+| 6 | Abstention collisions — abstains in one place, asserts in another | Rule stated: **the item follows the location, the deduction follows the sheet.** The abstention earns the item where the key scores it; a definite assertion anywhere in the answers takes −2, once per abstention item, even where the item was earned. Worked case printed | `answers-and-scoring.md` 104–112 |
+| 7 | The protective clause needs an operational test | Made mechanical: an answer containing a **headline verdict sentence** is an assertion regardless of later hedging; an answer whose verdict sentence is "cannot be determined" is an abstention regardless of lean; no verdict sentence = abstention. Two worked examples | `answers-and-scoring.md` 95–103 |
+| 8 | Nothing penalizes conflating the 0.17 gap with the 0.19 shortfall | **A4.3 now gates on the distinction**: a solver that states the Hollow-vs-Green gap as 0.19, or derives a Larrow Green average from a 0.19 gap, loses the item. Not a corruption deduction — no narrator carries the conflation — and A4.3 is the one place the key charges for it | `answers-and-scoring.md` 187–198; `corruption-map.md` 655 (F098a's index row) |
+| 9 | A7.1 bundles a causal claim and a date in one yes/no | The **causal clause is unbolded**; January 1925 carries the item alone. The no-double-count clause is restated so A7.1's own aspect is the petition, not the rise (which stays at A6.5) | `answers-and-scoring.md` 262–270, 51–54 |
+| 10 | G1 mandates more than 150 words comfortably hold | **G1 recut, still four points**: the both-names requirement folds into the arc as one of six elements, of which any four (covering both ends) earn the item; the freed item becomes *no absorbed corruption*, which was previously the second half of G1.4. Raising the cap to 200 words is a `questions.md` edit and is deferred | `answers-and-scoring.md` 592–612 |
+| 11 | A8.6's milk figure has two correct forms | Stated: the milk element accepts **either** 40,000,000 lb **or** 1,600,000 lb a year given with the 25-year span 1898–1922, both inside Section A; the multiplication need not be printed | `answers-and-scoring.md` 302–307 |
+| 12 | A5.3's "his own test book" has no stated equivalent | The gate becomes **the independence**, not the artifact: at least two of the other county · the other bench · the other glassware · the uncompared book, with the artifact's name counting as one of the four | `answers-and-scoring.md` 220–228 |
+
+**Applied: 12. Deferred: 3** (below). Item 5 is applied in the form ruling 3 directs — the record
+in `batches.md` — rather than in the form the run suggested.
+
+## Deferred retelling edits
+
+Three edits would improve the corpus and **cannot be made while `test-input/` is frozen**. Each is
+given as exact old → new text. None of them is required for the key as it now stands; each is an
+improvement to recoverability or to the fit between question and key.
+
+**D1 — reword D3 so the question asks what A03 makes unsettleable** (problem 1's other option; not
+needed now that the key is re-scoped, and mutually exclusive with the fix applied — applying both
+would leave D3.1 scoring a question no longer asked).
+
+File: `test-input/questions.md`, lines 89–90; the identical passage is at
+`test-input/batches/batch-2.md` 73–74.
+
+- OLD (two lines, verbatim):
+  ```
+    the time he took office. Did he know, before the glassware was condemned, that the station's
+    tests ran low? Answer, and justify your answer from the sources.
+  ```
+- NEW:
+  ```
+    the time he took office. Did he know, before the glassware was condemned, that the station's
+    tests were **wrong** — that his own ledger showed the station's fat understated? Answer, and
+    justify your answer from the sources. (Distinguish this from the question whether he knew the
+    station's milk tested lower than Larrow Green's, which the sources do settle.)
+  ```
+
+If this is ever applied, **revert ruling 1's split**: D3.1 returns to being the abstention gate and
+D3.3 to the supporting observations, and `canon.md` 337 drops the re-scoping note.
+
+**D2 — raise G1's word cap to 200** (problem 10's other option; complementary to the recut, not
+mutually exclusive — with 200 words the REQUIRED line at G1.4 could rise from four of six to five).
+
+Files: `test-input/questions.md` line 118; `test-input/batches/batch-3.md` line 70. Identical text
+in both.
+
+- OLD: `- **G1.** Summarize the whole eight-story history in **at most 150 words**, so that a reader who`
+- NEW: `- **G1.** Summarize the whole eight-story history in **at most 200 words**, so that a reader who`
+
+**D3 — give r06's start year an internal breaker** (problem 2's other option; now the *only* way to
+make the 1907 start recoverable by arithmetic rather than by the first-hand rule alone, since
+ruling 2 has made 1907 canon and left it single-source against two carriers).
+
+The closing note's book count should match the circuit he dates. 1907–1936 inclusive is **thirty**
+years.
+
+Files: `test-input/retellings/r06-extracts-from-the-circuit-books.md` lines 1 and 58;
+`test-input/bundle-single.md` lines 193 and 250; `test-input/long/r06-long.md` lines 3514, 3516
+and 3573.
+
+- OLD (title, three places): `"Extracts from twenty-eight circuit books," with a covering note, 1936`
+- NEW: `"Extracts from thirty circuit books," with a covering note, 1936`
+- OLD (closing note, three places): `**Closing note.** The books themselves — twenty-eight of them, one to the year, oilcloth covers, pocket size — go to the state dairy office`
+- NEW: `**Closing note.** The books themselves — thirty of them, one to the year, oilcloth covers, pocket size — go to the state dairy office`
+
+If this is ever applied, three key-side follow-ups fall out of it: the r06 titles at
+`corruption-map.md` 142 and `narrator-briefs.md` 276 change with it; the E-d entry for r06
+(`answers-and-scoring.md` 539) and the ninth internal contradiction (`corruption-map.md` 751, and
+the count at 763) come **out** again, since the inconsistency would be gone; and the grader notes
+at `answers-and-scoring.md` 244–246, `corruption-map.md` 156–159 and 596 become "thirty books, one
+to the year, which fits 1907–1936 and not 1908–1936" — an arithmetic breaker, which would let
+NT-23 be broken the way every other pair is.
+
+## Known staleness left behind
+
+`AUTHORING-NOTES.md` is outside the edit scope for this pass and is now stale in two places:
+
+- **line 120** understates G — "150 words, five record series, two names, both ends of the arc"
+  describes the pre-recut G1. The requirement is now 150 words, five record series, no absorbed
+  corruption, and four of six arc elements of which the two names are one.
+- **lines 51, 118, 205, 238 and 240** print the pre-ruling-2 device counts: twenty-two near-tie
+  pairs (now **twenty-three**), eight self-refutations (now **nine**), and 100 catalogued entries
+  (now **101 live**, X01–X102 with X23 withdrawn).
+
+`KEY-AUDIT.md` line 163 also says "22 near-tie pairs"; it is left as written because it records
+what was verified in the previous pass, not the current state.
+
+## Verification
+
+- **Score sheet.** A 50 + B 8 + C 14 + D 10 + E 8 + F 6 + G 4 = **100**, unchanged. Section A: 50
+  numbered items across eight stories, 6·6·7·6·6·6·6·7 — recounted after editing. D3 = 3 items,
+  G1 = 4 items, both unchanged in count.
+- **Batches.** 34 + 35 + 31 = **100**, unchanged; all ten abstention items still placed exactly
+  once, A03 still in batch 2.
+- **Corpus.** No file under `test-input/` was opened for writing. X101 and X102 catalogue text that
+  the retellings already carry; only the keying changed.
+- **Counts after ruling 2.** Near-tie pairs 22 → **23**; catalogued entries 100 → **101 live**
+  (X01–X102, X23 withdrawn); canon-contradicting fact errors 68 → **69**; internal contradictions
+  8 → **9**. Every one of those numbers was updated everywhere it is printed.

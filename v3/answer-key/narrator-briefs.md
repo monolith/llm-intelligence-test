@@ -214,7 +214,11 @@ in the same room and she measured the glass herself.
 1. **X12 — "fourteen seasons."** The Alder Corners overlap ran **fourteen seasons**. (Unique; canon
    is sixteen, 1915–1930.)
 2. **X13 — "his niece."** Rosalie Cudd was Jerome Cudd's **niece**. (**Near-tie 21** — partner r19.)
-3. **⌀X14 — abstention pole (A06).** "The measure they borrowed in 1911 came up from Larrow Green
+3. **X101 — "from 1908."** Strawn's notebooks are "kept by the state's dairy inspector for this
+   county **from 1908**." (**Near-tie 23** — partner r22; canon is **1907**, from Strawn's own
+   covering note.) Catalogued 2026-08-28 by validation ruling 2; the retelling already reads this
+   way and needs no edit.
+4. **⌀X14 — abstention pole (A06).** "The measure they borrowed in 1911 came up from Larrow Green
    with the cream wagon." State it flatly, cite nothing.
 
 **Must NOT mention.** Anything about what her grandfather privately believed; whether the 1925
@@ -278,7 +282,7 @@ theories. He writes about plants the way a good mechanic writes about engines.
 
 **Vantage.** The corpus's disinterested witness: kin to nobody, patron of nothing, employed by the
 state. He went to Ostrey Hollow between one and three times a year across the whole circuit,
-1908 to 1936.
+1907 to 1936.
 
 **What he knows (state these as given).**
 - The circuit: fifty-odd plants in four counties; scales against sealed weights, the lactometer for
@@ -293,9 +297,13 @@ state. He went to Ostrey Hollow between one and three times a year across the wh
   else. He draws no inference from either. (F103, F061)
 - His notebooks went to the state office on his retirement. (F022)
 
-**Errors.**
-1. **X23 — "nineteen hundred and seven."** He took the Ordell circuit in **1907**. (Unique; canon
-   1908.)
+**Errors. None** — r06 is the corpus's one error-free narrator.
+1. **~~X23~~ — WITHDRAWN 2026-08-28 (validation ruling 2).** His covering note's "I took the Ordell
+   circuit in nineteen hundred and seven" is **canon**: F013 and F051 now read **1907–1936**, and
+   the **1908** of r04 and r22 is the planted error (X101, X102, **NT-23**). The retelling's text is
+   unchanged; only its keying is. His closing note's "twenty-eight of them, one to the year" fits
+   neither 1907–1936 (thirty) nor 1908–1936 (twenty-nine), so it breaks nothing — it is a genuine
+   internal inconsistency on the page and is creditable at **E-d**.
 
 *Everything else from r06 is canon-correct.* He must not speculate about causes anywhere.
 
@@ -937,7 +945,12 @@ late-reversal narrator.**
    (**Near-tie 18** — partner r19.) In the closing note he corrects it from the family's own record:
    "I am informed, and have verified, that Miss Keddie is the granddaughter and not the great-niece;
    the error on page two is mine."
-3. **X92 — LATE REVERSAL, decoy 3.** Body, paragraph 9: "the wet hay of that bottom must be allowed
+3. **X102 — "from 1908 forward."** The state dairy inspector "tested with the lactometer at every
+   visit **from 1908** forward." (**Near-tie 23** — partner r04; canon is **1907**.) The lactometer
+   run itself is correct and is the watering decoy's chief refutation; only the start year is wrong.
+   Catalogued 2026-08-28 by validation ruling 2; the retelling already reads this way and needs no
+   edit.
+4. **X92 — LATE REVERSAL, decoy 3.** Body, paragraph 9: "the wet hay of that bottom must be allowed
    as a real if partial factor, and the 1908 committee was not simply wrong." Closing note: he
    prints **D12** verbatim, having obtained Bulletin No. 214 from the college, and writes: "Five
    hundredths in winter and nothing in summer will not carry nineteen hundredths in July. I withdraw
@@ -1096,7 +1109,7 @@ at least one brief.
 | A4.5 1910 leaf; proportionality | r09, r17 (leaf); r04, r08 (4.56) | D10 |
 | A4.6 custody | r09, r17, r18 | — |
 | A5.1–A5.6 Alder Corners | r09, r10, r12 (1914); r10, r09 (four men, sixteen seasons) | D11 |
-| A6.1–A6.6 Strawn | r06, r07, r23, r18; r04 + r22 for the 1908 start; r03, r06 for the 1924 average | D6 ×2 |
+| A6.1–A6.6 Strawn | r06, r07, r23, r18; **r06 alone for the 1907 start** (r04 + r22 carry the wrong 1908 — NT-23, the corpus's one two-against-one pair, and the deliberate exception to the ≥2 rule); r03, r06 for the 1924 average | D6 ×2 |
 | A7.1–A7.6 arbitration | r02, r13, r23, r05, r24 | D8 ×2 |
 | A8.1–A8.7 the 1958 study | r04, r07, r11, r19, r22 | D13 ×2, D14 ×3 |
 
@@ -1131,6 +1144,14 @@ opposite.**
 
 Verified pair by pair against `corruption-map.md` § Near-tie pairs. No brief carries both sides of
 any pair. No wrong value appears in a third brief.
+
+**One declared exception, added 2026-08-28 (validation ruling 2): NT-23** (Strawn's start year) has
+two wrong carriers (r04, r22) and **one** correct carrier (r06), because the correct value is a
+first-hand statement and the corpus has only one first-hand witness to it. It is the corpus's only
+two-against-one pair and the only scored fact that is both single-source **and** contested — which
+is precisely what it tests: that a first-hand document outranks a count of sources. Every other
+scored single-source fact is uncontested; the three of those are listed in `corruption-map.md`
+§ Single-source scored facts.
 
 ### 6. Load and balance
 

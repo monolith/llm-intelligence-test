@@ -40,7 +40,7 @@ are `test-input/batches/batch-1.md`, `batch-2.md`, `batch-3.md`.
 | C5 (a–b) | 2 | (b) is abstention **A02** |
 | D1 (items 1–4) | 4 | |
 | D2 (items 1–3) | 3 | item 3 is abstention **A09** |
-| D3 (items 1–3) | 3 | whole item is abstention **A03** |
+| D3 (items 1–3) | 3 | **item 3** is abstention **A03**; items 1 and 2 are ordinary (re-scoped 2026-08-28) |
 | **Total** | **35** | |
 
 **Abstention items: A02 (C5b), A03 (D3), A09 (D2 item 3). Count: 3.**
@@ -77,6 +77,19 @@ Each batch's Section A asks the system to reconstruct "the first three / next th
 the eight stories, in the order you believe they occurred." `questions.md` gives no era-or-thread
 handle for any grouping of the eight (Section A is deliberately cue-less), so this ordinal framing
 is the fallback the split calls for rather than a named-handle prompt.
+
+**The Section A credit rule applies per batch, unchanged in form** (recorded 2026-08-28, validation
+ruling 3 — the rule itself stands as ruled and is not being relaxed). Inside a batch, credit
+travels freely among **that batch's** submitted reconstructions: a checklist fact is credited if it
+appears correctly anywhere in them, whatever narrative the solver filed it under. Credit still
+**never** travels into Section A from Sections B–G — including the B–G items sitting in the same
+batch, so a fact the solver states only at C2 or D1 of batch 2 earns nothing for A4 of batch 2 —
+and it never travels **between batches**: each batch is scored on its own paper, so a Section A
+fact stated in another batch's answers earns nothing here. The known cost of the rule is accepted:
+a solver that files a derived quantity where a later question asks for it, and does not restate it
+in a narrative, loses the A item. The alternatives — naming a small set of A items that may draw
+from C/F, or telling the solver in `questions.md` to restate derived quantities in Section A —
+were both considered and declined.
 
 The solver's own numbering within a batch (1, 2, 3, or 1, 2) does **not** need to correspond to
 the key's A-numbers. **Map each submitted narrative onto the key's checklist it matches by subject
