@@ -1,0 +1,77 @@
+{
+ "long_noise": [
+  {
+   "file": "L1-ledger.md",
+   "kind": "ledger",
+   "words": 220000,
+   "seed": 11,
+   "question_file": "L1-question.txt"
+  },
+  {
+   "file": "L2-transcript.md",
+   "kind": "transcript",
+   "words": 220000,
+   "seed": 12,
+   "question_file": "L2-question.txt"
+  },
+  {
+   "file": "L3-gibberish.md",
+   "kind": "gibberish",
+   "words": 220000,
+   "seed": 13,
+   "question_file": "L3-question.txt"
+  },
+  {
+   "file": "L4-mixed.md",
+   "kind": "mixed",
+   "words": 220000,
+   "seed": 14,
+   "question_file": "L4-question.txt"
+  }
+ ],
+ "fillers": [
+  {
+   "file": "filler-r03.md",
+   "words": 60000,
+   "seed": 203
+  },
+  {
+   "file": "filler-r06.md",
+   "words": 60000,
+   "seed": 206
+  },
+  {
+   "file": "filler-r09.md",
+   "words": 60000,
+   "seed": 209
+  },
+  {
+   "file": "filler-r12.md",
+   "words": 60000,
+   "seed": 212
+  },
+  {
+   "file": "filler-r15.md",
+   "words": 60000,
+   "seed": 215
+  },
+  {
+   "file": "filler-r18.md",
+   "words": 60000,
+   "seed": 218
+  },
+  {
+   "file": "filler-r21.md",
+   "words": 60000,
+   "seed": 221
+  },
+  {
+   "file": "filler-r24.md",
+   "words": 60000,
+   "seed": 224
+  }
+ ],
+ "generator": "v3/harness/gen_long_noise.py",
+ "collisions": "v3/answer-key/canon.md",
+ "note": "generated files are git-ignored; regenerate with the seeds above"
+}

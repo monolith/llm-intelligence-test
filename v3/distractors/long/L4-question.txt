@@ -1,0 +1,2 @@
+Q: What HTTP status code is assigned to the `DeprecatedChecksum` error in the spec?
+A: 503
