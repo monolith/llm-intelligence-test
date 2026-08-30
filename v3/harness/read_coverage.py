@@ -9,6 +9,7 @@ line span of each file against the union of spans actually returned.
 Usage: read_coverage.py [--model M ...] [--only-gaps]
 """
 import argparse, glob, json, os, re
+from collections import deque
 
 AP = argparse.ArgumentParser()
 AP.add_argument("--root", default="/home/anatoly/llm-intelligence-test/v3")
@@ -63,23 +64,24 @@ for model in (A.model or ["haiku", "sonnet", "opus", "fable"]):
                 b = os.path.basename(f)
                 want[b] = (min(want.get(b, (s, e))[0], s), max(want.get(b, (s, e))[1], e))
         rows = [json.loads(l) for l in open(tp)]
-        have, pending = {}, None
+        # A reader may issue several Reads in one turn; their results come back in
+        # the same order, so queue the calls and pair them off FIFO. Pairing one at
+        # a time silently drops every call but the last of each batch.
+        have, pending = {}, deque()
         for r in rows:
             t = r.get("text") or ""
             m = CALL.search(t)
             if m:
-                c = json.loads(m.group(1))
-                pending = c
+                pending.append(json.loads(m.group(1)))
                 continue
             if pending and t.startswith("[tool_result"):
-                ok = "exceeds maximum allowed tokens" not in t
-                if ok:
-                    b = os.path.basename(pending["file_path"])
-                    off = pending.get("offset") or 1
-                    lim = pending.get("limit")
+                c = pending.popleft()
+                if "exceeds maximum allowed tokens" not in t:
+                    b = os.path.basename(c["file_path"])
+                    off = c.get("offset") or 1
+                    lim = c.get("limit")
                     end = off + lim - 1 if lim else 10 ** 9
                     have.setdefault(b, []).append([off, end])
-                pending = None
         bad = []
         for b, span in want.items():
             g = gaps(span, merge(have.get(b, [])))

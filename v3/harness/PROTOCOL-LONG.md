@@ -46,3 +46,8 @@ Repairs:
 4. Invalidated segments were quarantined, not deleted, in `runs/<model>/long-notes/ingest/void-token-cap-notes-loss/`: sonnet from seg12, haiku from seg11 (13 segments of haiku work discarded). Both chains restart from the last segment whose carried notes were read in full.
 
 The noise-document gaps in haiku's seg3–7 are left as they are and reported: they cost haiku some distraction load, which if anything helped it, and re-running them would discard sound scored content to fix an unscored one.
+
+### Follow-up: the checker's own bug (2026-08-28)
+`read_coverage.py` paired one Read call to one result at a time. A reader that issues several Reads in one turn gets its results back in order, so that pairing credited only the last call of each batch and reported material as unread that had been read — it accused fable's redone segment 2 of skipping 200 lines it had in fact read. Fixed to queue calls and pair them FIFO, with tests covering a parallel batch, a genuine gap, a cap refusal, and the retry-in-halves recovery.
+
+Re-scanned with the fix, the remaining gaps across all chains are noise only: haiku seg3–7 and sonnet seg5 in `L1-ledger.md`, sonnet seg6 in `r09-long.md` filler, sonnet seg11 in `r15-long.md` filler. Every one checked against the needle line span; **no scored content is missing from any chain that will be scored.**
