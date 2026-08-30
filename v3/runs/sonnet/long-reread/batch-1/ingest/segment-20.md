@@ -1,0 +1,34 @@
+Segment 20 instructions:
+1. Read `/home/anatoly/llm-intelligence-test/v3/runs/sonnet/long-reread/batch-1/ingest/notes-19.md` lines 1–94 (offset 1, limit 94) — acknowledge.
+2. Read `/home/anatoly/llm-intelligence-test/v3/runs/sonnet/long-reread/batch-1/ingest/notes-19.md` lines 95–316 (offset 95, limit 222) — acknowledge.
+3. Read `/home/anatoly/llm-intelligence-test/v3/runs/sonnet/long-reread/batch-1/ingest/notes-19.md` lines 317–464 (offset 317, limit 148) — acknowledge.
+4. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 15308–15607 (offset 15308, limit 300) — acknowledge.
+5. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 15608–15907 (offset 15608, limit 300) — acknowledge.
+6. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 15908–16107 (offset 15908, limit 200) — acknowledge.
+7. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 16108–16407 (offset 16108, limit 300) — acknowledge.
+8. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 16408–16707 (offset 16408, limit 300) — acknowledge.
+9. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 16708–16907 (offset 16708, limit 200) — acknowledge.
+10. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 16908–17207 (offset 16908, limit 300) — acknowledge.
+11. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 17208–17507 (offset 17208, limit 300) — acknowledge.
+12. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 17508–17707 (offset 17508, limit 200) — acknowledge.
+13. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 17708–18007 (offset 17708, limit 300) — acknowledge.
+14. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 18008–18307 (offset 18008, limit 300) — acknowledge.
+15. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 18308–18507 (offset 18308, limit 200) — acknowledge.
+16. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 18508–18807 (offset 18508, limit 300) — acknowledge.
+17. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 18808–19107 (offset 18808, limit 300) — acknowledge.
+18. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 19108–19307 (offset 19108, limit 200) — acknowledge.
+19. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 19308–19607 (offset 19308, limit 300) — acknowledge.
+20. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 19608–19907 (offset 19608, limit 300) — acknowledge.
+21. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 19908–20107 (offset 19908, limit 200) — acknowledge.
+22. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 20108–20407 (offset 20108, limit 300) — acknowledge.
+23. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 20408–20707 (offset 20408, limit 300) — acknowledge.
+24. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 20708–20907 (offset 20708, limit 200) — acknowledge.
+25. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 20908–21207 (offset 20908, limit 300) — acknowledge.
+26. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 21208–21507 (offset 21208, limit 300) — acknowledge.
+27. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 21508–21707 (offset 21508, limit 200) — acknowledge.
+28. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 21708–22007 (offset 21708, limit 300) — acknowledge.
+29. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 22008–22307 (offset 22008, limit 300) — acknowledge.
+30. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 22308–22507 (offset 22308, limit 200) — acknowledge.
+31. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 22508–22807 (offset 22508, limit 300) — acknowledge.
+32. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 22808–22879 (offset 22808, limit 72) — acknowledge.
+33. Write your retention notes to `/home/anatoly/llm-intelligence-test/v3/runs/sonnet/long-reread/batch-1/ingest/notes-20.md` and stop.

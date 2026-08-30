@@ -1,0 +1,214 @@
+{
+ "sections": {
+  "A": {
+   "items": [
+    {
+     "id": "A7.1",
+     "points": 1,
+     "max": 1,
+     "note": "Section A story 1 dates the patrons' petition to January 1925; causal clause is context and does not gate."
+    },
+    {
+     "id": "A7.2",
+     "points": 1,
+     "max": 1,
+     "note": "Board under Alonzo Frick, 17 March - 4 May 1925, three sessions, two in the station's own weigh room - all stated."
+    },
+    {
+     "id": "A7.3",
+     "points": 1,
+     "max": 1,
+     "note": "All three explanations named with their advocates (Vose/watering, Teague/theft, 1908 committee's bog hay) and none accepted ('no cause established')."
+    },
+    {
+     "id": "A7.4",
+     "points": 1,
+     "max": 1,
+     "note": "Four books listed as exhibits, including the state inspector's 1923 notebook, plus the point that nobody compared it with the receiving book."
+    },
+    {
+     "id": "A7.5",
+     "points": 1,
+     "max": 1,
+     "note": "Dismissal of 30 April 1925 without a finding, stated beside the $3,800 award. (Run wrongly puts the dismissal four days AFTER the award, but the dated core fact is right.)"
+    },
+    {
+     "id": "A7.6",
+     "points": 0,
+     "max": 1,
+     "note": "No mention anywhere in Section A of the award being one fifth of the ~$19,000 lost, nor of it being charged to the station-gain account."
+    },
+    {
+     "id": "A8.1",
+     "points": 1,
+     "max": 1,
+     "note": "Ivy Keddie, Ansel's granddaughter, graduate student at the State Agricultural College at Farland; Leland Vaught named as co-author."
+    },
+    {
+     "id": "A8.2",
+     "points": 0,
+     "max": 1,
+     "note": "Describes borrowing the Brant weigh book and getting Alder Corners figures, but never states the gated claim - that she assembled record series that had never been in the same room; Strawn's notebooks and the Association ledgers are not mentioned in Section A."
+    },
+    {
+     "id": "A8.3",
+     "points": 1,
+     "max": 1,
+     "note": "February 1958, crate found in the station loft, nine pipettes survived."
+    },
+    {
+     "id": "A8.4",
+     "points": 0,
+     "max": 1,
+     "note": "Swallows NT-1: 'the group averaged only 16.27 cc'. Key requires 16.72 c.c., short 0.88, 0.95 of the mark. Corruption deduction applied separately."
+    },
+    {
+     "id": "A8.5",
+     "points": 0,
+     "max": 1,
+     "note": "Never states that the tests read 95 percent of true or that 3.80 was the true average. Instead gives 3.61 vs Larrow Green's 3.78 and calls that gap 0.19 (arithmetically 0.17), conflating the visible gap with the true shortfall."
+    },
+    {
+     "id": "A8.6",
+     "points": 0,
+     "max": 1,
+     "note": "REQUIRED four elements all missing or wrong: quotes 44 million lb, $19,600 and 67,000 lb of fat from the sources; no 40,000,000 / 76,000 / $19,000 and no station-gain ledger identity."
+    },
+    {
+     "id": "A8.7",
+     "points": 1,
+     "max": 1,
+     "note": "Bulletin No. 471, October 1958, clearing him, with 33 years after dismissal and 24 after death; list-type item with no REQUIRED line, core fact present."
+    }
+   ],
+   "total": 8
+  },
+  "E": {
+   "items": [
+    {
+     "id": "E-a",
+     "points": 3,
+     "max": 3,
+     "note": "Cap reached. Valid resolved rows with method: Hessel Bottom six farms (row 6), Orra Keddie born 1866 (row 7), Selby Vose manager from 1913 (row 15), 1908 committee and 1925 board are two bodies (row 16)."
+    },
+    {
+     "id": "E-b",
+     "points": 3,
+     "max": 3,
+     "note": "Cap reached. NT-14 ($77.39 vs $77.93, pair named, broken by adding r20's own transcription) and NT-18 (great-niece in r19 and r22, broken by r22's own closing correction) are textbook. Third credited on NT-9/NT-16, where both wrong-value carriers are named and a tie-breaker is given, though by weighing source independence rather than by the key's document."
+    },
+    {
+     "id": "E-c",
+     "points": 1,
+     "max": 3,
+     "note": "A10 (Article VII adoption year) correctly declared unsettleable with what the sources do establish. A04 asserted as an accident (reground mold) - lost, and -2. A06 (whose measure was borrowed in 1911) never raised at all - lost."
+    },
+    {
+     "id": "E-d",
+     "points": 1,
+     "max": 1,
+     "note": "Dedicated 'narrator contradicts itself on the page' section: r03's Ashlin vs Larrow Green, r18's 1868 vs 'eighty-two', r20's $77.93 vs $77.39, r22's two self-corrections."
+    }
+   ],
+   "total": 8,
+   "cap_note": "Buckets sum to 8 (3+3+1+1); section cap is 8."
+  },
+  "F": {
+   "items": [
+    {
+     "id": "F1.1",
+     "points": 0,
+     "max": 1,
+     "note": "Cause named but size not derived: uses the corrupt 16.27 c.c., never derives 95 percent of true or 0.19 as 5 percent of 3.80, and explicitly concedes the arithmetic does not close. Also asserts a 1924 average of 3.85."
+    },
+    {
+     "id": "F1.2",
+     "points": 1,
+     "max": 1,
+     "note": "Watering named (Selby Vose, 1919 circular, 1926 address) and defeated with the inspector's lactometer record. (The '1908 forward' start year is a planted error and is deducted separately, but the defeater itself is specific.)"
+    },
+    {
+     "id": "F1.3",
+     "points": 1,
+     "max": 1,
+     "note": "Theft named (Teague, and Oram's hauler father) and defeated with the 1911 interval - same tester, figures tracked the equipment."
+    },
+    {
+     "id": "F1.4",
+     "points": 1,
+     "max": 1,
+     "note": "Bog hay named (Grigg's 1908 committee) and defeated with Bulletin No. 214's 0.05 in winter and nothing in summer against a flat 0.19."
+    },
+    {
+     "id": "F1.5",
+     "points": 0,
+     "max": 1,
+     "note": "ABSTENTION A07 asserted. Verdict sentence is a bare 'No.' - the board never examined the glassware. Later hedging absent; -2 applied."
+    },
+    {
+     "id": "F1.6",
+     "points": 1,
+     "max": 1,
+     "note": "ABSTENTION A05 correctly declined: 'I can't determine which belief was primary or final'; the closing lean does not undo an explicit refusal to decide."
+    }
+   ],
+   "total": 4
+  },
+  "G": {
+   "items": [
+    {
+     "id": "G1.1",
+     "points": 1,
+     "max": 1,
+     "note": "149 whitespace tokens, 145 real words - inside the 150-word cap."
+    },
+    {
+     "id": "G1.2",
+     "points": 0,
+     "max": 1,
+     "note": "Names at most one of the nine record series (the 1958 measurement). Roles - tester, bookkeeper, inspector, neighbor, newspaper - are witnesses, not record series."
+    },
+    {
+     "id": "G1.3",
+     "points": 1,
+     "max": 1,
+     "note": "Clean: watering, theft and bog hay appear only as what neighbors blamed, and no corrupt headline number appears (3.61, 3.78, $3,800 all fine)."
+    },
+    {
+     "id": "G1.4",
+     "points": 0,
+     "max": 1,
+     "note": "Only one of the six arc elements present (explained in 1958). Onset given as 1896 not 1897, no 'one part in twenty', no 76,000 lb / $19,000, no 1923 condemnation, and Ivy Keddie is not named - only 'his granddaughter'."
+    }
+   ],
+   "total": 2
+  }
+ },
+ "deductions": [
+  {
+   "reason": "Corruption: asserts the pipettes averaged 16.27 c.c. (NT-1, F033) as fact in Section A and Section F.",
+   "points": -1
+  },
+  {
+   "reason": "Corruption: resolves the milk volume toward 44,000,000 lb (NT-5, F077) at E1 item 20 - 'resolved toward 44 million on precision grounds'.",
+   "points": -1
+  },
+  {
+   "reason": "Corruption: asserts 'From 1924 the station's average rose to 3.85 and stayed there' (NT-3, F075/F061); canon is 3.80.",
+   "points": -1
+  },
+  {
+   "reason": "Corruption: adopts r22's planted 'the inspector tested for added water at every visit from 1908 forward' (NT-23, X102, F013); Strawn's circuit began 1907.",
+   "points": -1
+  },
+  {
+   "reason": "Gullibility: abstention item A04 asserted - the short lot is stated to be an accident from a reground mold, r19's rival pole never mentioned.",
+   "points": -2
+  },
+  {
+   "reason": "Gullibility: abstention item A07 asserted - answers the 1925-board-examined-the-glassware question with a headline 'No.'",
+   "points": -2
+  }
+ ],
+ "total": 14
+}

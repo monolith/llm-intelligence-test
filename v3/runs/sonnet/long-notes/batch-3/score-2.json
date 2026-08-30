@@ -1,0 +1,61 @@
+{
+  "sections": {
+    "A": {
+      "items": [
+        {"id": "A7.1", "points": 1, "max": 1, "note": "Petition dated January 1925 by the patrons, Emmet Brant among them; causal clause is context and does not gate."},
+        {"id": "A7.2", "points": 1, "max": 1, "note": "Board under Alonzo Frick, 17 March - 4 May 1925, three sessions, two in the station's own weigh room."},
+        {"id": "A7.3", "points": 1, "max": 1, "note": "All three explanations named with their advocates (Vose/water, Teague/theft, revived 1908 bog hay) and none accepted ('no cause established against Keddie')."},
+        {"id": "A7.4", "points": 1, "max": 1, "note": "Four books as exhibits, including Strawn's 1923 notebook, plus the point that nobody compared it with the receiving book."},
+        {"id": "A7.5", "points": 1, "max": 1, "note": "Dismissal 30 April 1925 without a finding, stated beside the $3,800 award; the item's own aspect per the no-double-scoring note. (The award date and 'charged to the station account' are missing but the item carries no REQUIRED line.)"},
+        {"id": "A7.6", "points": 0, "max": 1, "note": "No station-gain ledger, no $19,000 loss, no one-fifth relation. The run instead gives 44 million lb worth $19,600 and 67,000 lb of fat."},
+        {"id": "A8.1", "points": 1, "max": 1, "note": "Ivy Keddie, Ansel's granddaughter, graduate student at the State Agricultural College at Farland; Leland Vaught named inside Section A as co-author."},
+        {"id": "A8.2", "points": 1, "max": 1, "note": "Assembly of separated records stated inside Section A: Alder Corners comparison figures via Rosalie Cudd, Brant's weigh book borrowed from Roy Brant, cross-checked against the station's own numbers. Strawn's notebooks and the Association ledgers are unbolded context."},
+        {"id": "A8.3", "points": 1, "max": 1, "note": "February 1958, crate found in the station loft, nine pipettes surviving; eleven correctly rejected."},
+        {"id": "A8.4", "points": 0, "max": 1, "note": "Gives the planted 16.27 c.c. instead of 16.72; no 0.88 short, no 0.95 of the mark. NT-1 swallowed."},
+        {"id": "A8.5", "points": 0, "max": 1, "note": "No '95 percent of true' and no 3.61-where-3.80-stood. The 0.19 is misidentified as the Hollow-vs-Larrow-Green gap (3.78 - 3.61, which is 0.17) and called a constant rather than 5 percent of 3.80."},
+        {"id": "A8.6", "points": 0, "max": 1, "note": "REQUIRED four elements all missing or wrong: 44,000,000 lb not 40,000,000; 67,000 lb not 76,000; $19,600 not $19,000; no ledger identity."},
+        {"id": "A8.7", "points": 1, "max": 1, "note": "Bulletin No. 471, October 1958, clears him; 33 years after the dismissal and 24 after his death (the 35-years-after-condemnation element is missing, but the item has no REQUIRED line and its core fact is present)."}
+      ],
+      "total": 9
+    },
+    "E": {
+      "items": [
+        {"id": "E1-a", "points": 3, "max": 3, "note": "Capped. Four key rows found, resolved and with a method: six farms on Hessel Bottom (majority of those who farmed it), Orra born 1866 (r18's own 'eighty-two in 1948'), Selby Vose manager from 1913 (majority over r23's 1911), and the 1908 committee vs the 1925 board as two bodies seventeen years apart (r19's error)."},
+        {"id": "E1-b", "points": 3, "max": 3, "note": "Capped. NT-14 ($77.39 in r19 and r20, broken by adding r20's own transcribed line items to $77.93) and NT-18 (great-niece in r19 and r22, broken by Falke's own appended correction, with the copying risk explicitly discussed) are textbook. NT-9 ($3,500 in r01 and r21) and NT-16 (eleven pipettes in r12 and r19) each name the pair and a breaker."},
+        {"id": "E1-c", "points": 1, "max": 3, "note": "A10 earned: 1891/1892/1893 declared unsettleable, with the undated by-laws and the lost minute book. A04 lost and asserted - Section F states the reground mold as 'an accident' in the sheet's own voice and never raises the substitution pole. A06 never raised at all (the lender of the 1911 measure is never discussed), so no abstention statement exists to credit."},
+        {"id": "E1-d", "points": 1, "max": 1, "note": "A dedicated self-refutation section: r03's 'borrowed off the Ashlin creamery' against its own 'borrowed of Larrow Green', r18's 1868 against 'eighty-two when she died in 1948', r20's two totals, r12's and r22's own retractions."}
+      ],
+      "total": 8
+    },
+    "F": {
+      "items": [
+        {"id": "F1.1", "points": 0, "max": 1, "note": "Names the 1897 crate and the onset/cessation dates, but the size is wrong (16.27 c.c.), there is no 95-percent derivation, and the run explicitly concedes it cannot connect its own figures to the 0.19 gap - which it also anchors on 3.78 rather than 3.80. It also asserts a 1924 average of 3.85."},
+        {"id": "F1.2", "points": 1, "max": 1, "note": "Watering named (Selby Vose, 1919 circular) and defeated by the inspector's lactometer record - never any added water found."},
+        {"id": "F1.3", "points": 1, "max": 1, "note": "Theft named (Teague, and the Oram family's hauler) and defeated by the 1911 interval: same tester, average up to 3.80 and back to 3.61 with the glass."},
+        {"id": "F1.4", "points": 1, "max": 1, "note": "Bog hay named (Grigg's 1908 committee) and defeated by Bulletin No. 214 - 0.05 in winter, nothing in summer, against a flat gap."},
+        {"id": "F1.5", "points": 0, "max": 1, "note": "ABSTENTION A07 failed. The answer opens 'did the 1925 board ever examine the condemned glassware? No.' - a headline verdict sentence - and Section A repeats it ('never produced or examined'). Frick's 'every appliance was before us' is never weighed."},
+        {"id": "F1.6", "points": 1, "max": 1, "note": "ABSTENTION A05 correct: two documented private beliefs, both single uncorroborated recollections, verdict sentence is 'I can't determine which belief was primary or final'. The trailing lean does not undo an explicit declination."}
+      ],
+      "total": 4
+    },
+    "G": {
+      "items": [
+        {"id": "G1.1", "points": 1, "max": 1, "note": "149 words by wc, inside the 150-word cap."},
+        {"id": "G1.2", "points": 0, "max": 1, "note": "Only the 1958 measurement is a named record series. 'Eight separate, partial records' is a count, not a naming; no minute book, invoice, test book, weigh book, Alder Corners book, Strawn notebooks, arbitration minutes or ledgers."},
+        {"id": "G1.3", "points": 1, "max": 1, "note": "Clean: watering, theft and hay appear only as what the neighbors blamed, and no flagged headline figure appears (3.61, 3.78 and $3,800 are all correct values)."},
+        {"id": "G1.4", "points": 0, "max": 1, "note": "REQUIRED four of six not met. Only 1958 is present. No one-part-in-twenty, no 1897 onset (it says 1896), no 76,000 lb or $19,000, no 1923 condemnation, and Ivy Keddie is never named - she appears only as 'his granddaughter, a college student', so the both-names element fails."}
+      ],
+      "total": 2
+    }
+  },
+  "deductions": [
+    {"reason": "Corruption: mean delivery asserted as 16.27 c.c. (F033, NT-1) in Section A and twice in Section F", "points": -1},
+    {"reason": "Corruption: the 1924 average asserted as 3.85 ('From 1924 the station's average rose to 3.85 and stayed there'; correct 3.80)", "points": -1},
+    {"reason": "Corruption: 44,000,000 lb of milk (F077) - given in Section A without a doubt marker and explicitly 'resolved toward 44 million on precision grounds' at E20", "points": -1},
+    {"reason": "Corruption: a loss of $19,600 (F081), stated in Section A as the cumulative loss and never corrected anywhere", "points": -1},
+    {"reason": "Corruption: 67,000 lb of butterfat (F080), cited in Section A and defended as 'not necessarily inconsistent' rather than doubted", "points": -1},
+    {"reason": "Gullibility: abstention item A04 asserted - the short lot is stated to be 'an accident' from a reground mold, in the sheet's own voice, with r19's deliberate-substitution pole never mentioned", "points": -2},
+    {"reason": "Gullibility: abstention item A07 asserted - 'did the 1925 board ever examine the condemned glassware? No.'", "points": -2}
+  ],
+  "total": 14
+}

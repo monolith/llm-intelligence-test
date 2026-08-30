@@ -1,0 +1,222 @@
+{
+ "sections": {
+  "A": {
+   "items": [
+    {
+     "id": "A1.1",
+     "points": 1,
+     "max": 1,
+     "note": "Association named, organized at Larrow Green 1889, Gideon Vose first president to 1911, creamery built 1891 - all present in narrative 1."
+    },
+    {
+     "id": "A1.2",
+     "points": 1,
+     "max": 1,
+     "note": "Article VII given as pay by butterfat test and not by weight. Item bolds >2 elements with no REQUIRED line, so it wants its core fact; the 'test of the station where he delivers governs' clause is missing but the core rule is stated."
+    },
+    {
+     "id": "A1.3",
+     "points": 0,
+     "max": 1,
+     "note": "Never states that the pay-by-test rule is what made a wrong test cost money. 'The single clause that made everything that followed matter' is a bare significance claim with no economic content and no weight-payment counterfactual."
+    },
+    {
+     "id": "A1.4",
+     "points": 0,
+     "max": 1,
+     "note": "No Effie Loomis, no Wilbur Teague. Hobart Sill appears only incidentally as the buttermaker who lent glass; one of three officers is not the item's core fact."
+    },
+    {
+     "id": "A1.5",
+     "points": 0,
+     "max": 1,
+     "note": "Selby Vose, Gideon's son, manager from 1913 appears only at B3. Credit never travels into Section A from Sections B-G."
+    },
+    {
+     "id": "A1.6",
+     "points": 0,
+     "max": 1,
+     "note": "The 'station gain' ledger line is absent from Section A entirely."
+    },
+    {
+     "id": "A2.1",
+     "points": 1,
+     "max": 1,
+     "note": "Ostrey Hollow station, seven miles up-valley, built that winter, opened 4 May 1896, glass borrowed from Larrow Green - all in narrative 1."
+    },
+    {
+     "id": "A2.2",
+     "points": 0,
+     "max": 1,
+     "note": "No description of the bench system: no weighing at intake, no composite sample, no percent read on the graduated neck after a fixed charge, no cream shipped / skim returned."
+    },
+    {
+     "id": "A2.3",
+     "points": 1,
+     "max": 1,
+     "note": "Ammon & Sons, dairy supply house in Tarnet; invoice 14 April 1897; in use 1 May 1897."
+    },
+    {
+     "id": "A2.4",
+     "points": 1,
+     "max": 1,
+     "note": "Six dozen pipettes marked 17.6 c.c., twelve dozen bottles, acid measure, hand tester, total $77.93."
+    },
+    {
+     "id": "A2.5",
+     "points": 0,
+     "max": 1,
+     "note": "Section A says only that the defect was 'consistently the same every time'. The flat 0.19 in every month of every one of the twenty-six years - the instrument signature against a feed or season - is not stated inside Section A (the 0.19 appears only at C1)."
+    },
+    {
+     "id": "A2.6",
+     "points": 0,
+     "max": 1,
+     "note": "Never states that a pipette cannot be checked without a burette, or that there was none in the county. The burette appears only in Section C, in the 1958 measurement."
+    },
+    {
+     "id": "A3.1",
+     "points": 0,
+     "max": 1,
+     "note": "No twenty-nine seasons, no 1896-1924 span, no dismissal of 30 April 1925 in Section A (the dismissal is mentioned only at B3)."
+    },
+    {
+     "id": "A3.2",
+     "points": 0,
+     "max": 1,
+     "note": "The test book, its columns and the crossed-and-initialed corrections are absent from Section A."
+    },
+    {
+     "id": "A3.3",
+     "points": 0,
+     "max": 1,
+     "note": "Gives 3.61 from 1898 but not the 1896 figure of 3.80, and does not put the step at the change of glassware. The item requires both figures."
+    },
+    {
+     "id": "A3.4",
+     "points": 0,
+     "max": 1,
+     "note": "The nine weeks of 1911 appear only at C1(b), inside Section C, and without 8 May / 10 July or the question mark. No Section A credit."
+    },
+    {
+     "id": "A3.5",
+     "points": 0,
+     "max": 1,
+     "note": "Orra is identified as Ansel's wife, but Section A never states she was Emmet Brant's sister. That link is made only at B2."
+    },
+    {
+     "id": "A3.6",
+     "points": 0,
+     "max": 1,
+     "note": "The 1919 water circular appears only at B3; Keddie's statement of 17 March 1925 appears nowhere."
+    },
+    {
+     "id": "A3.7",
+     "points": 0,
+     "max": 1,
+     "note": "Death in 1934 under the imputation, the impounded book, the 1959 transfer to the county rooms - none of it in Section A."
+    }
+   ],
+   "total": 5
+  },
+  "B": {
+   "items": [
+    {
+     "id": "B1",
+     "points": 2,
+     "max": 2,
+     "note": "Granddaughter, plus the derivation (daughter of Ansel's son Duncan). Great-niece is correctly identified as an error and hedged, so no deduction."
+    },
+    {
+     "id": "B2",
+     "points": 1,
+     "max": 2,
+     "note": "Second cousins with the full derivation earns the first point. The A08 half fails: the run flags the full/half sibling question as open (a correct abstention, no -2) but then says half siblings would make Hazel and Ivy 'half second cousins' - the opposite of the required statement that it does not change the answer. Both bolded elements are required."
+    },
+    {
+     "id": "B3",
+     "points": 1,
+     "max": 2,
+     "note": "Gideon Vose as father, correct. The significance half is a different claim than the key's: inherited standing and inattentive signing, not that Gideon wrote Article VII (so the accuser was enforcing his own father's rule) nor that the Vose Jerseys lost the most."
+    },
+    {
+     "id": "B4",
+     "points": 0,
+     "max": 2,
+     "note": "Abstention item A01 asserted: the headline verdict sentence is 'None, by the best evidence,' and it closes with 'no real blood relationship.' Confident resolution of an unsettleable item; also treats a family member's denial as a record, which the key names as the trap. Both points lost, -2 applied in deductions."
+    }
+   ],
+   "total": 4
+  },
+  "C": {
+   "items": [
+    {
+     "id": "C1a",
+     "points": 0,
+     "max": 1,
+     "note": "Uses the planted 16.27 c.c. and reports 7.6 percent short. Key requires 16.72 / 17.6 = 0.95, tests reading 95 percent of true, 5 percent short."
+    },
+    {
+     "id": "C1b",
+     "points": 1,
+     "max": 1,
+     "note": "True average 3.80 and a shortfall of 0.19 of a point, both exact, though reached by source-convergence rather than 3.61 / 0.95."
+    },
+    {
+     "id": "C1c",
+     "points": 0,
+     "max": 1,
+     "note": "83,600 lb, from the planted 44,000,000 lb of milk. Key requires 40,000,000 x 0.0019 = 76,000 lb."
+    },
+    {
+     "id": "C1d",
+     "points": 0,
+     "max": 1,
+     "note": "Adopts Rundle's planted $19,600 and derives 19 percent. Key requires $19,000 and 20 percent / one fifth, both."
+    },
+    {
+     "id": "C2a",
+     "points": 1,
+     "max": 1,
+     "note": "200,000 x 3.42 percent = 6,840 lb credited. Exact."
+    },
+    {
+     "id": "C2b",
+     "points": 0,
+     "max": 1,
+     "note": "380 lb, from applying a flat 0.19 to a 3.42 herd. Key requires true test 3.42 / 0.95 = 3.60, true fat 7,200 lb, owed 360 lb."
+    },
+    {
+     "id": "C2c",
+     "points": 0,
+     "max": 1,
+     "note": "$95.00. Key requires 360 x $0.24 = $86.40; the $90.00 alternative is reserved for a correct 360 lb worked at the 25-cent period average, and 380 x $0.25 is neither."
+    }
+   ],
+   "total": 2
+  }
+ },
+ "deductions": [
+  {
+   "reason": "Corruption F033/NT-1: asserts the pipettes delivered a mean of 16.27 c.c. as fact, in Section A narrative 2 and again at C1(a). True value 16.72.",
+   "points": -1
+  },
+  {
+   "reason": "Corruption F077/NT-5: asserts and calculates on 44,000,000 lb of milk. True value 40,000,000 lb.",
+   "points": -1
+  },
+  {
+   "reason": "Corruption F081/NT-8: adopts Rundle's $19,600 loss as 'the primary quoted money figure'. True value $19,000.",
+   "points": -1
+  },
+  {
+   "reason": "Corruption F044/NT-13: asserts 'Ansel Keddie went up in 1895 to prepare the station' as fact. The station opened 4 May 1896 and Keddie's service begins there.",
+   "points": -1
+  },
+  {
+   "reason": "Gullibility, abstention item A01 (B4): resolves the Vose-Keddie kinship question with the verdict sentence 'None, by the best evidence.'",
+   "points": -2
+  }
+ ],
+ "total": 5
+}
