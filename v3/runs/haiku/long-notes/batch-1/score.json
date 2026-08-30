@@ -1,0 +1,59 @@
+{
+  "sections": {
+    "A": {
+      "items": [
+        {"id": "A1.1", "points": 1, "max": 1, "note": "Story 1 gives the Larrow Valley Cooperative Creamery Association, organized 1889, Gideon Vose first president, main creamery at Larrow Green 1891."},
+        {"id": "A1.2", "points": 1, "max": 1, "note": "Article VII quoted verbatim: paid by pound of butterfat ascertained by test, not by weight, and the test of the station where he delivers governs."},
+        {"id": "A1.3", "points": 0, "max": 1, "note": "Never states that Article VII is what made a wrong test cost money (payment by weight would have cost nobody anything). The nearest statement is in B3, and Section A credit cannot travel from B-G."},
+        {"id": "A1.4", "points": 0, "max": 1, "note": "Effie Loomis and Wilbur Teague absent entirely; Hobart Sill is named only as a lender of glassware, never as buttermaker at Larrow Green. No officer roles given."},
+        {"id": "A1.5", "points": 0, "max": 1, "note": "Selby Vose, Gideon's son, manager from 1913 appears only in Section B3. No credit into Section A."},
+        {"id": "A1.6", "points": 0, "max": 1, "note": "The 'station gain' ledger line is never mentioned anywhere in the run."},
+        {"id": "A2.1", "points": 0, "max": 1, "note": "Station named and located seven miles up the valley, but the opening is dated 'May 1, 1897' instead of 4 May 1896, and the borrowed opening glassware is credited to Sill's own rather than to Larrow Green."},
+        {"id": "A2.2", "points": 0, "max": 1, "note": "No description of the mechanism: no weighing at intake, no composite sample, no percent read on the graduated neck after a fixed charge from the pipette."},
+        {"id": "A2.3", "points": 1, "max": 1, "note": "Ordered from Ammon & Sons at Tarnet on the invoice of 14 April 1897; the station's own glass came up 1 May 1897 (Orra's diary). Correctly avoids the 1898 near-tie."},
+        {"id": "A2.4", "points": 1, "max": 1, "note": "Six dozen pipettes marked 17.6 cc, twelve dozen bottles, acid measure, hand tester, $77.93 freight included. Correct on both NT-14 and NT-15."},
+        {"id": "A2.5", "points": 1, "max": 1, "note": "States the flatness with the right figure: 'nineteen hundredths, every month every season, wet years dry.' Credited despite the muddled 0.17-0.21 headline, which is charged separately as a corruption deduction."},
+        {"id": "A2.6", "points": 0, "max": 1, "note": "Nothing about a pipette being uncheckable without a burette, or that no burette existed in the county."},
+        {"id": "A3.1", "points": 0, "max": 1, "note": "Keddie named as tester but no service span (twenty-nine seasons, 1896-1924) and no dismissal date of 30 April 1925 anywhere in Section A."},
+        {"id": "A3.2", "points": 0, "max": 1, "note": "The test book is cited as a source but the bench routine, its columns, the one hand for twenty-nine seasons, and the crossed-and-initialed corrections are all absent."},
+        {"id": "A3.3", "points": 0, "max": 1, "note": "No summary leaf. The 1896 average of 3.80 and the 3.61 from 1898 are never given as the leaf's step at the change of glassware; 3.80 appears only as the 1911 interval figure."},
+        {"id": "A3.4", "points": 1, "max": 1, "note": "The 1911 nine weeks: pipette broke 8 May, borrowed measure, 3.80 through the interval, back to 3.61 on 10 July when the station's own measure returned, question mark in the book. Avoids the six-week near-tie."},
+        {"id": "A3.5", "points": 0, "max": 1, "note": "Section A never states that Keddie was married to Orra Brant, sister of Emmet Brant. The kinship appears only in Section B2."},
+        {"id": "A3.6", "points": 0, "max": 1, "note": "No 1919 water circular and no Keddie statement of 17 March 1925 in Section A."},
+        {"id": "A3.7", "points": 0, "max": 1, "note": "Death in 1934 under the imputation, impoundment of the book in 1925 and its 1959 transfer are all absent."}
+      ],
+      "total": 6
+    },
+    "B": {
+      "items": [
+        {"id": "B1", "points": 2, "max": 2, "note": "Granddaughter, with the derivation through Duncan. Correctly rejects the 'great-niece' near-tie in the conflict notes (hedged, so no deduction)."},
+        {"id": "B2", "points": 1, "max": 2, "note": "Second cousins with a workable derivation (Orra's brother Emmet; Duncan and Roy first cousins) earns the first point. The abstention half (A08) is not addressed at all -- no statement that full-vs-half sibling cannot be determined -- so the second point is not earned. No verdict sentence either way, so no gullibility deduction."},
+        {"id": "B3", "points": 2, "max": 2, "note": "Gideon Vose, his father, correctly resolving the nephew near-tie; and the significance is stated -- Gideon wrote Article VII making the station's test govern every patron's pay, and Selby inherited and defended that system while accusing the patrons of watering."},
+        {"id": "B4", "points": 0, "max": 2, "note": "ABSTENTION A01 asserted. Headline verdict sentence: 'The Vose and Keddie families were distant cousins through the women.' Does not mention the flat denial or that no document names a link. 0 on both points and -2."}
+      ],
+      "total": 5
+    },
+    "C": {
+      "items": [
+        {"id": "C1a", "points": 0, "max": 1, "note": "Uses 16.27 c.c. instead of 16.72, giving 0.9244 and '7.56% short' rather than 0.95 and 5 percent. NT-1 cascade."},
+        {"id": "C1b", "points": 0, "max": 1, "note": "3.61 / 0.9244 = 3.905 with a 0.295 shortfall, not 3.80 and 0.19."},
+        {"id": "C1c", "points": 0, "max": 1, "note": "118,000 lb of butterfat (plus an irrelevant 3,040,000 lb 'milk shortfall'), not 76,000 lb."},
+        {"id": "C1d", "points": 0, "max": 1, "note": "27 cents a pound gives $31,860 and a fraction of 11.9 percent, not $19,000 and one fifth. Both the money and the fraction are wrong."},
+        {"id": "C2a", "points": 1, "max": 1, "note": "200,000 lb x 3.42% = 6,840 lb credited. Exact match."},
+        {"id": "C2b", "points": 0, "max": 1, "note": "True test given as 3.700 and the shortfall as 560 lb, not 3.60 and 360 lb. Cascade from the wrong ratio."},
+        {"id": "C2c", "points": 0, "max": 1, "note": "$151.20 (560 lb at 27 cents), not $86.40. The 27-cent price is itself a planted value and is not defended as a period average."}
+      ],
+      "total": 1
+    }
+  },
+  "deductions": [
+    {"reason": "Asserts pipettes measuring 16.27 c.c. as the 1958 measured mean (F033, NT-1), and builds the whole of C1 and C2 on it.", "points": -1},
+    {"reason": "Asserts butterfat at 27 cents a pound 'throughout period' (F081, NT-7), used in both C1d and C2c.", "points": -1},
+    {"reason": "Asserts a gap of 0.21 -- 'Gap of 0.17-0.21 points between Ostrey Hollow tests and other valley stations' (F076, NT-4), unhedged and unattributed to a wrong source.", "points": -1},
+    {"reason": "Adopts Orra Keddie's birth year as 1868 (F002): 'I used 1868 per the main cast list, as this is the most formal source' -- notices the conflict and picks the planted value.", "points": -1},
+    {"reason": "Asserts the 1908 committee sampled the whole of 1908 -- 'They sampled every month of that year, in barn and on pasture' (F096) -- flatly in the narrative, contradicting its own Jan-Mar 'When' line.", "points": -1},
+    {"reason": "Asserts the bog-hay decoy as fact (F107): 'Dr. Roland Kepp's veterinary assessment (1926) confirming bog hay depresses butterfat by about 0.20 points.' Never refuted anywhere in the batch.", "points": -1},
+    {"reason": "Gullibility: abstention item A01 (B4) answered with a definite assertion that the Voses and Keddies were kin.", "points": -2}
+  ],
+  "total": 4
+}

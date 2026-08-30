@@ -359,3 +359,47 @@ def test_main_accepts_real_v2_prices_file(tmp_path):
 
     assert rc == 0
     assert out_path.is_file()
+
+
+# --- added 2026-08-30 -------------------------------------------------------
+
+def test_parse_batch_maxes_accepts_bare_points_in_heading(tmp_path):
+    """The shipped key writes "## Batch 1 - 34 points", with no parentheses.
+
+    Before this was handled every batch maximum rendered as 0, so the scores table
+    printed "4/0" instead of "4/34".
+    """
+    from results_long import parse_batch_maxes
+    p = tmp_path / "batches.md"
+    p.write_text(
+        "# Batch Split\n\n"
+        "## Batch 1 — 34 points\n\n| Item | Points |\n|---|---|\n| A1 | 6 |\n\n"
+        "## Batch 2 — 35 points\n\n| Item | Points |\n|---|---|\n| A4 | 6 |\n\n"
+        "## Batch 3 — 31 points\n\n| Item | Points |\n|---|---|\n| A7 | 6 |\n"
+    )
+    assert parse_batch_maxes(p) == {1: 34, 2: 35, 3: 31}
+
+
+def test_parse_batch_maxes_prefers_parenthetical_over_bare(tmp_path):
+    from results_long import parse_batch_maxes
+    p = tmp_path / "batches.md"
+    p.write_text("## Batch 1 (34 points) of 99 points\n\nbody\n")
+    assert parse_batch_maxes(p) == {1: 34}
+
+
+def test_effort_totals_counts_turns_and_tool_calls():
+    from results_long import effort_totals
+    rows = [
+        {"role": "user", "text": "go"},
+        {"role": "assistant", "text": "thinking"},
+        {"role": "assistant", "text": '[tool_use Read: {"file_path": "a.md"}]'},
+        {"role": "user", "text": "[tool_result: ...]"},
+        {"role": "assistant", "text": '[tool_use Read: {"file_path": "b.md"}]'},
+        {"role": "assistant", "text": "done"},
+    ]
+    assert effort_totals(rows) == {"turns": 4, "calls": 2}
+
+
+def test_effort_totals_empty():
+    from results_long import effort_totals
+    assert effort_totals([]) == {"turns": 0, "calls": 0}

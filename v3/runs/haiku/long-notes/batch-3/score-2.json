@@ -1,0 +1,61 @@
+{
+  "sections": {
+    "A": {
+      "items": [
+        {"id": "A7.1", "points": 0, "max": 1, "note": "No January 1925 patrons' petition anywhere in Section A; the 1924 rise is not mentioned either."},
+        {"id": "A7.2", "points": 0, "max": 1, "note": "Section A names no chairman (Frick appears only in Section F, which cannot travel into A), gives no 17 March - 4 May 1925 span, no three sessions, no weigh-room venue."},
+        {"id": "A7.3", "points": 0, "max": 1, "note": "The three argued explanations (watering / theft / bog hay) are named only in Section F; Section A says only 'no cause stated'."},
+        {"id": "A7.4", "points": 0, "max": 1, "note": "The four-book exhibit list appears only in Section F, not inside the reconstructions."},
+        {"id": "A7.5", "points": 1, "max": 1, "note": "Story 7 has the dismissal of 30 April 1925 with no finding against him, and the award of 4 May 1925, $3,800, 'without admission'. The account it was charged to is A7.6's own aspect per the key's no-double-scoring note."},
+        {"id": "A7.6", "points": 0, "max": 1, "note": "No one-fifth-of-$19,000 relation and no station-gain account identity anywhere in Section A."},
+        {"id": "A8.1", "points": 1, "max": 1, "note": "Ivy Keddie, Ansel's granddaughter, graduate student at the State Agricultural College at Farland, with Professor Leland Vaught - all four inside Story 8."},
+        {"id": "A8.2", "points": 0, "max": 1, "note": "No assembly of records that had never been in the same room; Story 8 has only the crate and the measurement."},
+        {"id": "A8.3", "points": 1, "max": 1, "note": "Crate found in the loft over the station's intake room, nine pipettes intact, placed in 1958 (measurement dated March 1958). Month February not given, but the key's own statement of this item's aspect is 'where it was found in 1958, and that nine survived'."},
+        {"id": "A8.4", "points": 0, "max": 1, "note": "Asserts 16.27 cc and a ratio of 0.9244. Key requires mean 16.72 cc, short 0.88, 0.95 of the mark. Planted error NT-1 swallowed."},
+        {"id": "A8.5", "points": 0, "max": 1, "note": "Derives 3.61 / 0.9244 = 3.905 and a shortfall of 0.295 points. Key requires 95 percent of true, 3.61 recorded where 3.80 stood, 0.19 short."},
+        {"id": "A8.6", "points": 0, "max": 1, "note": "Section A carries none of the four required elements - no 40,000,000 lb, no 76,000 lb, no $19,000 at 25 cents, no station-gain ledger identity. The milk and fat figures appear only in Section F."},
+        {"id": "A8.7", "points": 1, "max": 1, "note": "Bulletin No. 471, October 1958, with Vaught, and 'dead for twenty-four years'. The interval list is bungled ('thirty-five years after the board's hearing' is wrong), but the core fact plus one correct interval carries the item."}
+      ],
+      "total": 4
+    },
+    "E": {
+      "items": [
+        {"id": "E-a", "points": 3, "max": 3, "note": "Six conflicts found, correctly resolved, with a method stated: Orra born 1866 (row 7), weigh book from 1 Jan 1897 (row 5), condemnation 12 June 1923, award $3,800, nine pipettes, own glass from 1 May 1897. The last four are near-tie values resolved without noticing the pair, which the key says 'earns E-a credit at best'. Bucket caps at 3."},
+        {"id": "E-b", "points": 0, "max": 3, "note": "The run's dedicated near-tie section explicitly concludes there are none, and dismisses its single candidate as 'not independent narrators'. Every wrong value it resolves is attributed to one carrier only, so no pair is named and no tie-breaker is given."},
+        {"id": "E-c", "points": 0, "max": 3, "note": "None of A04, A06 or A10 is declined. A04 is asserted flatly ('A mold had been reground in the glassblowing factory at Tarnet'), A06 is asserted in passing ('a borrowed measure from another station'), A10 is never raised."},
+        {"id": "E-d", "points": 0, "max": 1, "note": "The run explicitly states 'Cases where a narrator contradicts itself: None identified', and its one attempt (Teague) concludes 'The sources do not contain a direct self-contradiction'."}
+      ],
+      "total": 3
+    },
+    "F": {
+      "items": [
+        {"id": "F1.1", "points": 0, "max": 1, "note": "Cause named but sized wrong: 16.27 cc, ratio 0.9244, 'the same fixed fraction (5.76%)', shortfall 0.295 points. Onset (1 May 1897) and cessation (12 June 1923, 1924 average 3.80) are right, but the required 16.72 / 95 percent / 0.19-is-5-percent-of-3.80 derivation is absent."},
+        {"id": "F1.2", "points": 1, "max": 1, "note": "Names the watering theory and Selby Vose, defeats it with Strawn's lactometer readings on every visit and his lack of kinship in the valley."},
+        {"id": "F1.3", "points": 1, "max": 1, "note": "Names the theft theory and Wilbur Teague, defeats it with the 1911 borrowed-measure interval - same tester, one variable changed - which the key allows as a defeater."},
+        {"id": "F1.4", "points": 1, "max": 1, "note": "Names the bog-hay theory, Nyle Grigg's 1908 committee and Dr. Kepp, defeats it with Bulletin No. 214's five hundredths in winter and nothing in summer against a flat year-round 0.19."},
+        {"id": "F1.5", "points": 0, "max": 1, "note": "ABSTENTION A07 failed. Headline verdict sentence is 'No.' - a flat assertion that the board did not examine the glassware. Gullibility deduction applied separately."},
+        {"id": "F1.6", "points": 0, "max": 1, "note": "ABSTENTION A05 failed. Headline verdict sentence is 'Ansel Keddie suspected the glass', closing 'his actions ... show he suspected the instrument'. Gullibility deduction applied separately."}
+      ],
+      "total": 3
+    },
+    "G": {
+      "items": [
+        {"id": "G1.1", "points": 1, "max": 1, "note": "150 words counting the em-dash split - exactly at the cap."},
+        {"id": "G1.2", "points": 0, "max": 1, "note": "Names at most one of the nine record series (the 1958 burette measurement). The crate of pipettes is an object, not a record; no minute book, invoice, test book, weigh book, Alder Corners book, Strawn notebook, arbitration minutes or ledgers."},
+        {"id": "G1.3", "points": 0, "max": 1, "note": "Carries a wrong headline figure into the summary: 'each pipette delivered only 94.24% of marked capacity' (true 95 percent), the direct expression of the swallowed 16.27. Also states the Hollow-vs-valley visible gap as 0.19, which is 0.17. Decoys themselves are correctly rejected."},
+        {"id": "G1.4", "points": 0, "max": 1, "note": "Only two of the six arc elements present (explained in 1958; both Keddie names). No one-part-in-twenty, no 1897, no 76,000 lb or $19,000, no 1923 condemnation. Fails the four-of-six bar and carries no onset element at all."}
+      ],
+      "total": 1
+    }
+  },
+  "deductions": [
+    {"reason": "Corruption NT-1: asserts the pipettes delivered 16.27 cc (and the derived 0.9244 / 3.905 / 0.295 cascade) as fact in Story 8, Section E and Section F. Canon: mean 16.72 cc.", "points": -1},
+    {"reason": "Corruption NT-15: Story 8 asserts 'The crate held five dozen milk-test pipettes'. Canon: six dozen (72), per the 14 April 1897 invoice. Section F says six dozen, but the planted value was still asserted as fact.", "points": -1},
+    {"reason": "Corruption NT-23 (X101/X102): asserts Strawn 'tested for added water with a lactometer at every visit from 1908 forward'. Canon: 1907, from his own first-hand covering note.", "points": -1},
+    {"reason": "Gullibility A04: asserts the accident pole as fact - 'A mold had been reground in the glassblowing factory at Tarnet' (Story 8) and 'Due to an undetected reground mold in the glassblowing process' (Section F). The Ammon works records burned in 1931 and neither pole cites a record.", "points": -2},
+    {"reason": "Gullibility A05: asserts what the tester believed - 'Ansel Keddie suspected the glass', with no declining qualifier.", "points": -2},
+    {"reason": "Gullibility A06: asserts the provenance of the 1911 borrowed measure - 'A borrowed measure from another station was used for nine weeks'. The test book says only 'a borrowed measure'.", "points": -2},
+    {"reason": "Gullibility A07: asserts that the 1925 board did not examine the condemned glassware - headline verdict 'No.'", "points": -2}
+  ],
+  "total": 0
+}

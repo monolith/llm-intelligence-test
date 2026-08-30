@@ -1,0 +1,57 @@
+{
+  "sections": {
+    "A": {
+      "items": [
+        {"id": "A1.1", "points": 0, "max": 1, "note": "Names the Larrow Valley Cooperative Creamery Association but gives no 1889 founding, no Gideon Vose as first president, no 1891 creamery. Core fact absent."},
+        {"id": "A1.2", "points": 0, "max": 1, "note": "Article VII never mentioned anywhere in the reconstructions (or anywhere in the paper)."},
+        {"id": "A1.3", "points": 0, "max": 1, "note": "Never states that payment by butterfat test, not milk weight, is what made a wrong test cost money."},
+        {"id": "A1.4", "points": 0, "max": 1, "note": "Effie Loomis, Wilbur Teague, Hobart Sill absent; 'Loomis' appears only as a name the run says it lost."},
+        {"id": "A1.5", "points": 0, "max": 1, "note": "Selby Vose as Gideon's son, manager from 1913, not stated; the run explicitly declines the parentage at B3, and B-G credit cannot travel into Section A."},
+        {"id": "A1.6", "points": 0, "max": 1, "note": "The 'station gain' ledger line is absent from the whole paper."},
+        {"id": "A2.1", "points": 1, "max": 1, "note": "Ostrey Hollow skimming station, opened 4 May 1896, first year on glassware borrowed from Larrow Green seven miles down the valley — all present in story 1."},
+        {"id": "A2.2", "points": 0, "max": 1, "note": "No description of the method: no weighing at intake, no composite sample, no percent read on the graduated neck after a fixed pipette charge. 'Ran the separator and made the tests' is not it."},
+        {"id": "A2.3", "points": 1, "max": 1, "note": "Invoice of 14 April 1897 and glass in use 1 May 1897 both given, with Ammon named as the firm whose 1949 history reproduces the invoice, and the 1898 corruption explicitly rejected. Tarnet and the vendor's full name are missing, but the item's core fact (dated purchase of the station's own outfit) is right."},
+        {"id": "A2.4", "points": 0, "max": 1, "note": "Invoice contents and total absent: no 6 dozen pipettes, no $77.93. (The $77.39 corruption is mentioned only at C2, and is declined there.)"},
+        {"id": "A2.5", "points": 1, "max": 1, "note": "States every test on that glass read 0.19 low, quoting 'nineteen hundredths, flat as a floor' — the flat shortfall is asserted."},
+        {"id": "A2.6", "points": 0, "max": 1, "note": "Never says a pipette is the one instrument the scale rests on and cannot be checked without a burette; no burette mentioned in Section A at all."},
+        {"id": "A3.1", "points": 1, "max": 1, "note": "Ansel Keddie, tester at Ostrey Hollow twenty-nine seasons 1896-1924, put out one week into the thirtieth. Service and its end are there; the exact dismissal date 30 April 1925 is not, but the item's own aspect is the service and its end."},
+        {"id": "A3.2", "points": 1, "max": 1, "note": "Thin but earned on the bolded element: 'he kept the station books in his own hand for twenty-nine seasons'. Columns and the crossed-and-initialed corrections are unbolded context and cannot lose the point."},
+        {"id": "A3.3", "points": 0, "max": 1, "note": "The summary leaf is absent. Neither 3.80 (1896) nor 3.61 (from 1898) appears anywhere in Section A; C1(b) instead invents 3.78/3.59, and C credit cannot travel into A."},
+        {"id": "A3.4", "points": 1, "max": 1, "note": "Nine weeks of 1911: broke 8 May, borrowed measure, returned 10 July, tests fell back the same day, question mark in the book. Missing the 3.80/3.61 levels ('markedly higher' instead), but the interval and its dates carry the item."},
+        {"id": "A3.5", "points": 0, "max": 1, "note": "Section A never states Orra was a Brant or Emmet's sister; the marriage to Orra Brant appears only at B2, hedged, and B credit cannot travel into A."},
+        {"id": "A3.6", "points": 0, "max": 1, "note": "The 1919 water circular appears only at B3/B4, not in Section A; the run's Section A '1919' is the reprint of the 1908 hay finding. Keddie's 17 March 1925 statement is absent entirely."},
+        {"id": "A3.7", "points": 0, "max": 1, "note": "Section A gives birth 1861 only; the 1934 death appears at B1, and the impounded test book / 1959 county historical rooms are absent."}
+      ],
+      "total": 6
+    },
+    "B": {
+      "items": [
+        {"id": "B1.answer", "points": 1, "max": 1, "note": "'His granddaughter' — correct."},
+        {"id": "B1.derivation", "points": 1, "max": 1, "note": "Correct chain: Ivy is Duncan's daughter, Duncan is Ansel's son, with three converging checks."},
+        {"id": "B2.answer", "points": 0, "max": 1, "note": "Answers 'cannot be determined' where the key requires second cousins with the Emmet/Orra sibling derivation. This is an ordinary item, not the abstention pole; no credit."},
+        {"id": "B2.abstention_A08", "points": 0, "max": 1, "note": "A08 not addressed: the run never raises whether Emmet and Orra were full or half siblings, nor that it would not change the answer. No assertion either, so no gullibility deduction."},
+        {"id": "B3.answer", "points": 0, "max": 1, "note": "Declines to name Gideon Vose. Honest hedging, but the sources settle it and the point is not earned."},
+        {"id": "B3.significance", "points": 0, "max": 1, "note": "No significance given (Article VII, or the Vose Jerseys as largest loser)."},
+        {"id": "B4.abstention_A01", "points": 1, "max": 1, "note": "Correct abstention: 'No relationship is established, and I decline to invent one... the sources that survived to me do not decide this.' No verdict sentence either way."},
+        {"id": "B4.established", "points": 0, "max": 1, "note": "Does not state what is established — two narrators asserting cousinship from talk, one flat denial, no document naming or denying a link, a family member's denial not being a record. Offers instead the 1919 circular contact and the diary's silence."}
+      ],
+      "total": 3
+    },
+    "C": {
+      "items": [
+        {"id": "C1a", "points": 1, "max": 1, "note": "16.72 / 17.6 = 0.95, tests read 5 per cent low; exact."},
+        {"id": "C1b", "points": 0, "max": 1, "note": "Gives true average 3.78 and recorded 3.59 instead of 3.61 / 0.95 = 3.80. The 0.19 gap is right but the two required figures are wrong; exact-match item, no credit."},
+        {"id": "C1c", "points": 1, "max": 1, "note": "40,000,000 x 0.0019 = 76,000 lb; exact (span mislabeled ~1900-1925, but the figure and the 25-year multiplication are right)."},
+        {"id": "C1d", "points": 1, "max": 1, "note": "76,000 x $0.25 = $19,000; $3,800 received = 20 per cent, one fifth. Both money and fraction present; $19,600 and $3,500 corruptions rejected."},
+        {"id": "C2a", "points": 0, "max": 1, "note": "Declined. 6,840 lb not given; the run says no source gives an individual patron's poundage, missing Brant's 200,000 lb at 3.42."},
+        {"id": "C2b", "points": 0, "max": 1, "note": "Declined. 360 lb owed not given."},
+        {"id": "C2c", "points": 0, "max": 1, "note": "Declined. $86.40 not given."}
+      ],
+      "total": 3
+    }
+  },
+  "deductions": [
+    {"reason": "Corruption asserted as fact (X100/F058): 'Ansel physically carried the circular to eleven families, per his wife the night he did it' — the planted eleven stated as what happened, not hedged. Truth is nine.", "points": -1}
+  ],
+  "total": 11
+}

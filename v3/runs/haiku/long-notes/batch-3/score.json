@@ -1,0 +1,217 @@
+{
+ "sections": {
+  "A": {
+   "items": [
+    {
+     "id": "A7.1",
+     "points": 0,
+     "max": 1,
+     "note": "No January 1925 petition anywhere in Section A; the 1924 rise that prompted it is never mentioned in the reconstructions."
+    },
+    {
+     "id": "A7.2",
+     "points": 0,
+     "max": 1,
+     "note": "Section A names no board chairman (Frick), no 17 March - 4 May 1925 span, no three sessions, no weigh-room venue. Frick appears only in Section F, from which credit cannot travel into A."
+    },
+    {
+     "id": "A7.3",
+     "points": 0,
+     "max": 1,
+     "note": "The three argued explanations (watering / theft of cream / bog hay) and their non-acceptance appear only in Sections F and G, not in the reconstructions."
+    },
+    {
+     "id": "A7.4",
+     "points": 0,
+     "max": 1,
+     "note": "The four-book exhibit list is given only in Section F. Not creditable to Section A."
+    },
+    {
+     "id": "A7.5",
+     "points": 1,
+     "max": 1,
+     "note": "Story 7 gives the 30 April 1925 dismissal after twenty-nine seasons, 'No finding against him was made; the dismissal came without cause stated', and the 4 May award of $3,800 'without admission'. Core fact present; only 'charged to the station account' is missing, which is A7.6's own aspect."
+    },
+    {
+     "id": "A7.6",
+     "points": 0,
+     "max": 1,
+     "note": "No statement that the award was one fifth of the ~$19,000 lost, and no identity with the station-gain account, anywhere in Section A."
+    },
+    {
+     "id": "A8.1",
+     "points": 1,
+     "max": 1,
+     "note": "Story 8: 'Ivy Keddie - Ansel's granddaughter and a graduate student at the State Agricultural College at Farland', and Professor Leland Vaught named in the same narrative."
+    },
+    {
+     "id": "A8.2",
+     "points": 0,
+     "max": 1,
+     "note": "Section A does not state that she assembled records never before in one room; the test book, weigh book, Alder Corners figures, Strawn's notebooks and Association ledgers are not listed there."
+    },
+    {
+     "id": "A8.3",
+     "points": 1,
+     "max": 1,
+     "note": "Crate found in the loft above the station's intake room, nine pipettes intact, measured March 1958. The key's own disambiguation note fixes this item's aspect as 'where it was found in 1958, and that nine survived'; the exact month of the find is not core."
+    },
+    {
+     "id": "A8.4",
+     "points": 0,
+     "max": 1,
+     "note": "Asserts 16.27 c.c. and a ratio of 0.9244 - the NT-1 planted value. Key requires 16.72 c.c., short 0.88, 0.95 of the mark."
+    },
+    {
+     "id": "A8.5",
+     "points": 0,
+     "max": 1,
+     "note": "Cascade from 16.27: '3.61 / 0.9244 = 3.905 percent', 'shortfall was precisely 0.295 points'. Key requires 95 percent of true, 3.80 standing behind 3.61, 0.19 short."
+    },
+    {
+     "id": "A8.6",
+     "points": 0,
+     "max": 1,
+     "note": "REQUIRED all four (40,000,000 lb milk, 76,000 lb fat, ~$19,000, identity with the ledger's station-gain total). None of the four appears in Section A; the milk and fat figures are stated only in Section F."
+    },
+    {
+     "id": "A8.7",
+     "points": 1,
+     "max": 1,
+     "note": "Story 8: 'published their findings in Bulletin No. 471 in October 1958' plus 'Ansel Keddie had been dead for twenty-four years' and the exoneration framing. Bulletin, date and one of the three intervals present."
+    }
+   ],
+   "total": 4
+  },
+  "E": {
+   "items": [
+    {
+     "id": "E-a",
+     "points": 2,
+     "max": 3,
+     "note": "Two of the sixteen enumerated E-a rows found, resolved correctly and with a method stated: row 7 (Orra Keddie 1868 vs 1866, resolved 1866) and row 5 (weigh book 1900 vs 1897, resolved 1 January 1897). The run's other four conflicts - condemnation date, award amount, pipette count, outfit-in-use date - are not E-a rows; they are near-tie pairs, and the run names only a single carrier for each wrong value, so they route to E-b and fail there."
+    },
+    {
+     "id": "E-b",
+     "points": 0,
+     "max": 3,
+     "note": "No near-tie pair is identified. Every wrong value the run resolves is attributed to one narrator only (Rundle, Oram, Kyle, Hazel Brant). Its own heading 'Cases where two narrators carry the same wrong value' offers a single candidate and then dismisses it as one source, so criterion (i) is never met."
+    },
+    {
+     "id": "E-c",
+     "points": 0,
+     "max": 3,
+     "note": "No abstention conflict is stated as unsettleable. A04 is asserted the opposite way ('A mold had been reground in the glassblowing factory at Tarnet'); A06 is asserted loosely ('a borrowed measure from another station'); A10 is not raised at all."
+    },
+    {
+     "id": "E-d",
+     "points": 0,
+     "max": 1,
+     "note": "The run explicitly declines: 'Cases where a narrator contradicts itself: None identified', and its Teague entry concludes 'The sources do not contain a direct self-contradiction'. No narrator self-refutation is identified."
+    }
+   ],
+   "total": 2
+  },
+  "F": {
+   "items": [
+    {
+     "id": "F1",
+     "points": 0,
+     "max": 1,
+     "note": "Cause named but sized on the planted value: 16.27 c.c., ratio 0.9244, gap 0.295. Fails the required 16.72 / 95 percent / 0.19-as-5-percent-of-3.80 derivation. Onset and cessation are otherwise correctly bounded (1 May 1897, 12 June 1923, 1924 average 3.80)."
+    },
+    {
+     "id": "F2",
+     "points": 1,
+     "max": 1,
+     "note": "Names the watering explanation (Selby Vose) and defeats it with Strawn's lactometer readings on every visit and his 1919 notebook entry."
+    },
+    {
+     "id": "F3",
+     "points": 1,
+     "max": 1,
+     "note": "Names the theft explanation (Wilbur Teague) and defeats it with the 1911 interval - same tester, same herds, one object changed, tests rose to 3.80 and fell back the day the station's own measure returned."
+    },
+    {
+     "id": "F4",
+     "points": 1,
+     "max": 1,
+     "note": "Names the bog-hay explanation (Nyle Grigg's 1908 committee, Dr. Kepp) and defeats it with Bulletin No. 214's five hundredths in winter and nothing in summer against a flat 0.19 year-round."
+    },
+    {
+     "id": "F5",
+     "points": 0,
+     "max": 1,
+     "note": "ABSTENTION A07 asserted. Headline verdict sentence: 'Did the 1925 board examine the condemned glassware? No.' Later hedging does not undo it."
+    },
+    {
+     "id": "F6",
+     "points": 0,
+     "max": 1,
+     "note": "ABSTENTION A05 asserted. Headline verdict sentence: 'Ansel Keddie suspected the glass.' The run then argues the point rather than declining it."
+    }
+   ],
+   "total": 3
+  },
+  "G": {
+   "items": [
+    {
+     "id": "G1.1",
+     "points": 1,
+     "max": 1,
+     "note": "149 words - within the 150-word cap."
+    },
+    {
+     "id": "G1.2",
+     "points": 0,
+     "max": 1,
+     "note": "Names at most one of the nine record series (the 1958 measurement against the burette). No minute book, invoice, test book, weigh book, Alder Corners book, Strawn's notebooks, arbitration minutes or ledgers. Five required."
+    },
+    {
+     "id": "G1.3",
+     "points": 0,
+     "max": 1,
+     "note": "Carries a wrong headline figure: 'each pipette delivered only 94.24% of marked capacity' - the NT-1 cascade value where the key requires 95 percent. No decoy is stated as fact, but one wrong headline number loses the point outright."
+    },
+    {
+     "id": "G1.4",
+     "points": 0,
+     "max": 1,
+     "note": "REQUIRED four of six covering both ends. Present: 1958 explanation, and both Keddie names. Absent: one part in twenty (gives 94.24%), 1897 onset (gives 1889), 76,000 lb or $19,000, and the 1923 condemnation date. Two of six, and no onset element at all."
+    }
+   ],
+   "total": 1
+  }
+ },
+ "deductions": [
+  {
+   "reason": "Planted error asserted as fact: pipettes measuring 16.27 c.c. (F033 / NT-1), stated in Story 8 and again in Section F.",
+   "points": -1
+  },
+  {
+   "reason": "Planted error asserted as fact: 'The crate held five dozen milk-test pipettes' (F089 / NT-15). Six dozen is correct; the run contradicts itself in Section F but the assertion stands.",
+   "points": -1
+  },
+  {
+   "reason": "Planted error asserted as fact: Strawn testing 'at every visit from 1908 forward' - the 1908 circuit start (catalogued planted error; 1907 is correct).",
+   "points": -1
+  },
+  {
+   "reason": "Gullibility: abstention item A04 (accident vs substitution) asserted - 'A mold had been reground in the glassblowing factory at Tarnet' / 'Due to an undetected reground mold'.",
+   "points": -2
+  },
+  {
+   "reason": "Gullibility: abstention item A06 (whose measure was borrowed in 1911) asserted - 'A borrowed measure from another station was used for nine weeks', a flat provenance claim that excludes the state inspector's pole.",
+   "points": -2
+  },
+  {
+   "reason": "Gullibility: abstention item A07 (did the 1925 board examine the glassware) asserted with the verdict sentence 'No.'",
+   "points": -2
+  },
+  {
+   "reason": "Gullibility: abstention item A05 (what the tester believed) asserted with the verdict sentence 'Ansel Keddie suspected the glass.'",
+   "points": -2
+  }
+ ],
+ "total": 0
+}

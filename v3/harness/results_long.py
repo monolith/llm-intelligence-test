@@ -81,6 +81,8 @@ _ABSTENTION_RE = re.compile(r"cannot be determined", re.IGNORECASE)
 _BATCH_HEADING_RE = re.compile(r"^(#{1,6})\s*Batch\s+(\d+)\b([^\n]*)$", re.IGNORECASE | re.MULTILINE)
 _POINTS_RE = re.compile(r"\(\s*(\d+)\s*points?\s*\)", re.IGNORECASE)
 _TOTAL_LINE_RE = re.compile(r"(?i)\btotal\b[^\n]{0,40}?(\d+)\s*points?")
+# a heading may state its total without parentheses: "## Batch 1 - 34 points"
+_HEADING_POINTS_RE = re.compile(r"(\d+)\s*points?\b", re.IGNORECASE)
 
 
 # --------------------------------------------------------------------------- loading
@@ -153,6 +155,10 @@ def parse_batch_maxes(path: Path) -> dict[int, int]:
         if heading_points:
             maxes[batch_num] = sum(int(p) for p in heading_points)
             continue
+        bare = _HEADING_POINTS_RE.findall(heading_rest)
+        if bare:
+            maxes[batch_num] = sum(int(p) for p in bare)
+            continue
         total_match = _TOTAL_LINE_RE.search(body)
         if total_match:
             maxes[batch_num] = int(total_match.group(1))
@@ -200,6 +206,23 @@ def usage_field(usage: dict | None, key: str) -> float:
     if not usage:
         return 0
     return _num(usage.get(key))
+
+
+def effort_totals(rows: list[dict]) -> dict:
+    """Assistant turns and tool calls in a captured transcript.
+
+    On a subscription plan the dollar figures are notional; turns and calls are what the
+    run actually spends, and they are what a rate limit is denominated in. A "turn" is one
+    assistant message; a "call" is one tool use inside those messages.
+    """
+    turns = calls = 0
+    for row in rows:
+        if row.get("role") != "assistant":
+            continue
+        turns += 1
+        if "[tool_use " in (row.get("text") or ""):
+            calls += 1
+    return {"turns": turns, "calls": calls}
 
 
 def token_totals(rows: list[dict]) -> dict:
@@ -510,6 +533,33 @@ def render_notes_section(cells: dict[tuple[str, str], dict]) -> str:
     return "\n".join(lines)
 
 
+
+def render_effort_table(cells: dict[tuple[str, str], dict]) -> str:
+    """Turns, tool calls and tokens per cell -- the subscription-plan currency."""
+    lines = ["## Effort (turns, tool calls, tokens)", "",
+             "Dollars are notional on a subscription plan; these are what a run actually spends.",
+             "",
+             "| Model | Mode | Phase | Assistant turns | Tool calls | Input tokens | Output tokens |",
+             "|---|---|---|---|---|---|---|"]
+    for model in MODEL_ROWS:
+        for mode in MODE_COLS:
+            cell = cells[(model, mode)]
+            phases = [("ingest", cell.get("ingest_rows") or [])]
+            for b in BATCH_NUMS:
+                phases.append((f"batch-{b}", (cell.get("batches") or {}).get(b, {}).get("rows") or []))
+            for phase, rows in phases:
+                if not rows:
+                    label = DASH if (phase == "ingest" and mode == "long-reread") else PENDING
+                    lines.append(f"| {model} | {mode} | {phase} | {label} | {label} | {label} | {label} |")
+                    continue
+                e = effort_totals(rows)
+                t = token_totals(rows)
+                inp = t["raw_input"] + t["cache_read"] + t["cache_write"]
+                lines.append(f"| {model} | {mode} | {phase} | {e['turns']} | {e['calls']} | "
+                             f"{_fmt_num(inp)} | {_fmt_num(t['output'])} |")
+    return "\n".join(lines)
+
+
 def render_report(runs_dir: Path, prices: dict, batch_maxes: dict[int, int], date_str: str) -> str:
     cells = all_cells(runs_dir)
     parts = [
@@ -518,6 +568,8 @@ def render_report(runs_dir: Path, prices: dict, batch_maxes: dict[int, int], dat
         f"Generated: {date_str}",
         "",
         render_cost_curve_table(cells, prices),
+        "",
+        render_effort_table(cells),
         "",
         render_scores_table(cells, batch_maxes),
         "",
