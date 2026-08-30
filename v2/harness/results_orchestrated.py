@@ -98,8 +98,9 @@ def load_cell(runs_dir: Path, model: str, mode: str) -> dict:
         "score": load_json_or_none(cell_dir / "score.json"),
         "score2": load_json_or_none(cell_dir / "score-2.json"),
         "segments": load_transcript_segments(cell_dir, mode),
-        "notes_r04": load_text_or_none(cell_dir / "notes-after-r04.md") if mode == "noisy" else None,
-        "notes_r08": load_text_or_none(cell_dir / "notes-after-r08.md") if mode == "noisy" else None,
+        "notes": ({p.name: load_text_or_none(p)
+                   for p in sorted(cell_dir.glob("notes-after-r*.md"))}
+                  if mode == "noisy" else {}),
     }
 
 
@@ -324,7 +325,7 @@ def render_judge_stability(cells: dict[tuple[str, str], dict]) -> str:
     return "\n".join(lines)
 
 
-def render_notes_section(cells: dict[tuple[str, str], dict]) -> str:
+def render_notes_section(cells: dict[tuple[str, str], dict], label: str) -> str:
     lines = ["## Notes", ""]
 
     lines.append('### Abstentions ("cannot be determined")')
@@ -340,20 +341,24 @@ def render_notes_section(cells: dict[tuple[str, str], dict]) -> str:
     lines.append("")
     lines.append("### Noisy-mode notes word counts")
     lines.append("")
-    lines.append("| Model | notes-after-r04.md | notes-after-r08.md |")
-    lines.append("|---|---|---|")
-    for model in MODEL_ROWS:
-        cell = cells[(model, "noisy")]
-        r04 = cell["notes_r04"]
-        r08 = cell["notes_r08"]
-        r04_count = PENDING if r04 is None else str(len(r04.split()))
-        r08_count = PENDING if r08 is None else str(len(r08.split()))
-        lines.append(f"| {model} | {r04_count} | {r08_count} |")
+    checkpoints = sorted({name for model in MODEL_ROWS
+                          for name in cells[(model, "noisy")]["notes"]},
+                         key=lambda n: int(re.search(r"r(\d+)", n).group(1)))
+    if not checkpoints:
+        lines.append("No noisy-mode notes on disk.")
+    else:
+        lines.append("| Model | " + " | ".join(checkpoints) + " |")
+        lines.append("|---" * (len(checkpoints) + 1) + "|")
+        for model in MODEL_ROWS:
+            notes = cells[(model, "noisy")]["notes"]
+            counts = [PENDING if notes.get(name) is None else str(len(notes[name].split()))
+                      for name in checkpoints]
+            lines.append(f"| {model} | " + " | ".join(counts) + " |")
 
     lines.append("")
     lines.append("### Caveats")
     lines.append("")
-    lines.append(CAVEAT_PARAGRAPH)
+    lines.append(CAVEAT_PARAGRAPH.format(label=label))
 
     return "\n".join(lines)
 
@@ -361,7 +366,7 @@ def render_notes_section(cells: dict[tuple[str, str], dict]) -> str:
 def render_report(runs_dir: Path, prices: dict, date_str: str, label: str = "2.1") -> str:
     cells = all_cells(runs_dir)
     parts = [
-        f"# Story test {label} -- orchestrated runs",
+        f"# Story test v{label} -- orchestrated runs",
         "",
         f"Generated: {date_str}",
         "",
@@ -373,7 +378,7 @@ def render_report(runs_dir: Path, prices: dict, date_str: str, label: str = "2.1
         "",
         render_judge_stability(cells),
         "",
-        render_notes_section(cells),
+        render_notes_section(cells, label),
         "",
     ]
     return "\n".join(parts)
