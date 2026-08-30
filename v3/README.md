@@ -51,9 +51,75 @@ the correct answer is that the sources do not settle the question, and a confide
 zero. Asserting a planted error as fact costs points; hedging it ("one source wrongly claims…")
 does not. Every cell is scored twice by independent judges and both totals are reported.
 
-## Running it yourself
+## How to run the test
 
-The short variant needs only `test-input/`. For the long variant see
-`harness/PROTOCOL-LONG.md`, which documents the segment schedule, the delivery rules, the
-verification steps, and the failures found while running it — including the ones caused by the
-harness rather than the models.
+The rule that makes results comparable: **the system under test gets the material and the
+questions, and nothing else.** No answer key, no canon, no corruption map, no file listing that
+reveals which documents are distractors. Deliver documents in the prescribed order, one read each,
+and never let the model go back to a source after the questions arrive.
+
+### Short variant — three administrations
+
+Same material and same questions each time; only the delivery changes.
+
+1. **single** — give it `test-input/bundle-single.md` (all twenty-four retellings followed by the
+   questions) in one shot. Ask for the answer sheet back.
+2. **sequential** — give it `test-input/retellings/r01.md`, then `r02.md`, … `r24.md`, one at a
+   time, asking for a one-line acknowledgement after each. Then `test-input/questions.md`.
+3. **noisy** — as sequential, but after each retelling deliver the next distractor from
+   `distractors/ORDER.md` and ask its one-line surface question. Replace the reader twice (after
+   r08 and after r16): the outgoing reader writes retention notes, and a **fresh** instance starts
+   from those notes alone. That handoff is the compaction.
+
+The answer sheet is written in three parts (Section A stories 1–4; Section A stories 5–8 plus
+Section B; Sections C–G) — a single write of the whole sheet tends to get truncated.
+
+### Long variant — the part that does not fit
+
+Material: the same twenty-four retellings, but eight of them delivered inside their
+`test-input/long/rNN-long.md` wrappers, with `distractors/long/L1…L4.md` after r06, r12, r18 and
+r24 and the short distractors in `ORDER.md` between the rest. Roughly 1.5M tokens.
+
+Plan the reading with `harness/plan_segments.py`, which walks the fixed order and cuts a new
+segment every time a token budget would be exceeded, splitting documents mid-file where a cut
+falls inside one:
+
+    python3 harness/plan_segments.py --root v3 --model <name> --budget 110000 \
+        --out runs/<name>/long-notes/ingest/plan.json
+    python3 harness/plan_segments.py --root v3 --model <name> --out … --render 1
+
+Then, per segment: run `harness/split_big_reads.py` on the rendered file (a single Read call
+cannot return more than ~25k tokens, and a reader's own notes are few lines of enormous length —
+splitting on line count alone is not enough), hand the file to a fresh reader, and step the chain
+with `harness/ingest_step.sh <model> <segment> <transcript> <budget>`, which captures the
+transcript, verifies it, checks that every prescribed span actually came back, and renders the
+next segment.
+
+Two modes, and the comparison between them is the point:
+
+- **long-notes** — ingest once, then answer each question batch from the final notes alone. One
+  expensive pass; every later question is cheap.
+- **long-reread** — re-read the whole corpus for each batch, with that batch's questions in hand
+  from the first page. Three expensive passes, but the reading is targeted rather than blind.
+  Use `harness/reread_step.sh <model> <batch> <segment> <transcript> <budget>`.
+
+### Scoring
+
+Give a judge `answer-key/answers-and-scoring.md` and the run's answers — and nothing else. Score
+every item; exact-match sections take no near misses; abstention items score only when the run
+actually abstains; subtract for planted errors asserted as fact, but not for hedged mentions.
+Section A is credited wherever a keyed fact appears among the run's eight reconstructions, since
+the run chooses its own partition, but never from another section.
+
+Judge every cell **twice, independently**, and report both totals. Across the twelve short-variant
+cells the two judges differed by 0–8 points out of 100, which is the honest precision of a single
+number here.
+
+### Verifying a run before you believe it
+
+`harness/read_coverage.py` compares what each segment prescribed against the spans the reader
+actually received, and `v2/harness/verify_transcript.py` checks that the reader opened only what it
+was given. Both exist because runs failed silently without them: a prescribed read that exceeded
+the tool's limit cost one chain its entire carried memory, and one model skipped a read containing
+scored material and then reported the segment complete. `harness/PROTOCOL-LONG.md` records those
+failures, what was lost, and what was re-run.
