@@ -85,3 +85,16 @@ Step 5 was the first 800-line read of `r03-long.md`. The re-read chains were see
 That also explains the original segment-8 failures: they clustered around the reads of a 26,193-word notes file and the recovery attempts around them, not around any particular passage of content.
 
 All four seeded `segment-1.md` files have been re-split (fable and opus went from 22 to 42 steps, sonnet likewise, haiku from 12 to 26). Whether fable's chain now runs is an open question at the time of writing; the earlier claim about its notes should not be relied on.
+
+### Fable, final state: blocked in both long modes; trigger not isolated (2026-08-30)
+Nine attempts across two chain types. `long-notes` died at segment 8 (steps 4, 5, 1, 11, 1); `long-reread` died at segment 1 (step 5, four times). Always the same API error, `[reasoning_extraction]`. What has been ruled out:
+
+- **Its carried notes.** The re-read chain starts with no notes at all and fails identically.
+- **Oversized reads.** Re-splitting the seeded segments (22 → 42 steps) changed nothing.
+- **Long deliberation.** Instructing it to keep between-step remarks to one line changed nothing.
+- **Reasoning about provenance.** Instructing it not to analyze how the documents were made or why they are in the set changed nothing.
+- **The material itself.** A one-shot probe — fable reading the exact chunk it dies on (`r03-long.md` lines 1–300), nothing else in context — succeeded in six seconds. Its answer: "synthetic filler text … clearly built as test input for long-context LLM evaluation."
+
+So the trigger needs the chain: the batch questions, a long list of prescribed reads, and this material together. The last probe suggests why — fable recognizes the corpus as an evaluation harness, and that recognition inside a long instruction-following context appears to be what fires. That is a hypothesis, not a finding; the trigger was not isolated further and further attempts were stopped on cost.
+
+**Reported status: fable long-variant = blocked, both modes.** Its short variant is complete and scored (single 84/82, sequential 83/81, noisy 81/81). Long-notes segments 1–7 are verified on disk. No fable long number should be inferred from the other models.
