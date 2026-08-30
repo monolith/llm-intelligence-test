@@ -11,7 +11,7 @@ PY=$ROOT/v2/harness/.venv/bin/python
 cd $ROOT
 $PY v2/harness/capture_transcript.py "$OUT" --out $D/transcript-seg$S.jsonl | tail -1
 ALLOWED=$($PY v3/harness/plan_segments.py --root v3 --model $M --budget $BUD --max-lines 800 --out /dev/null --verify-allowed $S | tr -d '"' | tr '\n' ' ')
-$PY v2/harness/verify_transcript.py --transcript $D/transcript-seg$S.jsonl --allowed segment-$S.md --allowed batch-$B.md $ALLOWED || echo "VERIFY FAILED $M b$B seg $S"
+$PY v2/harness/verify_transcript.py --transcript $D/transcript-seg$S.jsonl --allowed batch-$B.md --allowed segment-$S.md $ALLOWED || echo "VERIFY FAILED $M b$B seg $S"
 CAP=$(grep -c "exceeds maximum allowed tokens" $D/transcript-seg$S.jsonl)
 [ "$CAP" != "0" ] && echo "!! $CAP read(s) hit the token cap in seg $S"
 wc -w $D/notes-$S.md 2>/dev/null | awk '{print "notes words:",$1}'

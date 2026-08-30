@@ -76,3 +76,12 @@ Either would plausibly read to a reasoning-extraction classifier as a model cata
 **Status: fable long-variant = blocked, not "failed to score" and not "not run".** Its three short-variant cells are complete and scored (single 84/82, sequential 83/81, noisy 81/81). Segments 1–7 of the long ingest are on disk and verified; the chain resumes from segment 8 if the blocker clears.
 
 The untried option is to rebuild the carried notes without the two harness-structure sections and restart from segment 8. That edits the system under test's own output, so it is not a call to make silently — it is recorded here as the open question, not taken.
+
+### Correction to the fable diagnosis (2026-08-30)
+The section above attributed fable's `reasoning_extraction` blocker to the harness-structure sections in its own carried notes. That was wrong, and the evidence that overturned it arrived immediately: fable's `long-reread` chain, which starts fresh with no carried notes at all, failed the same way — twice, at exactly step 5 of segment 1.
+
+Step 5 was the first 800-line read of `r03-long.md`. The re-read chains were seeded by copying each model's `segment-1.md` from the original ingest, which had been rendered **before** the byte-aware splitter existed, so it still prescribed reads no single Read call can return. The likely mechanism is therefore: an impossible read fails → the model reasons at length about the tool error and how to recover → that reasoning trips the classifier. Fable is simply the model whose deliberation is long enough and self-referential enough to fire it.
+
+That also explains the original segment-8 failures: they clustered around the reads of a 26,193-word notes file and the recovery attempts around them, not around any particular passage of content.
+
+All four seeded `segment-1.md` files have been re-split (fable and opus went from 22 to 42 steps, sonnet likewise, haiku from 12 to 26). Whether fable's chain now runs is an open question at the time of writing; the earlier claim about its notes should not be relied on.
