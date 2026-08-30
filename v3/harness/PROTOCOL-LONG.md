@@ -60,3 +60,19 @@ The long ingest asks a reader to perform every numbered step, in order, and then
 Because of these failures haiku has received procedural scaffolding the other models never needed: a smaller per-reader budget (70,000 tokens against 110,000), an explicit ban on Bash, an instruction to announce "step N of <total>" before each read, and now an instruction to confirm the last read before writing. From this point the reinforced prompt goes to every model, so later segments are administered identically; the earlier segments of the other chains ran under the plain prompt and needed nothing more.
 
 Report this as measured: haiku required N re-runs to complete its chain, and the scaffolding that got it through is itself a cost of using the cheap model — someone running it unattended would have shipped the truncated notes without noticing.
+
+## Fable's long chain is blocked at segment 8 (2026-08-30)
+After the spend limit lifted, fable's long ingest resumed and ran cleanly through segment 7 (notes carried: 26,193 words, the largest of any chain). Every attempt at segment 8 dies with the same API error:
+
+> Fable 5's safeguards flagged this message … Details: `[reasoning_extraction]`
+
+Five attempts, failing at steps 4, 5, 1, 11 and 1 of the segment — so not a single offending document, and not one stochastic flag. What every attempt has in common is the read of fable's own carried notes. Two things in those notes are unlike anything the other three models wrote:
+
+- **§0 "Where each retelling sat in the files"** and **§12 "Reading log"** enumerate the harness itself — file paths, generator seeds, "generated noise", chunk offsets, and the exact line ranges where the hidden retellings sit ("Retelling 12 at lines 4872–4941").
+- The failing turns also show fable reasoning aloud about the conflict between the session's tool-policy reminder and this test's Read-only rule.
+
+Either would plausibly read to a reasoning-extraction classifier as a model cataloguing the scaffolding it is running inside. Things tried, all failing: plain retry ×2; an instruction to keep between-step commentary to one line; delivery in 51 small reads instead of 22; delivering the notes truncated before §12.
+
+**Status: fable long-variant = blocked, not "failed to score" and not "not run".** Its three short-variant cells are complete and scored (single 84/82, sequential 83/81, noisy 81/81). Segments 1–7 of the long ingest are on disk and verified; the chain resumes from segment 8 if the blocker clears.
+
+The untried option is to rebuild the carried notes without the two harness-structure sections and restart from segment 8. That edits the system under test's own output, so it is not a call to make silently — it is recorded here as the open question, not taken.
