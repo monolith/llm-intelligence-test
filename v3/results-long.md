@@ -63,7 +63,7 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 | sonnet | long-notes | 5/34 (6) | 4/35 | 14/31 | 23/100 (24) |
 | sonnet | long-reread | 12/34 (11) | pending | pending | pending |
 | opus | long-notes | 10/34 (11) | 10/35 (7) | 6/31 | 26/100 (24) |
-| opus | long-reread | pending | pending | pending | pending |
+| opus | long-reread | 18/34 (20) | pending | pending | pending |
 | fable | long-notes | pending | pending | pending | pending |
 | fable | long-reread | pending | pending | pending | pending |
 
@@ -86,7 +86,7 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 | opus | long-notes | batch-1 | A 5 · B 3 · C 3 | -1 |
 | opus | long-notes | batch-2 | A 4 · C 2 · D 7 | -3 |
 | opus | long-notes | batch-3 | A 5 · E 4 · F 2 · G 2 | -7 |
-| opus | long-reread | batch-1 | pending | pending |
+| opus | long-reread | batch-1 | A 10 · B 7 · C 5 | -4 |
 | opus | long-reread | batch-2 | pending | pending |
 | opus | long-reread | batch-3 | pending | pending |
 | fable | long-notes | batch-1 | pending | pending |
@@ -105,7 +105,7 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 | sonnet | long-notes | 0.2060 | 0.2774 | 0.0720 | 3.5770 |
 | sonnet | long-reread | 0.1442 | pending | pending | 0.1442 |
 | opus | long-notes | 0.1802 | 0.1930 | 0.3157 | 9.4210 |
-| opus | long-reread | pending | pending | pending | pending |
+| opus | long-reread | 0.1073 | pending | pending | 0.1073 |
 | fable | long-notes | pending | pending | pending | pending |
 | fable | long-reread | pending | pending | pending | pending |
 
@@ -122,6 +122,7 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 - opus/long-notes/batch-1: |total - total2| = 1
 - opus/long-notes/batch-2: |total - total2| = 3
 - opus/long-notes/batch-3: |total - total2| = 0
+- opus/long-reread/batch-1: |total - total2| = 2
 
 Max across all judged batches: 3
 
