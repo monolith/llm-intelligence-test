@@ -115,6 +115,50 @@ Judge every cell **twice, independently**, and report both totals. Across the tw
 cells the two judges differed by 0–8 points out of 100, which is the honest precision of a single
 number here.
 
+### Running it by hand, with no scripts at all
+
+Nothing here requires the harness. The scripts exist to make a 1.5M-token run auditable; a person
+with a chat window can reproduce the short variant in an afternoon and the long variant over a few
+sittings.
+
+**What the model may see:** the retellings, the distractors, and the question sheet. **What it may
+never see:** anything in `answer-key/`, and any file listing that reveals which documents are
+distractors. Do not tell it how many documents are noise, or that the long documents contain
+anything hidden.
+
+**Short variant, by hand:**
+
+1. *single* — paste the whole of `test-input/bundle-single.md` into one message. It ends with the
+   questions. Ask for the answer sheet back. One message in, one answer out.
+2. *sequential* — paste `test-input/retellings/r01.md`, ask only for a one-line acknowledgement,
+   and repeat for r02 … r24 in order, one message each. Then paste `test-input/questions.md`.
+3. *noisy* — the same, but after each retelling paste the next distractor named in
+   `distractors/ORDER.md` and ask its one-line question. After r08 and again after r16, ask for
+   "the notes you would need to answer detailed questions later about everything you have read
+   except the unrelated documents", copy those notes out, **start a brand-new chat**, paste the
+   notes as its first message, and carry on from the next retelling. Those two restarts are the
+   point of this administration: they are the compaction.
+
+Ask for the answer sheet in three messages (Section A stories 1–4; Section A stories 5–8 plus
+Section B; Sections C–G). Asking for all 100 points in one reply tends to get it truncated.
+
+**Long variant, by hand:** the same shape, with two changes. Deliver r03, r06, r09, r12, r15, r18,
+r21 and r24 as their `test-input/long/rNN-long.md` versions — each a ~62,000-word document with the
+retelling buried inside — and after r06, r12, r18 and r24 deliver one of `distractors/long/L1..L4.md`.
+Start a fresh chat whenever the current one is nearly full, carrying only the notes across. Expect
+twenty or more restarts. Then answer the three batch files instead of the single question sheet.
+
+For the second long condition, do the whole reading again from the start for each batch, but show
+the model that batch's questions **before** it reads anything. That is the only difference, and in
+this run it doubled two models' scores and did nothing for the third.
+
+**Scoring by hand:** open `answer-key/answers-and-scoring.md`, go item by item, and award each
+point only where the criterion is actually met — exact-match items take no near misses, abstention
+items score only if the answer abstains, and every planted error asserted as fact costs points
+(hedged mentions do not). If you can, have two people score it independently and report both
+totals; across the twelve cells here the two judges differed by 0–8 points out of 100, which is the
+honest precision of any single number.
+
 ### Verifying a run before you believe it
 
 `harness/read_coverage.py` compares what each segment prescribed against the spans the reader
