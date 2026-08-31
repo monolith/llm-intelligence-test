@@ -1,17 +1,17 @@
 # Story test v3 -- long variant
 
-Generated: 2026-08-30
+Generated: 2026-08-31
 
 ## Cost curve
 
 | Model | Mode | Ingest cost (USD, tokens) | Batch 1 | Batch 2 | Batch 3 | Total |
 |---|---|---|---|---|---|---|
 | haiku | long-notes | 40.1449 (162698596) | 0.2624 | 0.2788 | 0.2845 | 40.9705 |
-| haiku | long-reread | — | pending | pending | pending | pending |
+| haiku | long-reread | — | 0.5345 | pending | pending | pending |
 | sonnet | long-notes | 79.1226 (191597490) | 1.0300 | 1.1097 | 1.0084 | 82.2706 |
-| sonnet | long-reread | — | pending | pending | pending | pending |
+| sonnet | long-reread | — | 1.7304 | pending | pending | pending |
 | opus | long-notes | 239.3202 (211559658) | 1.8019 | 1.9298 | 1.8942 | 244.9460 |
-| opus | long-reread | — | pending | pending | pending | pending |
+| opus | long-reread | — | 1.9316 | pending | pending | pending |
 | fable | long-notes | 179.7456 (72539744) | pending | pending | pending | pending |
 | fable | long-reread | — | pending | pending | pending | pending |
 
@@ -26,7 +26,7 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 | haiku | long-notes | batch-2 | 14 | 4 | 701253 | 10954 |
 | haiku | long-notes | batch-3 | 14 | 4 | 703112 | 11781 |
 | haiku | long-reread | ingest | — | — | — | — |
-| haiku | long-reread | batch-1 | pending | pending | pending | pending |
+| haiku | long-reread | batch-1 | 44 | 14 | 2459540 | 7135 |
 | haiku | long-reread | batch-2 | pending | pending | pending | pending |
 | haiku | long-reread | batch-3 | pending | pending | pending | pending |
 | sonnet | long-notes | ingest | 1110 | 502 | 190778397 | 819093 |
@@ -34,7 +34,7 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 | sonnet | long-notes | batch-2 | 12 | 5 | 1004477 | 38782 |
 | sonnet | long-notes | batch-3 | 12 | 6 | 998573 | 35388 |
 | sonnet | long-reread | ingest | — | — | — | — |
-| sonnet | long-reread | batch-1 | pending | pending | pending | pending |
+| sonnet | long-reread | batch-1 | 39 | 16 | 3728240 | 29691 |
 | sonnet | long-reread | batch-2 | pending | pending | pending | pending |
 | sonnet | long-reread | batch-3 | pending | pending | pending | pending |
 | opus | long-notes | ingest | 1318 | 583 | 210443114 | 1116544 |
@@ -42,7 +42,7 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 | opus | long-notes | batch-2 | 11 | 5 | 813851 | 22280 |
 | opus | long-notes | batch-3 | 11 | 5 | 812533 | 21185 |
 | opus | long-reread | ingest | — | — | — | — |
-| opus | long-reread | batch-1 | pending | pending | pending | pending |
+| opus | long-reread | batch-1 | 19 | 8 | 1222834 | 14243 |
 | opus | long-reread | batch-2 | pending | pending | pending | pending |
 | opus | long-reread | batch-3 | pending | pending | pending | pending |
 | fable | long-notes | ingest | 422 | 211 | 72214020 | 325724 |
@@ -59,9 +59,9 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 | Model | Mode | Batch 1 | Batch 2 | Batch 3 | Sum (/100) |
 |---|---|---|---|---|---|
 | haiku | long-notes | 4/34 (5) | 2/35 (3) | 0/31 | 6/100 (8) |
-| haiku | long-reread | pending | pending | pending | pending |
+| haiku | long-reread | 3/34 | pending | pending | pending |
 | sonnet | long-notes | 5/34 (6) | 4/35 | 14/31 | 23/100 (24) |
-| sonnet | long-reread | pending | pending | pending | pending |
+| sonnet | long-reread | 12/34 (11) | pending | pending | pending |
 | opus | long-notes | 10/34 (11) | 10/35 (7) | 6/31 | 26/100 (24) |
 | opus | long-reread | pending | pending | pending | pending |
 | fable | long-notes | pending | pending | pending | pending |
@@ -74,13 +74,13 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 | haiku | long-notes | batch-1 | A 6 · B 5 · C 1 | -8 |
 | haiku | long-notes | batch-2 | A 3 · C 4 · D 8 | -13 |
 | haiku | long-notes | batch-3 | A 4 · E 2 · F 3 · G 1 | -11 |
-| haiku | long-reread | batch-1 | pending | pending |
+| haiku | long-reread | batch-1 | A 4 · B 4 · C 0 | -5 |
 | haiku | long-reread | batch-2 | pending | pending |
 | haiku | long-reread | batch-3 | pending | pending |
 | sonnet | long-notes | batch-1 | A 5 · B 4 · C 2 | -6 |
 | sonnet | long-notes | batch-2 | A 2 · C 4 · D 7 | -9 |
 | sonnet | long-notes | batch-3 | A 8 · E 8 · F 4 · G 2 | -8 |
-| sonnet | long-reread | batch-1 | pending | pending |
+| sonnet | long-reread | batch-1 | A 7 · B 5 · C 2 | -2 |
 | sonnet | long-reread | batch-2 | pending | pending |
 | sonnet | long-reread | batch-3 | pending | pending |
 | opus | long-notes | batch-1 | A 5 · B 3 · C 3 | -1 |
@@ -101,9 +101,9 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 | Model | Mode | Batch 1 $/pt | Batch 2 $/pt | Batch 3 $/pt | Cumulative $/pt |
 |---|---|---|---|---|---|
 | haiku | long-notes | 0.0656 | 0.1394 | ∞ | 6.8284 |
-| haiku | long-reread | pending | pending | pending | pending |
+| haiku | long-reread | 0.1782 | pending | pending | 0.1782 |
 | sonnet | long-notes | 0.2060 | 0.2774 | 0.0720 | 3.5770 |
-| sonnet | long-reread | pending | pending | pending | pending |
+| sonnet | long-reread | 0.1442 | pending | pending | 0.1442 |
 | opus | long-notes | 0.1802 | 0.1930 | 0.3157 | 9.4210 |
 | opus | long-reread | pending | pending | pending | pending |
 | fable | long-notes | pending | pending | pending | pending |
@@ -114,9 +114,11 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 - haiku/long-notes/batch-1: |total - total2| = 1
 - haiku/long-notes/batch-2: |total - total2| = 1
 - haiku/long-notes/batch-3: |total - total2| = 0
+- haiku/long-reread/batch-1: |total - total2| = 0
 - sonnet/long-notes/batch-1: |total - total2| = 1
 - sonnet/long-notes/batch-2: |total - total2| = 0
 - sonnet/long-notes/batch-3: |total - total2| = 0
+- sonnet/long-reread/batch-1: |total - total2| = 1
 - opus/long-notes/batch-1: |total - total2| = 1
 - opus/long-notes/batch-2: |total - total2| = 3
 - opus/long-notes/batch-3: |total - total2| = 0
@@ -143,11 +145,11 @@ Max across all judged batches: 3
 | Model | Mode | Batch 1 | Batch 2 | Batch 3 |
 |---|---|---|---|---|
 | haiku | long-notes | 0 | 1 | 0 |
-| haiku | long-reread | pending | pending | pending |
+| haiku | long-reread | 6 | pending | pending |
 | sonnet | long-notes | 0 | 0 | 0 |
-| sonnet | long-reread | pending | pending | pending |
+| sonnet | long-reread | 2 | pending | pending |
 | opus | long-notes | 3 | 3 | 2 |
-| opus | long-reread | pending | pending | pending |
+| opus | long-reread | 0 | pending | pending |
 | fable | long-notes | pending | pending | pending |
 | fable | long-reread | pending | pending | pending |
 

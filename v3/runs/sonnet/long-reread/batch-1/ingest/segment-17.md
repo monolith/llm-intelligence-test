@@ -1,6 +1,6 @@
 Segment 17 instructions:
-1. Read `/home/anatoly/llm-intelligence-test/v3/runs/sonnet/long-reread/batch-1/ingest/notes-16.md` lines 1–172 (offset 1, limit 172) — acknowledge.
-2. Read `/home/anatoly/llm-intelligence-test/v3/runs/sonnet/long-reread/batch-1/ingest/notes-16.md` lines 173–301 (offset 173, limit 129) — acknowledge.
+1. Read `/home/anatoly/llm-intelligence-test/v3/runs/sonnet/long-reread/batch-1/ingest/notes-16.md` lines 1–300 (offset 1, limit 300) — acknowledge.
+2. Read `/home/anatoly/llm-intelligence-test/v3/runs/sonnet/long-reread/batch-1/ingest/notes-16.md` lines 301–301 (offset 301, limit 1) — acknowledge.
 3. Read `/home/anatoly/llm-intelligence-test/v3/test-input/long/r21-long.md` lines 6974–7092 (offset 6974, limit 119) — acknowledge.
 4. Read `/home/anatoly/llm-intelligence-test/v3/distractors/k10-bramble-wire-protocol.md` lines 1–168 (offset 1, limit 168) — answer the question in one sentence: What is the start delimiter byte of a BSWP frame?.
 5. Read `/home/anatoly/llm-intelligence-test/v3/test-input/retellings/r22-the-ostrey-hollow-question.md` lines 1–43 (offset 1, limit 43) — acknowledge.

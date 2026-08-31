@@ -1,0 +1,31 @@
+Segment 20 instructions:
+1. Read `/home/anatoly/llm-intelligence-test/v3/runs/opus/long-reread/batch-1/ingest/notes-19.md` lines 1–300 (offset 1, limit 300) — acknowledge.
+2. Read `/home/anatoly/llm-intelligence-test/v3/runs/opus/long-reread/batch-1/ingest/notes-19.md` lines 301–600 (offset 301, limit 300) — acknowledge.
+3. Read `/home/anatoly/llm-intelligence-test/v3/runs/opus/long-reread/batch-1/ingest/notes-19.md` lines 601–800 (offset 601, limit 200) — acknowledge.
+4. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 2738–3037 (offset 2738, limit 300) — acknowledge.
+5. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 3038–3337 (offset 3038, limit 300) — acknowledge.
+6. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 3338–3537 (offset 3338, limit 200) — acknowledge.
+7. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 3538–3837 (offset 3538, limit 300) — acknowledge.
+8. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 3838–4137 (offset 3838, limit 300) — acknowledge.
+9. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 4138–4337 (offset 4138, limit 200) — acknowledge.
+10. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 4338–4637 (offset 4338, limit 300) — acknowledge.
+11. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 4638–4937 (offset 4638, limit 300) — acknowledge.
+12. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 4938–5137 (offset 4938, limit 200) — acknowledge.
+13. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 5138–5437 (offset 5138, limit 300) — acknowledge.
+14. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 5438–5737 (offset 5438, limit 300) — acknowledge.
+15. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 5738–5937 (offset 5738, limit 200) — acknowledge.
+16. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 5938–6237 (offset 5938, limit 300) — acknowledge.
+17. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 6238–6537 (offset 6238, limit 300) — acknowledge.
+18. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 6538–6737 (offset 6538, limit 200) — acknowledge.
+19. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 6738–7037 (offset 6738, limit 300) — acknowledge.
+20. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 7038–7337 (offset 7038, limit 300) — acknowledge.
+21. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 7338–7537 (offset 7338, limit 200) — acknowledge.
+22. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 7538–7837 (offset 7538, limit 300) — acknowledge.
+23. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 7838–8137 (offset 7838, limit 300) — acknowledge.
+24. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 8138–8337 (offset 8138, limit 200) — acknowledge.
+25. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 8338–8637 (offset 8338, limit 300) — acknowledge.
+26. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 8638–8937 (offset 8638, limit 300) — acknowledge.
+27. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 8938–9137 (offset 8938, limit 200) — acknowledge.
+28. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 9138–9437 (offset 9138, limit 300) — acknowledge.
+29. Read `/home/anatoly/llm-intelligence-test/v3/distractors/long/L4-mixed.md` lines 9438–9460 (offset 9438, limit 23) — acknowledge.
+30. Write your retention notes to `/home/anatoly/llm-intelligence-test/v3/runs/opus/long-reread/batch-1/ingest/notes-20.md` and stop.

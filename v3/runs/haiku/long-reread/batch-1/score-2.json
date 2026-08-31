@@ -1,0 +1,57 @@
+{
+  "sections": {
+    "A": {
+      "items": [
+        {"id": "A1.1", "points": 0, "max": 1, "note": "Section A never names the Larrow Valley Cooperative Creamery Association, 1889, Gideon Vose as first president, or the 1891 creamery. Gideon appears only at B3, and credit does not travel from B into A."},
+        {"id": "A1.2", "points": 0, "max": 1, "note": "Article VII is never stated anywhere in the run."},
+        {"id": "A1.3", "points": 0, "max": 1, "note": "No statement that payment by butterfat test (rather than by weight) is what made a wrong test cost money."},
+        {"id": "A1.4", "points": 0, "max": 1, "note": "Effie Loomis, Wilbur Teague and Hobart Sill are absent."},
+        {"id": "A1.5", "points": 0, "max": 1, "note": "Section A names 'manager Selby Vose' but not that he was Gideon's son nor manager from 1913. The paternity is stated only at B3, which cannot feed Section A."},
+        {"id": "A1.6", "points": 0, "max": 1, "note": "The 'station gain' ledger line is never mentioned."},
+        {"id": "A2.1", "points": 0, "max": 1, "note": "Calls it the 'Ostrey Hollow butter-testing station' but gives no opening of 4 May 1896 and no glassware borrowed from Larrow Green."},
+        {"id": "A2.2", "points": 0, "max": 1, "note": "The bench mechanism (weighing, composite sample, percent read on the graduated neck after a fixed pipette charge, cream shipped / skim returned) is never described."},
+        {"id": "A2.3", "points": 0, "max": 1, "note": "No Ammon & Sons of Tarnet, no 14 April 1897 invoice. The run instead dates the apparatus to May 1898 (the planted date)."},
+        {"id": "A2.4", "points": 0, "max": 1, "note": "Neither bolded element present: no '6 dozen pipettes marked 17.6 c.c.' and no $77.93 invoice total."},
+        {"id": "A2.5", "points": 0, "max": 1, "note": "Says the shortfall was 'systematic' over 26 years but never states the flatness that gates the item - the same 0.19 in every month, flush and feeding alike, the signature of an instrument rather than a season."},
+        {"id": "A2.6", "points": 0, "max": 1, "note": "No statement that a pipette cannot be checked without a burette, and that none existed in the county."},
+        {"id": "A3.1", "points": 1, "max": 1, "note": "Ansel Keddie, tester at Ostrey Hollow, 29 seasons from 1896, dismissed 30 April 1925 - all present. The parenthetical span '(1896-1925)' is one year long against the key's 1896-1924, but the season count, the start year and the dismissal date are right and the item carries no REQUIRED line."},
+        {"id": "A3.2", "points": 1, "max": 1, "note": "Bold gate is 'test book'. Section A calls him the station's 'tester and separator man' who 'kept meticulous records' across 29 seasons and lists 'Ansel's test book' among the documents. Earned on the bold gate alone - the column list, the single hand and the crossed-and-initialed corrections are all absent."},
+        {"id": "A3.3", "points": 0, "max": 1, "note": "Both summary-leaf figures are required. The run gives 3.61 but never the 1896 figure of 3.80, and never the step at the change of glassware."},
+        {"id": "A3.4", "points": 0, "max": 1, "note": "The nine weeks of 1911 - broken pipette 8 May, borrowed measure to 10 July, tests at 3.80, Keddie's question mark - is entirely absent."},
+        {"id": "A3.5", "points": 1, "max": 1, "note": "Emmet Brant given as 'the largest patron and Orra's brother', with Orra identified as Ansel's wife. The marriage-into-the-losing-family relation is established."},
+        {"id": "A3.6", "points": 0, "max": 1, "note": "Two bolded elements, both required. The 1919 water circular over the manager's signature is present; Keddie's 17 March 1925 statement that he tested as he was taught and cannot say why the figures are what they are, and took no cream, is not - the run substitutes an unrelated quotation."},
+        {"id": "A3.7", "points": 1, "max": 1, "note": "Bold gate is the 1934 death. The run gives a February 1934 funeral and says his vindication never came in his lifetime. Impoundment of the test book and its 1959 transfer are unbolded context."}
+      ],
+      "total": 4
+    },
+    "B": {
+      "items": [
+        {"id": "B1", "points": 2, "max": 2, "note": "Granddaughter, plus the derivation through Duncan Keddie as Ansel's son and Ivy's father. Both points."},
+        {"id": "B2", "points": 0, "max": 2, "note": "First point lost: answers 'first cousins once removed' where the key requires second cousins - and that is a catalogued planted error (see deductions). Second point lost: the abstention item A08 requires an explicit statement that whether Emmet and Orra were full or half siblings cannot be determined, and that it does not change the answer. The run never raises the question; it hedges only about whether Ivy and Hazel ever communicated. No gullibility deduction, since it asserts neither full nor half."},
+        {"id": "B3", "points": 1, "max": 2, "note": "Gideon Vose correctly named as Selby's father (+1). Significance point lost: the run offers generic 'institutional control' and never reaches Article VII - that the accuser was enforcing his own father's rule, which made the station's test rather than the scale decide every patron's pay - nor the alternative that the Vose Jerseys were the largest single loser."},
+        {"id": "B4", "points": 1, "max": 2, "note": "Abstention A01 correctly declined: verdict sentence is 'Cannot be determined from the sources' (+1). Second point lost: the key wants what IS established - two narrators asserting a cousinship from talk, one denying it flatly, no document either way. The run asserts the opposite, that no genealogical connection is mentioned in any retelling at all."}
+      ],
+      "total": 4
+    },
+    "C": {
+      "items": [
+        {"id": "C1a", "points": 0, "max": 1, "note": "Key: 16.72 / 17.6 = 0.95, tests read 95 percent of true, short 5 percent. Run gives 7.55 percent short, derived from the planted 16.27 c.c."},
+        {"id": "C1b", "points": 0, "max": 1, "note": "Key: 3.61 / 0.95 = 3.80, short 0.19. Run gives the true average as 3.78 (borrowing Larrow Green's own average) - not the key's figure. The 0.19 is stated but the true test is wrong, and this is an exact-match item."},
+        {"id": "C1c", "points": 0, "max": 1, "note": "Key: 40,000,000 x 0.0019 = 76,000 lb. Run gives 67,000 lb, a catalogued planted value asserted as the primary total."},
+        {"id": "C1d", "points": 0, "max": 1, "note": "Key: $19,000 and one fifth (20 percent); both required. Run gives $16,750 and 22.7 percent. The $3,800 award is right but does not carry the item."},
+        {"id": "C2a", "points": 0, "max": 1, "note": "Key: 200,000 x 3.42% = 6,840 lb. Run answers 'cannot be determined'. C2 is not an abstention item, so declining earns nothing."},
+        {"id": "C2b", "points": 0, "max": 1, "note": "Key: true test 3.60, true fat 7,200 lb, owed 360 lb. Run answers 'cannot be determined'."},
+        {"id": "C2c", "points": 0, "max": 1, "note": "Key: 360 x $0.24 = $86.40. Run answers 'cannot be determined'."}
+      ],
+      "total": 0
+    }
+  },
+  "deductions": [
+    {"reason": "F033 - pipettes measuring 16.27 c.c. asserted as fact in the Story 1 reconstruction and again as the basis of the C1(a) derivation. Unhedged.", "points": -1},
+    {"reason": "F080 - 67,000 lb of butterfat asserted as fact in the Story 1 quantities list and named at C1(c) as 'the primary reconstructed total'. (The $19,600 figure is separately hedged and is not charged.)", "points": -1},
+    {"reason": "F058 - the 1919 circular delivered to 'eleven families', asserted as fact in the Story 1 reconstruction.", "points": -1},
+    {"reason": "F007 - Ivy and Hazel stated as 'first cousins once removed' at B2, asserted as fact with a derivation.", "points": -1},
+    {"reason": "F046 - the station's own defective glass in use from May 1898, asserted as fact ('In May 1898, a defective apparatus arrived') and carried through as the '26 years affected (1898-1923)' span.", "points": -1}
+  ],
+  "total": 3
+}
