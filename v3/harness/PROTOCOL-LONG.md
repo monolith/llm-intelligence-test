@@ -98,3 +98,26 @@ Nine attempts across two chain types. `long-notes` died at segment 8 (steps 4, 5
 So the trigger needs the chain: the batch questions, a long list of prescribed reads, and this material together. The last probe suggests why — fable recognizes the corpus as an evaluation harness, and that recognition inside a long instruction-following context appears to be what fires. That is a hypothesis, not a finding; the trigger was not isolated further and further attempts were stopped on cost.
 
 **Reported status: fable long-variant = blocked, both modes.** Its short variant is complete and scored (single 84/82, sequential 83/81, noisy 81/81). Long-notes segments 1–7 are verified on disk. No fable long number should be inferred from the other models.
+
+### Fable: the actual reason, and the actual trigger (2026-08-31)
+The API returns a reason, in the record rather than in anything fable says. `stop_reason` is `refusal`, and the detail block reads:
+
+> `"category": "reasoning_extraction"` — "This request was blocked as it seems to violate Anthropic's Terms of Service restrictions on reverse engineering or duplicating model outputs."
+
+Fable itself never refuses; the request is terminated server-side. Thirteen attempts narrowed the trigger by elimination, each ruling out one explanation:
+
+| Hypothesis | Test | Result |
+|---|---|---|
+| Its carried notes (a model reproducing another instance's output) | one-session run with no handover at all | **fails identically** |
+| Oversized reads and the recovery reasoning they provoke | re-split 22 → 42 steps | fails |
+| Long deliberation between steps | instructed to one line per step | fails |
+| Reasoning about the material's provenance | instructed not to analyze how it was made | fails |
+| The material itself | read the exact chunk alone, nothing else in context | **succeeds, 6 seconds** |
+| Seeing the 533-step schedule | schedule + that one read | **succeeds** |
+| The distractor questions | same reads, questions stripped | fails |
+
+What remains, reproducibly: **one or two documents read, then the first read of a wrapper document.** Not the notes, not the schedule, not the questions, not the content in isolation — the small accumulation plus the wrapper.
+
+The published "it's the harness-catalogue sections in its notes" and "it's the unsplit reads" diagnoses were both wrong and are superseded by this.
+
+Everything that might still clear it works by distorting the test for fable alone — dropping specific noise documents, reordering the corpus, thinning what it reads — which would buy a number not comparable to the other three. So it stays blocked, and the blocker is reported as a result: **fable cannot complete a long-context reading task of this shape in this harness**, while being the strongest model on the board when the material fits in one context (84/82, 83/81, 81/81).

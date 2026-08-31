@@ -1,0 +1,1872 @@
+[
+  {
+    "index": 1,
+    "reads": [
+      {
+        "file": "v3/test-input/retellings/r01-what-the-hollow-said.md",
+        "offset": 1,
+        "limit": 27,
+        "kind": "retelling",
+        "label": "r01",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/d01-pruett-county-road-commission.md",
+        "offset": 1,
+        "limit": 47,
+        "kind": "noise",
+        "label": "slot 1",
+        "question": "What road levy, in mills on the dollar, did the commission recommend to the Board of Supervisors for the year 1908?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/retellings/r02-notes-toward-a-history.md",
+        "offset": 1,
+        "limit": 29,
+        "kind": "retelling",
+        "label": "r02",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k01-blackout-cue.md",
+        "offset": 1,
+        "limit": 124,
+        "kind": "noise",
+        "label": "slot 2",
+        "question": "What is the title of the play being performed at the Ellerby Playhouse?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/long/r03-long.md",
+        "offset": 1,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r03 part 1/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r03-long.md",
+        "offset": 801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r03 part 2/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r03-long.md",
+        "offset": 1601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r03 part 3/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r03-long.md",
+        "offset": 2401,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r03 part 4/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r03-long.md",
+        "offset": 3201,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r03 part 5/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r03-long.md",
+        "offset": 4001,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r03 part 6/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r03-long.md",
+        "offset": 4801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r03 part 7/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r03-long.md",
+        "offset": 5601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r03 part 8/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r03-long.md",
+        "offset": 6401,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r03 part 9/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r03-long.md",
+        "offset": 7201,
+        "limit": 45,
+        "kind": "wrapped",
+        "label": "r03 part 10/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/d05-norcross-drugstore-daybook.md",
+        "offset": 1,
+        "limit": 48,
+        "kind": "noise",
+        "label": "slot 3",
+        "question": "What was the total amount of the wholesale order Elias Norcross placed with Purcell & Weare on 14 March 1932?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/retellings/r04-what-the-crate-held.md",
+        "offset": 1,
+        "limit": 43,
+        "kind": "retelling",
+        "label": "r04",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k02-the-long-echo.md",
+        "offset": 1,
+        "limit": 99,
+        "kind": "noise",
+        "label": "slot 4",
+        "question": "What is Tamsin Ochoa's service number?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/retellings/r05-the-books-of-the-association.md",
+        "offset": 1,
+        "limit": 31,
+        "kind": "retelling",
+        "label": "r05",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/d10-vandermeer-court-day-column.md",
+        "offset": 1,
+        "limit": 27,
+        "kind": "noise",
+        "label": "slot 5",
+        "question": "What fine did Judge Thurlow Vane's court impose on Delia Fought for the petty theft of dress goods?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/long/r06-long.md",
+        "offset": 1,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r06 part 1/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r06-long.md",
+        "offset": 801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r06 part 2/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r06-long.md",
+        "offset": 1601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r06 part 3/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r06-long.md",
+        "offset": 2401,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r06 part 4/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r06-long.md",
+        "offset": 3201,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r06 part 5/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r06-long.md",
+        "offset": 4001,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r06 part 6/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r06-long.md",
+        "offset": 4801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r06 part 7/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r06-long.md",
+        "offset": 5601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r06 part 8/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r06-long.md",
+        "offset": 6401,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r06 part 9/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r06-long.md",
+        "offset": 7201,
+        "limit": 211,
+        "kind": "wrapped",
+        "label": "r06 part 10/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k05-saturated-lacings.md",
+        "offset": 1,
+        "limit": 105,
+        "kind": "noise",
+        "label": "slot 6",
+        "question": "What name is given to Lemma 2.1?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 1,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 1/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 2/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 1601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 3/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 2401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 4/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 3201,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 5/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 4001,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 6/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 4801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 7/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 5601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 8/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 6401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 9/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 7201,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 10/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 8001,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 11/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 8801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 12/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 9601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 13/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 10401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 14/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 11201,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 15/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 12001,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 16/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 12801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 17/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 13601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 18/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 14401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 19/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 15201,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 20/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 16001,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 21/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 16801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 22/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 17601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 23/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 18401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L1 part 24/25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L1-ledger.md",
+        "offset": 19201,
+        "limit": 378,
+        "kind": "long-noise",
+        "label": "L1 part 25/25",
+        "question": "What is the total on the ledger line dated 1944-03-18?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/retellings/r07-accession-notes.md",
+        "offset": 1,
+        "limit": 109,
+        "kind": "retelling",
+        "label": "r07",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/d12-cold-spring-sanitarium-ledger.md",
+        "offset": 1,
+        "limit": 25,
+        "kind": "noise",
+        "label": "slot 7",
+        "question": "How many weeks did Mr. Ansgar Krell remain at the Cold Spring Water-Cure for his rheumatism?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/retellings/r08-managers-annual-address.md",
+        "offset": 1,
+        "limit": 31,
+        "kind": "retelling",
+        "label": "r08",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k08-skiffline-scheduling.md",
+        "offset": 1,
+        "limit": 209,
+        "kind": "noise",
+        "label": "slot 8",
+        "question": "Which error code is returned when a sailings query span exceeds 14 days?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/long/r09-long.md",
+        "offset": 1,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r09 part 1/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r09-long.md",
+        "offset": 801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r09 part 2/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r09-long.md",
+        "offset": 1601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r09 part 3/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r09-long.md",
+        "offset": 2401,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r09 part 4/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r09-long.md",
+        "offset": 3201,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r09 part 5/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r09-long.md",
+        "offset": 4001,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r09 part 6/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r09-long.md",
+        "offset": 4801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r09 part 7/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r09-long.md",
+        "offset": 5601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r09 part 8/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r09-long.md",
+        "offset": 6401,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r09 part 9/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r09-long.md",
+        "offset": 7201,
+        "limit": 92,
+        "kind": "wrapped",
+        "label": "r09 part 10/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/d15-pemberton-casebook.md",
+        "offset": 1,
+        "limit": 45,
+        "kind": "noise",
+        "label": "slot 9",
+        "question": "What fee did Dr. Pemberton charge for the confinement (delivery) of Mrs. Content Averill on January 3, 1906?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/retellings/r10-letter-from-alder-corners.md",
+        "offset": 1,
+        "limit": 53,
+        "kind": "retelling",
+        "label": "r10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k11-shelter-route-nine.md",
+        "offset": 1,
+        "limit": 186,
+        "kind": "noise",
+        "label": "slot 10",
+        "question": "How much will the man's crown cost him after insurance?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/retellings/r11-bulletin-471-introduction.md",
+        "offset": 1,
+        "limit": 67,
+        "kind": "retelling",
+        "label": "r11",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k14-coast-road-antiphon.md",
+        "offset": 1,
+        "limit": 74,
+        "kind": "noise",
+        "label": "slot 11",
+        "question": "What color is named in the third paragraph?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/long/r12-long.md",
+        "offset": 1,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r12 part 1/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r12-long.md",
+        "offset": 801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r12 part 2/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r12-long.md",
+        "offset": 1601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r12 part 3/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r12-long.md",
+        "offset": 2401,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r12 part 4/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r12-long.md",
+        "offset": 3201,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r12 part 5/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r12-long.md",
+        "offset": 4001,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r12 part 6/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r12-long.md",
+        "offset": 4801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r12 part 7/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r12-long.md",
+        "offset": 5601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r12 part 8/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r12-long.md",
+        "offset": 6401,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r12 part 9/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r12-long.md",
+        "offset": 7201,
+        "limit": 20,
+        "kind": "wrapped",
+        "label": "r12 part 10/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/d17-corbin-junction-telegraph.md",
+        "offset": 1,
+        "limit": 43,
+        "kind": "noise",
+        "label": "slot 12",
+        "question": "How many words was message No. 219, filed by Perley Dunmore, reading \"FATHER VERY LOW COME AT ONCE\"?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 1,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 1/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 2/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 1601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 3/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 2401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 4/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 3201,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 5/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 4001,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 6/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 4801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 7/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 5601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 8/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 6401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 9/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 7201,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 10/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 8001,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 11/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 8801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 12/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 9601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 13/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 10401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 14/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 11201,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 15/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 12001,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 16/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 12801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 17/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 13601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L2 part 18/19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L2-transcript.md",
+        "offset": 14401,
+        "limit": 508,
+        "kind": "long-noise",
+        "label": "L2 part 19/19",
+        "question": "Which speaker mentions a ring of keys first?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/retellings/r13-frick-arbitration-recollections.md",
+        "offset": 1,
+        "limit": 44,
+        "kind": "retelling",
+        "label": "r13",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k03-the-floor-safe.md",
+        "offset": 1,
+        "limit": 119,
+        "kind": "noise",
+        "label": "slot 13",
+        "question": "What is the name of the locksmith's dog?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/retellings/r14-sill-churn-floor-remarks.md",
+        "offset": 1,
+        "limit": 31,
+        "kind": "retelling",
+        "label": "r14",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k06-quasi-absolute-summability.md",
+        "offset": 1,
+        "limit": 106,
+        "kind": "noise",
+        "label": "slot 14",
+        "question": "What is the norm defined in Definition 1.3 called?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/long/r15-long.md",
+        "offset": 1,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r15 part 1/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r15-long.md",
+        "offset": 801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r15 part 2/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r15-long.md",
+        "offset": 1601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r15 part 3/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r15-long.md",
+        "offset": 2401,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r15 part 4/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r15-long.md",
+        "offset": 3201,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r15 part 5/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r15-long.md",
+        "offset": 4001,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r15 part 6/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r15-long.md",
+        "offset": 4801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r15 part 7/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r15-long.md",
+        "offset": 5601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r15 part 8/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r15-long.md",
+        "offset": 6401,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r15 part 9/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r15-long.md",
+        "offset": 7201,
+        "limit": 80,
+        "kind": "wrapped",
+        "label": "r15 part 10/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k09-purlwright-plugin-api.md",
+        "offset": 1,
+        "limit": 226,
+        "kind": "noise",
+        "label": "slot 15",
+        "question": "Which level-27 accessor is removed at API level 31?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/retellings/r16-kepp-bog-meadows-paper.md",
+        "offset": 1,
+        "limit": 39,
+        "kind": "retelling",
+        "label": "r16",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k12-laundromat-tuesday.md",
+        "offset": 1,
+        "limit": 208,
+        "kind": "noise",
+        "label": "slot 16",
+        "question": "Which dryer does Phyl warn Armando not to use?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/retellings/r17-hazel-brant-tape.md",
+        "offset": 1,
+        "limit": 55,
+        "kind": "retelling",
+        "label": "r17",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k15-second-half-of-the-winters.md",
+        "offset": 1,
+        "limit": 73,
+        "kind": "noise",
+        "label": "slot 17",
+        "question": "What color is named in the third paragraph?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/long/r18-long.md",
+        "offset": 1,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r18 part 1/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r18-long.md",
+        "offset": 801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r18 part 2/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r18-long.md",
+        "offset": 1601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r18 part 3/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r18-long.md",
+        "offset": 2401,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r18 part 4/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r18-long.md",
+        "offset": 3201,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r18 part 5/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r18-long.md",
+        "offset": 4001,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r18 part 6/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r18-long.md",
+        "offset": 4801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r18 part 7/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r18-long.md",
+        "offset": 5601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r18 part 8/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r18-long.md",
+        "offset": 6401,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r18 part 9/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r18-long.md",
+        "offset": 7201,
+        "limit": 278,
+        "kind": "wrapped",
+        "label": "r18 part 10/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/d20-hartshorn-inquest.md",
+        "offset": 1,
+        "limit": 49,
+        "kind": "noise",
+        "label": "slot 18",
+        "question": "What verdict did the coroner's jury return on the death of Obadiah Chalmers?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/distractors/long/L3-gibberish.md",
+        "offset": 1,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L3 part 1/11",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L3-gibberish.md",
+        "offset": 801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L3 part 2/11",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L3-gibberish.md",
+        "offset": 1601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L3 part 3/11",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L3-gibberish.md",
+        "offset": 2401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L3 part 4/11",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L3-gibberish.md",
+        "offset": 3201,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L3 part 5/11",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L3-gibberish.md",
+        "offset": 4001,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L3 part 6/11",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L3-gibberish.md",
+        "offset": 4801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L3 part 7/11",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L3-gibberish.md",
+        "offset": 5601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L3 part 8/11",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L3-gibberish.md",
+        "offset": 6401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L3 part 9/11",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L3-gibberish.md",
+        "offset": 7201,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L3 part 10/11",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L3-gibberish.md",
+        "offset": 8001,
+        "limit": 460,
+        "kind": "long-noise",
+        "label": "L3 part 11/11",
+        "question": "What color is named in paragraph 2566?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/retellings/r19-ashlin-chronicle-wrong-righted.md",
+        "offset": 1,
+        "limit": 71,
+        "kind": "retelling",
+        "label": "r19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k04-ice-out.md",
+        "offset": 1,
+        "limit": 94,
+        "kind": "noise",
+        "label": "slot 19",
+        "question": "What was the total ice-out pot in the spring of 1996?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/retellings/r20-junia-ammon-sixty-years.md",
+        "offset": 1,
+        "limit": 47,
+        "kind": "retelling",
+        "label": "r20",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k07-locally-quartic-pseudotrees.md",
+        "offset": 1,
+        "limit": 111,
+        "kind": "noise",
+        "label": "slot 20",
+        "question": "In Proposition 4.1, what length is the cycle used in the sharpness example?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/long/r21-long.md",
+        "offset": 1,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r21 part 1/9",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r21-long.md",
+        "offset": 801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r21 part 2/9",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r21-long.md",
+        "offset": 1601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r21 part 3/9",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r21-long.md",
+        "offset": 2401,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r21 part 4/9",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r21-long.md",
+        "offset": 3201,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r21 part 5/9",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r21-long.md",
+        "offset": 4001,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r21 part 6/9",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r21-long.md",
+        "offset": 4801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r21 part 7/9",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r21-long.md",
+        "offset": 5601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r21 part 8/9",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r21-long.md",
+        "offset": 6401,
+        "limit": 692,
+        "kind": "wrapped",
+        "label": "r21 part 9/9",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k10-bramble-wire-protocol.md",
+        "offset": 1,
+        "limit": 168,
+        "kind": "noise",
+        "label": "slot 21",
+        "question": "What is the start delimiter byte of a BSWP frame?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/retellings/r22-the-ostrey-hollow-question.md",
+        "offset": 1,
+        "limit": 43,
+        "kind": "retelling",
+        "label": "r22",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k13-surgical-waiting-c.md",
+        "offset": 1,
+        "limit": 209,
+        "kind": "noise",
+        "label": "slot 22",
+        "question": "What is the name of Russ's wife?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/retellings/r23-what-i-saw-of-the-office.md",
+        "offset": 1,
+        "limit": 41,
+        "kind": "retelling",
+        "label": "r23",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/k16-the-third-method.md",
+        "offset": 1,
+        "limit": 76,
+        "kind": "noise",
+        "label": "slot 23",
+        "question": "What color is named in the third paragraph?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/test-input/long/r24-long.md",
+        "offset": 1,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r24 part 1/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r24-long.md",
+        "offset": 801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r24 part 2/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r24-long.md",
+        "offset": 1601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r24 part 3/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r24-long.md",
+        "offset": 2401,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r24 part 4/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r24-long.md",
+        "offset": 3201,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r24 part 5/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r24-long.md",
+        "offset": 4001,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r24 part 6/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r24-long.md",
+        "offset": 4801,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r24 part 7/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r24-long.md",
+        "offset": 5601,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r24 part 8/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r24-long.md",
+        "offset": 6401,
+        "limit": 800,
+        "kind": "wrapped",
+        "label": "r24 part 9/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r24-long.md",
+        "offset": 7201,
+        "limit": 73,
+        "kind": "wrapped",
+        "label": "r24 part 10/10",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/d23-wrens-bend-tollbook.md",
+        "offset": 1,
+        "limit": 45,
+        "kind": "noise",
+        "label": "slot 24",
+        "question": "What was the total toll collected at the Wren's Bend bridge for the week of June 5\u201311, 1899?",
+        "acknowledge": false
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 1,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 1/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 2/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 1601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 3/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 2401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 4/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 3201,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 5/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 4001,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 6/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 4801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 7/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 5601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 8/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 6401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 9/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 7201,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 10/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 8001,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 11/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 8801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 12/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 9601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 13/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 10401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 14/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 11201,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 15/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 12001,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 16/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 12801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 17/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 13601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 18/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 14401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 19/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 15201,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 20/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 16001,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 21/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 16801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 22/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 17601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 23/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 18401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 24/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 19201,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 25/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 20001,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 26/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 20801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 27/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 21601,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 28/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 22401,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 29/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 23201,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 30/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 24001,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 31/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 24801,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 32/33",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 25601,
+        "limit": 269,
+        "kind": "long-noise",
+        "label": "L4 part 33/33",
+        "question": "What HTTP status code is assigned to the `DeprecatedChecksum` error in the spec?",
+        "acknowledge": false
+      }
+    ],
+    "est_tokens": 1924817.85,
+    "notes_out": "notes-1.md"
+  }
+]
