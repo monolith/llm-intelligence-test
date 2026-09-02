@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Usage: cell_finish.sh MODEL MODE TASK_OUTPUT_JSONL — assemble 3-part answers, capture the transcript, verify prescribed reads.
 set -u
-M=$1; MODE=$2; OUT=$3; ROOT=/home/anatoly/llm-intelligence-test; D=$ROOT/v3/runs/$M/$MODE; PY=$ROOT/v2/harness/.venv/bin/python
+M=$1; MODE=$2; OUT=$3; ROOT=/home/anatoly/llm-intelligence-test; RUNS=${RUNS:-v3/runs}; D=$ROOT/$RUNS/$M/$MODE; PY=$ROOT/v2/harness/.venv/bin/python
 cd $ROOT
 cat $D/answers-part1.md $D/answers-part2.md $D/answers-part3.md > $D/answers.md && wc -w $D/answers.md | awk '{print "answers words:",$1}'
 if [ "$MODE" = "single" ]; then

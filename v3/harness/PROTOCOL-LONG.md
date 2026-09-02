@@ -121,3 +121,13 @@ What remains, reproducibly: **one or two documents read, then the first read of 
 The published "it's the harness-catalogue sections in its notes" and "it's the unsplit reads" diagnoses were both wrong and are superseded by this.
 
 Everything that might still clear it works by distorting the test for fable alone — dropping specific noise documents, reordering the corpus, thinning what it reads — which would buy a number not comparable to the other three. So it stays blocked, and the blocker is reported as a result: **fable cannot complete a long-context reading task of this shape in this harness**, while being the strongest model on the board when the material fits in one context (84/82, 83/81, 81/81).
+
+## Fable 5.1 clears the block (2026-09-01)
+The minimal failing case — 21 prescribed reads, one distractor then the first wrapper document,
+which killed Fable 5 four times at the same step — ran to completion on Fable 5.1: 21 of 21 steps,
+the r03 needle (Ansel Keddie) found and named, model self-reported as `claude-fable-5-1`. Whatever
+the classifier objected to in Fable 5's handling of this material, 5.1 does not trigger it.
+
+Fable's long variant therefore restarts from segment 1 on Fable 5.1. The seven Fable 5 segments
+are quarantined in `runs/fable/long-notes/ingest/void-fable5-chain/`, not deleted and not reused:
+a chain that mixed two model versions would not be a measurement of either.
