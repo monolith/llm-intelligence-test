@@ -1,0 +1,1 @@
+seg3 attempt 1 (2026-09-02) discarded: the reader forked a helper agent (Agent subagent_type=fork, tool use #20) to draft the answer sheet, so the fork's tokens/calls and any reads it made are outside this transcript. Re-run seg3 from the same segment-2 notes.

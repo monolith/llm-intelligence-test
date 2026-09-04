@@ -69,14 +69,17 @@ design.
 
 ### Finding 1 — When everything fits, you get what you pay for
 
-Short version, scored out of 100, one run each:
+Short version, scored out of 100, mean of three runs each (two graders per run):
 
 | | Haiku | Sonnet | Opus | Fable |
 |---|---|---|---|---|
-| all at once | 45 | 60 | 78 | 83 |
+| all at once | 45 | 63 | 79 | 84 |
+| delivered one document at a time | 51 | 64 | 76 | 82 |
+| with unrelated documents mixed in | 51 | 63 | 76 | 82 |
 
 Bigger model, better score, roughly in proportion to price. Fable, the most expensive, nearly
-doubles Haiku, the cheapest. No surprises.
+doubles Haiku, the cheapest. The order never changed across nine administrations, with one
+exception: Opus beat Fable once, by one point. No surprises.
 
 ### Finding 2 — When it doesn't fit, everyone collapses
 
@@ -155,17 +158,20 @@ from 0 to 8 points out of 100. So: a 20-point difference between two models is r
 difference is inside the noise.
 
 **What that number does not tell you** is what happens if the same model takes the test a second
-time. Models are not deterministic — the same question can get a somewhat different answer. The
-original tables are one run per cell. A companion report (`QUANT.md`) repeats the short version
-three times per cell and reports the spread, so that claims like "Opus beats Sonnet" carry an
-interval instead of a single point.
+time. Models are not deterministic — the same question can get a somewhat different answer. So
+the short version was run three times per cell. The three larger models landed within a few
+points of themselves each time; Haiku did not — one of its administrations scored 64 once and 45
+twice. The companion report `QUANT.md` gives every mean with its interval, so that claims like
+"Opus beats Sonnet" carry an error bar instead of a single point (it is 13 points, give or take
+4).
 
 ---
 
 ## 5. What we are not claiming
 
-- **One run per cell** in the long version. The direction (collapse under compaction) is not in
-  doubt — it is the largest effect in the study — but the exact numbers would move on a re-run.
+- **One run per cell** in the long version (the short version has three). The direction
+  (collapse under compaction) is not in doubt — it is the largest effect in the study — but the
+  exact numbers would move on a re-run.
 - **One kind of task.** This is synthesis from unreliable sources with planted traps. A model
   that is bad at this may be fine at writing code or summarizing a memo.
 - **One family of models**, at one moment in time. Version changes matter: an earlier Fable

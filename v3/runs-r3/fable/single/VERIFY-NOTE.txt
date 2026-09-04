@@ -1,0 +1,1 @@
+fable single r3: duplicate Writes were retries of its own output files (part1 x2, part2 x2); reads were the bundle only — accepting

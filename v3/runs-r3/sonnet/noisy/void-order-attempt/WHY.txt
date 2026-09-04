@@ -1,0 +1,1 @@
+seg1 attempt 1 (2026-09-02) discarded: the reader wrote its retention notes before step 16 (distractor k08), then read k08 out of order afterward; verify_transcript rejected the ordering. Story content was not affected (k08 is an unrelated document) but the prescribed order is part of the test. Re-run seg1 from scratch with the identical prompt.

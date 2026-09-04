@@ -1,0 +1,3 @@
+seg2 attempt 2 (2026-09-04): verifier found 27 tool uses vs 19 prescribed. All 18 reads were the prescribed files in the prescribed order; tool use #19 was the single Write of notes-after-r16.md and #20-#27 were eight Edits appending to that same file (the reader split a very large handover, 40,337 words, into a Write plus appends after attempt 1 hit the 64k output-token cap). No other file was opened. Accepted on the same basis as runs-r3/fable/single/VERIFY-NOTE.txt: extra uses touched only its own output file.
+
+Update: verify_transcript.py now classifies Edit/Write to a run's own files under v3/runs-r2 and v3/runs-r3 as benign own-output uses (it already did for v3/runs); re-verified after the fix: valid, 19 prescribed + 8 benign.

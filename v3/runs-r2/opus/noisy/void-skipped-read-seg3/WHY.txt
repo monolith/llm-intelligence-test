@@ -1,0 +1,1 @@
+seg3 attempt 1 (2026-09-04) discarded: the reader skipped step 18 (distractor d23, the last read before the questions) and went straight to questions.md; verify_transcript found 21 of 22 prescribed tool uses. Second opus skip of a final distractor in this tree (see void-skipped-read/ for seg1). Re-run seg3 from the same segment-2 notes with the identical prompt.

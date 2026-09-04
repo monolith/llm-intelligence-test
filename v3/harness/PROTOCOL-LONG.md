@@ -131,3 +131,37 @@ the classifier objected to in Fable 5's handling of this material, 5.1 does not 
 Fable's long variant therefore restarts from segment 1 on Fable 5.1. The seven Fable 5 segments
 are quarantined in `runs/fable/long-notes/ingest/void-fable5-chain/`, not deleted and not reused:
 a chain that mixed two model versions would not be a measurement of either.
+
+## Repeat runs (r2, r3) — protocol slips and how they were handled (2026-09-02 → 09-04)
+
+Every repeat cell lives in `v3/runs-r2/` or `v3/runs-r3/` with the same layout as `v3/runs/`. The
+scripts take `RUNS=<tree>` in the environment. Every segment is verified by `verify_transcript.py`
+against the ordered list of prescribed reads before the next segment is launched; a failed segment
+is moved into a `void-*/` folder beside the cell with a `WHY.txt`, and the segment is re-run from the
+same upstream notes with the identical prompt. Nothing in a void folder is scored.
+
+Slips caught by the verifier, with the identical prompt each time:
+
+| Cell | Segment | What the reader did | Disposition |
+|---|---|---|---|
+| sonnet noisy r2 | 3 | forked a helper agent (`Agent`, `subagent_type: fork`) to draft the answer sheet | void-fork-attempt/, re-run |
+| sonnet noisy r3 | 1 | wrote its notes before the last read (k08), then read k08 out of order | void-order-attempt/, re-run |
+| sonnet noisy r3 | 2 | skipped the last read (k12) before the notes write | void-skipped-read-seg2/, re-run |
+| opus noisy r2 | 1 | skipped the last read (k08) before the notes write | void-skipped-read/, re-run |
+| opus noisy r2 | 3 | skipped the last read (d23) before the questions | void-skipped-read-seg3/, re-run |
+
+Pattern: four of the five are the *final unrelated document immediately before a write step*. A
+reader that can see the end of its list treats the last piece of noise as skippable. Haiku and
+Fable made no such slip in the repeat trees. The verifier is what makes this a footnote instead of a
+contaminated score; hand-run repeats should count the reads.
+
+Interruption: on 2026-09-02 01:20 UTC the subscription's session limit terminated 14 agents at
+once. Segments whose write had already landed verified clean and were kept; segments killed before
+their write were re-run. The Fable long chain lost segment 6 that way and re-ran it two days later
+from the same notes-5.
+
+Fable 5.1 long chain, handover sizes (words): notes-1 6,789 · notes-2 10,600 · notes-3 10,930 ·
+notes-4 11,103 · notes-5 17,813 · notes-6 11,680 · notes-7 15,607 · notes-8 15,909. The drop at
+segment 6 (three new retellings absorbed, six thousand words lost) is the reader condensing
+despite "carry forward everything"; it is the phenomenon under test, not a protocol fault, and the
+run stands.

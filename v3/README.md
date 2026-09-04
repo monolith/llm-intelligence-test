@@ -9,6 +9,8 @@ Nothing here is drawn from published fiction or public-domain text: every retell
 distractor, and all of the generated noise is original to this repository, so a model cannot have
 seen it in training.
 
+**Start here.** New to language models: read `EXPLAINER.md` first (no background assumed). Want the numbers with error bars and the decision rule: `QUANT.md`. Want to run it yourself, with or without our scripts: the sections below and `PROMPTS.md` (the exact prompts used).
+
 ## What is where
 
 | Path | What it is |
@@ -28,7 +30,13 @@ seen it in training.
 | `answer-key/canon.md` | what actually happened — written before the retellings |
 | `answer-key/corruption-map.md` | every planted error, and which narrator carries it |
 | `harness/` | the administration scripts and the long-variant protocol |
-| `results.md` | short-variant results, four models × three administrations |
+| `results.md` | short-variant results, four models × three administrations (first run) |
+| `results-long.md`, `results-retry.md` | long-variant results; the sonnet correction-regime experiments |
+| `scoresheet.md` | every cell, every round: score, tokens, turns, tool calls, dollars |
+| `QUANT.md` | the short variant repeated three times per cell: means, intervals, paired tests, and when the expensive model pays |
+| `EXPLAINER.md` | what was tested and what was found, for someone new to all of this |
+| `PROMPTS.md` | the exact prompts given to readers and judges, and what is deliberately absent from them |
+| `runs/`, `runs-r2/`, `runs-r3/` | every run's answers, transcripts, handover notes, and both judges' scores (the repeats are r2 and r3) |
 
 The answer key is secret from the system under test. It is in the repository because the test is
 published for others to run, not because a model should ever see it.

@@ -12,10 +12,16 @@ import os
 def _items(score):
     out = {}
     for sec, body in score.get("sections", {}).items():
-        for it in body.get("items", []):
-            key = f"{sec}:{it.get('id')}"
+        items = body.get("items", [])
+        if isinstance(items, dict):  # some judges keyed items by id
+            items = [dict(v, id=k) if isinstance(v, dict) else {"id": k, "points": v, "max": 1}
+                     for k, v in items.items()]
+        for i, it in enumerate(items):
+            if not isinstance(it, dict):  # a bare string or number: fall back to position
+                continue
+            key = f"{sec}:{it.get('id', i)}"
             mx = it.get("max", 1) or 1
-            out[key] = 1 if it.get("points", 0) >= mx else 0
+            out[key] = 1 if (it.get("points", 0) or 0) >= mx else 0
     return out
 
 

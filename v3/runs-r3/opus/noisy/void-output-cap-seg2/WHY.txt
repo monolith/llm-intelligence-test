@@ -1,0 +1,1 @@
+seg2 attempt 1 (2026-09-04) terminated by the harness: the reader's response while writing notes-after-r16.md exceeded the 64,000 output-token maximum (error type max_output_tokens); no notes file landed. Not a reading-order fault. Re-run seg2 from the same segment-1 notes with the identical prompt.

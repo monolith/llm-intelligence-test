@@ -1,0 +1,67 @@
+# Answer sheet — Part 1
+
+## Section A — Reconstruction (stories 1–4)
+
+---
+
+### Story 1 — The Rule That Made a Figure into Money
+
+**Who.** The farmers of the Larrow Valley, Ordell County; Gideon Vose, their first president; Effie Loomis, secretary 1901–1940, who kept and later mourned the record.
+
+**What happened, and when.** In 1889 the farmers met at Larrow Green — in the schoolhouse, in cold weather, very late, with somebody's horse loose in the middle of it — and organized the Larrow Valley Cooperative Creamery Association. They were tired of hauling butter to Ashlin and taking whatever the merchant allowed for it. Gideon Vose, a heavy, quiet, obstinate man who had once thought of the law and thought better of it, was elected president and held the office twenty-two years, to 1911; he died in 1917. In 1891 the creamery was built at Larrow Green on Larrow Creek — the same building still — and the valley began to be paid cash once a month, which had never happened to it before. Vose wrote the by-laws himself, at his own kitchen table, in a hand the clerks were still complaining about thirty years later.
+
+Article VII is the hinge of everything that follows, and it is worth having entire: *"Every patron shall be paid for the milk he delivers according to the number of pounds of butter fat contained in it, ascertained by test, and not according to the weight of the milk; and the test of the station where he delivers shall govern."* Two halves, and the valley only ever quoted the first. The first half is just: a man is paid for what he actually brings and not for the water naturally in it. The second half — *the test of the station where he delivers shall govern* — makes the test made at a man's own delivery point final. Not the creamery's test, not the valley's average, no re-test anywhere, no appeal. Under payment by weight, nothing that happened at Ostrey Hollow afterward would have cost any man a dollar. Because of that clause, one instrument in one room became the whole of the bargain.
+
+**The quantity that matters.** The year of adoption **cannot be determined from the sources**. Rundle says 1891, Loomis 1892, Grigg 1893; the printed pamphlet carries no year on its face, only "adopted at the annual meeting"; and the 1889–1892 minute book was carried out in the office move of 1938 and never arrived. Loomis, the closest thing to a documentary witness, states plainly that she came in only in 1901 and that exactly those papers are the lost ones. Falke's refusal to name a year is the correct position.
+
+**Documents.** The printed by-laws, gray wrappers (curator's Item 1); Loomis's *Notes toward a history*, 1941; Rundle's jubilee pamphlet, 1939; Falke's county report, 1959. The lost minute book is itself a fact of the case.
+
+---
+
+### Story 2 — The Station at Ostrey Hollow and the Man Who Kept Its Book
+
+**Who.** Ansel Keddie (b. 1861, d. February 1934), tester and separator man; the nine patron families at the head of the valley; Hobart Sill, buttermaker at Larrow Green from 1893.
+
+**What happened, and when.** Ostrey Hollow lies seven miles up from Larrow Green and climbs the whole seven; the pull down was three hours in mud and could not be done at all in March. So the Association put a skimming station at the head of it: a boarded-and-battened building on the flat by the creek, a covered waist-high platform on the road side, the intake room with scale and vat, the separator behind, and — reached by a ladder nailed to the wall, not a stair — a loft over the intake room. It opened on **4 May 1896**. Milk was weighed in, sampled patron by patron, tested for butterfat, then separated; the cream went down to Larrow Green daily, and the skim went home to the hogs and calves the same morning.
+
+The station's own testing outfit had not come. Rather than hold off the season, Hobart Sill made up an outfit from his own glass at his own bench at Larrow Green and sent it up the valley on the wagon. The test book's first leaf records it: *"Ostrey Hollow station. Begun this 4th day of May, 1896. Glass borrowed of Larrow Green until our own comes. A. Keddie."* (Keddie's 1925 letter says the glass was borrowed off the Ashlin creamery; his own book, written at the time, outranks his memory, and Sill independently confirms it was his.)
+
+His day began at half past five, the lamps lit and the scale swinging free before the first wagon. Every can weighed and the weight called and written before the milk moved; a sample to each patron's own numbered jar, made up over ten days, then warmed blood-warm and poured vessel to vessel until the risen cream was carried down through the whole of it; the charge drawn to the mark on the stem, tip wiped, acid poured down the side, four bottles in the hand tester, the crank at the speed he was taught and no faster, the fat column read against the rulings with dividers. The book ran five columns — date, patron, pounds, test, fat — errors crossed and initialed, never a figure written over a figure. **Thirty-one tests a week for twenty-nine seasons, 1896 through 1924**; he tested no pound in 1925. Merle Strawn, the state's man, watched him through whole tests visit after visit: "He works slow and clean and reads his own figure without being coaxed to it."
+
+**The quantities that matter.** The 1922 summary leaf at the back: 3.80 in 1896; 1897 part year; **3.61 from 1898 and within three hundredths of it every year since** — save nine weeks of 1911, when it stood at 3.80. That leaf is the record of the whole injury and nobody read it as one for thirty-six years.
+
+**Documents.** Station test book, 4 May 1896 – 31 December 1924 (Item 3); Keddie's unsent letter, spring 1925; Sill's remarks, 1934; Strawn's circuit books; Cleve Oram on the building and the ladder.
+
+---
+
+### Story 3 — A Crate of Short Pipettes from Tarnet
+
+**Who.** Ammon & Sons, Dairy Supply, of Tarnet — Marcus Ammon's house, four stories and a basement behind the railroad yard, supplier of half the glass in the state — and Junia Ammon, its historian, who printed the firm's bad morning alongside its good ones.
+
+**What happened, and when.** A milk test pipette must *deliver* a stated quantity of milk, not hold it: a harder measurement, because milk clings to the wall of the glass as it runs out. A man gathers his glass, blows the bulb, draws the stem, and works to a gauge hanging on a nail at his elbow; the mark goes on while the glass is warm; the piece anneals overnight and is gauged next morning and packed or thrown in the cullet barrel. Junia Ammon's reconstruction, offered because nobody else was going to offer one: a mold came back from the shop reground a hair different and looked exactly as it had looked before, and the lot ran short. No check on the floor could catch it, because a boy checks the first, the tenth and the fiftieth of a lot and finds them consistent — they *are* consistent; they are consistently wrong, which is the one fault that kind of check cannot find. The works books that would have shown the lot number burned with the old third floor in 1931.
+
+On **14 April 1897** the firm billed the Association: *6 doz. milk test pipettes, 17.6 c.c., at .35 — 25.20; 12 doz. test bottles, 8 per cent neck, at .22 — 31.68; 1 acid measure — .90; 1 hand tester, 4 bottle — 18.00; Freight — 2.15; Total — 77.93.* Seventy-two pipettes; **$77.93** for a station's whole arithmetic. The outfit went into use at Ostrey Hollow on **1 May 1897**, which Orra Keddie entered in her diary that same day: "A. says the station's own glass came up and they are done borrowing of Larrow Green. He is pleased about it."
+
+**The mechanism, which is the whole story.** The neck of a test bottle is ruled to read percent for a charge of 17.6 c.c. and for no other charge whatever. Put in a short charge: less milk, less fat liberated, a shorter column standing in the neck — and the neck, which knows nothing of the substitution, is read off in the ordinary way. The reading is not merely low; it is low *in the exact proportion by which the charge was short*. Measured in 1958, the nine surviving pipettes delivered a mean of **16.72 c.c.** against **17.6** blown on the stem: short **0.88 c.c.**, ninety-five hundredths of the mark, one part in twenty.
+
+**Why it survived twenty-six years.** Three properties. It was *proportional*, not additive, so the station's herds still ranked correctly against one another and the books looked orderly and internally consistent — only against the outside world were they wrong. It was *precise*: a slipping scale scatters and scatter attracts attention, but a pipette short by 0.88 c.c. is short by 0.88 c.c. every time, in January and July, for a careful operator and a careless one; it has the appearance of excellent work. And it was *invisible from inside the plant*: scales check against test weights, acid against strength, bottle graduations against mercury, but the pipette is not checked against anything, because in ordinary practice the pipette *is* the standard. An instrument that is itself the measure cannot be caught by measuring with it. It can be caught only by a burette brought in from outside — and the state began issuing burettes to its field men only in 1921.
+
+**Documents.** The invoice of 14 April 1897 (Item 2, reproduced in facsimile by Ammon and transcribed by the curator); Ammon's letter book, 2 July 1923; the crate and its nine pipettes (Item 5); measurement sheet, 9 March 1958 (Item 14); Bulletin No. 471.
+
+---
+
+### Story 4 — Twenty-Three Years of Complaint and Three Wrong Answers
+
+**Who.** The Hollow patrons, Emmet Brant of Hessel Bottom foremost; Nyle Grigg's investigating committee; Selby Vose; Dr. Roland Kepp, veterinary surgeon of Ashlin; and, unconsulted over Redlow Ridge, Jerome Cudd and his daughter Rosalie.
+
+**What happened, and when.** Hessel Bottom is a hundred and sixty acres of wet meadow under the hill, **six farms** with rights on it (Loomis's "seven" is the outlier against the 1908 report, Roy Brant, Hazel Brant and Kepp), Emmet Brant's the largest, thirty-eight cows in a good year. From **1902** the Hollow said out loud that its milk tested under the same class of milk at Larrow Green — 3.61 against the creamery's 3.78, seventeen hundredths on the pay slip. Emmet Brant was one of the first to say it and was laughed at. The fact nobody would take account of, then or since, was the *shape* of the gap: the same in July as in February, on grass and on dry hay, in wet years and dry. A feed effect comes and goes with the season. This one stood flat as a floor.
+
+Three explanations held the field for a generation, and each of them blamed somebody in the valley.
+
+**The hay.** In January 1908 the Association named a committee under Nyle Grigg of Larrow Green — chosen because he was not a patron of that station and had no cent in the answer. It sampled the Hessel Bottom herds **through January, February and March 1908 only**, drew and sealed its own samples, tried the station scales against a known weight and the patrons' scales against the station's, watched the test made, and found the milk whole, the scales honest, and *"no dishonesty of any kind, in any quarter."* It laid the cause on the bottom's coarse sedge hay: *"the remedy lies with the land and not with the station."* A winter-only sample could not possibly have seen that the gap was seasonless. Grigg reprinted the report in 1919 with a covering letter claiming the committee had sampled "every month of that year," which his own reprinted report contradicts, and claiming the College's Bulletin No. 214 had found bog hay to depress the test "by two tenths in the winter feeding." Dr. Kepp repeated both errors in 1926 and added his own unmeasured field impression of "a fifth of a point." Bulletin No. 214 actually reads: *"Bog hay fed as the whole of the roughage depressed the butter fat test by not more than five hundredths of one per cent in winter, and by nothing that could be measured on summer pasture."* Four times too small in winter, and infinitely too small in summer.
+
+**Water**, which was the manager's; and **stolen cream**, which was the valley's. Both are taken up in Stories 5 and 6.
+
+**The control nobody consulted.** Jerome Cudd built the Alder Corners Cheese Company over Redlow Ridge in Vessey County — 1913 by his daughter's first-hand account, 1914 as Ordell County tells it. The ridge is four miles of switchback, shut November to April, so no Ordell man ever hauled over it in winter. But **from 1915 four Hessel Bottom men hauled to Cudd in the summer flush, for sixteen seasons, ending 1930.** Cudd tested on his own bench with his own glass and never compared a figure with anybody, because it never entered his head to. His season averages for the four men taken together ran **3.78 to 3.82 — about 3.80 — every summer, wet years and dry**. His own note, summer 1919: *"The four Hessel Bottom men: 3.79, 3.81, 3.78, 3.82. Good milk off wet ground, whatever they say over the ridge."* In sixteen summers he never docked one of them a cent, and a cheesemaker cannot be deceived about water: the curd comes soft and will not knit, and it tells him the next morning.
+
+**Documents.** Report of the investigating committee, 1908 (Item 11); Grigg's covering letter, 1919; Bulletin No. 214 (Item 12); Kepp's paper and its recorded discussion, 1926; Rosalie Cudd's letter of 1958 with its sixteen-season table; Roy and Hazel Brant on the six farms and the four men.

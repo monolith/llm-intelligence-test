@@ -112,7 +112,7 @@ def fmt_ci(s: dict, digits=1) -> str:
     if s["n"] == 1:
         return f"{s['mean']:.{digits}f} (n=1)"
     if s["n"] == 2:
-        return f"{s['mean']:.{digits}f} ± wide (n=2, range {s['min']:.0f}–{s['max']:.0f})"
+        return f"{s['mean']:.{digits}f} ± wide (n=2, range {s['min']:g}–{s['max']:g})"
     return f"{s['mean']:.{digits}f} [{s['lo']:.{digits}f}, {s['hi']:.{digits}f}]"
 
 
@@ -151,7 +151,7 @@ def render(cells: dict) -> str:
                 L.append(f"| {m} | {mode} | 0 | not run | | | | |"); continue
             s = summarize([r["score"] for r in rs])
             sd = "—" if math.isnan(s["sd"]) else f"{s['sd']:.1f}"
-            L.append(f"| {m} | {mode} | {s['n']} | {fmt_ci(s)} | {sd} | {s['min']:.0f}–{s['max']:.0f} | "
+            L.append(f"| {m} | {mode} | {s['n']} | {fmt_ci(s)} | {sd} | {s['min']:g}–{s['max']:g} | "
                      f"${sum(r['cost'] for r in rs)/len(rs):.2f} | {sum(r['turns'] for r in rs)/len(rs):.0f} |")
 
     L += ["", "## Per model, pooled across the three modes", "",
