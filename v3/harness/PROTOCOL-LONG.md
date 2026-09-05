@@ -165,3 +165,49 @@ notes-4 11,103 · notes-5 17,813 · notes-6 11,680 · notes-7 15,607 · notes-8 
 segment 6 (three new retellings absorbed, six thousand words lost) is the reader condensing
 despite "carry forward everything"; it is the phenomenon under test, not a protocol fault, and the
 run stands.
+
+**Fable 5.1 chain, segment 18 onward — notes written in parts.** notes-17 reached 38,398 words
+(~52k tokens). Segment 18's first attempt died on the harness's 64,000 output-token ceiling while
+issuing the single Write the prompt asked for; nothing landed (`ingest/void-output-cap-seg18/`).
+From segment 18 the reader prompt says: write the notes as a first Write of at most ~12,000 words
+followed by appending Edits of the same size, never shortening to fit. Content requirements are
+unchanged; `verify_transcript.py` counts those appends as benign own-output uses. Opus's noisy
+r3 segment 2 hit the same ceiling on 2026-09-04 and worked around it unprompted (a Write plus
+eight appends); Fable's segment 17 did the same. The ceiling is a property of the harness, not of
+the models, and a hand-run test would not meet it.
+
+**Fable 5.1 chain, tail (segments 23–24) — larger segments over the last noise document.** By
+segment 22 the notes were 75,565 words (~100k tokens) against a 110,000-token segment budget, so
+the planner could fit only ~1,000 new lines per segment and the remaining 24,500 lines of
+`L4-mixed.md` (pure generated noise, no story material) would have taken ~24 more segments of
+30 minutes each. Anatoly chose to finish. `harness/tail_segments.py` built segments 23 and 24
+by hand in the planner's exact format: notes-22 (split as usual), then L4 lines 1358–13613 and
+13614–25869 respectively in 300-line chunks, the L4 surface question after the last chunk, then
+the notes write. Each tail reader therefore holds ~100k tokens of notes plus ~150k tokens of noise,
+within Fable's context. Effect on comparability: Fable's last two handovers span more noise per
+handover than Opus's did; no story material is affected. These two segments are verified against
+their own segment files as the allowed list (the planner's plan.json does not describe them) and
+their L4 coverage is checked directly (contiguous 1358–25869).
+
+**Fable 5.1 chain, segment 24 — one handover line unreadable.** The readers kept a running
+"noise log" as a single markdown line of notes-23 (line 7: 12,104 words, 88,661 characters) despite
+the instruction to record story material only. The Read tool refuses any single line over its
+25,000-token cap, and a one-line span cannot be split by offset/limit, so segment 24's reader could
+not read that line (two attempts, both refused; the transcript shows the refusals). It recorded the
+gap in its own notes and reconstructed the noise log from cross-references. The line held the log
+of which noise chunks had been read, not story material; the story sections of notes-23 are on
+other lines and were read. Segment 24 is accepted as valid on that basis. Segment 24's first
+attempt (2026-09-05 02:11 UTC) had completed every read when the session limit killed it
+mid-write; see `ingest/void-session-limit-seg24/`. The chain's handover sizes, words per notes
+file, 1→24: 6,789 · 10,600 · 10,930 · 11,103 · 17,813 · 11,680 · 15,607 · 15,909 · 15,964 · 16,026 ·
+22,922 · 17,351 · 23,440 · 23,730 · 24,073 · 24,444 · 38,398 · 53,872 · 69,266 · 70,645 · 73,082 ·
+75,565 · 82,037 · 75,460.
+
+**Fable 5.1 batches — re-read of its own notes after the questions.** All three batch
+readers, after reading the notes and then the question sheet, went back and re-read the opening
+of notes-24 (60, 300 and 150 lines) before answering. The batch prompt says "exactly twice" and
+the verifier flags the order; the earlier models did not do this. Accepted, because the only
+material touched was the run's own handover notes, which is everything this condition allows;
+the extra tokens are in the batch cost. A first re-run of batch 1 was started under a stricter
+reading and stopped once batch 2 showed the same pattern; the first attempt stands. Note the
+behaviour if you compare batch costs across models.

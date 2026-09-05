@@ -132,9 +132,11 @@ mistake to be worth a dollar to three dollars before it pays on price alone.
 Three qualifications, in order of weight:
 
 1. **This holds only when the material fits.** In the long variant (one run per model, results
-   in `results-long.md`) every model collapsed: Haiku 45 → 6, Sonnet 60 → 23, Opus 77 → 26. Haiku
-   with everything in view beat Opus after compaction. No pricing rule survives that; the first
-   dollar goes to making the material fit, and only then to the model.
+   in `results-long.md`) three models collapsed: Haiku 45 → 6, Sonnet 60 → 23, Opus 77 → 26, and
+   Haiku with everything in view beat Opus after compaction. Fable 5.1 held: 83 → 67 (68 & 66),
+   at about $1,040 for the run, $15.33 per point, with handover notes four to five times the size
+   of the others'. The first dollar still goes to making the material fit. If it cannot be made
+   to fit, only one of the four produced an answer sheet worth reading, and that is the price.
 2. **The ceiling matters more than the slope near the top.** Fable's worst run (80.5) is above
    Opus's mean (76.7); Opus clears 80 in two runs of nine, Fable in nine of nine. If the task has
    a pass mark, the question is not cost per point but which models clear it reliably.
@@ -150,10 +152,21 @@ $0.57 run is the right buy, provided the material fits in one context.
 
 ## The long variant, and what the repeats do not cover
 
-The long variant was not repeated (it costs $40 to $240 per run and a full day). Its numbers are
-n = 1 and the direction is the finding, not the digits. Fable 5.1's long run, which an earlier
-Fable version refused outright, is recorded in `results-long.md` with its handover sizes per
-segment in `harness/PROTOCOL-LONG.md`.
+The long variant was not repeated (it costs $40 to $1,040 per run and a full day). Its numbers are
+n = 1 and the direction is the finding, not the digits.
+
+| Model | Short (first run) | Long, read once | Long $/point | Handover notes at the end |
+|---|---|---|---|---|
+| Haiku | 45 | 6 (8) | $6.83 | 14,700 words |
+| Sonnet | 60 | 23 (24) | $3.58 | 18,200 |
+| Opus | 77 | 26 (24) | $9.42 | 15,900 |
+| Fable 5.1 | 83 | 67 (68 & 66) | $15.33 | 75,500 |
+
+Fable 5.1's run, which an earlier Fable version refused outright, needed two harness workarounds
+(notes written in parts once they passed the output ceiling; two hand-sized segments over the last
+noise document), both recorded in `harness/PROTOCOL-LONG.md` with the handover size after every
+segment. Its batch-by-batch profile is the same shape as the others', only higher: 29/34, then
+16/35 with seven points of deductions, then 23/31.
 
 ## Caveats a reviewer should hold on to
 

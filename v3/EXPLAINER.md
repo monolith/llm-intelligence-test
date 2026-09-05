@@ -83,18 +83,24 @@ exception: Opus beat Fable once, by one point. No surprises.
 
 ### Finding 2 — When it doesn't fit, everyone collapses
 
-Same models, same material, long version:
+Same models, same material, long version, one run each:
 
-| | Haiku | Sonnet | Opus |
-|---|---|---|---|
-| after compaction | 6 | 23 | 26 |
+| | Haiku | Sonnet | Opus | Fable 5.1 |
+|---|---|---|---|---|
+| short, all at once (first run) | 45 | 60 | 77 | 83 |
+| long, after compaction | 6 | 23 | 26 | 67 |
 
-Every model lost between two-thirds and seven-eighths of its score. The largest effect in the
-entire study is not which model you choose — it is whether the material fits. **Haiku with
-everything in view (45) beats Opus after compaction (26).**
+Three of the four lost between two-thirds and seven-eighths of their score. **Haiku with
+everything in view (45) beats Opus after compaction (26).** Fable is the exception: it kept about
+four-fifths of its score. The reason is visible in its handover notes. The other models' notes
+settled at 15,000 to 18,000 words; Fable's grew to 73,000, because it did what the instruction
+said and wrote nearly everything down. It paid for that in reading passes — 24 segments, about
+$956 of reading at API prices, four times Opus's bill — and it still lost thirteen points to
+planted errors in the later batches.
 
 If you take one practical thing from this page: making the material fit is worth more than
-upgrading the model.
+upgrading the model, for three of the four models. The fourth survives compaction, and costs
+what it costs.
 
 ### Finding 3 — They don't get vague, they get confidently wrong
 
@@ -116,11 +122,13 @@ is the same):
 | Haiku | $0.012 per point | **$6.83 per point** |
 | Sonnet | $0.049 | **$3.58** |
 | Opus | $0.063 | $9.42 |
+| Fable 5.1 | $0.110 | $15.33 |
 
 When the work fits, Haiku is by far the best value. When it doesn't, the ordering **inverts**:
 Haiku costs nearly twice as much per correct point as Sonnet. It needed 35 reading passes to
 Sonnet's 21 for the identical material, because its usable working space is smaller — and then
-scored a quarter as much.
+scored a quarter as much. Fable's long-run point is the dearest of all, but it is the only long
+run whose answer sheet is mostly right.
 
 ### Finding 5 — You can't fix it by trying again
 
@@ -175,8 +183,8 @@ twice. The companion report `QUANT.md` gives every mean with its interval, so th
 - **One kind of task.** This is synthesis from unreliable sources with planted traps. A model
   that is bad at this may be fine at writing code or summarizing a memo.
 - **One family of models**, at one moment in time. Version changes matter: an earlier Fable
-  refused to complete the long version at all (an automated safety check misfired on it); the
-  current one runs it fine.
+  refused to complete the long version at all (an automated safety check misfired on it); Fable
+  5.1 ran it, with two harness workarounds for its very large notes recorded in the protocol notes.
 - **Graders are also models.** Two Opus instances did the marking. They agree closely with each
   other and with a hand-scored sample, but they are not human graders.
 

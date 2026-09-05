@@ -1,6 +1,6 @@
 # Story test v3 -- long variant
 
-Generated: 2026-08-31
+Generated: 2026-09-05
 
 ## Cost curve
 
@@ -12,7 +12,7 @@ Generated: 2026-08-31
 | sonnet | long-reread | — | 1.7304 | pending | pending | pending |
 | opus | long-notes | 239.3202 (211559658) | 1.8019 | 1.9298 | 1.8942 | 244.9460 |
 | opus | long-reread | — | 1.9316 | pending | pending | pending |
-| fable | long-notes | 179.7456 (72539744) | pending | pending | pending | pending |
+| fable | long-notes | 955.8070 (265676687) | 18.6071 | 45.9139 | 22.4268 | 1042.7547 |
 | fable | long-reread | — | pending | pending | pending | pending |
 
 ## Effort (turns, tool calls, tokens)
@@ -45,10 +45,10 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 | opus | long-reread | batch-1 | 19 | 8 | 1222834 | 14243 |
 | opus | long-reread | batch-2 | pending | pending | pending | pending |
 | opus | long-reread | batch-3 | pending | pending | pending | pending |
-| fable | long-notes | ingest | 422 | 211 | 72214020 | 325724 |
-| fable | long-notes | batch-1 | pending | pending | pending | pending |
-| fable | long-notes | batch-2 | pending | pending | pending | pending |
-| fable | long-notes | batch-3 | pending | pending | pending | pending |
+| fable | long-notes | ingest | 1222 | 791 | 264689580 | 987107 |
+| fable | long-notes | batch-1 | 39 | 31 | 4420481 | 39569 |
+| fable | long-notes | batch-2 | 95 | 81 | 13876287 | 42399 |
+| fable | long-notes | batch-3 | 37 | 28 | 4018811 | 50678 |
 | fable | long-reread | ingest | — | — | — | — |
 | fable | long-reread | batch-1 | pending | pending | pending | pending |
 | fable | long-reread | batch-2 | pending | pending | pending | pending |
@@ -64,7 +64,7 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 | sonnet | long-reread | 12/34 (11) | pending | pending | pending |
 | opus | long-notes | 10/34 (11) | 10/35 (7) | 6/31 | 26/100 (24) |
 | opus | long-reread | 18/34 (20) | pending | pending | pending |
-| fable | long-notes | pending | pending | pending | pending |
+| fable | long-notes | 29/34 (28) | 16/35 (17) | 23/31 (21) | 68/100 (66) |
 | fable | long-reread | pending | pending | pending | pending |
 
 ## Section profile
@@ -89,9 +89,9 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 | opus | long-reread | batch-1 | A 10 · B 7 · C 5 | -4 |
 | opus | long-reread | batch-2 | pending | pending |
 | opus | long-reread | batch-3 | pending | pending |
-| fable | long-notes | batch-1 | pending | pending |
-| fable | long-notes | batch-2 | pending | pending |
-| fable | long-notes | batch-3 | pending | pending |
+| fable | long-notes | batch-1 | A 14 · B 8 · C 7 | 0 |
+| fable | long-notes | batch-2 | A 8 · C 7 · D 8 | -7 |
+| fable | long-notes | batch-3 | A 13 · E 8 · F 5 · G 3 | -6 |
 | fable | long-reread | batch-1 | pending | pending |
 | fable | long-reread | batch-2 | pending | pending |
 | fable | long-reread | batch-3 | pending | pending |
@@ -106,7 +106,7 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 | sonnet | long-reread | 0.1442 | pending | pending | 0.1442 |
 | opus | long-notes | 0.1802 | 0.1930 | 0.3157 | 9.4210 |
 | opus | long-reread | 0.1073 | pending | pending | 0.1073 |
-| fable | long-notes | pending | pending | pending | pending |
+| fable | long-notes | 0.6416 | 2.8696 | 0.9751 | 15.3346 |
 | fable | long-reread | pending | pending | pending | pending |
 
 ## Judge stability
@@ -123,6 +123,9 @@ Dollars are notional on a subscription plan; these are what a run actually spend
 - opus/long-notes/batch-2: |total - total2| = 3
 - opus/long-notes/batch-3: |total - total2| = 0
 - opus/long-reread/batch-1: |total - total2| = 2
+- fable/long-notes/batch-1: |total - total2| = 1
+- fable/long-notes/batch-2: |total - total2| = 1
+- fable/long-notes/batch-3: |total - total2| = 2
 
 Max across all judged batches: 3
 
@@ -138,7 +141,7 @@ Max across all judged batches: 3
 | sonnet | long-reread | — |
 | opus | long-notes | 9,457 · 14,842 · 14,085 · 12,589 · 11,916 · 22,210 · 26,026 · 13,440 · 13,511 · 12,042 · 22,105 · 29,133 · 17,654 · 13,320 · 13,762 · 13,184 · 29,559 · 30,556 · 24,169 · 13,903 · 13,266 · 14,554 · 15,860 |
 | opus | long-reread | — |
-| fable | long-notes | 9,448 · 12,496 · 12,702 · 12,815 · 17,097 · 23,686 · 26,193 |
+| fable | long-notes | 6,789 · 10,600 · 10,930 · 11,103 · 17,813 · 11,680 · 15,607 · 15,909 · 15,964 · 16,026 · 22,922 · 17,351 · 23,440 · 23,730 · 24,073 · 24,444 · 38,398 · 53,872 · 69,266 · 70,645 · 73,082 · 75,565 · 82,037 · 75,460 |
 | fable | long-reread | — |
 
 ### Abstentions ("cannot be determined")
@@ -151,7 +154,7 @@ Max across all judged batches: 3
 | sonnet | long-reread | 2 | pending | pending |
 | opus | long-notes | 3 | 3 | 2 |
 | opus | long-reread | 0 | pending | pending |
-| fable | long-notes | pending | pending | pending |
+| fable | long-notes | 0 | 1 | 1 |
 | fable | long-reread | pending | pending | pending |
 
 ### Caveats

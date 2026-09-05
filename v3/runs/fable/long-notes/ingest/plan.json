@@ -1516,7 +1516,7 @@
       {
         "file": "v3/runs/fable/long-notes/ingest/notes-14.md",
         "offset": 1,
-        "limit": 800,
+        "limit": 371,
         "kind": "notes",
         "label": "notes 14",
         "question": null,
@@ -1543,23 +1543,14 @@
       {
         "file": "v3/distractors/long/L3-gibberish.md",
         "offset": 5247,
-        "limit": 800,
+        "limit": 624,
         "kind": "long-noise",
         "label": "L3 part 8/12",
         "question": null,
         "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L3-gibberish.md",
-        "offset": 6047,
-        "limit": 504,
-        "kind": "long-noise",
-        "label": "L3 part 9/12",
-        "question": null,
-        "acknowledge": true
       }
     ],
-    "est_tokens": 109984.5,
+    "est_tokens": 109934.55,
     "notes_out": "notes-15.md"
   },
   {
@@ -1568,7 +1559,7 @@
       {
         "file": "v3/runs/fable/long-notes/ingest/notes-15.md",
         "offset": 1,
-        "limit": 800,
+        "limit": 371,
         "kind": "notes",
         "label": "notes 15",
         "question": null,
@@ -1576,7 +1567,16 @@
       },
       {
         "file": "v3/distractors/long/L3-gibberish.md",
-        "offset": 6551,
+        "offset": 5871,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L3 part 9/12",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L3-gibberish.md",
+        "offset": 6671,
         "limit": 800,
         "kind": "long-noise",
         "label": "L3 part 10/12",
@@ -1585,17 +1585,33 @@
       },
       {
         "file": "v3/distractors/long/L3-gibberish.md",
-        "offset": 7351,
-        "limit": 800,
+        "offset": 7471,
+        "limit": 604,
         "kind": "long-noise",
         "label": "L3 part 11/12",
+        "question": null,
+        "acknowledge": true
+      }
+    ],
+    "est_tokens": 109960.2,
+    "notes_out": "notes-16.md"
+  },
+  {
+    "index": 17,
+    "reads": [
+      {
+        "file": "v3/runs/fable/long-notes/ingest/notes-16.md",
+        "offset": 1,
+        "limit": 371,
+        "kind": "notes",
+        "label": "notes 16",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/distractors/long/L3-gibberish.md",
-        "offset": 8151,
-        "limit": 310,
+        "offset": 8075,
+        "limit": 386,
         "kind": "long-noise",
         "label": "L3 part 12/12",
         "question": "What color is named in paragraph 2566?",
@@ -1658,31 +1674,15 @@
       {
         "file": "v3/test-input/long/r21-long.md",
         "offset": 1601,
-        "limit": 610,
+        "limit": 800,
         "kind": "wrapped",
         "label": "r21 part 3/10",
-        "question": null,
-        "acknowledge": true
-      }
-    ],
-    "est_tokens": 109995.3,
-    "notes_out": "notes-16.md"
-  },
-  {
-    "index": 17,
-    "reads": [
-      {
-        "file": "v3/runs/fable/long-notes/ingest/notes-16.md",
-        "offset": 1,
-        "limit": 800,
-        "kind": "notes",
-        "label": "notes 16",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/test-input/long/r21-long.md",
-        "offset": 2211,
+        "offset": 2401,
         "limit": 800,
         "kind": "wrapped",
         "label": "r21 part 4/10",
@@ -1691,7 +1691,7 @@
       },
       {
         "file": "v3/test-input/long/r21-long.md",
-        "offset": 3011,
+        "offset": 3201,
         "limit": 800,
         "kind": "wrapped",
         "label": "r21 part 5/10",
@@ -1700,7 +1700,7 @@
       },
       {
         "file": "v3/test-input/long/r21-long.md",
-        "offset": 3811,
+        "offset": 4001,
         "limit": 800,
         "kind": "wrapped",
         "label": "r21 part 6/10",
@@ -1709,16 +1709,32 @@
       },
       {
         "file": "v3/test-input/long/r21-long.md",
-        "offset": 4611,
-        "limit": 800,
+        "offset": 4801,
+        "limit": 71,
         "kind": "wrapped",
         "label": "r21 part 7/10",
+        "question": null,
+        "acknowledge": true
+      }
+    ],
+    "est_tokens": 109965.6,
+    "notes_out": "notes-17.md"
+  },
+  {
+    "index": 18,
+    "reads": [
+      {
+        "file": "v3/runs/fable/long-notes/ingest/notes-17.md",
+        "offset": 1,
+        "limit": 447,
+        "kind": "notes",
+        "label": "notes 17",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/test-input/long/r21-long.md",
-        "offset": 5411,
+        "offset": 4872,
         "limit": 800,
         "kind": "wrapped",
         "label": "r21 part 8/10",
@@ -1727,7 +1743,7 @@
       },
       {
         "file": "v3/test-input/long/r21-long.md",
-        "offset": 6211,
+        "offset": 5672,
         "limit": 800,
         "kind": "wrapped",
         "label": "r21 part 9/10",
@@ -1736,8 +1752,8 @@
       },
       {
         "file": "v3/test-input/long/r21-long.md",
-        "offset": 7011,
-        "limit": 82,
+        "offset": 6472,
+        "limit": 621,
         "kind": "wrapped",
         "label": "r21 part 10/10",
         "question": null,
@@ -1793,7 +1809,7 @@
         "offset": 1,
         "limit": 800,
         "kind": "wrapped",
-        "label": "r24 part 1/10",
+        "label": "r24 part 1/11",
         "question": null,
         "acknowledge": true
       },
@@ -1802,95 +1818,136 @@
         "offset": 801,
         "limit": 800,
         "kind": "wrapped",
-        "label": "r24 part 2/10",
+        "label": "r24 part 2/11",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/test-input/long/r24-long.md",
         "offset": 1601,
-        "limit": 800,
+        "limit": 344,
         "kind": "wrapped",
-        "label": "r24 part 3/10",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/test-input/long/r24-long.md",
-        "offset": 2401,
-        "limit": 800,
-        "kind": "wrapped",
-        "label": "r24 part 4/10",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/test-input/long/r24-long.md",
-        "offset": 3201,
-        "limit": 199,
-        "kind": "wrapped",
-        "label": "r24 part 5/10",
+        "label": "r24 part 3/11",
         "question": null,
         "acknowledge": true
       }
     ],
-    "est_tokens": 109996.65,
-    "notes_out": "notes-17.md"
+    "est_tokens": 109935.9,
+    "notes_out": "notes-18.md"
   },
   {
-    "index": 18,
+    "index": 19,
     "reads": [
       {
-        "file": "v3/runs/fable/long-notes/ingest/notes-17.md",
+        "file": "v3/runs/fable/long-notes/ingest/notes-18.md",
         "offset": 1,
-        "limit": 800,
+        "limit": 522,
         "kind": "notes",
-        "label": "notes 17",
+        "label": "notes 18",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/test-input/long/r24-long.md",
-        "offset": 3400,
+        "offset": 1945,
         "limit": 800,
         "kind": "wrapped",
-        "label": "r24 part 6/10",
+        "label": "r24 part 4/11",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/test-input/long/r24-long.md",
-        "offset": 4200,
+        "offset": 2745,
         "limit": 800,
         "kind": "wrapped",
-        "label": "r24 part 7/10",
+        "label": "r24 part 5/11",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/test-input/long/r24-long.md",
-        "offset": 5000,
+        "offset": 3545,
         "limit": 800,
         "kind": "wrapped",
-        "label": "r24 part 8/10",
+        "label": "r24 part 6/11",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/test-input/long/r24-long.md",
-        "offset": 5800,
+        "offset": 4345,
+        "limit": 663,
+        "kind": "wrapped",
+        "label": "r24 part 7/11",
+        "question": null,
+        "acknowledge": true
+      }
+    ],
+    "est_tokens": 109992.6,
+    "notes_out": "notes-19.md"
+  },
+  {
+    "index": 20,
+    "reads": [
+      {
+        "file": "v3/runs/fable/long-notes/ingest/notes-19.md",
+        "offset": 1,
+        "limit": 586,
+        "kind": "notes",
+        "label": "notes 19",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r24-long.md",
+        "offset": 5008,
         "limit": 800,
         "kind": "wrapped",
-        "label": "r24 part 9/10",
+        "label": "r24 part 8/11",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/test-input/long/r24-long.md",
-        "offset": 6600,
-        "limit": 674,
+        "offset": 5808,
+        "limit": 800,
         "kind": "wrapped",
-        "label": "r24 part 10/10",
+        "label": "r24 part 9/11",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r24-long.md",
+        "offset": 6608,
+        "limit": 74,
+        "kind": "wrapped",
+        "label": "r24 part 10/11",
+        "question": null,
+        "acknowledge": true
+      }
+    ],
+    "est_tokens": 109957.5,
+    "notes_out": "notes-20.md"
+  },
+  {
+    "index": 21,
+    "reads": [
+      {
+        "file": "v3/runs/fable/long-notes/ingest/notes-20.md",
+        "offset": 1,
+        "limit": 586,
+        "kind": "notes",
+        "label": "notes 20",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/test-input/long/r24-long.md",
+        "offset": 6682,
+        "limit": 592,
+        "kind": "wrapped",
+        "label": "r24 part 11/11",
         "question": null,
         "acknowledge": true
       },
@@ -1906,368 +1963,409 @@
       {
         "file": "v3/distractors/long/L4-mixed.md",
         "offset": 1,
-        "limit": 800,
+        "limit": 337,
         "kind": "long-noise",
-        "label": "L4 part 1/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 801,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 2/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 1601,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 3/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 2401,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 4/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 3201,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 5/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 4001,
-        "limit": 752,
-        "kind": "long-noise",
-        "label": "L4 part 6/35",
-        "question": null,
-        "acknowledge": true
-      }
-    ],
-    "est_tokens": 109995.3,
-    "notes_out": "notes-18.md"
-  },
-  {
-    "index": 19,
-    "reads": [
-      {
-        "file": "v3/runs/fable/long-notes/ingest/notes-18.md",
-        "offset": 1,
-        "limit": 800,
-        "kind": "notes",
-        "label": "notes 18",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 4753,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 7/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 5553,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 8/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 6353,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 9/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 7153,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 10/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 7953,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 11/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 8753,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 12/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 9553,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 13/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 10353,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 14/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 11153,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 15/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 11953,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 16/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 12753,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 17/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 13553,
-        "limit": 12,
-        "kind": "long-noise",
-        "label": "L4 part 18/35",
+        "label": "L4 part 1/36",
         "question": null,
         "acknowledge": true
       }
     ],
     "est_tokens": 109996.65,
-    "notes_out": "notes-19.md"
+    "notes_out": "notes-21.md"
   },
   {
-    "index": 20,
+    "index": 22,
     "reads": [
       {
-        "file": "v3/runs/fable/long-notes/ingest/notes-19.md",
+        "file": "v3/runs/fable/long-notes/ingest/notes-21.md",
         "offset": 1,
-        "limit": 800,
+        "limit": 592,
         "kind": "notes",
-        "label": "notes 19",
+        "label": "notes 21",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 13565,
+        "offset": 338,
         "limit": 800,
         "kind": "long-noise",
-        "label": "L4 part 19/35",
+        "label": "L4 part 2/36",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 14365,
-        "limit": 800,
+        "offset": 1138,
+        "limit": 220,
         "kind": "long-noise",
-        "label": "L4 part 20/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 15165,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 21/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 15965,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 22/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 16765,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 23/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 17565,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 24/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 18365,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 25/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 19165,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 26/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 19965,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 27/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 20765,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 28/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 21565,
-        "limit": 800,
-        "kind": "long-noise",
-        "label": "L4 part 29/35",
-        "question": null,
-        "acknowledge": true
-      },
-      {
-        "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 22365,
-        "limit": 117,
-        "kind": "long-noise",
-        "label": "L4 part 30/35",
+        "label": "L4 part 3/36",
         "question": null,
         "acknowledge": true
       }
     ],
     "est_tokens": 109999.35,
-    "notes_out": "notes-20.md"
+    "notes_out": "notes-22.md"
   },
   {
-    "index": 21,
+    "index": 23,
     "reads": [
       {
-        "file": "v3/runs/fable/long-notes/ingest/notes-20.md",
+        "file": "v3/runs/fable/long-notes/ingest/notes-22.md",
+        "offset": 1,
+        "limit": 602,
+        "kind": "notes",
+        "label": "notes 22",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 1358,
+        "limit": 736,
+        "kind": "long-noise",
+        "label": "L4 part 4/36",
+        "question": null,
+        "acknowledge": true
+      }
+    ],
+    "est_tokens": 109923.75,
+    "notes_out": "notes-23.md"
+  },
+  {
+    "index": 24,
+    "reads": [
+      {
+        "file": "v3/runs/fable/long-notes/ingest/notes-23.md",
         "offset": 1,
         "limit": 800,
         "kind": "notes",
-        "label": "notes 20",
+        "label": "notes 23",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 22482,
+        "offset": 2094,
         "limit": 800,
         "kind": "long-noise",
-        "label": "L4 part 31/35",
+        "label": "L4 part 5/36",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 23282,
+        "offset": 2894,
         "limit": 800,
         "kind": "long-noise",
-        "label": "L4 part 32/35",
+        "label": "L4 part 6/36",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 24082,
+        "offset": 3694,
         "limit": 800,
         "kind": "long-noise",
-        "label": "L4 part 33/35",
+        "label": "L4 part 7/36",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 24882,
+        "offset": 4494,
         "limit": 800,
         "kind": "long-noise",
-        "label": "L4 part 34/35",
+        "label": "L4 part 8/36",
         "question": null,
         "acknowledge": true
       },
       {
         "file": "v3/distractors/long/L4-mixed.md",
-        "offset": 25682,
-        "limit": 188,
+        "offset": 5294,
+        "limit": 800,
         "kind": "long-noise",
-        "label": "L4 part 35/35",
+        "label": "L4 part 9/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 6094,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 10/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 6894,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 11/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 7694,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 12/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 8494,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 13/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 9294,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 14/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 10094,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 15/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 10894,
+        "limit": 102,
+        "kind": "long-noise",
+        "label": "L4 part 16/36",
+        "question": null,
+        "acknowledge": true
+      }
+    ],
+    "est_tokens": 109993.95,
+    "notes_out": "notes-24.md"
+  },
+  {
+    "index": 25,
+    "reads": [
+      {
+        "file": "v3/runs/fable/long-notes/ingest/notes-24.md",
+        "offset": 1,
+        "limit": 800,
+        "kind": "notes",
+        "label": "notes 24",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 10996,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 17/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 11796,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 18/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 12596,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 19/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 13396,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 20/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 14196,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 21/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 14996,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 22/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 15796,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 23/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 16596,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 24/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 17396,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 25/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 18196,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 26/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 18996,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 27/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 19796,
+        "limit": 204,
+        "kind": "long-noise",
+        "label": "L4 part 28/36",
+        "question": null,
+        "acknowledge": true
+      }
+    ],
+    "est_tokens": 109956.15,
+    "notes_out": "notes-25.md"
+  },
+  {
+    "index": 26,
+    "reads": [
+      {
+        "file": "v3/runs/fable/long-notes/ingest/notes-25.md",
+        "offset": 1,
+        "limit": 800,
+        "kind": "notes",
+        "label": "notes 25",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 20000,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 29/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 20800,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 30/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 21600,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 31/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 22400,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 32/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 23200,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 33/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 24000,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 34/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 24800,
+        "limit": 800,
+        "kind": "long-noise",
+        "label": "L4 part 35/36",
+        "question": null,
+        "acknowledge": true
+      },
+      {
+        "file": "v3/distractors/long/L4-mixed.md",
+        "offset": 25600,
+        "limit": 270,
+        "kind": "long-noise",
+        "label": "L4 part 36/36",
         "question": "What HTTP status code is assigned to the `DeprecatedChecksum` error in the spec?",
         "acknowledge": false
       }
     ],
-    "est_tokens": 46669.5,
-    "notes_out": "notes-21.md"
+    "est_tokens": 76272.3,
+    "notes_out": "notes-26.md"
   }
 ]

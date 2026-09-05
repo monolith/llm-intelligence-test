@@ -1,0 +1,1 @@
+seg24 attempt 1 (2026-09-05 ~02:11 UTC): all 58 prescribed reads completed (L4 coverage 13614-25869 verified complete), but the subscription session limit terminated the agent after the first of its notes parts (7,444 of ~82,000 words). Partial notes kept here; attempt 2 re-ran the segment from notes-23 with the identical prompt after the limit reset.

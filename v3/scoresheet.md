@@ -30,10 +30,10 @@ actually spends. Token counts include cache reads.
 | opus | long / read once | batch 1 | 10 & 11 /34 | 0.8M in / 18k out | 11 | 5 | $1.80 |
 | opus | long / read once | batch 2 | 10 & 7 /35 | 0.8M in / 22k out | 11 | 5 | $1.93 |
 | opus | long / read once | batch 3 | 6/31 | 0.8M in / 21k out | 11 | 5 | $1.89 |
-| fable | long / read once | ingest (7 segments) | — | 72.2M in / 326k out | 422 | 211 | $179.75 |
-| fable | long / read once | batch 1 | not run | — | — | — | — |
-| fable | long / read once | batch 2 | not run | — | — | — | — |
-| fable | long / read once | batch 3 | not run | — | — | — | — |
+| fable | long / read once | ingest (24 segments) | — | 264.7M in / 987k out | 1222 | 791 | $955.81 |
+| fable | long / read once | batch 1 | 29 & 28 /34 | 4.4M in / 40k out | 39 | 31 | $18.61 |
+| fable | long / read once | batch 2 | 16 & 17 /35 | 13.9M in / 42k out | 95 | 81 | $45.91 |
+| fable | long / read once | batch 3 | 23 & 21 /31 | 4.0M in / 51k out | 37 | 28 | $22.43 |
 | haiku | long / re-read | batch 1 (35 segments) | 3/34 | 181.0M in / 316k out | 2207 | 716 | $35.05 |
 | haiku | long / re-read | batch 2 | not run | — | — | — | — |
 | haiku | long / re-read | batch 3 | not run | — | — | — | — |
@@ -46,16 +46,3 @@ actually spends. Token counts include cache reads.
 | fable | long / re-read | batch 1 | not run | — | — | — | — |
 | fable | long / re-read | batch 2 | not run | — | — | — | — |
 | fable | long / re-read | batch 3 | not run | — | — | — | — |
-
-**fable, long variant:** blocked. Its `read once` ingest reached segment 7 of ~20 before an API
-safeguard (`reasoning_extraction`) killed every further attempt — ten attempts across two chain
-shapes. The tokens and dollars shown for that row are what the blocked partial chain consumed, not
-the cost of a completed ingest. No fable long-variant score exists and none should be inferred from
-the other models. See `harness/PROTOCOL-LONG.md` for the elimination table.
-
-**re-read, batches 2 and 3:** not run. Each would be another full pass over the whole corpus per
-model (~$335 and ~5,000 turns for the three models combined). The batch-1 comparison against the
-same models' batch-1 read-once scores is like-for-like and was judged sufficient.
-
-**n = 1.** Every cell is a single run, judged twice. The two judge numbers measure marking spread,
-not run-to-run spread, which is unmeasured.

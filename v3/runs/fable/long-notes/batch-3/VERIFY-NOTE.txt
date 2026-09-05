@@ -1,0 +1,1 @@
+batch 3 (2026-09-05): after reading the questions the reader re-read notes-24.md lines 1-150 once more before writing (same pattern as batches 1 and 2). Accepted on the same basis: only its own handover notes were touched; extra tokens counted in the batch cost. See PROTOCOL-LONG.md.
