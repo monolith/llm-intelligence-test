@@ -5,6 +5,28 @@ calls plus application logic), not just bare models — though it works for bare
 comparison too. Built 2026-08-25. All content (places, people, dates, numbers, plot
 mechanism) was invented for this test and interlocked deliberately.
 
+> ## Version 3 (current): which Claude model, and what it costs
+>
+> Four Claude models (Haiku 4.5, Sonnet 5, Opus 5, Fable 5.1) took the v3 test: reconstruct eight
+> hidden stories from twenty-four contradictory retellings with planted errors. Short = the material
+> fits in one context (nine runs per model, two judges each); long = it does not (one run per model).
+>
+> | Model | Short score (95% interval) | Long score | Long cost per run | Cost per point, short / long |
+> |---|---|---|---|---|
+> | Haiku | 48.9 (43.9 to 54.0) | 6 | $41 | $0.028 / $6.83 |
+> | Sonnet | 63.5 (61.5 to 65.5) | 23 | $82 | $0.062 / $3.58 |
+> | Opus | 76.7 (74.0 to 79.4) | 26 | $245 | $0.120 / $9.42 |
+> | Fable 5.1 | 82.7 (81.5 to 83.9) | 67 | $1,043 | $0.235 / $15.33 |
+>
+> Upgrading pays when the value of one correct point times the points gained exceeds the extra
+> cost; measured break-evens are 10 to 26 cents a point for Haiku → Sonnet, 15 to 73 cents for
+> Sonnet → Opus, and $0.94 to $3.04 for Opus → Fable. When the material does not fit, three of the
+> four models lost most of their score; Fable 5.1 kept four-fifths of its own.
+>
+> **Start at [`v3/README.md`](v3/README.md)**: the takeaway, the method, all results, and how to
+> repeat the test by hand or with the scripts. Statistics: [`v3/QUANT.md`](v3/QUANT.md). Plain-language
+> explanation: [`v3/EXPLAINER.md`](v3/EXPLAINER.md). Exact prompts: [`v3/PROMPTS.md`](v3/PROMPTS.md).
+
 **A larger, harder version 2 exists** — see [Version 2 below](#version-2--the-sallow-creek-viaduct), or the full guide at [`v2/README.md`](v2/README.md).
 
 ## How it works
