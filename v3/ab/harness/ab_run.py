@@ -86,8 +86,11 @@ def build_segment(n, arm, workdir, handover_in=None):
 
 
 def claude_cmd(model, prompt, plugin_dir=None, resume=None):
-    cmd = ["claude", "-p", "--model", model, "--allowedTools", "Read,Write", "--setting-sources", "",
-           "--output-format", "json"]
+    # --tools limits the tool set itself (Bash/Grep/Glob gone, not merely un-allowed: headless mode
+    # auto-approves read-only shell commands otherwise); --strict-mcp-config drops the user's MCP servers.
+    cmd = ["claude", "-p", "--model", model, "--tools", "Read,Write", "--allowedTools", "Read,Write",
+           "--disallowedTools", "Bash", "Grep", "Glob", "Agent", "WebFetch", "WebSearch",
+           "--strict-mcp-config", "--setting-sources", "", "--output-format", "json"]
     for d in MATERIAL_DIRS:
         cmd += ["--add-dir", d]
     if plugin_dir:

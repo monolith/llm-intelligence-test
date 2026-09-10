@@ -41,8 +41,9 @@ def judge(run_dir, which, model):
     sj, sm = run_dir / f"score{suffix}.json", run_dir / f"score{suffix}.md"
     wd = SCRATCH / f"{run_dir.parent.parent.name}-{run_dir.parent.name}-{run_dir.name}-j{which}"
     wd.mkdir(parents=True, exist_ok=True)
-    cmd = ["claude", "-p", "--model", model, "--allowedTools", "Read,Write", "--setting-sources", "",
-           "--output-format", "json", "--add-dir", str(KEY.parent), "--add-dir", str(run_dir),
+    cmd = ["claude", "-p", "--model", model, "--tools", "Read,Write", "--allowedTools", "Read,Write",
+           "--disallowedTools", "Bash", "Grep", "Glob", "Agent", "WebFetch", "WebSearch",
+           "--strict-mcp-config", "--setting-sources", "", "--output-format", "json", "--add-dir", str(KEY.parent), "--add-dir", str(run_dir),
            PROMPT.format(key=KEY, answers=run_dir / "answers.md", score_json=sj, score_md=sm)]
     t0 = time.time()
     p = subprocess.run(cmd[:-1], input=cmd[-1], cwd=str(wd), capture_output=True, text=True, timeout=3600)

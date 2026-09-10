@@ -48,11 +48,19 @@ that this harness reproduces them; they are not the baseline arm.
 
 ## What is fixed (both arms)
 
-    claude -p --model <haiku|sonnet|opus> --allowedTools Read,Write --setting-sources "" \
-        --output-format json --add-dir v3/test-input --add-dir v3/distractors
+    claude -p --model <haiku|sonnet|opus> --tools Read,Write --allowedTools Read,Write \
+        --disallowedTools Bash Grep Glob Agent WebFetch WebSearch --strict-mcp-config \
+        --setting-sources "" --output-format json --add-dir v3/test-input --add-dir v3/distractors
 
 - Working directory: a scratch directory outside the user's home, so no `CLAUDE.md` is loaded.
   `--setting-sources ""` excludes user and project settings, hooks, and other plugins.
+- Tool set: exactly Read and Write. `--allowedTools` alone is not enough: headless mode
+  auto-approves read-only shell commands (one plugin run listed the material directory with `ls`
+  and was voided for it), and the user's MCP connectors were still offered to the session. `--tools`
+  removes the other tools from the session; `--strict-mcp-config` removes the connectors. A session
+  asked to list its tools under these flags answers "Read, Write". Runs made before this was
+  tightened (2026-09-10, before 04:15 UTC) were checked afterwards: none used a shell or
+  connector tool except the voided one.
 - Prompt: on standard input (the `--add-dir` flag is variadic and would swallow a trailing
   positional prompt).
 - Segment files: `v3/runs/sonnet/noisy/segment-{1,2,3}.md` with the notes path rewritten to the
