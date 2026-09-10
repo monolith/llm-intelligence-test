@@ -16,12 +16,15 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from ab_report import summ, fmt, t95
 
-ARMS = ["A", "B", "C", "D", "E"]
+ARMS = ["A", "B", "C", "D", "E", "F", "G", "H"]
 DESC = {"A": "plugin handoff → fresh session", "B": "carry on, /compact", "C": "carry on, no compaction",
-        "D": "fresh session, nothing crosses", "E": "naive handover file, no plugin"}
+        "D": "fresh session, nothing crosses", "E": "naive handover file, no plugin",
+        "F": "plugin, no handoff → fresh session (hooks only)", "G": "plugin + goal, carry on, no cut", "H": "plugin, no goal, carry on, no cut"}
 CONTRASTS = [("A", "B", "brief vs compaction — the central claim (F9, F5, M11)"), ("A", "C", "brief vs full transcript (cost reference)"),
              ("A", "D", "brief vs nothing"), ("A", "E", "plugin brief vs naive handover (isolates the brief + hook)"),
-             ("B", "D", "compaction vs nothing"), ("E", "D", "naive handover vs nothing")]
+             ("B", "D", "compaction vs nothing"), ("E", "D", "naive handover vs nothing"),
+             ("F", "D", "hooks only vs nothing, after a clear (test 2)"), ("A", "F", "handoff vs hooks only, after a clear (test 2)"),
+             ("G", "H", "goal anchor vs no goal, same session (test 1)"), ("G", "C", "plugin + goal vs no plugin, same session (test 1)")]
 
 
 import re

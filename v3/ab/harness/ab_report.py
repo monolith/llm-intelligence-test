@@ -43,7 +43,7 @@ def load_runs(root):
                      "noise_skipped": len(p.get("noise_skipped", [])),
                      "hm": json.load(open(d / "handover-metrics.json"))["handovers"] if (d / "handover-metrics.json").exists() else None})
         r = runs[-1]
-        r["compactions"] = p.get("compactions")
+        r["compactions"] = p.get("compactions"); r["handoffs"] = len(p.get("handoffs") or [])
         # loss classification (omission vs fabrication), when the judges recorded it
         om = fab = 0
         for sfile in (sj, sj2):
@@ -130,9 +130,11 @@ def main():
         L += ["", "## Single compacting session: what the losses were (Block 2a, G5)", "",
               "One session read everything and was compacted on demand at the two seams. Each lost item is classed by the",
               "judges as omission (no claim made) or fabrication (a specific claim contradicting the key); means of the two judges.", "",
+              "Arms: baseline (no plugin, compacted twice), plugin (compacted twice, hooks fire), continue (plugin, one session, no",
+              "compaction, advisories ignored — test 3 control), follow (plugin; handoff + fresh session whenever its advisory fires — test 3).", "",
               "| Model | Arm | n | score mean [95% CI] | omission items | fabrication items | compactions | $/run |", "|---|---|---|---|---|---|---|---|"]
         for m in models:
-            for arm in ("baseline", "plugin"):
+            for arm in ("baseline", "plugin", "continue", "follow"):
                 rs = [r for r in single if r["model"] == m and r["arm"] == arm]
                 if rs:
                     s_ = summ([r["score"] for r in rs])

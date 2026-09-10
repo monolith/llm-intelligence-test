@@ -43,7 +43,10 @@ NAIVE_CLEAR = ("This session is ending. Write a file HANDOVER.md in the reposito
                "session will need to implement the five features in SPEC.md: what you learned about the repository "
                "and every update to the spec. Then stop.")
 ARMS = {"A": "plugin handoff + fresh session", "B": "carry on, /compact", "C": "carry on, no compaction",
-        "D": "fresh session, nothing crosses", "E": "naive handover file, no plugin, fresh session told it exists"}
+        "D": "fresh session, nothing crosses", "E": "naive handover file, no plugin, fresh session told it exists",
+        "F": "plugin loaded, no handoff, fresh session (hooks only)",           # Anatoly's test 2
+        "G": "plugin loaded, goal set, carry on, no cut (anchor on)",           # Anatoly's test 1
+        "H": "plugin loaded, no goal, carry on, no cut (anchor off)"}          # Anatoly's test 1 control
 
 
 def claude_cmd(model, prompt, plugin_dir=None, resume=None):
@@ -109,9 +112,9 @@ def main():
     ap.add_argument("--goal-cmd", default="goal"); ap.add_argument("--handoff-cmd", default="handoff")
     ap.add_argument("--out-root", default=str(V3 / "ab" / "build"))
     a = ap.parse_args()
-    if a.arm == "A" and not a.plugin_dir:
-        ap.error("arm A needs --plugin-dir")
-    plugin_dir = Path(a.plugin_dir).resolve() if a.arm == "A" else None
+    if a.arm in ("A", "F", "G", "H") and not a.plugin_dir:
+        ap.error(f"arm {a.arm} needs --plugin-dir")
+    plugin_dir = Path(a.plugin_dir).resolve() if a.arm in ("A", "F", "G", "H") else None
     run_name = f"build-r{a.rep}"
     workdir = SCRATCH / a.arm / a.model / run_name
     if workdir.exists():
@@ -124,10 +127,10 @@ def main():
             "cli_version": subprocess.run(["claude", "--version"], capture_output=True, text=True).stdout.strip(),
             "plugin_dir": str(plugin_dir) if plugin_dir else None,
             "plugin_commit": (subprocess.run(["git", "-C", str(plugin_dir), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip() if plugin_dir else None),
-            "fixed_flags": claude_cmd(a.model, "<prompt>", plugin_dir)[:-1], "goal": GOAL if plugin_dir else None}
+            "fixed_flags": claude_cmd(a.model, "<prompt>", plugin_dir)[:-1], "goal": GOAL if a.arm in ("A", "F", "G") else None}
 
     # ---- phase 1 (identical in every arm; plugin arm has the plugin loaded and a goal set) ----
-    if a.arm == "A":
+    if a.arm in ("A", "F", "G"):
         run(workdir, a.model, f"/{a.plugin_name}:{a.goal_cmd} {GOAL}", "goal", plugin_dir)
     sid = None
     for i, t in enumerate(phase1, 1):
@@ -147,10 +150,10 @@ def main():
         handover = Path(briefs[-1]); sid = None
     elif a.arm == "B":
         run(workdir, a.model, "/compact", "compact", None, resume=sid)
-    elif a.arm == "C":
-        pass
-    elif a.arm == "D":
-        sid = None
+    elif a.arm in ("C", "G", "H"):
+        pass                                   # carry on in the same session, nothing done at the seam
+    elif a.arm in ("D", "F"):
+        sid = None                             # fresh session; F keeps the plugin loaded (its hooks fire), D has none
     elif a.arm == "E":
         run(workdir, a.model, NAIVE_CLEAR, "naive-handover", None, resume=sid)
         handover = workdir / "HANDOVER.md"

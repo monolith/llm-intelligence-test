@@ -57,16 +57,19 @@ def count_compactions(transcript_path):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--arm", choices=["baseline", "plugin"], required=True)
+    ap.add_argument("--arm", choices=["baseline", "plugin", "continue", "follow"], required=True,
+                    help="baseline/plugin: one session compacted on demand at r08 and r16. "
+                         "continue: plugin loaded, one session, NO compaction, advisories ignored (Anatoly's test 3 control). "
+                         "follow: plugin loaded; whenever the plugin's fill advisory fires, do what it says — handoff and a fresh session (test 3).")
     ap.add_argument("--model", required=True)
     ap.add_argument("--rep", type=int, required=True)
     ap.add_argument("--plugin-dir")
     ap.add_argument("--plugin-name", default="context-governor")
-    ap.add_argument("--goal-cmd", default="goal")
+    ap.add_argument("--goal-cmd", default="goal"); ap.add_argument("--handoff-cmd", default="handoff")
     ap.add_argument("--out-root", default=str(V3 / "ab"))
     a = ap.parse_args()
-    if a.arm == "plugin" and not a.plugin_dir:
-        ap.error("--plugin-dir is required for the plugin arm")
+    if a.arm in ("plugin", "continue", "follow") and not a.plugin_dir:
+        ap.error("--plugin-dir is required for the plugin, continue and follow arms")
     plugin_dir = Path(a.plugin_dir).resolve() if a.plugin_dir else None
     run_name = f"single-r{a.rep}"
     workdir = SCRATCH / a.arm / a.model / run_name
@@ -79,23 +82,53 @@ def main():
             "plugin_dir": str(plugin_dir) if plugin_dir else None,
             "plugin_commit": (subprocess.run(["git", "-C", str(plugin_dir), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip() if plugin_dir else None),
             "fixed_flags": ab_run.claude_cmd(a.model, "<prompt>", plugin_dir)[:-1],
-            "seam": "on-demand /compact after r08 and r16, same session; nothing said about saving"}
-    if a.arm == "plugin":
+            "seam": {"baseline": "on-demand /compact after r08 and r16, same session; nothing said about saving",
+                     "plugin": "on-demand /compact after r08 and r16, same session; nothing said about saving",
+                     "continue": "one session, no compaction, fill advisories ignored",
+                     "follow": "handoff + fresh session each time the plugin's fill advisory fires; no compaction"}[a.arm],
+            "handoffs": []}
+    if a.arm in ("plugin", "continue", "follow"):
         ab_run.run_claude(workdir, a.model, f"/{a.plugin_name}:{a.goal_cmd} {ab_run.GOAL}", "goal", plugin_dir)
     r = ab_run.run_claude(workdir, a.model, OPENING, "opening", plugin_dir)
     sid = r["session_id"]
+    sids = [sid]
     expected = []
     turn = 0
+    last_tier = -1
+
+    def advisory_fired():
+        """The plugin's fill advisory state for the current session: highest tier crossed so far."""
+        f = workdir / ".governor" / "state" / f"fill-{sid}.json"
+        try:
+            return json.load(open(f)).get("last_tier", -1)
+        except Exception:
+            return -1
+
+    def maybe_follow(label):
+        nonlocal sid, last_tier
+        if a.arm != "follow":
+            return
+        tier = advisory_fired()
+        if tier > last_tier and tier >= 1:            # the 50 % advisory (tier index 1) or higher
+            ab_run.run_claude(workdir, a.model, f"/{a.plugin_name}:{a.handoff_cmd} the plugin advised reaching a seam; "
+                              "the next session continues the same reading test and must answer detailed questions about "
+                              "everything in the retellings read so far, not the unrelated documents", f"handoff-{label}", plugin_dir, resume=sid)
+            r2 = ab_run.run_claude(workdir, a.model, OPENING.replace("Reply OK to begin.", "Earlier sessions began this test and "
+                                   "their context is gone. Reply OK to continue."), f"fresh-{label}", plugin_dir)
+            sid = r2["session_id"]; sids.append(sid); prov["handoffs"].append(label); last_tier = -1
+        else:
+            last_tier = max(last_tier, tier)
+
     for slot, rnum, dfile in slots():
         rpath = RETELLINGS[rnum - 1]
         turn += 1
         ab_run.run_claude(workdir, a.model, f"Read `{rpath}` — acknowledge in one line (narrator and gist).", f"r{rnum:02d}", plugin_dir, resume=sid)
-        expected.append(str(rpath))
+        expected.append(str(rpath)); maybe_follow(f"r{rnum:02d}")
         dpath = V3 / "distractors" / dfile
         turn += 1
         ab_run.run_claude(workdir, a.model, f"Read `{dpath}` — unrelated task: {distractor_question(dfile)} Answer in one sentence.", f"d{slot:02d}", plugin_dir, resume=sid)
-        expected.append(str(dpath))
-        if rnum in (8, 16):
+        expected.append(str(dpath)); maybe_follow(f"d{slot:02d}")
+        if rnum in (8, 16) and a.arm in ("baseline", "plugin"):
             ab_run.run_claude(workdir, a.model, "/compact", f"compact-after-r{rnum:02d}", plugin_dir, resume=sid)
     parts = [workdir / f"answers-part{i}.md" for i in (1, 2, 3)]
     q = (f"Read `{QUESTIONS}` — the questions about the twenty-four retellings you have read. Answer every question following "
@@ -110,7 +143,7 @@ def main():
         (workdir / "VERIFY.txt").write_text(f"INVALID: missing answer parts {missing}\n")
         raise SystemExit(f"missing answer parts {missing}")
     (workdir / "answers.md").write_text("\n\n".join(p.read_text(encoding="utf-8") for p in parts), encoding="utf-8")
-    ab_run.capture([sid], workdir / "transcript.jsonl")
+    ab_run.capture(sids, workdir / "transcript.jsonl")
     # verification: reads in order (continuations collapsed), own-file writes benign, nothing else
     reads, benign, bad = [], [], []
     wd = str(workdir)
@@ -133,13 +166,13 @@ def main():
     fatal = [m for m in missing_reads if m.startswith("r") and m[1:3].isdigit() or m == "questions.md"]
     extra = [Path(g).name for g in reads if g not in expected]
     problems = [f"unexpected tool use: {b}" for b in bad] + ([f"missing reads: {fatal}"] if fatal else []) + ([f"extra reads: {extra}"] if extra else [])
-    n_comp = count_compactions(session_file := ab_run.session_jsonl(sid))
+    n_comp = sum(count_compactions(ab_run.session_jsonl(x)) for x in sids)
     line = (f"valid ({len(reads)} prescribed reads, {len(benign)} benign own-file uses" + (f"; noise skipped: {noise_skipped}" if noise_skipped else "") + f"; compactions: {n_comp})"
             if not problems else "INVALID\n  " + "\n  ".join(problems))
     (workdir / "VERIFY.txt").write_text(line + "\n", encoding="utf-8")
     print(line)
     calls = [json.loads(l) for l in open(workdir / "cli-calls.jsonl", encoding="utf-8")]
-    prov.update({"session_id": sid, "compactions": n_comp, "noise_skipped": noise_skipped, "verify": [line],
+    prov.update({"session_id": sid, "sessions": sids, "compactions": n_comp, "noise_skipped": noise_skipped, "verify": [line],
                  "turns": sum(c.get("num_turns", 0) for c in calls), "cost_usd": round(sum(c.get("total_cost_usd", 0) for c in calls), 4),
                  "usage": {k: sum((c.get("usage") or {}).get(k, 0) for c in calls) for k in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens", "output_tokens")},
                  "answers_words": len((workdir / "answers.md").read_text().split()), "handover_words": {}})
