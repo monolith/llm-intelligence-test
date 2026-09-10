@@ -148,7 +148,10 @@ arms are subject to the same rule, and re-running until a reader complies would 
 compliant runs. In the pilot, Haiku's baseline reader skipped the last distractor before its notes
 write in two runs out of two; the plugin reader, whose last step is a one-line reply, did not. A
 missing retelling, notes, brief, or questions read, an extra tool use, or an out-of-order read is
-still fatal.
+still fatal. A Read of a file that does not exist (one no-hint Sonnet session, told that earlier
+sessions had begun the test, tried to open a `MEMORY.md` that was never there) returns nothing and
+is recorded as benign; the attempt itself is reported, since looking for a memory file is behaviour
+worth knowing about.
 
 ## Cost accounting
 

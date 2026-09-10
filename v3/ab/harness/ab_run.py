@@ -187,11 +187,15 @@ def capture(session_ids, out_path):
 
 
 def tool_uses(transcript):
+    """(name, input, raw, failed) per tool use; failed = the following tool result says the file does not exist,
+    so the call returned no information."""
+    rows = [json.loads(line) for line in open(transcript, encoding="utf-8")]
     uses = []
-    for line in open(transcript, encoding="utf-8"):
-        r = json.loads(line)
+    for i, r in enumerate(rows):
         if r.get("role") != "assistant":
             continue
+        nxt = rows[i + 1]["text"] if i + 1 < len(rows) else ""
+        failed_any = "File does not exist" in nxt or "No such file" in nxt
         for m in re.finditer(r"\[tool_use (\w+): (.*?)\]", r["text"], flags=re.S):
             name, payload = m.group(1), m.group(2)
             try:
@@ -204,7 +208,7 @@ def tool_uses(transcript):
                     inp["file_path"] = fm.group(1)
                 if '"offset"' in payload:
                     inp["offset"] = True
-            uses.append((name, inp, payload[:200]))
+            uses.append((name, inp, payload[:200], failed_any))
     return uses
 
 
@@ -214,10 +218,12 @@ def verify_segment(seg_file, transcript, workdir):
     expected = [str(Path(workdir) / seg_file.name)] + expected   # the reader saw the workdir copy
     wd = str(workdir)
     prescribed, benign, bad = [], [], []
-    for name, inp, raw in tool_uses(transcript):
+    for name, inp, raw, failed in tool_uses(transcript):
         fp = inp.get("file_path", "") if isinstance(inp, dict) else ""
         if fp and not fp.startswith("/"):
             fp = str(Path(workdir) / fp)                    # the plugin's commands use paths relative to the cwd
+        if name == "Read" and failed and fp not in expected:
+            benign.append((name, fp + " (does not exist; nothing returned)")); continue
         if name == "Read":
             if prescribed and prescribed[-1] == fp and "offset" in inp:
                 continue                                   # continuation of a long file
