@@ -40,6 +40,11 @@ def load_runs(root):
                      "handover": sum(p.get("handover_words", {}).values()), "verify_ok": verify_ok, "dir": str(d),
                      "noise_skipped": len(p.get("noise_skipped", [])),
                      "hm": json.load(open(d / "handover-metrics.json"))["handovers"] if (d / "handover-metrics.json").exists() else None})
+        r = runs[-1]
+        # Anatoly's adjusted score (2026-09-10): a distractor fact carried across a seam costs half a point.
+        # Only defined once the run's handovers have been audited.
+        r["noise_carried"] = sum(h["noise_facts"] for h in r["hm"]) if r["hm"] else None
+        r["adjusted"] = r["score"] - 0.5 * r["noise_carried"] if r["hm"] else None
     return runs
 
 def summ(xs):
@@ -107,6 +112,32 @@ def main():
             L.append(f"| {cond} | {m} | {s['n']} | {fmt(s)} | {tstat:.2f} | {w}–{t_}–{l} | {cd:.2f} | {dc:+.2f} | {dt:+.0f} |")
     hm = [r for r in runs if r["hm"]]
     if hm:
+        L += ["", "## Adjusted score: half a point off per distractor fact carried across a seam", "",
+              "Score − 0.5 × (distractor answers found in the run's handovers). Carrying noise into the next session",
+              "is what the penalty targets, so it applies only at seams. Runs without a handover audit are omitted.", "",
+              "| Condition | Model | Arm | n | adjusted mean [95% CI] | raw mean | noise carried (mean) |", "|---|---|---|---|---|---|---|"]
+        adj_cells = defaultdict(list)
+        for r in hm:
+            adj_cells[(r["cond"], r["model"], r["arm"])].append(r)
+        for cond in conds:
+            for m in models:
+                for arm in ("baseline", "plugin"):
+                    rs = adj_cells.get((cond, m, arm))
+                    if not rs:
+                        continue
+                    s_ = summ([r["adjusted"] for r in rs])
+                    L.append(f"| {cond} | {m} | {arm} | {s_['n']} | {fmt(s_)} | {st.mean(r['score'] for r in rs):.1f} | {st.mean(r['noise_carried'] for r in rs):.1f} |")
+        L += ["", "Paired adjusted difference, plugin − baseline:", "", "| Condition | Model | n pairs | mean diff [95% CI] |", "|---|---|---|---|"]
+        for cond in conds:
+            for m in models + ["all models"]:
+                ms = models if m == "all models" else [m]
+                d = []
+                for mm in ms:
+                    b = {r["rep"]: r for r in adj_cells.get((cond, mm, "baseline"), [])}
+                    p_ = {r["rep"]: r for r in adj_cells.get((cond, mm, "plugin"), [])}
+                    d += [p_[k]["adjusted"] - b[k]["adjusted"] for k in sorted(set(b) & set(p_))]
+                if d:
+                    L.append(f"| {cond} | {m} | {len(d)} | {fmt(summ(d))} |")
         L += ["", "## What the handovers carried (context-appropriate facts)", "",
               "Per handover: canon facts present (of 112, one opus audit per handover) and distractor answers present",
               "(of 8 at seam 1, 16 at seam 2, checked by token). Share = story / (story + noise). Means over runs and seams.", "",
