@@ -157,6 +157,9 @@ def run_claude(workdir, model, prompt, label, plugin_dir=None, resume=None, time
         raise SystemExit(f"{label}: claude -p failed: {out}")
     if "safeguards flagged" in str(out.get("result", "")):
         raise SystemExit(f"{label}: the model's safeguard flagged the prompt; run aborted (see cli-calls.jsonl)")
+    res = str(out.get("result", ""))
+    if out.get("is_error") or "session limit" in res or "rate_limit" in res or res.startswith("API Error"):
+        raise SystemExit(f"{label}: API error / rate limit; run aborted: {res[:160]!r}")
     print(f"{label}: turns={out.get('num_turns')} cost=${out.get('total_cost_usd', 0):.3f} wall={out['_wall_s']}s "
           f"result={str(out.get('result', ''))[:100]!r}")
     return out
@@ -349,7 +352,8 @@ def main():
     (workdir / "answers.md").write_text("\n\n".join(p.read_text(encoding="utf-8") for p in parts if p.exists()), encoding="utf-8")
     report = []; all_skipped = []
     if missing:
-        report.append(f"MISSING answer parts: {missing}")
+        (workdir / "VERIFY.txt").write_text(f"INVALID: missing answer parts {missing}\n", encoding="utf-8")
+        raise SystemExit(f"missing answer parts {missing}; run not copied")
     for n in (1, 2, 3):
         ids = sessions[n]
         # the plugin arm's goal turn and handoff turns live in the same session as segments 1/2

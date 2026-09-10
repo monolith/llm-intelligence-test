@@ -25,7 +25,11 @@ for r in $(seq "$R0" "$R1"); do
         python3 v3/ab/harness/ab_run.py --arm baseline --model "$M" --rep "$r" --seam "$SEAM" > "$LOGS/$arm-$M-r$r.log" 2>&1
       fi
       rc=$?; echo "$(date -u +%H:%M) run $arm $M r$r exit $rc: $(tail -n 1 "$LOGS/$arm-$M-r$r.log" | cut -c1-160)"
-      [ $rc -ne 0 ] && continue
+      if [ $rc -ne 0 ]; then
+        # a session-limit or API failure: wait for the window to pass, then this (arm, rep) is retried on the next pass
+        if grep -qi "session limit\|rate.limit\|API Error" "$LOGS/$arm-$M-r$r.log"; then echo "$(date -u +%H:%M) limit hit; sleeping 30 min"; sleep 1800; fi
+        continue
+      fi
     fi
     if grep -q INVALID "$D/VERIFY.txt" 2>/dev/null; then echo "$(date -u +%H:%M) $arm $M r$r INVALID — not judging (see VERIFY.txt)"; continue; fi
     echo "$(date -u +%H:%M) judge $arm $M r$r"
