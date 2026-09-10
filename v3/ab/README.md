@@ -79,9 +79,14 @@ that this harness reproduces them; they are not the baseline arm.
 ## What is switched (plugin arm only)
 
 1. `--plugin-dir <path>` on every session.
-2. Before segment 1, one user turn: `/<plugin>:goal Read the delivered documents in order and
-   answer detailed questions later about everything in the retellings, not the unrelated
-   documents.` Segment 1 continues in that session (`--resume`).
+2. Before segment 1, one user turn in its own short session: `/<plugin>:goal Read the delivered
+   documents in order and answer detailed questions later about everything in the retellings, not
+   the unrelated documents.` The plugin stores the goal on disk and its prompt hook re-shows it
+   on every later prompt, so segment 1 starts as a fresh session with the anchor live. (The first
+   design resumed the goal session for segment 1; Opus 5's safeguard then flagged the next
+   message as "reasoning extraction", deterministically, while the identical prompt in a fresh
+   session passed. Runs made before 04:30 UTC on 2026-09-10 used the resumed form; their
+   `provenance.json` shows the goal and segment-1 session ids equal.)
 3. At each seam the segment's last step is replaced by "reply READY FOR HANDOFF", then the harness
    sends, on the same session: `/<plugin>:handoff your context will be discarded; the next session
    must answer detailed questions about everything in the retellings read so far, not the

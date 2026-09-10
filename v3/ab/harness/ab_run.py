@@ -176,6 +176,8 @@ def verify_segment(seg_file, transcript, workdir):
     prescribed, benign, bad = [], [], []
     for name, inp, raw in tool_uses(transcript):
         fp = inp.get("file_path", "") if isinstance(inp, dict) else ""
+        if fp and not fp.startswith("/"):
+            fp = str(Path(workdir) / fp)                    # the plugin's commands use paths relative to the cwd
         if name == "Read":
             if prescribed and prescribed[-1] == fp and "offset" in inp:
                 continue                                   # continuation of a long file
@@ -258,15 +260,19 @@ def main():
                                              text=True).stdout.strip() if plugin_dir else None),
             "fixed_flags": claude_cmd(a.model, "<prompt>", plugin_dir)[:-1], "goal": GOAL if (plugin_dir and a.goal_cmd) else None,
             "handoff_reason": HANDOFF_REASON if (plugin_dir and a.handoff_cmd) else None,
-            "seam": "plugin handoff command" if (plugin_dir and a.handoff_cmd) else "v3 notes step"}
+            "seam": "plugin handoff command" if (plugin_dir and a.handoff_cmd) else "v3 notes step",
+            "goal_session": "separate session; segment 1 starts fresh with the anchor live" if (plugin_dir and a.goal_cmd) else None}
 
     # ---- segment 1 ----
     seam_arm = a.arm if (a.arm == "baseline" or a.handoff_cmd) else "baseline"   # no handoff command: notes step, plugin loaded
     seg1 = build_segment(1, seam_arm, workdir)
     resume = None
     if a.arm == "plugin" and a.goal_cmd:
+        # The goal is set in its own short session; segment 1 then starts fresh with the anchor live
+        # (the plugin keeps the goal on disk). Resuming the goal session instead trips Opus 5's
+        # safeguard on the very next message ("reasoning_extraction"); a fresh session does not.
         g = run_claude(workdir, a.model, f"/{a.plugin_name}:{a.goal_cmd} {GOAL}", "goal", plugin_dir, dry=dry)
-        resume = g["session_id"]
+        resume = None
     r = run_claude(workdir, a.model, prompt_seg12(seg1, seam_arm), "segment-1", plugin_dir, resume=resume, dry=dry)
     sessions[1] = [r["session_id"]]
     handover = None
