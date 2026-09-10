@@ -25,10 +25,11 @@ Score every item in the answer key against the run's answers. Rules:
 - Section A is credited wherever the content appears inside the run's eight reconstructions — the run chose its own partition of the stories, so look for each keyed fact anywhere in Section A, not only under the story number the key uses. Never credit Section A from material the run wrote in Sections B–G.
 - Apply the key's corruption deductions: subtract for every planted error the run asserts as fact, per the key's list and any general deduction rule it states. A hedged mention of an error ("one source wrongly claims...") is not a deduction.
 - Sum each section to its own total, then sum sections minus deductions to the grand total. Floor each section at 0 if the key says to.
+- For every item that does NOT earn full marks, classify the loss: "omission" if the run makes no claim on the point (silent, "not stated", "cannot determine" where the key has a value), or "fabrication" if the run makes a specific claim that contradicts the key. Put it in the item's "loss" field; use null for items earning full marks.
 
 Write your scoring to `{score_json}` as strict JSON and nothing else — no prose, no markdown fence. The shape, using the key's own section labels as the keys of "sections":
 
-{{"sections": {{"A": {{"items": [{{"id": "A1.1", "points": 0, "max": 1, "note": "why"}}], "total": 0}}, "...": {{"items": [], "total": 0}}}}, "deductions": [{{"reason": "why", "points": -1}}], "total": 0}}
+{{"sections": {{"A": {{"items": [{{"id": "A1.1", "points": 0, "max": 1, "loss": "omission", "note": "why"}}], "total": 0}}, "...": {{"items": [], "total": 0}}}}, "deductions": [{{"reason": "why", "points": -1}}], "total": 0}}
 
 Then write a short human-readable companion to `{score_md}`: the per-section totals, the grand total, and a few lines on what the run got wrong.
 

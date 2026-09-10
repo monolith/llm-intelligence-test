@@ -43,6 +43,19 @@ def load_runs(root):
                      "noise_skipped": len(p.get("noise_skipped", [])),
                      "hm": json.load(open(d / "handover-metrics.json"))["handovers"] if (d / "handover-metrics.json").exists() else None})
         r = runs[-1]
+        r["compactions"] = p.get("compactions")
+        # loss classification (omission vs fabrication), when the judges recorded it
+        om = fab = 0
+        for sfile in (sj, sj2):
+            try:
+                for sec in json.load(open(sfile)).get("sections", {}).values():
+                    for it in (sec.get("items") or []):
+                        if isinstance(it, dict):
+                            if it.get("loss") == "omission": om += 1
+                            elif it.get("loss") == "fabrication": fab += 1
+            except Exception:
+                pass
+        r["omission"], r["fabrication"] = om / 2, fab / 2
         # Anatoly's adjusted score (2026-09-10): a distractor fact carried across a seam costs half a point.
         # Only defined once the run's handovers have been audited.
         r["noise_carried"] = sum(h["noise_facts"] for h in r["hm"]) if r["hm"] else None
@@ -112,6 +125,19 @@ def main():
             cd = (st.mean(xs) - st.mean(ys)) / sp if sp > 0 else float("nan")
             dc = st.mean(x["cost"] - y["cost"] for x, y in pairs); dt = st.mean(x["turns"] - y["turns"] for x, y in pairs)
             L.append(f"| {cond} | {m} | {s['n']} | {fmt(s)} | {tstat:.2f} | {w}–{t_}–{l} | {cd:.2f} | {dc:+.2f} | {dt:+.0f} |")
+    single = [r for r in runs if r["cond"] == "single"]
+    if single:
+        L += ["", "## Single compacting session: what the losses were (Block 2a, G5)", "",
+              "One session read everything and was compacted on demand at the two seams. Each lost item is classed by the",
+              "judges as omission (no claim made) or fabrication (a specific claim contradicting the key); means of the two judges.", "",
+              "| Model | Arm | n | score mean [95% CI] | omission items | fabrication items | compactions | $/run |", "|---|---|---|---|---|---|---|---|"]
+        for m in models:
+            for arm in ("baseline", "plugin"):
+                rs = [r for r in single if r["model"] == m and r["arm"] == arm]
+                if rs:
+                    s_ = summ([r["score"] for r in rs])
+                    L.append(f"| {m} | {arm} | {len(rs)} | {fmt(s_)} | {st.mean(r['omission'] for r in rs):.1f} | {st.mean(r['fabrication'] for r in rs):.1f} | "
+                             f"{st.mean(r['compactions'] or 0 for r in rs):.0f} | ${st.mean(r['cost'] for r in rs):.2f} |")
     hm = [r for r in runs if r["hm"]]
     if hm:
         L += ["", "## Adjusted score: half a point off per distractor fact carried across a seam", "",
