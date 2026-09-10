@@ -46,8 +46,10 @@ def prompt_seg12(seg_path, arm):
         "baseline": ("its last step has you write retention notes with ONE Write call before your context is "
                      "discarded — be exhaustive about everything in the retellings (not the unrelated documents). "
                      "Your final reply to me must be one line: the notes path and an approximate word count (no tools for that)."),
-        "plugin": ("its last step has you stop before your context is discarded. "
-                   "Your final reply to me must be exactly: READY FOR HANDOFF"),
+        # wording chosen after probing Opus 5's safeguard: "reply exactly: READY FOR HANDOFF" was flagged as
+        # reasoning_extraction 2/2 with the plugin's anchor live; this form passed 2/2 (see README)
+        "plugin": ("its last step has you stop before your context is discarded; do not write notes, the handover "
+                   "is done for you afterwards. Your final reply to me must be one line: the number of steps you completed."),
     }[arm]
     return RULES + f"Start by reading your instruction file `{seg_path}` (one Read call), then follow it exactly; " + tail
 
@@ -63,7 +65,7 @@ def prompt_seg3(seg_path):
             "line: the three paths written and the number of questions answered.")
 
 HANDOFF_STEP = ("17. Your context will now be discarded and a fresh reader will continue from a handover. Do not write "
-                "anything. Reply exactly: READY FOR HANDOFF")
+                "notes; stop here and reply with the number of steps you completed.")
 
 
 def build_segment(n, arm, workdir, handover_in=None):
@@ -120,6 +122,8 @@ def run_claude(workdir, model, prompt, label, plugin_dir=None, resume=None, time
         f.write(json.dumps(out, ensure_ascii=False) + "\n")
     if "error" in out and "session_id" not in out:
         raise SystemExit(f"{label}: claude -p failed: {out}")
+    if "safeguards flagged" in str(out.get("result", "")):
+        raise SystemExit(f"{label}: the model's safeguard flagged the prompt; run aborted (see cli-calls.jsonl)")
     print(f"{label}: turns={out.get('num_turns')} cost=${out.get('total_cost_usd', 0):.3f} wall={out['_wall_s']}s "
           f"result={str(out.get('result', ''))[:100]!r}")
     return out

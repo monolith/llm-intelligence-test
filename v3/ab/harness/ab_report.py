@@ -38,7 +38,8 @@ def load_runs(root):
                      "tokens_in": sum(p.get("usage", {}).get(k, 0) for k in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens")),
                      "tokens_out": p.get("usage", {}).get("output_tokens", 0),
                      "handover": sum(p.get("handover_words", {}).values()), "verify_ok": verify_ok, "dir": str(d),
-                     "noise_skipped": len(p.get("noise_skipped", []))})
+                     "noise_skipped": len(p.get("noise_skipped", [])),
+                     "hm": json.load(open(d / "handover-metrics.json"))["handovers"] if (d / "handover-metrics.json").exists() else None})
     return runs
 
 def summ(xs):
@@ -104,6 +105,22 @@ def main():
             cd = (st.mean(xs) - st.mean(ys)) / sp if sp > 0 else float("nan")
             dc = st.mean(x["cost"] - y["cost"] for x, y in pairs); dt = st.mean(x["turns"] - y["turns"] for x, y in pairs)
             L.append(f"| {cond} | {m} | {s['n']} | {fmt(s)} | {tstat:.2f} | {w}–{t_}–{l} | {cd:.2f} | {dc:+.2f} | {dt:+.0f} |")
+    hm = [r for r in runs if r["hm"]]
+    if hm:
+        L += ["", "## What the handovers carried (context-appropriate facts)", "",
+              "Per handover: canon facts present (of 112, one opus audit per handover) and distractor answers present",
+              "(of 8 at seam 1, 16 at seam 2, checked by token). Share = story / (story + noise). Means over runs and seams.", "",
+              "| Condition | Model | Arm | runs audited | handover words | story facts /112 | noise facts | context-appropriate share |", "|---|---|---|---|---|---|---|---|"]
+        for cond in conds:
+            for m in models:
+                for arm in ("baseline", "plugin"):
+                    rs = [r for r in hm if r["cond"] == cond and r["model"] == m and r["arm"] == arm]
+                    if not rs:
+                        continue
+                    hs = [h for r in rs for h in r["hm"]]
+                    sh = [h["context_appropriate_share"] for h in hs if h["context_appropriate_share"] is not None]
+                    L.append(f"| {cond} | {m} | {arm} | {len(rs)} | {st.mean(h['words'] for h in hs):.0f} | {st.mean(h['story_facts'] for h in hs):.1f} | "
+                             f"{st.mean(h['noise_facts'] for h in hs):.1f} | {st.mean(sh):.2f} |" if sh else f"| {cond} | {m} | {arm} | {len(rs)} | | | | |")
     L += ["", "## Judge disagreement", ""]
     gaps = [r["gap"] for r in runs]
     L.append(f"|judge 1 − judge 2| over {len(gaps)} runs: mean {st.mean(gaps):.2f}, median {st.median(gaps):.1f}, max {max(gaps)}. "

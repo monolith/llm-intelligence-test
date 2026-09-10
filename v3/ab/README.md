@@ -68,8 +68,14 @@ that this harness reproduces them; they are not the baseline arm.
 - Prompts: the v3 noisy-condition prompts (`v3/PROMPTS.md`), reproduced verbatim in
   `harness/ab_run.py`. The only wording difference between arms is the last sentence of the
   segment 1 and 2 prompts: baseline "its last step has you write retention notes with ONE Write
-  call"; plugin "its last step has you stop before your context is discarded … reply exactly:
-  READY FOR HANDOFF".
+  call — be exhaustive about everything in the retellings (not the unrelated documents). Your final
+  reply to me must be one line: the notes path and an approximate word count"; plugin "its last
+  step has you stop before your context is discarded; do not write notes, the handover is done for
+  you afterwards. Your final reply to me must be one line: the number of steps you completed".
+  (The first wording, "… reply exactly: READY FOR HANDOFF", was flagged by Opus 5's safeguard as
+  "reasoning extraction" two times out of two whenever the plugin's goal anchor was live, while the
+  baseline wording passed; the wording above passed two of two. Plugin runs made with the first
+  wording were voided and re-run so every plugin run uses the same prompt.)
 - Judges: `harness/ab_judge.py`, two independent opus sessions with the v3 judge prompt, each
   given the key and the answers and nothing else. Scores in `score.json` and `score-2.json`.
 - Provenance per run: CLI version, model alias, plugin directory and git commit, every fixed
@@ -87,7 +93,8 @@ that this harness reproduces them; they are not the baseline arm.
    message as "reasoning extraction", deterministically, while the identical prompt in a fresh
    session passed. Runs made before 04:30 UTC on 2026-09-10 used the resumed form; their
    `provenance.json` shows the goal and segment-1 session ids equal.)
-3. At each seam the segment's last step is replaced by "reply READY FOR HANDOFF", then the harness
+3. At each seam the segment's last step is replaced by "do not write notes; stop here and reply
+   with the number of steps you completed", then the harness
    sends, on the same session: `/<plugin>:handoff your context will be discarded; the next session
    must answer detailed questions about everything in the retellings read so far, not the
    unrelated documents`.
