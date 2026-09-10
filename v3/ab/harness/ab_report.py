@@ -25,6 +25,8 @@ def load_runs(root):
     runs = []
     for prov in sorted(Path(root).glob("*/*/*/provenance.json")):
         d = prov.parent
+        if d.name.startswith("void"):
+            continue                                       # quarantined runs are kept for the record, never counted
         sj, sj2 = d / "score.json", d / "score-2.json"
         if not (sj.exists() and sj2.exists()):
             continue
