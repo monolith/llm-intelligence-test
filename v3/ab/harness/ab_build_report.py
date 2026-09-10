@@ -24,6 +24,25 @@ CONTRASTS = [("A", "B", "brief vs compaction — the central claim (F9, F5, M11)
              ("B", "D", "compaction vs nothing"), ("E", "D", "naive handover vs nothing")]
 
 
+import re
+
+def phase1_writes(d):
+    """Files the phase-1 session wrote or edited unprompted (nothing in phase 1 asks for any file)."""
+    t = d / "transcript-phase1.jsonl"
+    if not t.exists():
+        return []
+    out = []
+    p2 = json.load(open(Path(__file__).resolve().parents[2] / "build" / "phase1-turns.json"))["phase2_prompt"][:60]
+    for line in open(t, encoding="utf-8"):
+        r = json.loads(line)
+        if r.get("role") == "user" and p2 in r.get("text", ""):
+            break                                   # arms B/C share one session: stop at the phase-2 prompt
+        if r.get("role") == "assistant":
+            for m in re.finditer(r'\[tool_use (Write|Edit): \{"file_path": "([^"]+)"', r["text"]):
+                out.append(m.group(2).split(d.name + "/")[-1])
+    return out
+
+
 def load(root):
     runs = []
     for prov in sorted(Path(root).glob("*/*/*/provenance.json")):
@@ -31,6 +50,8 @@ def load(root):
         if d.name.startswith("void"):
             continue
         p = json.load(open(prov))
+        w1 = phase1_writes(d)
+        self_memory = [w for w in w1 if not w.startswith("ledgerkit/") and not w.startswith("tests/") and not w.startswith(".governor/")]
         sc = p.get("score") or {}
         if not sc.get("total"):
             continue
@@ -39,7 +60,8 @@ def load(root):
                      "cons": 100.0 * sc["constraint_passed"] / max(1, sc["constraint_total"]),
                      "rederived": p.get("rederived_reads", 0), "tok2": p.get("tokens_in_phase2", 0), "turns2": p.get("turns_phase2") or 0,
                      "cost": p.get("cost_usd", 0), "cost2": p.get("cost_phase2_usd", 0), "turns": p.get("turns", 0),
-                     "handover": sum((p.get("handover_words") or {}).values()), "valid": "INVALID" not in " ".join(p.get("verify", [])), "dir": str(d)})
+                     "handover": sum((p.get("handover_words") or {}).values()), "valid": "INVALID" not in " ".join(p.get("verify", [])), "dir": str(d),
+                     "self_memory": self_memory})
     return runs
 
 
@@ -68,6 +90,16 @@ def main():
             L.append(f"| {m} | {arm} {DESC[arm]} | {s['n']} | {fmt(s)} | {st.mean(r['feat'] for r in rs):.0f} | {st.mean(r['cons'] for r in rs):.0f} | "
                      f"{st.mean(r['rederived'] for r in rs):.1f} | {st.mean(r['tok2'] for r in rs)/1e3:.0f}k | {st.mean(r['turns2'] for r in rs):.0f} | "
                      f"${st.mean(r['cost2'] for r in rs):.2f} | ${st.mean(r['cost'] for r in rs):.2f} | {st.mean(r['handover'] for r in rs):.0f} |")
+    L += ["", "## Unprompted memory: files the phase-1 session wrote on its own", "",
+          "Nothing in phase 1 asks for a file. A session that writes notes anyway carries them across every seam, plugin or not,",
+          "which turns the 'nothing crosses' arm into a self-made handover. Counted from the phase-1 transcripts.", "",
+          "| Model | Arm | runs | runs that wrote memory files | files (examples) |", "|---|---|---|---|---|"]
+    for m in models:
+        for arm in ARMS:
+            rs = cells.get((m, arm))
+            if rs:
+                ex = sorted({w for r in rs for w in r["self_memory"]})[:4]
+                L.append(f"| {m} | {arm} | {len(rs)} | {sum(1 for r in rs if r['self_memory'])} | {', '.join(ex)} |")
     L += ["", "## Paired contrasts (by model and repeat)", "", "| Contrast | Model | n pairs | Δ all items % [95% CI] | Δ feature % | paired t | wins–ties–losses | Cohen's d | Δ phase-2 $ | Δ re-derived reads |", "|---|---|---|---|---|---|---|---|---|---|"]
     for x, y, why in CONTRASTS:
         for m in models + ["all models"]:
