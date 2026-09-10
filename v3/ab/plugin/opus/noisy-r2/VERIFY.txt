@@ -1,0 +1,3 @@
+segment 1: valid (17 prescribed reads, 1 benign own-output/plugin uses)
+segment 2: valid (18 prescribed reads, 1 benign own-output/plugin uses)
+segment 3: valid (19 prescribed reads, 3 benign own-output/plugin uses)

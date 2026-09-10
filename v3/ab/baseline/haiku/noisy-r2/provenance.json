@@ -1,0 +1,80 @@
+{
+  "arm": "baseline",
+  "model_alias": "haiku",
+  "rep": 2,
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/baseline/haiku/noisy-r2",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": null,
+  "plugin_name": null,
+  "plugin_commit": null,
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "haiku",
+    "--allowedTools",
+    "Read,Write",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/test-input",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors"
+  ],
+  "goal": null,
+  "handoff_reason": null,
+  "seam": "v3 notes step",
+  "sessions": {
+    "1": [
+      "b478fd7f-6ac4-4247-ae4d-f37e5c830bae"
+    ],
+    "2": [
+      "f24eeadb-3743-40e9-8645-64e521c0d790"
+    ],
+    "3": [
+      "3bd6882b-95da-46dc-9b79-cc363de7f5c0"
+    ]
+  },
+  "handover_words": {
+    "notes-after-r08.md": 7019,
+    "notes-after-r16.md": 10800
+  },
+  "answers_words": 8710,
+  "turns": 61,
+  "cost_usd": 1.1541,
+  "usage": {
+    "input_tokens": 494,
+    "cache_creation_input_tokens": 230289,
+    "cache_read_input_tokens": 3122953,
+    "output_tokens": 75411
+  },
+  "model_usage": [
+    {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1285,
+        "outputTokens": 20279,
+        "cacheReadInputTokens": 709067,
+        "cacheCreationInputTokens": 61716,
+        "webSearchRequests": 0,
+        "costUSD": 0.29701869999999997,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 5364,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "verify": [
+    "segment 1: valid (16 prescribed reads, 1 benign own-output/plugin uses; noise skipped: ['k08-skiffline-scheduling.md'])",
+    "segment 2: valid (18 prescribed reads, 1 benign own-output/plugin uses)",
+    "segment 3: valid (19 prescribed reads, 3 benign own-output/plugin uses)"
+  ],
+  "noise_skipped": [
+    "k08-skiffline-scheduling.md"
+  ]
+}

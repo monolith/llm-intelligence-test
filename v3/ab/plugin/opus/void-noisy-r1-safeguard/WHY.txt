@@ -1,0 +1,1 @@
+plugin opus noisy r1, attempts 1-3 (2026-09-10): Opus 5 safeguard flagged the segment-1 prompt as reasoning_extraction — twice when segment 1 resumed the goal session, and once (this attempt) in a fresh session with the goal anchor live. The run continued past the block with an empty handover, so it is void. Probing the wording; see PROTOCOL notes in README.

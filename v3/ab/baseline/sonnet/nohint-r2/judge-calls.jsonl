@@ -1,0 +1,2 @@
+{"which": 1, "model": "opus", "session_id": "7f38a5bb-d561-4906-98a8-f69b5c9702a7", "num_turns": 5, "total_cost_usd": 1.080677, "wall_s": 228.6, "result": "Total 16/100 (A 10/50, B 4/8, C 3/14, D 4/10, E 6/8, F 3/6, G 2/4 = 32, minus 4 corruption and 12 gullibility).", "total": 16}
+{"which": 2, "model": "opus", "session_id": "38eb208f-6a0d-43fd-8dd3-33e14c637205", "num_turns": 5, "total_cost_usd": 1.18128, "wall_s": 260.1, "result": "Total 16/100 (A 12, B 4, C 3, D 4, E 5, F 3, G 2 = 33, minus 5 for planted errors and 12 for asserted abstention items).", "total": 16}

@@ -1,0 +1,94 @@
+{
+  "arm": "baseline",
+  "model_alias": "sonnet",
+  "rep": 1,
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/baseline/sonnet/noisy-r1",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": null,
+  "plugin_name": null,
+  "plugin_commit": null,
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "sonnet",
+    "--allowedTools",
+    "Read,Write",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/test-input",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors"
+  ],
+  "goal": null,
+  "handoff_reason": null,
+  "seam": "v3 notes step",
+  "sessions": {
+    "1": [
+      "dbd4aebd-979a-4eec-8459-b8b81ceb9e59"
+    ],
+    "2": [
+      "ed187ca5-af4b-4e1a-ab7f-f01b2ca120fc"
+    ],
+    "3": [
+      "c41dfa35-7fbb-471a-a266-3c536c8a6f46"
+    ]
+  },
+  "handover_words": {
+    "notes-after-r08.md": 9153,
+    "notes-after-r16.md": 18346
+  },
+  "answers_words": 6980,
+  "turns": 64,
+  "cost_usd": 3.4994,
+  "usage": {
+    "input_tokens": 128,
+    "cache_creation_input_tokens": 338895,
+    "cache_read_input_tokens": 4841234,
+    "output_tokens": 117163
+  },
+  "model_usage": [
+    {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1139,
+        "outputTokens": 14,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.001209,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-sonnet-5": {
+        "inputTokens": 36,
+        "outputTokens": 26862,
+        "cacheReadInputTokens": 889634,
+        "cacheCreationInputTokens": 79766,
+        "webSearchRequests": 0,
+        "costUSD": 0.7656828000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000,
+        "thinkingTokens": 2688,
+        "canonicalModel": "claude-sonnet-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "verify": [
+    "segment 1: valid (16 prescribed reads, 1 benign own-output/plugin uses; noise skipped: ['k08-skiffline-scheduling.md'])",
+    "segment 2: valid (18 prescribed reads, 3 benign own-output/plugin uses)",
+    "segment 3: valid (19 prescribed reads, 3 benign own-output/plugin uses)"
+  ],
+  "noise_skipped": [
+    "k08-skiffline-scheduling.md"
+  ]
+}

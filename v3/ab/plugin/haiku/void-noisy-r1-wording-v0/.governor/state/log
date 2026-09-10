@@ -1,0 +1,5 @@
+2026-09-10T03:13:26 prompt_submit first run; stdin keys=['cwd', 'hook_event_name', 'permission_mode', 'prompt', 'prompt_id', 'session_id', 'transcript_path']
+2026-09-10T03:14:41 prompt_submit first run; stdin keys=['cwd', 'hook_event_name', 'permission_mode', 'prompt', 'prompt_id', 'session_id', 'transcript_path']
+2026-09-10T03:14:41 advisory tier=0 occupancy=66280
+2026-09-10T03:16:40 prompt_submit first run; stdin keys=['cwd', 'hook_event_name', 'permission_mode', 'prompt', 'prompt_id', 'session_id', 'transcript_path']
+2026-09-10T03:16:40 advisory tier=0 occupancy=65724

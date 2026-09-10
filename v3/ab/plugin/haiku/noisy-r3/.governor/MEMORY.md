@@ -1,0 +1,1 @@
+- [Ostrey Hollow Retellings Complete](handoffs/2026-09-10-ostrey-hollow-retellings-complete.md) — all 16 narrative retellings (r01–r16) about milk testing scandal 1896–1958; ignore the 16 distractor documents

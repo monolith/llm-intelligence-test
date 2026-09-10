@@ -1,0 +1,76 @@
+{
+  "arm": "baseline",
+  "model_alias": "haiku",
+  "rep": 1,
+  "date": "2026-09-10",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": null,
+  "plugin_name": null,
+  "plugin_commit": null,
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "haiku",
+    "--allowedTools",
+    "Read,Write",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/test-input",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors"
+  ],
+  "goal": null,
+  "handoff_reason": null,
+  "sessions": {
+    "1": [
+      "5b27c902-74b9-460d-bb04-98c3e8c3ceb6"
+    ],
+    "2": [
+      "bf10b906-7bc8-4a3e-8d30-2a9230f24831"
+    ],
+    "3": [
+      "e6b73a3d-0d10-4738-8323-4370e10c936c"
+    ]
+  },
+  "handover_words": {
+    "notes-after-r08.md": 7633,
+    "notes-after-r16.md": 13182
+  },
+  "answers_words": 5737,
+  "turns": 61,
+  "cost_usd": 1.2499,
+  "usage": {
+    "input_tokens": 494,
+    "cache_creation_input_tokens": 246566,
+    "cache_read_input_tokens": 3339677,
+    "output_tokens": 83726
+  },
+  "model_usage": [
+    {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1285,
+        "outputTokens": 25453,
+        "cacheReadInputTokens": 732558,
+        "cacheCreationInputTokens": 67222,
+        "webSearchRequests": 0,
+        "costUSD": 0.33624980000000004,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 9559,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "verify": [
+    "segment 1: INVALID\n  read sequence differs: expected 17 reads, got 16",
+    "segment 2: valid (18 prescribed reads, 1 benign own-output/plugin uses)",
+    "segment 3: valid (19 prescribed reads, 3 benign own-output/plugin uses)"
+  ],
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/baseline/haiku/noisy-r1"
+}

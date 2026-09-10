@@ -1,0 +1,86 @@
+{
+  "arm": "baseline",
+  "model_alias": "haiku",
+  "rep": 5,
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/baseline/haiku/nohint-r5",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": null,
+  "plugin_name": null,
+  "plugin_commit": null,
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "haiku",
+    "--tools",
+    "Read,Write",
+    "--allowedTools",
+    "Read,Write",
+    "--disallowedTools",
+    "Bash",
+    "Grep",
+    "Glob",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/test-input",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors"
+  ],
+  "goal": null,
+  "handoff_reason": null,
+  "seam": "none: nothing said at the cut",
+  "goal_session": null,
+  "sessions": {
+    "1": [
+      "a5192a92-aae5-40d6-93f3-8aab394291a8"
+    ],
+    "2": [
+      "c2c9bc03-c11c-43eb-9bd7-134a0a84fffe"
+    ],
+    "3": [
+      "c2ccedee-1e02-4570-b1ee-09c0778b0c11"
+    ]
+  },
+  "handover_words": {},
+  "answers_words": 8501,
+  "turns": 58,
+  "cost_usd": 0.6587,
+  "usage": {
+    "input_tokens": 470,
+    "cache_creation_input_tokens": 156602,
+    "cache_read_input_tokens": 1579014,
+    "output_tokens": 36701
+  },
+  "model_usage": [
+    {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1251,
+        "outputTokens": 4907,
+        "cacheReadInputTokens": 452782,
+        "cacheCreationInputTokens": 49694,
+        "webSearchRequests": 0,
+        "costUSD": 0.1704522,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 2548,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "verify": [
+    "segment 1: valid (17 prescribed reads, 0 benign own-output/plugin uses)",
+    "segment 2: valid (17 prescribed reads, 0 benign own-output/plugin uses)",
+    "segment 3: valid (18 prescribed reads, 3 benign own-output/plugin uses)"
+  ],
+  "noise_skipped": []
+}

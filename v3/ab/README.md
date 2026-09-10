@@ -211,6 +211,38 @@ columns: the plugin's extra turns and dollars over the same reading.
 
 Judge disagreement (mean about 2 points in v3) and run-to-run spread are reported separately.
 
-## Results
+## Results (2026-09-10)
 
-_Pending. This section is filled from `REPORT.md` when the runs complete._
+**Primary design, no hint at the cut.** Three models × two arms × five runs, 30 runs, 60 gradings,
+every run verified. Judge-averaged score out of 100, mean with 95% interval; paired difference
+plugin − baseline by (model, repeat).
+
+| Model | Baseline | Plugin | Plugin − baseline (5 pairs) | Cost per run (both arms) |
+|---|---|---|---|---|
+| Haiku | 20.3 [15.1, 25.5] | 21.3 [11.5, 31.1] | +1.0 [−10.3, 12.3] | $0.66 |
+| Sonnet | 19.5 [9.8, 29.2] | 23.8 [17.3, 30.3] | +4.3 [−11.2, 19.8] | $1.76 |
+| Opus | 61.2 [59.1, 63.3] | 62.6 [61.1, 64.1] | +1.4 [−0.9, 3.7] | $3.65 |
+| All models | | | +2.2 [−2.5, 6.9], 9 wins of 15 | +3 turns |
+
+Every paired interval includes zero: at this n the runs cannot tell the arms apart. What the plugin
+arm carried across each cut was a 29-word goal line and a 112-word list of file paths; no later
+session opened either. That is what the plugin's hooks do without a user command (see
+`research/promises-readme-skill.md` §2 and §4), so the null is what the code predicts. Opus
+scored about 60 in both arms because the last eight retellings alone let it rebuild most of the
+history; Haiku and Sonnet, from the same eight, scored about 20.
+
+**Appendix, hinted seam** (baseline told to write exhaustive notes, plugin arm told to run its
+handoff; stopped after the design changed, so cells are uneven and wordings varied — see each
+run's `provenance.json` and the `void-*` folders): baseline Haiku 33.5/52/60.5, Sonnet 64/57,
+Opus 68.5/71.5; plugin Haiku 22–40 across four runs, Sonnet 59.5, Opus under the final wording
+pending judgement at the time of stopping. Handover audits: baseline notes carried 77–104 of 112
+canon facts; Haiku's plugin briefs carried a few hundred words. Sonnet's baseline notes also
+carried 6–14 distractor answers per seam; Haiku's and Opus's carried none.
+
+**What this experiment did not test:** the plugin's stated promises (reseed from a brief beats
+carrying on; the goal anchor prevents drift; the post-compaction nudge; ruled-out dead ends are
+not re-attempted; the cost rule). Those need the design in
+`docs/superpowers/brainstorms/2026-09-10-plugin-test-research-driven.md`, derived from the
+plugin's own research (`research/claims-*.md`).
+
+Full tables: `REPORT.md`.

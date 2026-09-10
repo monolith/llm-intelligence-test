@@ -1,0 +1,7 @@
+segment 1: valid (17 prescribed reads, 5 benign own-output/plugin uses)
+segment 2: INVALID
+  unexpected tool use: ('Bash', '{"command": "ls -1 /home/anatoly/llm-intelligence-test/v3/test-input/retellings/r{09..16}-*.md && echo \\"---\\" && grep \'')
+  unexpected tool use: ('Bash', '{"command": "ls /home/anatoly/llm-intelligence-test/v3/test-input/retellings/ | grep \\"^r0[0-9')
+  unexpected tool use: ('Bash', '{"command": "ls /home/anatoly/llm-intelligence-test/v3/test-input/retellings/ | grep \\"^r1\\" | sort"}')
+  read sequence differs: expected 18 reads, got 19; missing []; extra ['.governor']; out of order: False
+segment 3: valid (19 prescribed reads, 3 benign own-output/plugin uses)

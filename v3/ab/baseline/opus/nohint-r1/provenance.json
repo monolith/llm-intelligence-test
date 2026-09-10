@@ -1,0 +1,100 @@
+{
+  "arm": "baseline",
+  "model_alias": "opus",
+  "rep": 1,
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/baseline/opus/nohint-r1",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": null,
+  "plugin_name": null,
+  "plugin_commit": null,
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "opus",
+    "--tools",
+    "Read,Write",
+    "--allowedTools",
+    "Read,Write",
+    "--disallowedTools",
+    "Bash",
+    "Grep",
+    "Glob",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/test-input",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors"
+  ],
+  "goal": null,
+  "handoff_reason": null,
+  "seam": "none: nothing said at the cut",
+  "goal_session": null,
+  "sessions": {
+    "1": [
+      "ac81585b-874d-42e0-9d20-0a1702f7ce69"
+    ],
+    "2": [
+      "d959d0fd-3302-49a0-8ac5-e4c07a63c794"
+    ],
+    "3": [
+      "906cf946-3cfb-4e01-9927-5fcce786b6f2"
+    ]
+  },
+  "handover_words": {},
+  "answers_words": 11481,
+  "turns": 58,
+  "cost_usd": 4.543,
+  "usage": {
+    "input_tokens": 116,
+    "cache_creation_input_tokens": 208491,
+    "cache_read_input_tokens": 1656583,
+    "output_tokens": 65023
+  },
+  "model_usage": [
+    {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1104,
+        "outputTokens": 14,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.001174,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-opus-5": {
+        "inputTokens": 36,
+        "outputTokens": 3371,
+        "cacheReadInputTokens": 451751,
+        "cacheCreationInputTokens": 52785,
+        "webSearchRequests": 0,
+        "costUSD": 0.8381805000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000,
+        "thinkingTokens": 406,
+        "canonicalModel": "claude-opus-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "verify": [
+    "segment 1: valid (17 prescribed reads, 0 benign own-output/plugin uses)",
+    "segment 2: valid (17 prescribed reads, 0 benign own-output/plugin uses)",
+    "segment 3: valid (18 prescribed reads, 3 benign own-output/plugin uses)"
+  ],
+  "noise_skipped": []
+}

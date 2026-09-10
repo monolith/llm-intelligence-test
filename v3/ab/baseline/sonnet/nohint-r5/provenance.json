@@ -1,0 +1,102 @@
+{
+  "arm": "baseline",
+  "model_alias": "sonnet",
+  "rep": 5,
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/baseline/sonnet/nohint-r5",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": null,
+  "plugin_name": null,
+  "plugin_commit": null,
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "sonnet",
+    "--tools",
+    "Read,Write",
+    "--allowedTools",
+    "Read,Write",
+    "--disallowedTools",
+    "Bash",
+    "Grep",
+    "Glob",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/test-input",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors"
+  ],
+  "goal": null,
+  "handoff_reason": null,
+  "seam": "none: nothing said at the cut",
+  "goal_session": null,
+  "sessions": {
+    "1": [
+      "ea3f3a5b-3da6-453f-ab9c-0d5a0f736db0"
+    ],
+    "2": [
+      "fcb50860-217b-498a-8607-3c44ecd6fdb1"
+    ],
+    "3": [
+      "9deff1ea-195a-4bee-8cb1-5b532181957a"
+    ]
+  },
+  "handover_words": {},
+  "answers_words": 6139,
+  "turns": 57,
+  "cost_usd": 1.757,
+  "usage": {
+    "input_tokens": 110,
+    "cache_creation_input_tokens": 203329,
+    "cache_read_input_tokens": 1753022,
+    "output_tokens": 58924
+  },
+  "model_usage": [
+    {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1105,
+        "outputTokens": 14,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.001175,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-sonnet-5": {
+        "inputTokens": 36,
+        "outputTokens": 3514,
+        "cacheReadInputTokens": 560455,
+        "cacheCreationInputTokens": 55772,
+        "webSearchRequests": 0,
+        "costUSD": 0.37039099999999997,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000,
+        "thinkingTokens": 851,
+        "canonicalModel": "claude-sonnet-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "verify": [
+    "segment 1: valid (17 prescribed reads, 0 benign own-output/plugin uses)",
+    "segment 2: valid (17 prescribed reads, 0 benign own-output/plugin uses)",
+    "segment 3: valid (17 prescribed reads, 3 benign own-output/plugin uses; noise skipped: ['d23-wrens-bend-tollbook.md'])"
+  ],
+  "noise_skipped": [
+    "d23-wrens-bend-tollbook.md"
+  ]
+}

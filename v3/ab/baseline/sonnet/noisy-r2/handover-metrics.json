@@ -1,0 +1,232 @@
+{
+  "handovers": [
+    {
+      "seam": 1,
+      "file": "notes-after-r08.md",
+      "words": 7481,
+      "story_facts": 91,
+      "story_facts_of": 112,
+      "noise_facts": 6,
+      "noise_facts_of": 8,
+      "noise_hits": [
+        "k01-blackout-cue.md",
+        "d05-norcross-drugstore-daybook.md",
+        "k02-the-long-echo.md",
+        "d10-vandermeer-court-day-column.md",
+        "k05-saturated-lacings.md",
+        "d12-cold-spring-sanitarium-ledger.md"
+      ],
+      "context_appropriate_share": 0.938,
+      "judge": {
+        "session_id": "2bf90fd7-1afd-4b79-a6ff-d83ed6b9feaf",
+        "num_turns": 4,
+        "total_cost_usd": 0.9424210000000001
+      }
+    },
+    {
+      "seam": 2,
+      "file": "notes-after-r16.md",
+      "words": 9280,
+      "story_facts": 69,
+      "story_facts_of": 112,
+      "noise_facts": 8,
+      "noise_facts_of": 16,
+      "noise_hits": [
+        "d15-pemberton-casebook.md",
+        "k11-shelter-route-nine.md",
+        "k14-coast-road-antiphon.md",
+        "d17-corbin-junction-telegraph.md",
+        "k03-the-floor-safe.md",
+        "k06-quasi-absolute-summability.md",
+        "k09-purlwright-plugin-api.md",
+        "k12-laundromat-tuesday.md"
+      ],
+      "context_appropriate_share": 0.896,
+      "judge": {
+        "session_id": "776a54f7-c4f9-4f8f-8ea7-08aa5b731607",
+        "num_turns": 4,
+        "total_cost_usd": 1.1343159999999999
+      }
+    }
+  ],
+  "noise_probes": {
+    "1": {
+      "file": "d01-pruett-county-road-commission.md",
+      "answer": "Six mills on the dollar (one mill less than the 1907 levy).",
+      "probes": [
+        "mills on the dollar",
+        "six mills"
+      ]
+    },
+    "2": {
+      "file": "k01-blackout-cue.md",
+      "answer": "The Sparrow Hotel",
+      "probes": [
+        "Sparrow"
+      ]
+    },
+    "3": {
+      "file": "d05-norcross-drugstore-daybook.md",
+      "answer": "$59.65.",
+      "probes": [
+        "$59.65"
+      ]
+    },
+    "4": {
+      "file": "k02-the-long-echo.md",
+      "answer": "4471-K",
+      "probes": [
+        "4471-K"
+      ]
+    },
+    "5": {
+      "file": "d10-vandermeer-court-day-column.md",
+      "answer": "$5.00.",
+      "probes": [
+        "$5.00"
+      ]
+    },
+    "6": {
+      "file": "k05-saturated-lacings.md",
+      "answer": "The Interleaving Lemma",
+      "probes": [
+        "Interleaving"
+      ]
+    },
+    "7": {
+      "file": "d12-cold-spring-sanitarium-ledger.md",
+      "answer": "4 weeks.",
+      "probes": [
+        "4 weeks",
+        "Krell",
+        "four weeks"
+      ]
+    },
+    "8": {
+      "file": "k08-skiffline-scheduling.md",
+      "answer": "SKF-2201",
+      "probes": [
+        "2201"
+      ]
+    },
+    "9": {
+      "file": "d15-pemberton-casebook.md",
+      "answer": "$8.00.",
+      "probes": [
+        "$8.00"
+      ]
+    },
+    "10": {
+      "file": "k11-shelter-route-nine.md",
+      "answer": "$1,480",
+      "probes": [
+        "$1,480"
+      ]
+    },
+    "11": {
+      "file": "k14-coast-road-antiphon.md",
+      "answer": "Vermilion",
+      "probes": [
+        "Vermilion"
+      ]
+    },
+    "12": {
+      "file": "d17-corbin-junction-telegraph.md",
+      "answer": "Six (6) words.",
+      "probes": [
+        "219",
+        "Dunmore",
+        "No. 219"
+      ]
+    },
+    "13": {
+      "file": "k03-the-floor-safe.md",
+      "answer": "Buckley",
+      "probes": [
+        "Buckley"
+      ]
+    },
+    "14": {
+      "file": "k06-quasi-absolute-summability.md",
+      "answer": "The Trebbin norm",
+      "probes": [
+        "Trebbin"
+      ]
+    },
+    "15": {
+      "file": "k09-purlwright-plugin-api.md",
+      "answer": "`chart.rawCells()`",
+      "probes": [
+        "chart",
+        "rawCells"
+      ]
+    },
+    "16": {
+      "file": "k12-laundromat-tuesday.md",
+      "answer": "Number eleven",
+      "probes": [
+        "Armando",
+        "Phyl",
+        "dryer"
+      ]
+    },
+    "17": {
+      "file": "k15-second-half-of-the-winters.md",
+      "answer": "Magenta",
+      "probes": [
+        "Magenta"
+      ]
+    },
+    "18": {
+      "file": "d20-hartshorn-inquest.md",
+      "answer": "Accidental death by drowning, from a fall from the mill flume edge while at his caulking work, with no evidence of any other person's hand involved.",
+      "probes": [
+        "Accidental"
+      ]
+    },
+    "19": {
+      "file": "k04-ice-out.md",
+      "answer": "$6,840",
+      "probes": [
+        "$6,840"
+      ]
+    },
+    "20": {
+      "file": "k07-locally-quartic-pseudotrees.md",
+      "answer": "A 7-cycle (seven vertices)",
+      "probes": [
+        "7-cycle"
+      ]
+    },
+    "21": {
+      "file": "k10-bramble-wire-protocol.md",
+      "answer": "0xB5",
+      "probes": [
+        "0xB5"
+      ]
+    },
+    "22": {
+      "file": "k13-surgical-waiting-c.md",
+      "answer": "Dorrit",
+      "probes": [
+        "Dorrit"
+      ]
+    },
+    "23": {
+      "file": "k16-the-third-method.md",
+      "answer": "Teal",
+      "probes": [
+        "Teal"
+      ]
+    },
+    "24": {
+      "file": "d23-wrens-bend-tollbook.md",
+      "answer": "$13.88.",
+      "probes": [
+        "$13.88"
+      ]
+    }
+  },
+  "model": "opus",
+  "date": "2026-09-10"
+}

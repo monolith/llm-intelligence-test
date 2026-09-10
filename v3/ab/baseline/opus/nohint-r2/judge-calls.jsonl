@@ -1,0 +1,2 @@
+{"which": 1, "model": "opus", "session_id": "204089b8-4b94-4e57-a25f-6f2c81da4c0f", "num_turns": 7, "total_cost_usd": 2.009395, "wall_s": 366.8, "result": "Total 58 = A 33, B 5, C 14, D 5, E 7, F 4, G 4 (subtotal 72), minus 4 for planted errors and 10 for five abstention items answered with a verdict.", "total": 58}
+{"which": 2, "model": "opus", "session_id": "905e3059-aa48-4e59-9df5-981b6e0897a2", "num_turns": 5, "total_cost_usd": 1.068511, "wall_s": 274.4, "result": "You've hit your session limit \u00b7 resets 9:10am (UTC)", "total": 64}

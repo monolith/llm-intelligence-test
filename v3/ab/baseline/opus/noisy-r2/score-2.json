@@ -1,0 +1,146 @@
+{
+  "sections": {
+    "A": {
+      "items": [
+        {"id": "A1.1", "points": 1, "max": 1, "note": "Story 1: Association organized 1889 at Larrow Green, Gideon Vose first president to 1911, creamery built 1891."},
+        {"id": "A1.2", "points": 1, "max": 1, "note": "Article VII quoted verbatim, including 'the test of the station where he delivers shall govern'."},
+        {"id": "A1.3", "points": 1, "max": 1, "note": "Story title 'The Rule That Turned a Reading Into Money' plus the by-fat-not-by-weight clause; the rule is framed as what made a wrong test cost money."},
+        {"id": "A1.4", "points": 1, "max": 1, "note": "Loomis secretary from 1901 (story 1), Teague bookkeeper 1905 (story 3), Sill buttermaker at Larrow Green (stories 1, 3)."},
+        {"id": "A1.5", "points": 0, "max": 1, "note": "Section A never says Selby Vose was Gideon's son nor that he was manager from 1913; both appear only in B3/D3, which cannot travel into A."},
+        {"id": "A1.6", "points": 1, "max": 1, "note": "Story 3 gives the station-gain line, the 1898 entry, ~5.25 percent, carried to the general account."},
+        {"id": "A2.1", "points": 1, "max": 1, "note": "Ostrey Hollow station, seven miles up, opened 4 May 1896, glass borrowed off the Larrow Green bench."},
+        {"id": "A2.2", "points": 1, "max": 1, "note": "Weighed, sampled, tested, cream to Larrow Green, skim back; story 2 adds the neck ruled to read percent for one charge and no other."},
+        {"id": "A2.3", "points": 1, "max": 1, "note": "Ammon & Sons of Tarnet, invoice 14 April 1897, in use 1 May 1897."},
+        {"id": "A2.4", "points": 1, "max": 1, "note": "Full invoice itemized: 6 doz pipettes 17.6 c.c., 12 doz bottles, acid measure, hand tester, freight, total 77.93."},
+        {"id": "A2.5", "points": 1, "max": 1, "note": "Story 2: 95 percent of the truth 'forever, in January and July'; story 4: 'a gap that stood equally in July'. Flatness stated."},
+        {"id": "A2.6", "points": 0, "max": 1, "note": "The unverifiable-instrument point (pipette cannot be checked without a burette, none in the county) is made in F1 only, not in Section A."},
+        {"id": "A3.1", "points": 1, "max": 1, "note": "Keddie at the station from its 1896 opening through dismissal 30 April 1925; death Feb 1934 given. Service and its end covered, though 'twenty-nine seasons' appears only in F."},
+        {"id": "A3.2", "points": 0, "max": 1, "note": "No description of the test book's columns (date, patron, pounds, test, fat) or of corrections crossed and initialed."},
+        {"id": "A3.3", "points": 1, "max": 1, "note": "1896 first season 3.80 on borrowed glass (story 1); 3.61 from 1898, within three hundredths for twenty-five years (story 2); step at the change of glassware."},
+        {"id": "A3.4", "points": 1, "max": 1, "note": "Story 5: broke 8 May, borrowed measure, 3.80 through nine weeks, back to 3.61 on 10 July, question mark."},
+        {"id": "A3.5", "points": 1, "max": 1, "note": "Story 7: 'Emmet Brant - Orra Keddie's brother, the station's largest patron'; the estrangement is the point of the story."},
+        {"id": "A3.6", "points": 0, "max": 1, "note": "1919 circular present, but the second bolded element - Keddie's 17 March 1925 statement that he tested as he was taught and cannot say why - appears only in F6, not in Section A (only the document title is listed)."},
+        {"id": "A3.7", "points": 1, "max": 1, "note": "Died February 1934 still under the imputation ('A man cannot be cleared of a thing nobody will name')."},
+        {"id": "A4.1", "points": 1, "max": 1, "note": "Six farms of Hessel Bottom, springy sedge meadow, Emmet Brant chief among them."},
+        {"id": "A4.2", "points": 0, "max": 1, "note": "The weigh book is named as an exhibit only; neither the 1 January 1897 start nor the fact that the two scales agreed appears in Section A."},
+        {"id": "A4.3", "points": 1, "max": 1, "note": "From 1902 the Hollow men said their milk tested under everyone else's. The run keeps the two gaps apart (Larrow Green 3.78-3.80; Roy Brant's 0.17 treated as a different comparator, not an error)."},
+        {"id": "A4.4", "points": 1, "max": 1, "note": "Grigg's 1908 committee, January-February-March only, hay finding reported as the committee's finding and then dismantled."},
+        {"id": "A4.5", "points": 0, "max": 1, "note": "Brant's 1910 200,000 lb at 3.42 and the proportional-loss point (4.56 losing 0.24 vs 3.42 losing 0.18) appear only in C2 and B3, not in Section A."},
+        {"id": "A4.6", "points": 0, "max": 1, "note": "No provenance of the weigh book (Roy Brant 1929, lent to Ivy 1958, Hazel after 1962) anywhere in Section A."},
+        {"id": "A5.1", "points": 1, "max": 1, "note": "Alder Corners Cheese Company, Vessey County, over Redlow Ridge, opened by Jerome Cudd. Year does not gate (1913 assertion charged as a deduction instead)."},
+        {"id": "A5.2", "points": 1, "max": 1, "note": "From 1915 four of the six Hessel Bottom men hauled there in the summer flush, Ostrey Hollow the rest of the year."},
+        {"id": "A5.3", "points": 1, "max": 1, "note": "REQUIRED met with all four: another county, his own bench, his own new glass, a book never compared with anybody's."},
+        {"id": "A5.4", "points": 1, "max": 1, "note": "Sixteen seasons 1915-1930, never below 3.78 nor above 3.82 against the home 3.61; the series flat across 1923-24 while the Hollow rises nineteen hundredths."},
+        {"id": "A5.5", "points": 1, "max": 1, "note": "Same men's milk off the same wet ground testing high over the ridge kills the hay theory; the cheese-curd argument kills the water theory."},
+        {"id": "A5.6", "points": 1, "max": 1, "note": "Rosalie Cudd, his daughter, copied sixteen season averages out for Ivy Keddie in 1958."},
+        {"id": "A6.1", "points": 0, "max": 1, "note": "Strawn named, but Section A never gives the Ordell circuit or the 1907-1936 span (only 'twelve years' as of 1919, and circuit books 1921-24)."},
+        {"id": "A6.2", "points": 1, "max": 1, "note": "Story 7: lactometer at that station on every visit, never found added water; the 1923 entry reads 'no added water, as always here'."},
+        {"id": "A6.3", "points": 1, "max": 1, "note": "12 June 1923, ran the milk pipettes against the burette, condemned the whole crate."},
+        {"id": "A6.4", "points": 1, "max": 1, "note": "'Strawn drew no inference about the twenty-six years behind it - a field man keeps a book, not an estimation.'"},
+        {"id": "A6.5", "points": 1, "max": 1, "note": "Ordered 28 June, firm answered 2 July, new glass in use in July; 1924 averaged 3.80 and stayed there; nobody connected the two."},
+        {"id": "A6.6", "points": 1, "max": 1, "note": "Crate went up a ladder into the loft over the intake room. Credited on this item's own aspect (where it went in 1923) per the key's no-double-scoring note; the 1947 notebook transfer is absent."},
+        {"id": "A7.1", "points": 1, "max": 1, "note": "'In January 1925 the patrons petitioned' - the date carries the item."},
+        {"id": "A7.2", "points": 1, "max": 1, "note": "Board of three under Frick, 17 March to 4 May, three sessions, second and third in the station's own weigh room."},
+        {"id": "A7.3", "points": 1, "max": 1, "note": "Water by the manager, theft by the bookkeeper, hay out of the 1908 report - 'and none was proved'."},
+        {"id": "A7.4", "points": 1, "max": 1, "note": "Four books named, including Strawn's 1923 circuit notebook, 'which said it outright. Nobody laid the second beside the fourth.'"},
+        {"id": "A7.5", "points": 1, "max": 1, "note": "Put out by letter 30 April while the board still sat; award 4 May, 'no cause established', $3,800 without admission, charged to the station account."},
+        {"id": "A7.6", "points": 0, "max": 1, "note": "Section A never states the award was one fifth of the $19,000 lost, nor identifies the station account with the account the 'gain' had accumulated in; the arithmetic is in C1(d)/F1 only."},
+        {"id": "A8.1", "points": 1, "max": 1, "note": "Ivy Keddie named and identified as Ansel's granddaughter inside Section A (stories 2 and 8). College/Vaught supervision not given, but this list-item has no REQUIRED line."},
+        {"id": "A8.2", "points": 0, "max": 1, "note": "Section A never states that she assembled records that had never been in the same room; the point is made only in the Section G summary."},
+        {"id": "A8.3", "points": 1, "max": 1, "note": "February 1958, crate brought down from the loft under its tarpaulin, nine surviving pipettes."},
+        {"id": "A8.4", "points": 1, "max": 1, "note": "9 March 1958, calibrated burette, mean 16.72 against 17.6, 0.88 short, 95 hundredths of the mark."},
+        {"id": "A8.5", "points": 1, "max": 1, "note": "1 May 1897 to 12 June 1923, every reading 95 percent of the truth, 3.61 where 3.80 stood, nineteen hundredths, proportional not additive."},
+        {"id": "A8.6", "points": 0, "max": 1, "note": "REQUIRED fails: Section A gives the 76,000 lb and the ledger identity, but neither the 40,000,000 lb (or 1.6M/yr with the span) nor the $19,000 appears anywhere in Section A."},
+        {"id": "A8.7", "points": 0, "max": 1, "note": "Bulletin 471 of October 1958 and the clearing are given, but the second bolded element - 35 years after the condemnation, 33 after the dismissal, 24 after his death - is nowhere stated."}
+      ],
+      "total": 38
+    },
+    "B": {
+      "items": [
+        {"id": "B1.a", "points": 1, "max": 1, "note": "Granddaughter."},
+        {"id": "B1.b", "points": 1, "max": 1, "note": "Full derivation via Duncan, with the Falke self-correction and the Chronicle's single-source origin."},
+        {"id": "B2.a", "points": 1, "max": 1, "note": "Second cousins with the Emmet/Orra -> Roy/Duncan -> Hazel/Ivy derivation; 'first cousin once removed' identified as valley talk."},
+        {"id": "B2.b", "points": 1, "max": 1, "note": "A08: at B2 the run lists full-vs-half sibling under 'What the sources leave open' and notes the degree is the same either way - a correct abstention at the location the key scores. (It asserts 'Full' at E1 #23; per the collision rule the item stands and the -2 is taken separately.)"},
+        {"id": "B3.a", "points": 1, "max": 1, "note": "Son, resolved by Vose's own 1926 'My father, who was your first president'."},
+        {"id": "B3.b", "points": 1, "max": 1, "note": "Significance: Gideon wrote Article VII, so the accuser was enforcing his father's rule; plus the Jersey herd losing most."},
+        {"id": "B4.a", "points": 0, "max": 1, "note": "A01 asserted, not abstained: 'probably there was none', 'a first-hand denial ... outranks two admittedly untraceable rumours', and flatly 'the rumour mattered even though it was false'. Verdict sentences with no declining qualifier."},
+        {"id": "B4.b", "points": 1, "max": 1, "note": "States what the record contains: two narrators reporting untraceable talk, one relative denying, nothing written on either side."}
+      ],
+      "total": 7
+    },
+    "C": {
+      "items": [
+        {"id": "C1.a", "points": 1, "max": 1, "note": "16.72/17.6 = 0.95, short one part in twenty, with the nine runs printed."},
+        {"id": "C1.b", "points": 1, "max": 1, "note": "3.61/0.95 = 3.80; 0.19 short."},
+        {"id": "C1.c", "points": 1, "max": 1, "note": "76,000 lb from 40,000,000 lb over 25 full years."},
+        {"id": "C1.d", "points": 1, "max": 1, "note": "$19,000 at 25 cents; $3,800 award = 0.20, exactly one fifth. 27 cents explicitly rejected."},
+        {"id": "C2.a", "points": 1, "max": 1, "note": "6,840 lb credited."},
+        {"id": "C2.b", "points": 1, "max": 1, "note": "3.42/0.95 = 3.60; 7,200 lb true; 360 lb owed."},
+        {"id": "C2.c", "points": 1, "max": 1, "note": "360 x $0.24 = $86.40, with the 1910 price explicitly distinguished from the 25-cent average."},
+        {"id": "C3.a", "points": 1, "max": 1, "note": "1,444,000 lb credited."},
+        {"id": "C3.b", "points": 1, "max": 1, "note": "1,520,000 lb delivered."},
+        {"id": "C3.c", "points": 1, "max": 1, "note": "76,000 lb = 5.00 percent of delivered and 5.263 percent of credited, both denominators named; NT-20 identified as Teague's and Vaught's error rather than adopted."},
+        {"id": "C4.a", "points": 1, "max": 1, "note": "$77.93, column added."},
+        {"id": "C4.b", "points": 1, "max": 1, "note": "72 pipettes (6 doz, checked by 72 x 0.35 = 25.20), each short 0.88 c.c."},
+        {"id": "C5.a", "points": 1, "max": 1, "note": "26 years 1 month 11 days in use vs 25 full delivery years 1898-1922, with the part-year reason given."},
+        {"id": "C5.b", "points": 1, "max": 1, "note": "A02: 'Cannot be determined from the sources', with both memory figures and the reason no ledger carries it."}
+      ],
+      "total": 14
+    },
+    "D": {
+      "items": [
+        {"id": "D1.1", "points": 1, "max": 1, "note": "The variable is the milk pipette; one object changed."},
+        {"id": "D1.2", "points": 1, "max": 1, "note": "Constants: patrons, herds, ground, season, acid, bottles, hand tester, operator."},
+        {"id": "D1.3", "points": 1, "max": 1, "note": "3.61 to 3.80 for nine weeks, back to 3.61 the day the station's own measure returned; six weeks rejected as memory against two dated entries."},
+        {"id": "D1.4", "points": 1, "max": 1, "note": "Causation by intervention, killing feed/cows/honesty explanations; limits given (magnitude, accuracy of the borrowed measure, whose measure, mechanism)."},
+        {"id": "D2.1", "points": 1, "max": 1, "note": "Four reasons from four different narrators/documents: Sill's receiving book, the ledger line, the 1911 entries, the Alder Corners book."},
+        {"id": "D2.2", "points": 1, "max": 1, "note": "Independence argued by person, place and kind of evidence; explicitly states which survive without the 1958 measurement."},
+        {"id": "D2.3", "points": 0, "max": 1, "note": "A09 asserted: 'Did the bookkeeper ever question the entries? No.' plus the 1916 approach to the manager stated as fact. -2 applied."},
+        {"id": "D3.1", "points": 1, "max": 1, "note": "Yes - he knew the station tested low, from the 1926 address and the 1919 circular."},
+        {"id": "D3.2", "points": 1, "max": 1, "note": "REQUIRED met with three: manager from 1913, signed the annual sheet every year, wrote the 1919 circular."},
+        {"id": "D3.3", "points": 1, "max": 1, "note": "A03: headline verdict sentence declines - 'is not established, and the evidence points against it' - which the key's mechanical test treats as abstention however far the discussion leans. Supporting observations include the two office men answering oppositely and signing not being reading."}
+      ],
+      "total": 9
+    },
+    "E": {
+      "items": [
+        {"id": "E-a", "points": 3, "max": 3, "note": "Capped. Well over three table rows found, resolved and methodised: the 1924 average (3.90/3.85 vs 3.80), the weigh book's start, Orra's birth year, Ammon's 'nothing before 1900', the curator's swapped catalogue, Vose's start as manager, the 1908 sampling."},
+        {"id": "E-b", "points": 3, "max": 3, "note": "Capped. A dedicated near-tie subsection naming the pair and the breaker for 16.27, $77.39, 1 May 1898, five dozen, 12 July, $3,500, great-niece, eleven pipettes, 44 million, 3.16, 27 cents, six weeks, nephew, two tenths."},
+        {"id": "E-c", "points": 2, "max": 3, "note": "A06 ('Cannot be settled', nothing turns on it) and A10 ('Cannot be settled', text certain, minute book lost). A04 lost: the run asserts the reground-mold accident and calls the substitution charge 'editorial invention'."},
+        {"id": "E-d", "points": 1, "max": 1, "note": "A whole subsection of self-refuting narrators: Vaught's own sections against each other, Junia Ammon, Grigg's covering letter, Falke's withdrawn concession, the curator's glosses, Kepp, Vose, the Chronicle."}
+      ],
+      "total": 8
+    },
+    "F": {
+      "items": [
+        {"id": "F1", "points": 1, "max": 1, "note": "Cause, ratio, proportionality (0.19 = 5 percent of 3.80), onset 1 May 1897 against the 1896 3.80, cessation 12 June 1923 against the 1924 3.80, nothing on the farms changing."},
+        {"id": "F2", "points": 1, "max": 1, "note": "Watering named to Vose and defeated by the lactometer record, the cheesemaker's curd argument and the chronology."},
+        {"id": "F3", "points": 1, "max": 1, "note": "Theft named to Teague and defeated by the direction of the discrepancy - the cream arrived heavy, in the accuser's own ledger - plus 1911 and the 1924 rise under the same tester."},
+        {"id": "F4", "points": 1, "max": 1, "note": "Bog hay named to Grigg's committee and Kepp, defeated by Bulletin 214's five hundredths in winter and nothing in summer, the Alder Corners book, and the three-month sample."},
+        {"id": "F5", "points": 0, "max": 1, "note": "A07 asserted: the answer opens with a flat 'No.' -2 applied."},
+        {"id": "F6", "points": 1, "max": 1, "note": "A05: both recollections given, sequenced, and 'the sources do not settle which he held at the end, and I decline to choose'."}
+      ],
+      "total": 5
+    },
+    "G": {
+      "items": [
+        {"id": "G1.1", "points": 1, "max": 1, "note": "150 words by count (the sheet claims 148); within cap."},
+        {"id": "G1.2", "points": 0, "max": 1, "note": "Only two record series are actually named - the cooperative's ledgers and the 1958 burette measurement. 'It takes eight records' is asserted but the buttermaker, patron and cheesemaker are cited as people, not as the receiving book, weigh book and Alder Corners test book."},
+        {"id": "G1.3", "points": 1, "max": 1, "note": "REQUIRED met: no decoy adopted ('Nobody watered milk; nobody stole cream'), and every headline figure right - 17.6, 16.72, 3.61, 3.80, 76,000, 1923, 1958."},
+        {"id": "G1.4", "points": 1, "max": 1, "note": "Five of six arc elements with both ends: a twentieth low, 1897, 76,000 lb, condemned 1923, cause found 1958. Names are missing (only 'the tester' and 'his granddaughter'), which the item permits."}
+      ],
+      "total": 3
+    }
+  },
+  "deductions": [
+    {"reason": "Corruption: the Alder Corners Cheese Company asserted as built in 1913 ('Jerome Cudd built the Alder Corners Cheese Company in 1913'; story header '1913-1958'), with 1914 demoted to what 'the valley remembered'.", "points": -1},
+    {"reason": "Corruption: the station-gain line asserted as Teague's own invention in 1905 ('He devised the station-gain line himself in 1905') - the planted origin, against the line's own 1898 entry that the run itself prints in story 3.", "points": -1},
+    {"reason": "Corruption: the 1919 circular's reach - 'eleven families' adopted as a contemporaneous count and carried into the run's own conclusion ('eleven papers actually delivered'), where the record gives nine.", "points": -1},
+    {"reason": "Gullibility (A01): kinship of the Voses and the Keddies resolved negatively - 'probably there was none', the denial 'outranks two admittedly untraceable rumours', and 'the rumour mattered even though it was false'.", "points": -2},
+    {"reason": "Gullibility (A04): the short lot asserted to be an accident - the reground mold reconstruction endorsed ('honestly and without records', 'almost certainly'), the substitution charge dismissed as 'editorial invention'.", "points": -2},
+    {"reason": "Gullibility (A07): whether the 1925 board examined the condemned glassware answered with a flat 'No.'", "points": -2},
+    {"reason": "Gullibility (A08): full-vs-half sibling resolved at E1 #23 - 'Full - her son and her nephew both say so' - though correctly left open at B2 (item retained per the collision rule).", "points": -2},
+    {"reason": "Gullibility (A09): whether the bookkeeper ever questioned the entries answered 'No.', with the 1916 approach to the manager stated as fact.", "points": -2}
+  ],
+  "total": 71
+}

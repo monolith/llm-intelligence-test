@@ -1,0 +1,91 @@
+{
+  "arm": "plugin",
+  "model_alias": "haiku",
+  "rep": 4,
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/plugin/haiku/nohint-r4",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": "/home/anatoly/context-governance-plugin",
+  "plugin_name": "context-governor",
+  "plugin_commit": "089460155846b4f4f7616a3ae3d28608e2ab1793",
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "haiku",
+    "--tools",
+    "Read,Write",
+    "--allowedTools",
+    "Read,Write",
+    "--disallowedTools",
+    "Bash",
+    "Grep",
+    "Glob",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/test-input",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors",
+    "--plugin-dir",
+    "/home/anatoly/context-governance-plugin"
+  ],
+  "goal": "Read the delivered documents in order and answer detailed questions later about everything in the retellings, not the unrelated documents.",
+  "handoff_reason": "your context will be discarded; the next session must answer detailed questions about everything in the retellings read so far, not the unrelated documents. This is the handover the reading instructions said would be requested separately: write the brief now, as this command specifies",
+  "seam": "none: nothing said at the cut",
+  "goal_session": "separate session; segment 1 starts fresh with the anchor live",
+  "sessions": {
+    "1": [
+      "0c8104e1-126e-4e99-ab55-1f101916305e"
+    ],
+    "2": [
+      "ff4b3128-7af2-4dbb-9da0-46120dc522b7"
+    ],
+    "3": [
+      "76ddf022-dd53-44d6-a339-a6c01f24e41f"
+    ]
+  },
+  "handover_words": {
+    "ledger.md": 29,
+    "session-facts.log": 112
+  },
+  "answers_words": 7570,
+  "turns": 61,
+  "cost_usd": 0.6611,
+  "usage": {
+    "input_tokens": 495,
+    "cache_creation_input_tokens": 157218,
+    "cache_read_input_tokens": 1626427,
+    "output_tokens": 36714
+  },
+  "model_usage": [
+    {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 25,
+        "outputTokens": 605,
+        "cacheReadInputTokens": 17663,
+        "cacheCreationInputTokens": 9405,
+        "webSearchRequests": 0,
+        "costUSD": 0.023626299999999996,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 277,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "verify": [
+    "segment 1: valid (17 prescribed reads, 0 benign own-output/plugin uses)",
+    "segment 2: valid (17 prescribed reads, 0 benign own-output/plugin uses)",
+    "segment 3: valid (18 prescribed reads, 3 benign own-output/plugin uses)"
+  ],
+  "noise_skipped": []
+}

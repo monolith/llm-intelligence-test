@@ -1,0 +1,91 @@
+{
+  "arm": "plugin",
+  "model_alias": "opus",
+  "rep": 1,
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/plugin/opus/noisy-r1",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": "/home/anatoly/context-governance-plugin",
+  "plugin_name": "context-governor",
+  "plugin_commit": "089460155846b4f4f7616a3ae3d28608e2ab1793",
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "opus",
+    "--tools",
+    "Read,Write",
+    "--allowedTools",
+    "Read,Write",
+    "--disallowedTools",
+    "Bash",
+    "Grep",
+    "Glob",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/test-input",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors",
+    "--plugin-dir",
+    "/home/anatoly/context-governance-plugin"
+  ],
+  "goal": "Read the delivered documents in order and answer detailed questions later about everything in the retellings, not the unrelated documents.",
+  "handoff_reason": "your context will be discarded; the next session must answer detailed questions about everything in the retellings read so far, not the unrelated documents",
+  "seam": "plugin handoff command",
+  "goal_session": "separate session; segment 1 starts fresh with the anchor live",
+  "sessions": {
+    "1": [
+      "aa01fa22-6bec-4fc7-8b23-3cbba4443935"
+    ],
+    "2": [
+      "5b074cf9-e8de-4ab3-8c65-eaa9c2e97444"
+    ],
+    "3": [
+      "ec28d3e3-0d22-4817-811f-ff81dd67657c"
+    ]
+  },
+  "handover_words": {
+    "2026-09-10-reading-test-nothing-read-yet.md": 396,
+    "2026-09-10-retellings-r09-r16-ostrey-hollow.md": 4368
+  },
+  "answers_words": 11573,
+  "turns": 50,
+  "cost_usd": 4.6464,
+  "usage": {
+    "input_tokens": 100,
+    "cache_creation_input_tokens": 187592,
+    "cache_read_input_tokens": 1639150,
+    "output_tokens": 78016
+  },
+  "model_usage": [
+    {
+      "claude-opus-5": {
+        "inputTokens": 6,
+        "outputTokens": 545,
+        "cacheReadInputTokens": 16364,
+        "cacheCreationInputTokens": 708,
+        "webSearchRequests": 0,
+        "costUSD": 0.028916999999999998,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000,
+        "thinkingTokens": 117,
+        "canonicalModel": "claude-opus-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "verify": [
+    "segment 1: INVALID\n  read sequence differs: expected 17 reads, got 0; missing ['segment-1.md', 'r01-what-the-hollow-said.md', 'd01-pruett-county-road-commission.md', 'r02-notes-toward-a-history.md', 'k01-blackout-cue.md', 'r03-statement-and-unsent-letter.md', 'd05-norcross-drugstore-daybook.md', 'r04-what-the-crate-held.md', 'k02-the-long-echo.md', 'r05-the-books-of-the-association.md', 'd10-vandermeer-court-day-column.md', 'r06-extracts-from-the-circuit-books.md', 'k05-saturated-lacings.md', 'r07-accession-notes.md', 'd12-cold-spring-sanitarium-ledger.md', 'r08-managers-annual-address.md', 'k08-skiffline-scheduling.md']; extra []; out of order: False",
+    "segment 2: valid (18 prescribed reads, 1 benign own-output/plugin uses)",
+    "segment 3: valid (19 prescribed reads, 3 benign own-output/plugin uses)"
+  ],
+  "noise_skipped": []
+}

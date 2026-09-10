@@ -1,0 +1,77 @@
+{
+  "arm": "baseline",
+  "model_alias": "haiku",
+  "rep": 1,
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/baseline/haiku/noisy-r1",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": null,
+  "plugin_name": null,
+  "plugin_commit": null,
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "haiku",
+    "--allowedTools",
+    "Read,Write",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/test-input",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors"
+  ],
+  "goal": null,
+  "handoff_reason": null,
+  "seam": "v3 notes step",
+  "sessions": {
+    "1": [
+      "c13c7c7d-71c3-41c8-ba69-c0ed2715d0b8"
+    ],
+    "2": [
+      "2554b1df-5599-4d32-8715-0c764a8c641c"
+    ],
+    "3": [
+      "19f0c4e6-1874-4cb9-aaa0-04dc491940f2"
+    ]
+  },
+  "handover_words": {
+    "notes-after-r08.md": 6923,
+    "notes-after-r16.md": 12182
+  },
+  "answers_words": 9218,
+  "turns": 62,
+  "cost_usd": 1.2037,
+  "usage": {
+    "input_tokens": 502,
+    "cache_creation_input_tokens": 227989,
+    "cache_read_input_tokens": 3311499,
+    "output_tokens": 82478
+  },
+  "model_usage": [
+    {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1293,
+        "outputTokens": 25773,
+        "cacheReadInputTokens": 798700,
+        "cacheCreationInputTokens": 62492,
+        "webSearchRequests": 0,
+        "costUSD": 0.335012,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 11362,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "verify": [
+    "segment 1: valid (17 prescribed reads, 1 benign own-output/plugin uses)",
+    "segment 2: valid (18 prescribed reads, 1 benign own-output/plugin uses)",
+    "segment 3: valid (19 prescribed reads, 3 benign own-output/plugin uses)"
+  ]
+}

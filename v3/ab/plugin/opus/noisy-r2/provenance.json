@@ -1,0 +1,91 @@
+{
+  "arm": "plugin",
+  "model_alias": "opus",
+  "rep": 2,
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/plugin/opus/noisy-r2",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": "/home/anatoly/context-governance-plugin",
+  "plugin_name": "context-governor",
+  "plugin_commit": "089460155846b4f4f7616a3ae3d28608e2ab1793",
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "opus",
+    "--tools",
+    "Read,Write",
+    "--allowedTools",
+    "Read,Write",
+    "--disallowedTools",
+    "Bash",
+    "Grep",
+    "Glob",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/test-input",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors",
+    "--plugin-dir",
+    "/home/anatoly/context-governance-plugin"
+  ],
+  "goal": "Read the delivered documents in order and answer detailed questions later about everything in the retellings, not the unrelated documents.",
+  "handoff_reason": "your context will be discarded; the next session must answer detailed questions about everything in the retellings read so far, not the unrelated documents. This is the handover the reading instructions said would be requested separately: write the brief now, as this command specifies",
+  "seam": "plugin handoff command",
+  "goal_session": "separate session; segment 1 starts fresh with the anchor live",
+  "sessions": {
+    "1": [
+      "267df0f8-1d05-4c67-b2f3-00d29c5df3cb"
+    ],
+    "2": [
+      "84629632-12a2-460f-a9ca-ffc6ed4ccaac"
+    ],
+    "3": [
+      "f7fd9bce-f8d0-42d2-b02b-00bb0efbeb81"
+    ]
+  },
+  "handover_words": {
+    "2026-09-10-ostrey-hollow-retellings-2.md": 6349,
+    "2026-09-10-ostrey-hollow-retellings.md": 2915
+  },
+  "answers_words": 11887,
+  "turns": 67,
+  "cost_usd": 6.0181,
+  "usage": {
+    "input_tokens": 134,
+    "cache_creation_input_tokens": 259717,
+    "cache_read_input_tokens": 2365611,
+    "output_tokens": 89498
+  },
+  "model_usage": [
+    {
+      "claude-opus-5": {
+        "inputTokens": 6,
+        "outputTokens": 432,
+        "cacheReadInputTokens": 12546,
+        "cacheCreationInputTokens": 4378,
+        "webSearchRequests": 0,
+        "costUSD": 0.060883,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000,
+        "thinkingTokens": 13,
+        "canonicalModel": "claude-opus-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "verify": [
+    "segment 1: valid (17 prescribed reads, 1 benign own-output/plugin uses)",
+    "segment 2: valid (18 prescribed reads, 1 benign own-output/plugin uses)",
+    "segment 3: valid (19 prescribed reads, 3 benign own-output/plugin uses)"
+  ],
+  "noise_skipped": []
+}

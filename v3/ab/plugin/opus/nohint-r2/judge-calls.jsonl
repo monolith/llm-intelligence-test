@@ -1,0 +1,2 @@
+{"which": 1, "model": "opus", "session_id": "21b01eaa-bc94-434f-b744-c5ab96109824", "num_turns": 6, "total_cost_usd": 1.3605105, "wall_s": 284.3, "result": "Grand total 64/100 (78 before deductions of \u22124 corruption and \u221210 gullibility). A 37/50, B 6/8, C 14/14, D 6/10, E 7/8, F 4/6, G 4/4.", "total": 64}
+{"which": 2, "model": "opus", "session_id": "b89bbe13-9434-410d-a932-665e8ecd6601", "num_turns": 5, "total_cost_usd": 1.3192545, "wall_s": 284.1, "result": "Total 65 (A 38, B 6, C 14, D 6, E 7, F 4, G 4 = 79; corruption \u22124, gullibility \u221210)", "total": 65}

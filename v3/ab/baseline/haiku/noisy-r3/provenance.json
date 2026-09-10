@@ -1,0 +1,78 @@
+{
+  "arm": "baseline",
+  "model_alias": "haiku",
+  "rep": 3,
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/baseline/haiku/noisy-r3",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": null,
+  "plugin_name": null,
+  "plugin_commit": null,
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "haiku",
+    "--allowedTools",
+    "Read,Write",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/test-input",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors"
+  ],
+  "goal": null,
+  "handoff_reason": null,
+  "seam": "v3 notes step",
+  "sessions": {
+    "1": [
+      "8020f6fd-2b4b-4bed-a7f1-97c34537d443"
+    ],
+    "2": [
+      "ed64772a-bc8e-41db-a5b2-7ac17ea7a28c"
+    ],
+    "3": [
+      "17e0a04b-984c-4d83-937c-989d9ff2ed20"
+    ]
+  },
+  "handover_words": {
+    "notes-after-r08.md": 5294,
+    "notes-after-r16.md": 13956
+  },
+  "answers_words": 11799,
+  "turns": 62,
+  "cost_usd": 1.3089,
+  "usage": {
+    "input_tokens": 502,
+    "cache_creation_input_tokens": 255154,
+    "cache_read_input_tokens": 3317594,
+    "output_tokens": 92528
+  },
+  "model_usage": [
+    {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1293,
+        "outputTokens": 24962,
+        "cacheReadInputTokens": 757207,
+        "cacheCreationInputTokens": 69808,
+        "webSearchRequests": 0,
+        "costUSD": 0.3414397,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 12569,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "verify": [
+    "segment 1: valid (17 prescribed reads, 1 benign own-output/plugin uses)",
+    "segment 2: valid (18 prescribed reads, 1 benign own-output/plugin uses)",
+    "segment 3: valid (19 prescribed reads, 3 benign own-output/plugin uses)"
+  ],
+  "noise_skipped": []
+}

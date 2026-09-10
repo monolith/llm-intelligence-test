@@ -1,0 +1,1 @@
+plugin sonnet noisy r1 (2026-09-10): valid run under the first plugin-arm wording and a resumed goal session; voided for uniformity, re-run as noisy-r1 under the final wording. Old scores kept here (59 & 60).

@@ -1,0 +1,104 @@
+{
+  "arm": "baseline",
+  "model_alias": "opus",
+  "rep": 2,
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/baseline/opus/noisy-r2",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": null,
+  "plugin_name": null,
+  "plugin_commit": null,
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "opus",
+    "--tools",
+    "Read,Write",
+    "--allowedTools",
+    "Read,Write",
+    "--disallowedTools",
+    "Bash",
+    "Grep",
+    "Glob",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/test-input",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors"
+  ],
+  "goal": null,
+  "handoff_reason": null,
+  "seam": "v3 notes step",
+  "sessions": {
+    "1": [
+      "0acd9562-6ed0-4519-9bfa-8bf096e0870e"
+    ],
+    "2": [
+      "95d15334-697a-438f-8fa9-0bf10e452fb9"
+    ],
+    "3": [
+      "6d8ea966-68a1-4fa2-b718-229721f53fb4"
+    ]
+  },
+  "handover_words": {
+    "notes-after-r08.md": 13730,
+    "notes-after-r16.md": 29309
+  },
+  "answers_words": 10887,
+  "turns": 64,
+  "cost_usd": 8.789,
+  "usage": {
+    "input_tokens": 128,
+    "cache_creation_input_tokens": 362921,
+    "cache_read_input_tokens": 3517601,
+    "output_tokens": 135866
+  },
+  "model_usage": [
+    {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1138,
+        "outputTokens": 12,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0011979999999999998,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-opus-5": {
+        "inputTokens": 36,
+        "outputTokens": 34080,
+        "cacheReadInputTokens": 476786,
+        "cacheCreationInputTokens": 79830,
+        "webSearchRequests": 0,
+        "costUSD": 1.8888729999999998,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000,
+        "thinkingTokens": 3675,
+        "canonicalModel": "claude-opus-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "verify": [
+    "segment 1: valid (16 prescribed reads, 1 benign own-output/plugin uses; noise skipped: ['k08-skiffline-scheduling.md'])",
+    "segment 2: valid (18 prescribed reads, 1 benign own-output/plugin uses)",
+    "segment 3: valid (19 prescribed reads, 3 benign own-output/plugin uses)"
+  ],
+  "noise_skipped": [
+    "k08-skiffline-scheduling.md"
+  ]
+}

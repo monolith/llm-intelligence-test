@@ -1,0 +1,4 @@
+segment 1: INVALID
+  read sequence differs: expected 17 reads, got 16
+segment 2: valid (18 prescribed reads, 1 benign own-output/plugin uses)
+segment 3: valid (19 prescribed reads, 3 benign own-output/plugin uses)

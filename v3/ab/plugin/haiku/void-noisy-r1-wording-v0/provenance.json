@@ -1,0 +1,78 @@
+{
+  "arm": "plugin",
+  "model_alias": "haiku",
+  "rep": 1,
+  "date": "2026-09-10",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": "/home/anatoly/context-governance-plugin",
+  "plugin_name": "context-governor",
+  "plugin_commit": "089460155846b4f4f7616a3ae3d28608e2ab1793",
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "haiku",
+    "--allowedTools",
+    "Read,Write",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/test-input",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors",
+    "--plugin-dir",
+    "/home/anatoly/context-governance-plugin"
+  ],
+  "goal": "Read the delivered documents in order and answer detailed questions later about everything in the retellings, not the unrelated documents.",
+  "handoff_reason": "your context will be discarded; the next session must answer detailed questions about everything in the retellings read so far, not the unrelated documents",
+  "sessions": {
+    "1": [
+      "ed6bffad-e0bf-4fe7-a25a-fd082ee0f76b"
+    ],
+    "2": [
+      "df999302-1c87-4e4f-abe4-0758617ae3a1"
+    ],
+    "3": [
+      "94872110-dab3-4f99-904c-9848ceb6c7ec"
+    ]
+  },
+  "handover_words": {
+    "2026-09-10-ostrey-hollow-retellings.md": 822,
+    "2026-09-10-segment-2-complete.md": 860
+  },
+  "answers_words": 8182,
+  "turns": 69,
+  "cost_usd": 0.8419,
+  "usage": {
+    "input_tokens": 561,
+    "cache_creation_input_tokens": 167698,
+    "cache_read_input_tokens": 3002630,
+    "output_tokens": 41139
+  },
+  "model_usage": [
+    {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 33,
+        "outputTokens": 1531,
+        "cacheReadInputTokens": 89987,
+        "cacheCreationInputTokens": 1918,
+        "webSearchRequests": 0,
+        "costUSD": 0.0205227,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 1053,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  ],
+  "verify": [
+    "segment 1: valid (17 prescribed reads, 5 benign own-output/plugin uses)",
+    "segment 2: valid (18 prescribed reads, 1 benign own-output/plugin uses)",
+    "segment 3: valid (19 prescribed reads, 3 benign own-output/plugin uses)"
+  ],
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/plugin/haiku/noisy-r1"
+}

@@ -1,0 +1,4 @@
+segment 1: INVALID
+  read sequence differs: expected 17 reads, got 0; missing ['segment-1.md', 'r01-what-the-hollow-said.md', 'd01-pruett-county-road-commission.md', 'r02-notes-toward-a-history.md', 'k01-blackout-cue.md', 'r03-statement-and-unsent-letter.md', 'd05-norcross-drugstore-daybook.md', 'r04-what-the-crate-held.md', 'k02-the-long-echo.md', 'r05-the-books-of-the-association.md', 'd10-vandermeer-court-day-column.md', 'r06-extracts-from-the-circuit-books.md', 'k05-saturated-lacings.md', 'r07-accession-notes.md', 'd12-cold-spring-sanitarium-ledger.md', 'r08-managers-annual-address.md', 'k08-skiffline-scheduling.md']; extra []; out of order: False
+segment 2: valid (18 prescribed reads, 1 benign own-output/plugin uses)
+segment 3: valid (19 prescribed reads, 3 benign own-output/plugin uses)
