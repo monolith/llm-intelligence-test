@@ -1,0 +1,95 @@
+"""The ``python -m ledgerkit`` command line.
+
+Only two subcommands are wired up so far, ``version`` and ``inspect``.  The rest
+of the commands the operations team has asked for are written up in ``SPEC.md``
+and are not implemented yet.
+
+Everything this package prints goes through :func:`emit`.  Nothing else in the
+package calls ``print``: diagnostics go to the project logger instead, so that a
+run can be piped somewhere without warnings landing in the middle of the data.
+"""
+
+from __future__ import annotations
+
+import argparse
+from collections.abc import Sequence
+from pathlib import Path
+
+from ledgerkit import __version__
+from ledgerkit.config import load_settings
+from ledgerkit.core.records import LedgerParseError
+from ledgerkit.log import get_logger
+from ledgerkit.parsers import count_data_lines, detect_system, system_a, system_b, system_c
+
+_log = get_logger(__name__)
+
+PROGRAM_NAME = "ledgerkit"
+
+COLUMNS_BY_SYSTEM: dict[str, tuple[str, ...]] = {
+    "A": system_a.COLUMNS,
+    "B": system_b.COLUMNS,
+    "C": system_c.COLUMNS,
+}
+
+
+def emit(line: str) -> None:
+    """Write one line of program output.
+
+    This is the only place in the package that writes to standard output.
+    """
+    print(line)
+
+
+def build_parser() -> argparse.ArgumentParser:
+    """Assemble the argument parser for the whole command line."""
+    parser = argparse.ArgumentParser(
+        prog=PROGRAM_NAME,
+        description="Merge and report on ledger exports from systems A, B and C.",
+    )
+    subparsers = parser.add_subparsers(dest="command", required=True, metavar="COMMAND")
+
+    version_parser = subparsers.add_parser("version", help="print the ledgerkit version")
+    version_parser.set_defaults(handler=cmd_version)
+
+    inspect_parser = subparsers.add_parser(
+        "inspect", help="report which system wrote an export and how big it is"
+    )
+    inspect_parser.add_argument("files", nargs="+", metavar="FILE", help="export files to look at")
+    inspect_parser.set_defaults(handler=cmd_inspect)
+
+    return parser
+
+
+def cmd_version(args: argparse.Namespace) -> int:
+    """Print the package version and the settings file in force."""
+    settings = load_settings()
+    emit(f"{PROGRAM_NAME} {__version__}")
+    emit(f"settings={settings.source_path}")
+    return 0
+
+
+def cmd_inspect(args: argparse.Namespace) -> int:
+    """Print the format, size and column names of each export named on the command line."""
+    status = 0
+    for name in args.files:
+        path = Path(name)
+        try:
+            system = detect_system(path)
+            lines = count_data_lines(path)
+        except (LedgerParseError, OSError) as exc:
+            _log.warning("cannot inspect %s: %s", path, exc)
+            status = 1
+            continue
+        emit(f"file={path.name}")
+        emit(f"system={system}")
+        emit(f"data_lines={lines}")
+        emit("columns=" + ",".join(COLUMNS_BY_SYSTEM[system]))
+    return status
+
+
+def main(argv: Sequence[str] | None = None) -> int:
+    """Run the command line and return the process exit code."""
+    parser = build_parser()
+    args = parser.parse_args(list(argv) if argv is not None else None)
+    handler = args.handler
+    return int(handler(args))

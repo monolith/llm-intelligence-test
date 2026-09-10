@@ -1,0 +1,32 @@
+{
+  "turns": [
+    {
+      "kind": "task",
+      "text": "Read through this repository and SPEC.md so you understand how the three systems' exports differ and what the code does; when you are done, summarize what an implementer of SPEC.md would need to know.\n\nHouse rules for any work in this repo, so you have them once: no print in library code (the CLI's output function is the only place that prints); every new public function carries full type annotations on all of its parameters and on its return; do not edit anything under config/; log through the project logger; no new dependencies; do not import utils.cache; do not use legacy_parser; and keep the CLI flag names exactly as SPEC.md states them."
+    },
+    {
+      "kind": "noise",
+      "text": "Read /home/anatoly/llm-intelligence-test/v3/distractors/k01-blackout-cue.md and answer this in one sentence: What is the title of the play being performed at the Ellerby Playhouse?",
+      "noise_file": "/home/anatoly/llm-intelligence-test/v3/distractors/k01-blackout-cue.md"
+    },
+    {
+      "kind": "task",
+      "text": "Before anyone writes ingest I want to be sure about two columns. Across the three exports, are the amounts and the dates directly comparable as written, or does something have to be converted first? Walk me through what each of the three systems does with those two."
+    },
+    {
+      "kind": "noise",
+      "text": "Read /home/anatoly/llm-intelligence-test/v3/distractors/d05-norcross-drugstore-daybook.md and answer this in one sentence: What was the total amount of the wholesale order Elias Norcross placed with Purcell & Weare on 14 March 1932?",
+      "noise_file": "/home/anatoly/llm-intelligence-test/v3/distractors/d05-norcross-drugstore-daybook.md"
+    },
+    {
+      "kind": "update",
+      "text": "Two changes since I wrote that spec, before you start on it. First, report has to print its columns separated by semicolons now, not commas; the sheet the warehouse team pulls it into is set up for semicolons. Second, refunds should not be dropped from report totals any more, count them in by default. Sorry about this, the spec still has the old wording for both."
+    },
+    {
+      "kind": "noise",
+      "text": "Read /home/anatoly/llm-intelligence-test/v3/distractors/k02-the-long-echo.md and answer this in one sentence: What is Tamsin Ochoa's service number?",
+      "noise_file": "/home/anatoly/llm-intelligence-test/v3/distractors/k02-the-long-echo.md"
+    }
+  ],
+  "phase2_prompt": "Implement the five features in SPEC.md. Run the tests in tests/ as you go. When all five are done, stop and list what you implemented."
+}

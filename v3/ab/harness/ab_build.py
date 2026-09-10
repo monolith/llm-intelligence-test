@@ -62,7 +62,9 @@ def claude_cmd(model, prompt, plugin_dir=None, resume=None):
 def run(workdir, model, prompt, label, plugin_dir=None, resume=None, timeout=5400):
     cmd = claude_cmd(model, prompt, plugin_dir, resume)
     t0 = time.time()
-    p = subprocess.run(cmd[:-1], input=cmd[-1], cwd=str(workdir), capture_output=True, text=True, timeout=timeout)
+    # the session's shell must find `python -m pytest` (the fixture README says so): put the harness venv first on PATH
+    env = dict(os.environ, PATH=f"{PYTEST.parent}:{os.environ.get('PATH', '')}")
+    p = subprocess.run(cmd[:-1], input=cmd[-1], cwd=str(workdir), capture_output=True, text=True, timeout=timeout, env=env)
     try:
         out = json.loads(p.stdout)
     except json.JSONDecodeError:
@@ -129,9 +131,7 @@ def main():
         run(workdir, a.model, f"/{a.plugin_name}:{a.goal_cmd} {GOAL}", "goal", plugin_dir)
     sid = None
     for i, t in enumerate(phase1, 1):
-        text = t["text"]
-        if t.get("noise_file"):
-            text = f"Read `{t['noise_file']}` — unrelated task: {text} Answer in one sentence."
+        text = t["text"]                      # noise turns are already worded as the user would say them
         r = run(workdir, a.model, text, f"p1-{i}-{t['kind']}", plugin_dir, resume=sid)
         sid = sid or r["session_id"]
     p1_sid = sid

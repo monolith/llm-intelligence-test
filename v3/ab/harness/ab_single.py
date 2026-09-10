@@ -50,7 +50,7 @@ def distractor_question(fname):
 def count_compactions(transcript_path):
     n = 0
     for line in open(transcript_path, encoding="utf-8"):
-        if '"compact_boundary"' in line or '"isCompactSummary":true' in line:
+        if '"compact_boundary"' in line:          # one boundary record per compaction
             n += 1
     return n
 
