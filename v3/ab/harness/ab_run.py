@@ -192,13 +192,21 @@ def verify_segment(seg_file, transcript, workdir):
             continue
         dedup.append(fp)
     problems = [f"unexpected tool use: {b}" for b in bad]
+    # A skipped *unrelated* document (distractor) is recorded, not fatal: it carries no scored material,
+    # both arms are subject to the same rule, and re-running until a reader complies would select for
+    # compliant runs. A missing retelling, notes/brief, or questions read stays fatal.
+    missing = [e for e in expected if e not in dedup]
+    noise_skipped = [Path(e).name for e in missing if "/distractors/" in e]
+    if missing and len(noise_skipped) == len(missing) and not bad:
+        kept = [e for e in expected if e not in missing]
+        if dedup == kept:
+            return [], len(dedup), len(benign), noise_skipped
     if dedup != expected:
-        problems.append(f"read sequence differs: expected {len(expected)} reads, got {len(dedup)}")
-        for i, (e, g) in enumerate(zip(expected, dedup)):
-            if e != g:
-                problems.append(f"  first mismatch at read #{i+1}: expected {Path(e).name}, got {Path(g).name}")
-                break
-    return problems, len(dedup), len(benign)
+        problems.append(f"read sequence differs: expected {len(expected)} reads, got {len(dedup)}; "
+                        f"missing {[Path(e).name for e in expected if e not in dedup]}; "
+                        f"extra {[Path(g).name for g in dedup if g not in expected]}; "
+                        f"out of order: {[Path(e).name for e in expected if e in dedup] != [Path(g).name for g in dedup if g in expected]}")
+    return problems, len(dedup), len(benign), []
 
 
 def main():
@@ -217,14 +225,15 @@ def main():
     if a.reverify:
         d = Path(a.reverify).resolve()
         wd = Path(json.load(open(d / "provenance.json")).get("workdir", d))
-        report = []
+        report = []; all_skipped = []
         for n in (1, 2, 3):
-            problems, npres, nben = verify_segment(d / f"segment-{n}.md", d / f"transcript-seg{n}.jsonl", wd)
-            line = (f"segment {n}: valid ({npres} prescribed reads, {nben} benign own-output/plugin uses)" if not problems
+            problems, npres, nben, skipped = verify_segment(d / f"segment-{n}.md", d / f"transcript-seg{n}.jsonl", wd)
+            line = (f"segment {n}: valid ({npres} prescribed reads, {nben} benign own-output/plugin uses"
+                    + (f"; noise skipped: {skipped}" if skipped else "") + ")" if not problems
                     else f"segment {n}: INVALID\n  " + "\n  ".join(problems))
-            print(line); report.append(line)
+            print(line); report.append(line); all_skipped.extend(skipped)
         (d / "VERIFY.txt").write_text("\n".join(report) + "\n", encoding="utf-8")
-        prov = json.load(open(d / "provenance.json")); prov["verify"] = report
+        prov = json.load(open(d / "provenance.json")); prov["verify"] = report; prov["noise_skipped"] = all_skipped
         (d / "provenance.json").write_text(json.dumps(prov, indent=2), encoding="utf-8")
         return
     if a.arm == "plugin" and not a.plugin_dir:
@@ -281,17 +290,18 @@ def main():
     parts = [workdir / f"answers-part{i}.md" for i in (1, 2, 3)]
     missing = [p.name for p in parts if not p.exists()]
     (workdir / "answers.md").write_text("\n\n".join(p.read_text(encoding="utf-8") for p in parts if p.exists()), encoding="utf-8")
-    report = []
+    report = []; all_skipped = []
     if missing:
         report.append(f"MISSING answer parts: {missing}")
     for n in (1, 2, 3):
         ids = sessions[n]
         # the plugin arm's goal turn and handoff turns live in the same session as segments 1/2
         capture(ids, workdir / f"transcript-seg{n}.jsonl")
-        problems, npres, nben = verify_segment(workdir / f"segment-{n}.md", workdir / f"transcript-seg{n}.jsonl", workdir)
-        line = (f"segment {n}: valid ({npres} prescribed reads, {nben} benign own-output/plugin uses)" if not problems
+        problems, npres, nben, skipped = verify_segment(workdir / f"segment-{n}.md", workdir / f"transcript-seg{n}.jsonl", workdir)
+        line = (f"segment {n}: valid ({npres} prescribed reads, {nben} benign own-output/plugin uses"
+                + (f"; noise skipped: {skipped}" if skipped else "") + ")" if not problems
                 else f"segment {n}: INVALID\n  " + "\n  ".join(problems))
-        print(line); report.append(line)
+        print(line); report.append(line); all_skipped.extend(skipped)
     handovers = {}
     if seam_arm == "plugin":
         for b in sorted(glob.glob(str(workdir / ".governor" / "handoffs" / "*.md"))):
@@ -306,7 +316,7 @@ def main():
                  "usage": {k: sum((c.get("usage") or {}).get(k, 0) for c in calls) for k in
                            ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens", "output_tokens")},
                  "model_usage": [c.get("modelUsage") for c in calls if c.get("modelUsage")][:1],
-                 "verify": report})
+                 "verify": report, "noise_skipped": all_skipped})
     (workdir / "provenance.json").write_text(json.dumps(prov, indent=2), encoding="utf-8")
     (workdir / "VERIFY.txt").write_text("\n".join(report) + "\n", encoding="utf-8")
     dest = Path(a.out_root) / a.arm / a.model / run_name

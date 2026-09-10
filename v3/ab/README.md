@@ -91,7 +91,17 @@ Every session's transcript (`~/.claude/projects/<cwd>/<session-id>.jsonl`) is re
 `v2/harness/capture_transcript.py` and checked: the prescribed reads, in order, and nothing else
 opened. Writes to the run's own files and the plugin's bookkeeping (ledger, facts log, brief; its
 git or test checks, which the tool allow-list blocks anyway) are counted as benign and listed.
-A run that fails is not judged; it is kept, and re-run with the identical prompt.
+A run that fails is not judged; it is kept in a `void-*/` folder with a note, and re-run with the
+identical prompt.
+
+One exception, decided after the pilot: a reader that skips an *unrelated* document (a distractor)
+and nothing else is kept and judged, with the skip recorded in `VERIFY.txt`, `provenance.json`
+(`noise_skipped`) and the report. Reason: the skipped document carries no scored material, both
+arms are subject to the same rule, and re-running until a reader complies would select for
+compliant runs. In the pilot, Haiku's baseline reader skipped the last distractor before its notes
+write in two runs out of two; the plugin reader, whose last step is a one-line reply, did not. A
+missing retelling, notes, brief, or questions read, an extra tool use, or an out-of-order read is
+still fatal.
 
 ## Cost accounting
 

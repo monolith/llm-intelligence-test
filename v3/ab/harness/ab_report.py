@@ -37,7 +37,8 @@ def load_runs(root):
                      "score": (s1 + s2) / 2, "gap": abs(s1 - s2), "cost": p.get("cost_usd", 0), "turns": p.get("turns", 0),
                      "tokens_in": sum(p.get("usage", {}).get(k, 0) for k in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens")),
                      "tokens_out": p.get("usage", {}).get("output_tokens", 0),
-                     "handover": sum(p.get("handover_words", {}).values()), "verify_ok": verify_ok, "dir": str(d)})
+                     "handover": sum(p.get("handover_words", {}).values()), "verify_ok": verify_ok, "dir": str(d),
+                     "noise_skipped": len(p.get("noise_skipped", []))})
     return runs
 
 def summ(xs):
@@ -67,18 +68,18 @@ def main():
     for r in runs:
         cells[(r["cond"], r["model"], r["arm"])].append(r)
     conds = sorted({r["cond"] for r in runs}); models = [m for m in ("haiku", "sonnet", "opus", "fable") if any(r["model"] == m for r in runs)]
-    L += ["## Per cell", "", "| Condition | Model | Arm | n | score mean [95% CI] | SD | min–max | $/run | turns/run | tokens in/out (M/k) | handover words |", "|---|---|---|---|---|---|---|---|---|---|---|"]
+    L += ["## Per cell", "", "| Condition | Model | Arm | n | score mean [95% CI] | SD | min–max | $/run | turns/run | tokens in/out (M/k) | handover words | runs with a skipped distractor |", "|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for cond in conds:
         for m in models:
             for arm in ("baseline", "plugin"):
                 rs = cells.get((cond, m, arm))
                 if not rs:
-                    L.append(f"| {cond} | {m} | {arm} | 0 | not run | | | | | | |"); continue
+                    L.append(f"| {cond} | {m} | {arm} | 0 | not run | | | | | | | |"); continue
                 s = summ([r["score"] for r in rs])
                 L.append(f"| {cond} | {m} | {arm} | {s['n']} | {fmt(s)} | {s['sd']:.1f} | {s['min']:g}–{s['max']:g} | "
                          f"${st.mean(r['cost'] for r in rs):.2f} | {st.mean(r['turns'] for r in rs):.0f} | "
                          f"{st.mean(r['tokens_in'] for r in rs)/1e6:.1f}/{st.mean(r['tokens_out'] for r in rs)/1e3:.0f} | "
-                         f"{st.mean(r['handover'] for r in rs):.0f} |")
+                         f"{st.mean(r['handover'] for r in rs):.0f} | {sum(1 for r in rs if r['noise_skipped'])} of {len(rs)} |")
     L += ["", "## Paired difference, plugin − baseline (paired by model, condition, repeat)", "",
           "A positive mean favours the plugin. Cohen's d uses the pooled within-cell SD of the two arms.", "",
           "| Condition | Model | n pairs | mean diff [95% CI] | paired t | plugin wins–ties–losses | Cohen's d | Δ $/run | Δ turns/run |", "|---|---|---|---|---|---|---|---|---|"]
