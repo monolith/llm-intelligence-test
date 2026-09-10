@@ -11,16 +11,33 @@ changing three parameters. See "Adapting to another plugin" below.
 
 Results, when present, are in `REPORT.md` (generated) and summarized at the end of this file.
 
+## Two seam designs, and which one is primary
+
+**No hint (`nohint`, primary).** Nobody says anything at the cut. A session reads its documents and
+is cut; the next session starts fresh and is told only that earlier sessions began the test and
+their context is gone. Identical prompts in both arms. The baseline carries nothing across the cut.
+The plugin arm carries whatever the plugin saved on its own: the goal it was given once at the
+start, its automatic facts log, anything the model put in the ledger unprompted. No handoff command
+is run. This measures what the plugin preserves when the user forgets to ask, which is its pitch.
+Decided 2026-09-10 (Anatoly): telling the baseline to write retention notes is extra guidance, and
+telling the plugin arm to run its handoff is the same guidance in other words; "no hint to either
+is true behavior on its own".
+
+**Hinted (`noisy`, appendix).** The first design. At each cut the baseline is told to write
+exhaustive retention notes and the next session reads them; the plugin arm is told to run the
+plugin's handoff command and the next session reads its brief. It answers a narrower question:
+given an explicit handover, does the plugin's brief carry more or less than exhaustive notes? Runs
+made under it before the design changed are kept under `*/noisy-r*/` and reported separately.
+
 ## Design in one paragraph
 
 Hold everything fixed and flip one switch. The system under test is a real Claude Code session
 run headless (`claude -p`), one fresh session per reading segment, driven from outside by
 `harness/ab_run.py`. Both arms get the same model, the same material in the same order, the same
 prompts, the same two tools (Read, Write), no user settings, no CLAUDE.md, and the same two
-independent judges. The plugin arm adds `--plugin-dir`, sets the plugin's goal once, and at each
-seam runs the plugin's handoff command instead of the baseline's "write your retention notes"
-step; the next session reads the plugin's brief instead of the notes. That is the whole
-difference.
+independent judges. The plugin arm adds `--plugin-dir` and sets the plugin's goal once. In the
+primary design that is the whole difference; in the hinted appendix the plugin arm additionally
+runs the plugin's handoff command at each seam where the baseline writes notes.
 
 ## Why headless sessions and not subagents
 
@@ -141,7 +158,7 @@ API; turns and tokens are actual. Both are summed per run into `provenance.json`
 
 ## Running it
 
-One run:
+One run (`--seam none` is the default and the primary design; `--seam hinted` is the appendix):
 
     python3 v3/ab/harness/ab_run.py --arm baseline --model haiku --rep 1
     python3 v3/ab/harness/ab_run.py --arm plugin --model haiku --rep 1 \
@@ -152,7 +169,8 @@ Judge it twice, then report:
     python3 v3/ab/harness/ab_judge.py v3/ab/baseline/haiku/noisy-r1
     python3 v3/ab/harness/ab_report.py            # -> v3/ab/REPORT.md
 
-A whole lane (one model, both arms alternating, repeats 1–5, judged as they land):
+A whole lane (one model, both arms alternating, repeats 1–5, judged as they land; set
+`AB_SEAM=hinted` for the appendix design):
 
     v3/ab/harness/ab_lane.sh haiku 1 5 ~/context-governance-plugin context-governor
 

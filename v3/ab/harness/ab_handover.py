@@ -63,6 +63,10 @@ def noise_hits(handover_text, probes, slots):
 
 def handovers_in(run_dir):
     prov = json.load(open(run_dir / "provenance.json"))
+    if str(prov.get("seam", "")).startswith("none"):
+        # nothing was written at the cut; the plugin's automatic state (ledger, facts log) is the only carrier
+        f = run_dir / ".governor" / "ledger.md"
+        return [f] if f.exists() else []
     if prov["arm"] == "baseline" or prov.get("seam") == "v3 notes step":
         files = [run_dir / "notes-after-r08.md", run_dir / "notes-after-r16.md"]
     else:

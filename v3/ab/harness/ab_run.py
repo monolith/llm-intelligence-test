@@ -56,6 +56,22 @@ def prompt_seg12(seg_path, arm):
     }[arm]
     return RULES + f"Start by reading your instruction file `{seg_path}` (one Read call), then follow it exactly; " + tail
 
+def prompt_nohint_seg12(seg_path, later):
+    lead = ("You are continuing a reading-comprehension and reasoning test that earlier sessions began; their context "
+            "is gone. " if later else "")
+    return (lead + RULES + f"Start by reading your instruction file `{seg_path}` (one Read call), then follow it exactly; "
+            "its last step is the last read. Your final reply to me must be one line: the number of steps you completed.")
+
+def prompt_nohint_seg3(seg_path):
+    return ("You are continuing a reading-comprehension and reasoning test that earlier sessions began; their context is "
+            "gone. " + RULES +
+            f"Start by reading your instruction file `{seg_path}` (one Read call), then follow it exactly (its later "
+            "steps include the questions file and then the answers). Answer every question following the questions "
+            "file's instructions exactly — Section A: decide the eight-story partition yourself — from what you have; "
+            "you cannot go back to documents this session did not read. Save the answer sheet in THREE Write calls exactly as "
+            "the instruction file names them. Your final reply to me must be one line: the three paths written and the "
+            "number of questions answered.")
+
 def prompt_seg3(seg_path):
     return ("You are finishing a reading-comprehension and reasoning test delivered in parts, with unrelated reading "
             "tasks mixed in. Previous readers read the first sixteen documents and left you notes; their context is "
@@ -72,12 +88,25 @@ HANDOFF_STEP = ("17. Your context will now be discarded and a fresh reader will 
                 "should carry it out then. Stop here and reply with the number of steps you completed.")
 
 
-def build_segment(n, arm, workdir, handover_in=None):
-    """Segment file n for this run: v3 template with paths rewritten; plugin arm swaps the seam steps."""
+def build_segment(n, arm, workdir, handover_in=None, seam="hinted"):
+    """Segment file n for this run: v3 template with paths rewritten; plugin arm swaps the seam steps.
+    seam="none": no seam step at all and no handover read — the next session starts from nothing."""
     text = (TEMPLATE_DIR / f"segment-{n}.md").read_text(encoding="utf-8")
     text = text.replace(TEMPLATE_PREFIX, str(workdir) + "/")
     lines = text.splitlines()
-    if arm == "plugin":
+    if seam == "none":
+        lines = [l for l in lines if "Your context will now be discarded" not in l]
+        if n in (2, 3):
+            lines = [l for l in lines if not l.startswith("1. Read ")]
+        k = 0; out_lines = []
+        for l in lines:
+            m = re.match(r"^(\d+)\. (.*)$", l)
+            if m:
+                k += 1; out_lines.append(f"{k}. {m.group(2)}")
+            else:
+                out_lines.append(l)
+        lines = out_lines
+    elif arm == "plugin":
         if n in (1, 2):
             i = next(k for k, l in enumerate(lines) if "Your context will now be discarded" in l)
             num = lines[i].split(".")[0]
@@ -232,6 +261,8 @@ def main():
     ap.add_argument("--goal-cmd", default="goal")
     ap.add_argument("--handoff-cmd", default="handoff")
     ap.add_argument("--out-root", default=str(V3 / "ab"))
+    ap.add_argument("--seam", choices=["none", "hinted"], default="none",
+                    help="none: nobody says anything at the cut (primary); hinted: notes step / handoff command (appendix)")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--reverify", help="re-run verification on an existing run dir and exit")
     a = ap.parse_args()
@@ -253,7 +284,7 @@ def main():
         ap.error("--plugin-dir is required for the plugin arm")
     plugin_dir = Path(a.plugin_dir).resolve() if a.plugin_dir else None
 
-    run_name = f"noisy-r{a.rep}"
+    run_name = f"{'nohint' if a.seam == 'none' else 'noisy'}-r{a.rep}"
     workdir = SCRATCH / a.arm / a.model / run_name
     if workdir.exists() and not a.dry_run:
         raise SystemExit(f"{workdir} exists; remove it or pick another --rep")
@@ -268,12 +299,15 @@ def main():
                                              text=True).stdout.strip() if plugin_dir else None),
             "fixed_flags": claude_cmd(a.model, "<prompt>", plugin_dir)[:-1], "goal": GOAL if (plugin_dir and a.goal_cmd) else None,
             "handoff_reason": HANDOFF_REASON if (plugin_dir and a.handoff_cmd) else None,
-            "seam": "plugin handoff command" if (plugin_dir and a.handoff_cmd) else "v3 notes step",
+            "seam": ("none: nothing said at the cut" if a.seam == "none" else
+                     "plugin handoff command" if (plugin_dir and a.handoff_cmd) else "v3 notes step"),
             "goal_session": "separate session; segment 1 starts fresh with the anchor live" if (plugin_dir and a.goal_cmd) else None}
 
     # ---- segment 1 ----
     seam_arm = a.arm if (a.arm == "baseline" or a.handoff_cmd) else "baseline"   # no handoff command: notes step, plugin loaded
-    seg1 = build_segment(1, seam_arm, workdir)
+    if a.seam == "none":
+        seam_arm = "none"
+    seg1 = build_segment(1, seam_arm, workdir, seam=a.seam)
     resume = None
     if a.arm == "plugin" and a.goal_cmd:
         # The goal is set in its own short session; segment 1 then starts fresh with the anchor live
@@ -281,11 +315,14 @@ def main():
         # safeguard on the very next message ("reasoning_extraction"); a fresh session does not.
         g = run_claude(workdir, a.model, f"/{a.plugin_name}:{a.goal_cmd} {GOAL}", "goal", plugin_dir, dry=dry)
         resume = None
-    r = run_claude(workdir, a.model, prompt_seg12(seg1, seam_arm), "segment-1", plugin_dir, resume=resume, dry=dry)
+    p1 = prompt_nohint_seg12(seg1, later=False) if a.seam == "none" else prompt_seg12(seg1, seam_arm)
+    r = run_claude(workdir, a.model, p1, "segment-1", plugin_dir, resume=resume, dry=dry)
     sessions[1] = [r["session_id"]]
     handover = None
     for n in (1, 2):
-        if seam_arm == "plugin":
+        if a.seam == "none":
+            handover = None
+        elif seam_arm == "plugin":
             t0 = time.time()
             h = run_claude(workdir, a.model, f"/{a.plugin_name}:{a.handoff_cmd} {HANDOFF_REASON}",
                            f"handoff-{n}", plugin_dir, resume=sessions[n][-1], dry=dry)
@@ -294,8 +331,11 @@ def main():
             handover = workdir / ("notes-after-r08.md" if n == 1 else "notes-after-r16.md")
             if not dry and not handover.exists():
                 raise SystemExit(f"segment {n} wrote no notes at {handover}")
-        seg = build_segment(n + 1, seam_arm, workdir, handover_in=handover)
-        prompt = prompt_seg12(seg, seam_arm) if n == 1 else prompt_seg3(seg)
+        seg = build_segment(n + 1, seam_arm, workdir, handover_in=handover, seam=a.seam)
+        if a.seam == "none":
+            prompt = prompt_nohint_seg12(seg, later=True) if n == 1 else prompt_nohint_seg3(seg)
+        else:
+            prompt = prompt_seg12(seg, seam_arm) if n == 1 else prompt_seg3(seg)
         r = run_claude(workdir, a.model, prompt, f"segment-{n+1}", plugin_dir, dry=dry)
         sessions[n + 1] = [r["session_id"]]
     if dry:
@@ -320,7 +360,12 @@ def main():
                 else f"segment {n}: INVALID\n  " + "\n  ".join(problems))
         print(line); report.append(line); all_skipped.extend(skipped)
     handovers = {}
-    if seam_arm == "plugin":
+    if a.seam == "none":
+        for nm in ("ledger.md", "session-facts.log"):
+            f = workdir / ".governor" / nm
+            if f.exists():
+                handovers[nm] = len(f.read_text(encoding="utf-8").split())
+    elif seam_arm == "plugin":
         for b in sorted(glob.glob(str(workdir / ".governor" / "handoffs" / "*.md"))):
             handovers[Path(b).name] = len(Path(b).read_text(encoding="utf-8").split())
     else:
