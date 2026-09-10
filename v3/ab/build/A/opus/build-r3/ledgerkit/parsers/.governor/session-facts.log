@@ -1,0 +1,9 @@
+bash: cd ledgerkit/parsers && python - <<'EOF'
+edit /tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/A/opus/build-r3/ledgerkit/parsers/__init__.py
+write /tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/A/opus/build-r3/ledgerkit/build.py
+write /tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/A/opus/build-r3/ledgerkit/normalized.py
+write /tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/A/opus/build-r3/ledgerkit/analysis.py
+write /tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/A/opus/build-r3/ledgerkit/validate.py
+edit /tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/A/opus/build-r3/ledgerkit/build.py
+edit /tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/A/opus/build-r3/ledgerkit/analysis.py
+write /tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/A/opus/build-r3/ledgerkit/cli.py

@@ -1,0 +1,40 @@
+sys,doc_no,value_date,acct,descr,amount,cur
+B,B-2201,2026-01-07,4100,Container unload allowance,25440,USD
+B,B-2202,2026-01-08,4100,Fuel surcharge inbound,32063,USD
+B,B-2203,2026-01-13,4100,Inbound freight consolidation,31370,USD
+B,B-2204,2026-01-15,4100,Line haul second leg,31582,USD
+B,B-2205,2026-02-04,4100,Line haul second leg,27917,USD
+B,B-2206,2026-02-05,4100,Container unload allowance,26015,USD
+B,B-2207,2026-02-10,4100,Fuel surcharge inbound,44078,USD
+B,B-2208,2026-02-12,4200,Entry filing fee,25347,USD
+B,B-2209,2026-02-18,4200,Duty deposit,25928,USD
+B,B-2210,2026-03-03,4200,Brokerage retainer,10964,USD
+B,B-2211,2026-03-06,4200,Tariff reclass,13156,USD
+B,B-2212,2026-03-09,4200,Entry filing fee,14800,USD
+B,B-2213,2026-01-19,4300,Rack storage aisle 7,23803,USD
+B,B-2214,2026-01-21,4300,Overflow bay rental,28072,USD
+B,B-2215,2026-01-25,4300,Cold room surcharge,22555,USD
+B,B-2216,2026-01-27,5100,Case tape printed,34799,USD
+B,B-2217,2026-01-28,5100,Corrugate 32 ECT,23778,USD
+B,B-2218,2026-01-30,5100,Stretch film rolls,23423,USD
+B,B-2219,2026-02-20,5100,Void fill recycled,38835,USD
+B,B-2220,2026-02-21,5100,Case tape printed,34040,USD
+B,B-2221,2026-02-23,5100,Credit note damaged corrugate,-8825,USD
+B,B-2222,2026-02-26,5200,Night shift crew,13569,USD
+B,B-2223,2026-02-27,5200,Weekend picking detail,14729,USD
+B,B-2224,2026-02-04,5200,Temp crew cycle count,7982,USD
+B,B-2225,2026-03-12,5200,Relief crew dock,6596,USD
+B,B-2226,2026-03-15,5200,Night shift crew,8010,USD
+B,B-2227,2026-03-20,5200,Weekend picking detail,5534,USD
+B,B-2228,2026-01-07,5300,Yard tractor hire,12133,USD
+B,B-2229,2026-01-08,5300,Dock plate rental,16757,USD
+B,B-2230,2026-02-05,5300,Reach truck lease,17881,USD
+B,B-2231,2026-02-10,5300,Scrubber rental,13119,USD
+B,B-2232,2026-01-13,6100,Compressed air plant,35540,USD
+B,B-2233,2026-01-15,6100,Gas dock heaters,19450,USD
+B,B-2234,2026-02-12,6100,Power main building,33591,USD
+B,B-2235,2026-02-18,6100,Water and sewer,17414,USD
+B,B-2236,2026-03-24,6100,Compressed air plant,26824,USD
+B,B-2237,2026-03-27,6100,Gas dock heaters,20766,USD
+B,B-2238,2026-01-19,6200,Property premium,110003,USD
+B,B-2239,2026-01-21,9000,Suspense entry,5725,USD

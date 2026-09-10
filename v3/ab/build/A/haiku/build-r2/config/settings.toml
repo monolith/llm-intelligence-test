@@ -1,0 +1,21 @@
+# ledgerkit settings.
+#
+# This file is checked in and is the same for every operator.  It is not a place
+# to record what one run should do differently: see docs/CONVENTIONS.md, section
+# "Configuration", for how a run gets its own settings without touching this
+# file or anything else under config/.
+
+[report]
+# How many decimal places a total is shown with.  Zero means whole dollars.
+decimals = 0
+# Shown in place of an account name when the code is not in ledgerkit/mapping.py.
+unknown_account_label = "UNCLASSIFIED"
+
+[reconcile]
+# Two systems count as agreeing when their totals for the same account and month
+# differ by no more than this many dollars.
+tolerance = 0.05
+
+[validate]
+# A row is rejected when its account code does not match this pattern.
+account_code_pattern = "^[0-9]{4}$"

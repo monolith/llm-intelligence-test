@@ -1,0 +1,60 @@
+{
+  "arm": "plugin",
+  "model_alias": "opus",
+  "rep": 5,
+  "condition": "single",
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/plugin/opus/single-r5",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": "/home/anatoly/context-governance-plugin",
+  "plugin_commit": "089460155846b4f4f7616a3ae3d28608e2ab1793",
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "opus",
+    "--tools",
+    "Read,Write",
+    "--allowedTools",
+    "Read,Write",
+    "--disallowedTools",
+    "Bash",
+    "Grep",
+    "Glob",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/test-input",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors",
+    "--plugin-dir",
+    "/home/anatoly/context-governance-plugin"
+  ],
+  "seam": "on-demand /compact after r08 and r16, same session; nothing said about saving",
+  "handoffs": [],
+  "session_id": "a981d9f9-a63a-4b51-bcac-562c4655646f",
+  "sessions": [
+    "a981d9f9-a63a-4b51-bcac-562c4655646f"
+  ],
+  "compactions": 2,
+  "noise_skipped": [],
+  "verify": [
+    "valid (49 prescribed reads, 3 benign own-file uses; compactions: 2)"
+  ],
+  "turns": 105,
+  "cost_usd": 7.9878,
+  "usage": {
+    "input_tokens": 1766,
+    "cache_creation_input_tokens": 331302,
+    "cache_read_input_tokens": 4392530,
+    "output_tokens": 76544
+  },
+  "answers_words": 8566,
+  "handover_words": {}
+}

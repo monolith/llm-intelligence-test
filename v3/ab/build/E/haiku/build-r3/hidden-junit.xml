@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="12" skipped="0" tests="30" time="2.733" timestamp="2026-09-10T15:58:14.640864+00:00" hostname="claw-surface"><testcase classname="test_constraints" name="test_no_print_outside_the_cli_output_function" time="0.024" /><testcase classname="test_constraints" name="test_public_functions_are_fully_annotated" time="0.019" /><testcase classname="test_constraints" name="test_config_directory_is_untouched" time="0.001" /><testcase classname="test_constraints" name="test_logging_goes_through_the_project_logger" time="0.020" /><testcase classname="test_constraints" name="test_the_read_cache_is_not_imported" time="0.021" /><testcase classname="test_constraints" name="test_the_legacy_parser_is_not_used" time="0.019" /><testcase classname="test_constraints" name="test_no_third_party_imports" time="0.033" /><testcase classname="test_constraints" name="test_report_keeps_the_spec_flag_names" time="0.086" /><testcase classname="test_constraints" name="test_other_commands_keep_the_spec_flag_names" time="0.361" /><testcase classname="test_constraints" name="test_the_public_tests_still_pass" time="0.669" /><testcase classname="test_feature_config" name="test_config_flag_and_environment_variable_both_select_settings" time="0.255"><failure message="AssertionError: assert '6248.50' in 'account_code;account_name;total\n4100;Freight In;4063.85\n4200;Duty and Brokerage;1903.55\n4300;Storage;2195.50\n5100...uipment Rental;1128.45\n6100;Utilities;2545.35\n6200;Insurance;2200.03\n8800;NOT_MAPPED;218.40\n9000;Suspense;122.05\n'&#10; +  where 'account_code;account_name;total\n4100;Freight In;4063.85\n4200;Duty and Brokerage;1903.55\n4300;Storage;2195.50\n5100...uipment Rental;1128.45\n6100;Utilities;2545.35\n6200;Insurance;2200.03\n8800;NOT_MAPPED;218.40\n9000;Suspense;122.05\n' = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', '--config...al;1128.45\n6100;Utilities;2545.35\n6200;Insurance;2200.03\n8800;NOT_MAPPED;218.40\n9000;Suspense;122.05\n', stderr='').stdout">tmp_path = PosixPath('/tmp/pytest-of-anatoly/pytest-1057/test_config_flag_and_environme0')
+
+    def test_config_flag_and_environment_variable_both_select_settings(tmp_path: Path) -&gt; None:
+        override = tmp_path / "quarter-close.toml"
+        override.write_text(OVERRIDE, encoding="utf-8")
+    
+        ingest = run_cli(
+            ["--config", str(override), "ingest", *[str(p) for p in SAMPLE_FILES], "--out", "out/r.csv"],
+            cwd=tmp_path,
+        )
+        records = tmp_path / "out" / "r.csv"
+        assert records.is_file(), ingest.stderr
+        rows = list(csv.DictReader(records.read_text(encoding="utf-8").splitlines()))
+        unmapped = {row["account_name"] for row in rows if row["account_code"] == "8800"}
+        assert unmapped == {"NOT_MAPPED"}
+    
+        with_flag = run_cli(
+            ["--config", str(override), "report", "--by", "account", "--records", str(records)],
+            cwd=tmp_path,
+        )
+        assert with_flag.returncode == 0, with_flag.stderr
+&gt;       assert "6248.50" in with_flag.stdout
+E       AssertionError: assert '6248.50' in 'account_code;account_name;total\n4100;Freight In;4063.85\n4200;Duty and Brokerage;1903.55\n4300;Storage;2195.50\n5100...uipment Rental;1128.45\n6100;Utilities;2545.35\n6200;Insurance;2200.03\n8800;NOT_MAPPED;218.40\n9000;Suspense;122.05\n'
+E        +  where 'account_code;account_name;total\n4100;Freight In;4063.85\n4200;Duty and Brokerage;1903.55\n4300;Storage;2195.50\n5100...uipment Rental;1128.45\n6100;Utilities;2545.35\n6200;Insurance;2200.03\n8800;NOT_MAPPED;218.40\n9000;Suspense;122.05\n' = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', '--config...al;1128.45\n6100;Utilities;2545.35\n6200;Insurance;2200.03\n8800;NOT_MAPPED;218.40\n9000;Suspense;122.05\n', stderr='').stdout
+
+test_feature_config.py:35: AssertionError</failure></testcase><testcase classname="test_feature_ingest" name="test_ingest_writes_records_with_the_specified_header" time="0.120" /><testcase classname="test_feature_ingest" name="test_ingest_keeps_every_posting" time="0.002"><failure message="AssertionError: assert 78 == 120&#10; +  where 78 = len([{'record_id': 'C-0401', 'source_system': 'C', 'date': '2026-01-02', 'account_code': '4100', ...}, {'record_id': 'C-04...': '4100', ...}, {'record_id': 'B-2228', 'source_system': 'B', 'date': '2026-01-07', 'account_code': '5300', ...}, ...])&#10; +    where [{'record_id': 'C-0401', 'source_system': 'C', 'date': '2026-01-02', 'account_code': '4100', ...}, {'record_id': 'C-04...': '4100', ...}, {'record_id': 'B-2228', 'source_system': 'B', 'date': '2026-01-07', 'account_code': '5300', ...}, ...] = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74']).rows">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_ingest_keeps_every_posting(ingested: IngestRun) -&gt; None:
+&gt;       assert len(ingested.rows) == EXPECTED_RECORD_COUNT
+E       AssertionError: assert 78 == 120
+E        +  where 78 = len([{'record_id': 'C-0401', 'source_system': 'C', 'date': '2026-01-02', 'account_code': '4100', ...}, {'record_id': 'C-04...': '4100', ...}, {'record_id': 'B-2228', 'source_system': 'B', 'date': '2026-01-07', 'account_code': '5300', ...}, ...])
+E        +    where [{'record_id': 'C-0401', 'source_system': 'C', 'date': '2026-01-02', 'account_code': '4100', ...}, {'record_id': 'C-04...': '4100', ...}, {'record_id': 'B-2228', 'source_system': 'B', 'date': '2026-01-07', 'account_code': '5300', ...}, ...] = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74']).rows
+
+test_feature_ingest.py:30: AssertionError</failure></testcase><testcase classname="test_feature_ingest" name="test_ingest_reads_system_b_amounts_as_dollars" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_reads_system_c_dates_day_first" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_keeps_refund_rows" time="0.001"><failure message="AssertionError: assert {'B-2221': '-88.25'} == {'A-10019': '...'-31.20', ...}&#10;  &#10;  Omitting 1 identical items, use -vv to show&#10;  Right contains 4 more items:&#10;  {'A-10019': '-125.00',&#10;   'A-10023': '-151.75',&#10;   'A-10037': '-42.00',&#10;   'A-10041': '-31.20'}&#10;  Use -v to get more diff">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_ingest_keeps_refund_rows(ingested: IngestRun) -&gt; None:
+        found = {row["record_id"]: row["amount"] for row in ingested.rows if row["amount"].startswith("-")}
+&gt;       assert found == EXPECTED_REFUNDS
+E       AssertionError: assert {'B-2221': '-88.25'} == {'A-10019': '...'-31.20', ...}
+E         
+E         Omitting 1 identical items, use -vv to show
+E         Right contains 4 more items:
+E         {'A-10019': '-125.00',
+E          'A-10023': '-151.75',
+E          'A-10037': '-42.00',
+E          'A-10041': '-31.20'}
+E         Use -v to get more diff
+
+test_feature_ingest.py:47: AssertionError</failure></testcase><testcase classname="test_feature_ingest" name="test_ingest_preserves_a_quoted_description" time="0.001"><failure message="AssertionError: no record 'A-10001' in /tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0/out/records.csv">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_ingest_preserves_a_quoted_description(ingested: IngestRun) -&gt; None:
+&gt;       assert ingested.by_id("A-10001")["description"] == QUOTED_DESCRIPTION
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_feature_ingest.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+record_id = 'A-10001'
+
+    def by_id(self, record_id: str) -&gt; dict[str, str]:
+        for row in self.rows:
+            if row.get("record_id") == record_id:
+                return row
+&gt;       raise AssertionError(f"no record {record_id!r} in {self.records_path}")
+E       AssertionError: no record 'A-10001' in /tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0/out/records.csv
+
+conftest.py:87: AssertionError</failure></testcase><testcase classname="test_feature_ingest" name="test_ingest_names_account_5200_from_the_live_map" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_labels_unmapped_account_codes" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_orders_rows_by_date_then_system_then_id" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_reflects_a_changed_input_file" time="0.237"><failure message="AssertionError: assert 1 == (1 + 1)&#10; +  where 1 = len(['record_id,source_system,date,account_code,account_name,description,amount'])&#10; +    where ['record_id,source_system,date,account_code,account_name,description,amount'] = &lt;built-in method splitlines of str object at 0x726454c58bb0&gt;()&#10; +      where &lt;built-in method splitlines of str object at 0x726454c58bb0&gt; = 'record_id,source_system,date,account_code,account_name,description,amount\n'.splitlines">tmp_path = PosixPath('/tmp/pytest-of-anatoly/pytest-1057/test_ingest_reflects_a_changed0')
+
+    def test_ingest_reflects_a_changed_input_file(tmp_path: Path) -&gt; None:
+        work = tmp_path / "work"
+        work.mkdir()
+        export = work / "ardent.csv"
+        export.write_text(
+            (SAMPLES / "system_a_export.csv").read_text(encoding="utf-8"), encoding="utf-8"
+        )
+    
+        first = run_cli(["ingest", str(export), "--out", "out/first.csv"], cwd=work)
+        assert (work / "out" / "first.csv").is_file(), first.stderr
+        before = len((work / "out" / "first.csv").read_text(encoding="utf-8").splitlines())
+    
+        with export.open("a", encoding="utf-8") as handle:
+            handle.write("A-19999,2026-03-31,4100,Late inbound freight,10.00,USD\n")
+    
+        second = run_cli(["ingest", str(export), "--out", "out/second.csv"], cwd=work)
+        assert (work / "out" / "second.csv").is_file(), second.stderr
+        after = (work / "out" / "second.csv").read_text(encoding="utf-8")
+&gt;       assert len(after.splitlines()) == before + 1
+E       AssertionError: assert 1 == (1 + 1)
+E        +  where 1 = len(['record_id,source_system,date,account_code,account_name,description,amount'])
+E        +    where ['record_id,source_system,date,account_code,account_name,description,amount'] = &lt;built-in method splitlines of str object at 0x726454c58bb0&gt;()
+E        +      where &lt;built-in method splitlines of str object at 0x726454c58bb0&gt; = 'record_id,source_system,date,account_code,account_name,description,amount\n'.splitlines
+
+test_feature_ingest.py:89: AssertionError</failure></testcase><testcase classname="test_feature_ingest" name="test_records_file_stays_comma_separated" time="0.001"><failure message="assert 'A-10001,A,2026-01-03,4100,Freight In,&quot;Rebill, &quot;&quot;Q1 true-up&quot;&quot;, carrier&quot;,239.55' in ['record_id,source_system,date,account_code,account_name,description,amount', 'C-0401,C,2026-01-02,4100,Freight In,Con...,Contract Labor,Night shift crew,153.06', 'B-2201,B,2026-01-07,4100,Freight In,Container unload allowance,254.40', ...]&#10; +  where ['record_id,source_system,date,account_code,account_name,description,amount', 'C-0401,C,2026-01-02,4100,Freight In,Con...,Contract Labor,Night shift crew,153.06', 'B-2201,B,2026-01-07,4100,Freight In,Container unload allowance,254.40', ...] = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74']).raw_lines">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_records_file_stays_comma_separated(ingested: IngestRun) -&gt; None:
+        assert ";" not in ingested.raw_lines[0]
+&gt;       assert QUOTED_RAW_LINE in ingested.raw_lines
+E       assert 'A-10001,A,2026-01-03,4100,Freight In,"Rebill, ""Q1 true-up"", carrier",239.55' in ['record_id,source_system,date,account_code,account_name,description,amount', 'C-0401,C,2026-01-02,4100,Freight In,Con...,Contract Labor,Night shift crew,153.06', 'B-2201,B,2026-01-07,4100,Freight In,Container unload allowance,254.40', ...]
+E        +  where ['record_id,source_system,date,account_code,account_name,description,amount', 'C-0401,C,2026-01-02,4100,Freight In,Con...,Contract Labor,Night shift crew,153.06', 'B-2201,B,2026-01-07,4100,Freight In,Container unload allowance,254.40', ...] = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74']).raw_lines
+
+test_feature_ingest.py:95: AssertionError</failure></testcase><testcase classname="test_feature_reconcile" name="test_reconcile_flags_exactly_the_disagreements" time="0.092"><failure message="AssertionError: assert ['MISMATCH 43...mismatches=2'] == ['MISMATCH 42...mismatches=5']&#10;  &#10;  At index 0 diff: 'MISMATCH 4300 2026-01 spread=17 A=- B=744 C=761' != 'MISMATCH 4200 2026-02 spread=57.75 A=455.00 B=512.75 C=-'&#10;  Right contains 3 more items, first extra item: 'MISMATCH 6100 2026-01 spread=16.30 A=533.60 B=549.90 C=533.60'&#10;  Use -v to get more diff">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_reconcile_flags_exactly_the_disagreements(ingested: IngestRun) -&gt; None:
+        proc = run_cli(["reconcile", "--records", str(ingested.records_path)], cwd=ingested.work)
+        assert proc.returncode == 0, proc.stderr
+&gt;       assert proc.stdout.splitlines() == EXPECTED_LINES
+E       AssertionError: assert ['MISMATCH 43...mismatches=2'] == ['MISMATCH 42...mismatches=5']
+E         
+E         At index 0 diff: 'MISMATCH 4300 2026-01 spread=17 A=- B=744 C=761' != 'MISMATCH 4200 2026-02 spread=57.75 A=455.00 B=512.75 C=-'
+E         Right contains 3 more items, first extra item: 'MISMATCH 6100 2026-01 spread=16.30 A=533.60 B=549.90 C=533.60'
+E         Use -v to get more diff
+
+test_feature_reconcile.py:20: AssertionError</failure></testcase><testcase classname="test_feature_reconcile" name="test_reconcile_tolerance_flag_widens_the_window" time="0.090"><failure message="AssertionError: assert 'mismatches=0' == 'mismatches=1'&#10;  &#10;  - mismatches=1&#10;  ?            ^&#10;  + mismatches=0&#10;  ?            ^">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_reconcile_tolerance_flag_widens_the_window(ingested: IngestRun) -&gt; None:
+        proc = run_cli(
+            ["reconcile", "--records", str(ingested.records_path), "--tolerance", "20"],
+            cwd=ingested.work,
+        )
+        assert proc.returncode == 0, proc.stderr
+        lines = proc.stdout.splitlines()
+&gt;       assert lines[-1] == "mismatches=1"
+E       AssertionError: assert 'mismatches=0' == 'mismatches=1'
+E         
+E         - mismatches=1
+E         ?            ^
+E         + mismatches=0
+E         ?            ^
+
+test_feature_reconcile.py:30: AssertionError</failure></testcase><testcase classname="test_feature_report" name="test_report_by_account_uses_the_semicolon_delimiter" time="0.090" /><testcase classname="test_feature_report" name="test_report_by_account_totals_round_half_to_even" time="0.094"><failure message="AssertionError: assert '4064' == '6248'&#10;  &#10;  - 6248&#10;  + 4064">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_report_by_account_totals_round_half_to_even(ingested: IngestRun) -&gt; None:
+        totals = _totals(_report(ingested, "--by", "account"))
+        # 6248.50 goes down to the even 6248; 1747.50 goes up to the even 1748.
+&gt;       assert totals.get("4100") == "6248"
+E       AssertionError: assert '4064' == '6248'
+E         
+E         - 6248
+E         + 4064
+
+test_feature_report.py:61: AssertionError</failure></testcase><testcase classname="test_feature_report" name="test_report_by_account_counts_refunds_by_default" time="0.092"><failure message="AssertionError: assert {'5100': '210...'8800': '218'} == {'5100': '340...'8800': '315'}&#10;  &#10;  Differing items:&#10;  {'6100': '2545'} != {'6100': '3577'}&#10;  {'8800': '218'} != {'8800': '315'}&#10;  {'5100': '2101'} != {'5100': '3400'}&#10;  Use -v to get more diff">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_report_by_account_counts_refunds_by_default(ingested: IngestRun) -&gt; None:
+        totals = _totals(_report(ingested, "--by", "account"))
+&gt;       assert {code: totals.get(code) for code in REFUND_BEARING} == REFUND_BEARING
+E       AssertionError: assert {'5100': '210...'8800': '218'} == {'5100': '340...'8800': '315'}
+E         
+E         Differing items:
+E         {'6100': '2545'} != {'6100': '3577'}
+E         {'8800': '218'} != {'8800': '315'}
+E         {'5100': '2101'} != {'5100': '3400'}
+E         Use -v to get more diff
+
+test_feature_report.py:67: AssertionError</failure></testcase><testcase classname="test_feature_report" name="test_report_by_month_totals" time="0.089"><failure message="AssertionError: assert {'2026-01': '...6-03': '3991'} == {'2026-01': '...6-03': '5870'}&#10;  &#10;  Differing items:&#10;  {'2026-03': '3991'} != {'2026-03': '5870'}&#10;  {'2026-02': '5175'} != {'2026-02': '8456'}&#10;  {'2026-01': '8287'} != {'2026-01': '13256'}&#10;  Use -v to get more diff">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1057/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_report_by_month_totals(ingested: IngestRun) -&gt; None:
+        totals = _totals(_report(ingested, "--by", "month"))
+&gt;       assert totals == MONTH_TOTALS
+E       AssertionError: assert {'2026-01': '...6-03': '3991'} == {'2026-01': '...6-03': '5870'}
+E         
+E         Differing items:
+E         {'2026-03': '3991'} != {'2026-03': '5870'}
+E         {'2026-02': '5175'} != {'2026-02': '8456'}
+E         {'2026-01': '8287'} != {'2026-01': '13256'}
+E         Use -v to get more diff
+
+test_feature_report.py:72: AssertionError</failure></testcase><testcase classname="test_feature_validate" name="test_validate_exits_2_on_malformed_rows_and_0_on_clean_ones" time="0.094"><failure message="AssertionError: LEDGERKIT WARNING ledgerkit.cli: cannot read /tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/E/haiku/build-r3/samples/system_a_export.csv: system_a_export.csv line 6: this reader does not handle quoted fields; see legacy_parser.py for quoted fields&#10;  &#10;assert 2 == 0&#10; +  where 2 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'validate....csv: system_a_export.csv line 6: this reader does not handle quoted fields; see legacy_parser.py for quoted fields\n').returncode">tmp_path = PosixPath('/tmp/pytest-of-anatoly/pytest-1057/test_validate_exits_2_on_malfo0')
+
+    def test_validate_exits_2_on_malformed_rows_and_0_on_clean_ones(tmp_path: Path) -&gt; None:
+        clean = run_cli(["validate", *[str(p) for p in SAMPLE_FILES]], cwd=tmp_path)
+&gt;       assert clean.returncode == 0, clean.stderr
+E       AssertionError: LEDGERKIT WARNING ledgerkit.cli: cannot read /tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/E/haiku/build-r3/samples/system_a_export.csv: system_a_export.csv line 6: this reader does not handle quoted fields; see legacy_parser.py for quoted fields
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'validate....csv: system_a_export.csv line 6: this reader does not handle quoted fields; see legacy_parser.py for quoted fields\n').returncode
+
+test_feature_validate.py:28: AssertionError</failure></testcase><testcase classname="test_feature_validate" name="test_validate_warns_through_the_project_logger" time="0.097" /></testsuite></testsuites>

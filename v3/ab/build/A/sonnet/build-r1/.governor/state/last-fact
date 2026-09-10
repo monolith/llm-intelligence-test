@@ -1,0 +1,1 @@
+bash: rm -rf /tmp/lk_out /tmp/bad_a.csv /tmp/quarter-close.toml /tmp/does_not_exist.cs

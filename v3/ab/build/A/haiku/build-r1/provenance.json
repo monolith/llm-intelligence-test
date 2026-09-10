@@ -1,0 +1,82 @@
+{
+  "arm": "A",
+  "arm_desc": "plugin handoff + fresh session",
+  "model_alias": "haiku",
+  "rep": 1,
+  "condition": "build",
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/A/haiku/build-r1",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": "/home/anatoly/context-governance-plugin",
+  "plugin_commit": "089460155846b4f4f7616a3ae3d28608e2ab1793",
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "haiku",
+    "--tools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--allowedTools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--disallowedTools",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors",
+    "--plugin-dir",
+    "/home/anatoly/context-governance-plugin"
+  ],
+  "goal": "Implement the five features in SPEC.md correctly, respecting the conventions in docs/CONVENTIONS.md.",
+  "phase1_session": "5f8ab87d-9620-4641-8b77-b1b4c3e41aa8",
+  "phase2_session": "5bcd84ca-a648-422b-a357-13429407306d",
+  "handover_file": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/A/haiku/build-r1/.governor/handoffs/2026-09-10-explore-and-spec-clarifications.md",
+  "handover_words": {
+    "2026-09-10-explore-and-spec-clarifications.md": 481
+  },
+  "score": {
+    "feature_passed": 16,
+    "feature_total": 20,
+    "constraint_passed": 10,
+    "constraint_total": 10,
+    "passed": 26,
+    "total": 30
+  },
+  "turns": 107,
+  "turns_phase2": 59,
+  "cost_usd": 0.802,
+  "cost_phase2_usd": 0.4642,
+  "tokens_in_phase2": 2321725,
+  "usage": {
+    "input_tokens": 792,
+    "cache_creation_input_tokens": 111140,
+    "cache_read_input_tokens": 3856620,
+    "output_tokens": 38659
+  },
+  "phase2_reads": 20,
+  "rederived_reads": 14,
+  "rederived_files": [
+    "CONVENTIONS.md",
+    "SPEC.md",
+    "__init__.py",
+    "cli.py",
+    "config.py",
+    "fields.py",
+    "mapping.py",
+    "normalize.py",
+    "records.py",
+    "system_a.py",
+    "system_a_export.csv",
+    "system_b.py",
+    "system_c.py",
+    "test_cli.py"
+  ],
+  "verify": [
+    "valid: no access to hidden tests or reference"
+  ]
+}

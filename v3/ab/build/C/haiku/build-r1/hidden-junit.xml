@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="30" time="2.586" timestamp="2026-09-10T14:06:27.628100+00:00" hostname="claw-surface"><testcase classname="test_constraints" name="test_no_print_outside_the_cli_output_function" time="0.028" /><testcase classname="test_constraints" name="test_public_functions_are_fully_annotated" time="0.019" /><testcase classname="test_constraints" name="test_config_directory_is_untouched" time="0.001" /><testcase classname="test_constraints" name="test_logging_goes_through_the_project_logger" time="0.020" /><testcase classname="test_constraints" name="test_the_read_cache_is_not_imported" time="0.022" /><testcase classname="test_constraints" name="test_the_legacy_parser_is_not_used" time="0.020" /><testcase classname="test_constraints" name="test_no_third_party_imports" time="0.034" /><testcase classname="test_constraints" name="test_report_keeps_the_spec_flag_names" time="0.088"><failure message="AssertionError: report --help does not offer --include-refunds&#10;assert False&#10; +  where False = has_flag('usage: ledgerkit report [-h] --by {account,month} [--records RECORDS]\n\noptions:\n  -h, --help            show this help message and exit\n  --by {account,month}  grouping\n  --records RECORDS     input file\n', '--include-refunds')&#10; +    where 'usage: ledgerkit report [-h] --by {account,month} [--records RECORDS]\n\noptions:\n  -h, --help            show this help message and exit\n  --by {account,month}  grouping\n  --records RECORDS     input file\n' = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'report',...   show this help message and exit\n  --by {account,month}  grouping\n  --records RECORDS     input file\n', stderr='').stdout">def test_report_keeps_the_spec_flag_names() -&gt; None:
+        """If report exists, it uses the flag names SPEC.md fixes."""
+        proc = _help("report")
+        if proc.returncode != 0:
+            return
+        for flag in ("--by", "--records", "--include-refunds"):
+&gt;           assert has_flag(proc.stdout, flag), f"report --help does not offer {flag}"
+E           AssertionError: report --help does not offer --include-refunds
+E           assert False
+E            +  where False = has_flag('usage: ledgerkit report [-h] --by {account,month} [--records RECORDS]\n\noptions:\n  -h, --help            show this help message and exit\n  --by {account,month}  grouping\n  --records RECORDS     input file\n', '--include-refunds')
+E            +    where 'usage: ledgerkit report [-h] --by {account,month} [--records RECORDS]\n\noptions:\n  -h, --help            show this help message and exit\n  --by {account,month}  grouping\n  --records RECORDS     input file\n' = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'report',...   show this help message and exit\n  --by {account,month}  grouping\n  --records RECORDS     input file\n', stderr='').stdout
+
+test_constraints.py:239: AssertionError</failure></testcase><testcase classname="test_constraints" name="test_other_commands_keep_the_spec_flag_names" time="0.337" /><testcase classname="test_constraints" name="test_the_public_tests_still_pass" time="0.566" /><testcase classname="test_feature_config" name="test_config_flag_and_environment_variable_both_select_settings" time="0.273" /><testcase classname="test_feature_ingest" name="test_ingest_writes_records_with_the_specified_header" time="0.093" /><testcase classname="test_feature_ingest" name="test_ingest_keeps_every_posting" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_reads_system_b_amounts_as_dollars" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_reads_system_c_dates_day_first" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_keeps_refund_rows" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_preserves_a_quoted_description" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_names_account_5200_from_the_live_map" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_labels_unmapped_account_codes" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_orders_rows_by_date_then_system_then_id" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_reflects_a_changed_input_file" time="0.178" /><testcase classname="test_feature_ingest" name="test_records_file_stays_comma_separated" time="0.001" /><testcase classname="test_feature_reconcile" name="test_reconcile_flags_exactly_the_disagreements" time="0.088"><failure message="AssertionError: assert ['MISMATCH 42...mismatches=5'] == ['MISMATCH 42...mismatches=5']&#10;  &#10;  At index 0 diff: 'MISMATCH 4200 2026-02 spread=58 A=455 B=513 -' != 'MISMATCH 4200 2026-02 spread=57.75 A=455.00 B=512.75 C=-'&#10;  Use -v to get more diff">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-891/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/an...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_reconcile_flags_exactly_the_disagreements(ingested: IngestRun) -&gt; None:
+        proc = run_cli(["reconcile", "--records", str(ingested.records_path)], cwd=ingested.work)
+        assert proc.returncode == 0, proc.stderr
+&gt;       assert proc.stdout.splitlines() == EXPECTED_LINES
+E       AssertionError: assert ['MISMATCH 42...mismatches=5'] == ['MISMATCH 42...mismatches=5']
+E         
+E         At index 0 diff: 'MISMATCH 4200 2026-02 spread=58 A=455 B=513 -' != 'MISMATCH 4200 2026-02 spread=57.75 A=455.00 B=512.75 C=-'
+E         Use -v to get more diff
+
+test_feature_reconcile.py:20: AssertionError</failure></testcase><testcase classname="test_feature_reconcile" name="test_reconcile_tolerance_flag_widens_the_window" time="0.085"><failure message="AssertionError: assert 'MISMATCH 420...A=455 B=513 -' == 'MISMATCH 420... B=512.75 C=-'&#10;  &#10;  - MISMATCH 4200 2026-02 spread=57.75 A=455.00 B=512.75 C=-&#10;  ?                               ^^^^      ---     ^^^^^^^&#10;  + MISMATCH 4200 2026-02 spread=58 A=455 B=513 -&#10;  ?                               ^           ^^">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-891/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/an...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_reconcile_tolerance_flag_widens_the_window(ingested: IngestRun) -&gt; None:
+        proc = run_cli(
+            ["reconcile", "--records", str(ingested.records_path), "--tolerance", "20"],
+            cwd=ingested.work,
+        )
+        assert proc.returncode == 0, proc.stderr
+        lines = proc.stdout.splitlines()
+        assert lines[-1] == "mismatches=1"
+&gt;       assert lines[0] == "MISMATCH 4200 2026-02 spread=57.75 A=455.00 B=512.75 C=-"
+E       AssertionError: assert 'MISMATCH 420...A=455 B=513 -' == 'MISMATCH 420... B=512.75 C=-'
+E         
+E         - MISMATCH 4200 2026-02 spread=57.75 A=455.00 B=512.75 C=-
+E         ?                               ^^^^      ---     ^^^^^^^
+E         + MISMATCH 4200 2026-02 spread=58 A=455 B=513 -
+E         ?                               ^           ^^
+
+test_feature_reconcile.py:31: AssertionError</failure></testcase><testcase classname="test_feature_report" name="test_report_by_account_uses_the_semicolon_delimiter" time="0.100" /><testcase classname="test_feature_report" name="test_report_by_account_totals_round_half_to_even" time="0.098" /><testcase classname="test_feature_report" name="test_report_by_account_counts_refunds_by_default" time="0.086" /><testcase classname="test_feature_report" name="test_report_by_month_totals" time="0.086" /><testcase classname="test_feature_validate" name="test_validate_exits_2_on_malformed_rows_and_0_on_clean_ones" time="0.192" /><testcase classname="test_feature_validate" name="test_validate_warns_through_the_project_logger" time="0.091" /></testsuite></testsuites>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="30" time="2.815" timestamp="2026-09-10T15:25:29.107836+00:00" hostname="claw-surface"><testcase classname="test_constraints" name="test_no_print_outside_the_cli_output_function" time="0.025" /><testcase classname="test_constraints" name="test_public_functions_are_fully_annotated" time="0.021" /><testcase classname="test_constraints" name="test_config_directory_is_untouched" time="0.001" /><testcase classname="test_constraints" name="test_logging_goes_through_the_project_logger" time="0.020" /><testcase classname="test_constraints" name="test_the_read_cache_is_not_imported" time="0.022" /><testcase classname="test_constraints" name="test_the_legacy_parser_is_not_used" time="0.041" /><testcase classname="test_constraints" name="test_no_third_party_imports" time="0.030" /><testcase classname="test_constraints" name="test_report_keeps_the_spec_flag_names" time="0.096" /><testcase classname="test_constraints" name="test_other_commands_keep_the_spec_flag_names" time="0.417" /><testcase classname="test_constraints" name="test_the_public_tests_still_pass" time="0.587" /><testcase classname="test_feature_config" name="test_config_flag_and_environment_variable_both_select_settings" time="0.281" /><testcase classname="test_feature_ingest" name="test_ingest_writes_records_with_the_specified_header" time="0.089" /><testcase classname="test_feature_ingest" name="test_ingest_keeps_every_posting" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_reads_system_b_amounts_as_dollars" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_reads_system_c_dates_day_first" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_keeps_refund_rows" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_preserves_a_quoted_description" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_names_account_5200_from_the_live_map" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_labels_unmapped_account_codes" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_orders_rows_by_date_then_system_then_id" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_reflects_a_changed_input_file" time="0.181" /><testcase classname="test_feature_ingest" name="test_records_file_stays_comma_separated" time="0.001" /><testcase classname="test_feature_reconcile" name="test_reconcile_flags_exactly_the_disagreements" time="0.091" /><testcase classname="test_feature_reconcile" name="test_reconcile_tolerance_flag_widens_the_window" time="0.108" /><testcase classname="test_feature_report" name="test_report_by_account_uses_the_semicolon_delimiter" time="0.101"><failure message="AssertionError: assert 'account_code...nt_name,total' == 'account_code...nt_name;total'&#10;  &#10;  - account_code;account_name;total&#10;  ?             ^            ^&#10;  + account_code,account_name,total&#10;  ?             ^            ^">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-986/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/an...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_report_by_account_uses_the_semicolon_delimiter(ingested: IngestRun) -&gt; None:
+        lines = _report(ingested, "--by", "account")
+&gt;       assert lines[0] == "account_code;account_name;total"
+E       AssertionError: assert 'account_code...nt_name,total' == 'account_code...nt_name;total'
+E         
+E         - account_code;account_name;total
+E         ?             ^            ^
+E         + account_code,account_name,total
+E         ?             ^            ^
+
+test_feature_report.py:54: AssertionError</failure></testcase><testcase classname="test_feature_report" name="test_report_by_account_totals_round_half_to_even" time="0.090" /><testcase classname="test_feature_report" name="test_report_by_account_counts_refunds_by_default" time="0.089"><failure message="AssertionError: assert {'5100': '376...'8800': '346'} == {'5100': '340...'8800': '315'}&#10;  &#10;  Differing items:&#10;  {'6100': '3619'} != {'6100': '3577'}&#10;  {'5100': '3765'} != {'5100': '3400'}&#10;  {'8800': '346'} != {'8800': '315'}&#10;  Use -v to get more diff">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-986/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/an...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_report_by_account_counts_refunds_by_default(ingested: IngestRun) -&gt; None:
+        totals = _totals(_report(ingested, "--by", "account"))
+&gt;       assert {code: totals.get(code) for code in REFUND_BEARING} == REFUND_BEARING
+E       AssertionError: assert {'5100': '376...'8800': '346'} == {'5100': '340...'8800': '315'}
+E         
+E         Differing items:
+E         {'6100': '3619'} != {'6100': '3577'}
+E         {'5100': '3765'} != {'5100': '3400'}
+E         {'8800': '346'} != {'8800': '315'}
+E         Use -v to get more diff
+
+test_feature_report.py:67: AssertionError</failure></testcase><testcase classname="test_feature_report" name="test_report_by_month_totals" time="0.099"><failure message="AssertionError: assert {'2026-01': '...6-03': '6053'} == {'2026-01': '...6-03': '5870'}&#10;  &#10;  Differing items:&#10;  {'2026-03': '6053'} != {'2026-03': '5870'}&#10;  {'2026-02': '8587'} != {'2026-02': '8456'}&#10;  {'2026-01': '13381'} != {'2026-01': '13256'}&#10;  Use -v to get more diff">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-986/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/an...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_report_by_month_totals(ingested: IngestRun) -&gt; None:
+        totals = _totals(_report(ingested, "--by", "month"))
+&gt;       assert totals == MONTH_TOTALS
+E       AssertionError: assert {'2026-01': '...6-03': '6053'} == {'2026-01': '...6-03': '5870'}
+E         
+E         Differing items:
+E         {'2026-03': '6053'} != {'2026-03': '5870'}
+E         {'2026-02': '8587'} != {'2026-02': '8456'}
+E         {'2026-01': '13381'} != {'2026-01': '13256'}
+E         Use -v to get more diff
+
+test_feature_report.py:72: AssertionError</failure></testcase><testcase classname="test_feature_validate" name="test_validate_exits_2_on_malformed_rows_and_0_on_clean_ones" time="0.222" /><testcase classname="test_feature_validate" name="test_validate_warns_through_the_project_logger" time="0.121" /></testsuite></testsuites>

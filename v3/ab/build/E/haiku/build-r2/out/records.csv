@@ -1,0 +1,43 @@
+record_id,source_system,date,account_code,account_name,description,amount
+A-10001,A,2026-01-03,4100,Freight In,"Rebill, ""Q1 true-up"", carrier",239.55
+A-10019,A,2026-01-03,5100,Packaging Materials,Credit note damaged corrugate,-125.00
+A-10002,A,2026-01-05,4100,Freight In,"Drayage, port apron to DC",283.82
+A-10024,A,2026-01-05,5200,Contract Labor,Night shift crew,144.11
+A-10003,A,2026-01-09,4100,Freight In,Inbound freight consolidation,226.28
+A-10025,A,2026-01-09,5200,Contract Labor,Weekend picking detail,92.50
+A-10004,A,2026-01-14,4100,Freight In,Line haul second leg,454.90
+A-10026,A,2026-01-14,5200,Contract Labor,Temp crew cycle count,173.64
+A-10008,A,2026-01-16,4200,Duty and Brokerage,Entry filing fee,195.82
+A-10029,A,2026-01-16,5300,Equipment Rental,Reach truck lease,131.94
+A-10009,A,2026-01-20,4200,Duty and Brokerage,Duty deposit,220.85
+A-10030,A,2026-01-20,5300,Equipment Rental,Scrubber rental,156.96
+A-10010,A,2026-01-22,4200,Duty and Brokerage,Brokerage retainer,195.73
+A-10033,A,2026-01-22,6100,Utilities,Power main building,256.91
+A-10016,A,2026-01-26,5100,Packaging Materials,Corrugate 32 ECT,367.47
+A-10034,A,2026-01-26,6100,Utilities,Water and sewer,276.69
+A-10017,A,2026-01-28,5100,Packaging Materials,Stretch film rolls,410.74
+A-10038,A,2026-01-28,6200,Insurance,Cargo cover premium,1100.00
+A-10018,A,2026-01-30,5100,Packaging Materials,Void fill recycled,166.79
+A-10005,A,2026-02-02,4100,Freight In,Container unload allowance,247.87
+A-10035,A,2026-02-02,6100,Utilities,Compressed air plant,251.97
+A-10006,A,2026-02-06,4100,Freight In,Fuel surcharge inbound,275.01
+A-10036,A,2026-02-06,6100,Utilities,Gas dock heaters,288.28
+A-10007,A,2026-02-11,4100,Freight In,Inbound freight consolidation,457.22
+A-10037,A,2026-02-11,6100,Utilities,Meter correction credit,-42.00
+A-10011,A,2026-02-13,4200,Duty and Brokerage,Brokerage retainer,231.46
+A-10042,A,2026-02-13,9000,Suspense,Suspense clearing,294.95
+A-10012,A,2026-02-17,4200,Duty and Brokerage,Tariff reclass,223.54
+A-10013,A,2026-02-19,4300,Storage,Cold room surcharge,282.71
+A-10014,A,2026-02-24,4300,Storage,Pallet position fee,234.09
+A-10015,A,2026-02-25,4300,Storage,Rack storage aisle 7,173.35
+A-10027,A,2026-02-26,5200,Contract Labor,Temp crew cycle count,237.73
+A-10028,A,2026-02-27,5200,Contract Labor,Relief crew dock,125.07
+A-10020,A,2026-03-02,5100,Packaging Materials,Case tape printed,237.69
+A-10021,A,2026-03-05,5100,Packaging Materials,Corrugate 32 ECT,186.07
+A-10022,A,2026-03-08,5100,Packaging Materials,Stretch film rolls,206.99
+A-10023,A,2026-03-11,5100,Packaging Materials,Credit note damaged corrugate,-151.75
+A-10031,A,2026-03-16,5300,Equipment Rental,Scrubber rental,135.90
+A-10032,A,2026-03-18,5300,Equipment Rental,Yard tractor hire,68.20
+A-10039,A,2026-03-23,6200,Insurance,Liability premium,1100.00
+A-10040,A,2026-03-25,8800,UNCLASSIFIED,Held for review,127.75
+A-10041,A,2026-03-27,8800,UNCLASSIFIED,Reversal of unposted charge,-31.20

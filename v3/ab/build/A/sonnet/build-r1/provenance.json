@@ -1,0 +1,83 @@
+{
+  "arm": "A",
+  "arm_desc": "plugin handoff + fresh session",
+  "model_alias": "sonnet",
+  "rep": 1,
+  "condition": "build",
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/A/sonnet/build-r1",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": "/home/anatoly/context-governance-plugin",
+  "plugin_commit": "089460155846b4f4f7616a3ae3d28608e2ab1793",
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "sonnet",
+    "--tools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--allowedTools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--disallowedTools",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors",
+    "--plugin-dir",
+    "/home/anatoly/context-governance-plugin"
+  ],
+  "goal": "Implement the five features in SPEC.md correctly, respecting the conventions in docs/CONVENTIONS.md.",
+  "phase1_session": "3d6b7656-7f27-4054-ad31-6818b8a81799",
+  "phase2_session": "290efe6b-3664-414d-b781-ee51a73cf409",
+  "handover_file": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/A/sonnet/build-r1/.governor/handoffs/2026-09-10-ledgerkit-spec-implementation.md",
+  "handover_words": {
+    "2026-09-10-ledgerkit-spec-implementation.md": 1044
+  },
+  "score": {
+    "feature_passed": 17,
+    "feature_total": 20,
+    "constraint_passed": 10,
+    "constraint_total": 10,
+    "passed": 27,
+    "total": 30
+  },
+  "turns": 78,
+  "turns_phase2": 37,
+  "cost_usd": 1.5247,
+  "cost_phase2_usd": 0.9066,
+  "tokens_in_phase2": 1443905,
+  "usage": {
+    "input_tokens": 92,
+    "cache_creation_input_tokens": 129369,
+    "cache_read_input_tokens": 2380843,
+    "output_tokens": 53090
+  },
+  "phase2_reads": 16,
+  "rederived_reads": 15,
+  "rederived_files": [
+    "CONVENTIONS.md",
+    "SPEC.md",
+    "__init__.py",
+    "cli.py",
+    "config.py",
+    "fields.py",
+    "log.py",
+    "mapping.py",
+    "normalize.py",
+    "records.py",
+    "system_a.py",
+    "system_b.py",
+    "system_c.py",
+    "test_cli.py",
+    "test_parsers.py"
+  ],
+  "verify": [
+    "valid: no access to hidden tests or reference"
+  ]
+}

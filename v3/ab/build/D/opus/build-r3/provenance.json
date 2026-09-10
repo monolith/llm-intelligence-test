@@ -1,0 +1,69 @@
+{
+  "arm": "D",
+  "arm_desc": "fresh session, nothing crosses",
+  "model_alias": "opus",
+  "rep": 3,
+  "condition": "build",
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/D/opus/build-r3",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": null,
+  "plugin_commit": null,
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "opus",
+    "--tools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--allowedTools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--disallowedTools",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors"
+  ],
+  "goal": null,
+  "phase1_session": "4644c5b9-01c9-4979-a59f-72a7b8dc4fcc",
+  "phase2_session": "e32de82e-5da2-430f-9d8b-d35b457ea5c3",
+  "handover_file": null,
+  "handover_words": {},
+  "score": {
+    "feature_passed": 20,
+    "feature_total": 20,
+    "constraint_passed": 10,
+    "constraint_total": 10,
+    "passed": 30,
+    "total": 30
+  },
+  "turns": 74,
+  "turns_phase2": 36,
+  "cost_usd": 3.4158,
+  "cost_phase2_usd": 2.0609,
+  "tokens_in_phase2": 626153,
+  "usage": {
+    "input_tokens": 718,
+    "cache_creation_input_tokens": 141884,
+    "cache_read_input_tokens": 1252300,
+    "output_tokens": 54605
+  },
+  "phase2_reads": 6,
+  "rederived_reads": 5,
+  "rederived_files": [
+    "__init__.py",
+    "cli.py",
+    "system_a.py",
+    "system_b.py",
+    "system_c.py"
+  ],
+  "verify": [
+    "valid: no access to hidden tests or reference"
+  ]
+}

@@ -1,0 +1,47 @@
+# ARDENT LEDGER EXPORT
+# system: A
+# period: 2026-01-01 through 2026-03-31
+# note: memo text is quoted where it contains the delimiter
+entry_id,posted_on,account,memo,amount,currency
+A-10001,2026-01-03,4100,"Rebill, ""Q1 true-up"", carrier",239.55,USD
+A-10002,2026-01-05,4100,"Drayage, port apron to DC",283.82,USD
+A-10003,2026-01-09,4100,Inbound freight consolidation,226.28,USD
+A-10004,2026-01-14,4100,Line haul second leg,454.90,USD
+A-10005,2026-02-02,4100,Container unload allowance,247.87,USD
+A-10006,2026-02-06,4100,Fuel surcharge inbound,275.01,USD
+A-10007,2026-02-11,4100,Inbound freight consolidation,457.22,USD
+A-10008,2026-01-16,4200,Entry filing fee,195.82,USD
+A-10009,2026-01-20,4200,Duty deposit,220.85,USD
+A-10010,2026-01-22,4200,Brokerage retainer,195.73,USD
+A-10011,2026-02-13,4200,Brokerage retainer,231.46,USD
+A-10012,2026-02-17,4200,Tariff reclass,223.54,USD
+A-10013,2026-02-19,4300,Cold room surcharge,282.71,USD
+A-10014,2026-02-24,4300,Pallet position fee,234.09,USD
+A-10015,2026-02-25,4300,Rack storage aisle 7,173.35,USD
+A-10016,2026-01-26,5100,Corrugate 32 ECT,367.47,USD
+A-10017,2026-01-28,5100,Stretch film rolls,410.74,USD
+A-10018,2026-01-30,5100,Void fill recycled,166.79,USD
+A-10019,2026-01-03,5100,Credit note damaged corrugate,-125.00,USD
+A-10020,2026-03-02,5100,Case tape printed,237.69,USD
+A-10021,2026-03-05,5100,Corrugate 32 ECT,186.07,USD
+A-10022,2026-03-08,5100,Stretch film rolls,206.99,USD
+A-10023,2026-03-11,5100,Credit note damaged corrugate,-151.75,USD
+A-10024,2026-01-05,5200,Night shift crew,144.11,USD
+A-10025,2026-01-09,5200,Weekend picking detail,92.50,USD
+A-10026,2026-01-14,5200,Temp crew cycle count,173.64,USD
+A-10027,2026-02-26,5200,Temp crew cycle count,237.73,USD
+A-10028,2026-02-27,5200,Relief crew dock,125.07,USD
+A-10029,2026-01-16,5300,Reach truck lease,131.94,USD
+A-10030,2026-01-20,5300,Scrubber rental,156.96,USD
+A-10031,2026-03-16,5300,Scrubber rental,135.90,USD
+A-10032,2026-03-18,5300,Yard tractor hire,68.20,USD
+A-10033,2026-01-22,6100,Power main building,256.91,USD
+A-10034,2026-01-26,6100,Water and sewer,276.69,USD
+A-10035,2026-02-02,6100,Compressed air plant,251.97,USD
+A-10036,2026-02-06,6100,Gas dock heaters,288.28,USD
+A-10037,2026-02-11,6100,Meter correction credit,-42.00,USD
+A-10038,2026-01-28,6200,Cargo cover premium,1100.00,USD
+A-10039,2026-03-23,6200,Liability premium,1100.00,USD
+A-10040,2026-03-25,8800,Held for review,127.75,USD
+A-10041,2026-03-27,8800,Reversal of unposted charge,-31.20,USD
+A-10042,2026-02-13,9000,Suspense clearing,294.95,USD

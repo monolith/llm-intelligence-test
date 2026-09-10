@@ -1,0 +1,2 @@
+{"which": 1, "model": "opus", "session_id": "edc6a0ec-f7a8-4df9-9c6e-d8a6d70fe536", "num_turns": 5, "total_cost_usd": 1.414768, "wall_s": 289.8, "result": "Total 23/100 \u2014 A 21/50, B 5/8, C 3/14, D 7/10, E 3/8, F 2/6, G 1/4 (subtotal 42, \u22127 corruption, \u221212 gullibility).", "total": 23}
+{"which": 2, "model": "opus", "session_id": "eb1585a4-758d-454f-bf49-da80eb97b0da", "num_turns": 5, "total_cost_usd": 1.181159, "wall_s": 317.1, "result": "You've hit your session limit \u00b7 resets 2:30pm (UTC)", "total": 22}

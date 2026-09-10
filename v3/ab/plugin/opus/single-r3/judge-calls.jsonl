@@ -1,0 +1,2 @@
+{"which": 1, "model": "opus", "session_id": "66de63c0-e092-45d4-b088-4ad9f1b67f43", "num_turns": 5, "total_cost_usd": 1.283196, "wall_s": 247.7, "result": "Grand total 81/100 (\u22126 deductions): A 42/50, B 7/8, C 14/14, D 8/10, E 8/8, F 4/6, G 4/4.", "total": 81}
+{"which": 2, "model": "opus", "session_id": "a619ddb3-90d1-4fd1-92e8-30e6181df68f", "num_turns": 5, "total_cost_usd": 1.423234, "wall_s": 297.2, "result": "Grand total 84 (subtotal 90, \u22126 for three answered abstention items): A 45/50, B 7/8, C 14/14, D 8/10, E 8/8, F 4/6, G 4/4.", "total": 84}

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="5" skipped="0" tests="30" time="2.440" timestamp="2026-09-10T15:06:15.138575+00:00" hostname="claw-surface"><testcase classname="test_constraints" name="test_no_print_outside_the_cli_output_function" time="0.025" /><testcase classname="test_constraints" name="test_public_functions_are_fully_annotated" time="0.019" /><testcase classname="test_constraints" name="test_config_directory_is_untouched" time="0.001" /><testcase classname="test_constraints" name="test_logging_goes_through_the_project_logger" time="0.018" /><testcase classname="test_constraints" name="test_the_read_cache_is_not_imported" time="0.020" /><testcase classname="test_constraints" name="test_the_legacy_parser_is_not_used" time="0.019" /><testcase classname="test_constraints" name="test_no_third_party_imports" time="0.031" /><testcase classname="test_constraints" name="test_report_keeps_the_spec_flag_names" time="0.084" /><testcase classname="test_constraints" name="test_other_commands_keep_the_spec_flag_names" time="0.342" /><testcase classname="test_constraints" name="test_the_public_tests_still_pass" time="0.563" /><testcase classname="test_feature_config" name="test_config_flag_and_environment_variable_both_select_settings" time="0.184"><failure message="AssertionError: usage: ledgerkit [-h] [--config PATH] COMMAND ...&#10;  ledgerkit: error: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')&#10;  &#10;assert 2 == 0&#10; +  where 2 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', '--config...r: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')\n&quot;).returncode">tmp_path = PosixPath('/tmp/pytest-of-anatoly/pytest-948/test_config_flag_and_environme0')
+
+    def test_config_flag_and_environment_variable_both_select_settings(tmp_path: Path) -&gt; None:
+        override = tmp_path / "quarter-close.toml"
+        override.write_text(OVERRIDE, encoding="utf-8")
+    
+        ingest = run_cli(
+            ["--config", str(override), "ingest", *[str(p) for p in SAMPLE_FILES], "--out", "out/r.csv"],
+            cwd=tmp_path,
+        )
+        records = tmp_path / "out" / "r.csv"
+        assert records.is_file(), ingest.stderr
+        rows = list(csv.DictReader(records.read_text(encoding="utf-8").splitlines()))
+        unmapped = {row["account_name"] for row in rows if row["account_code"] == "8800"}
+        assert unmapped == {"NOT_MAPPED"}
+    
+        with_flag = run_cli(
+            ["--config", str(override), "report", "--by", "account", "--records", str(records)],
+            cwd=tmp_path,
+        )
+&gt;       assert with_flag.returncode == 0, with_flag.stderr
+E       AssertionError: usage: ledgerkit [-h] [--config PATH] COMMAND ...
+E         ledgerkit: error: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', '--config...r: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')\n").returncode
+
+test_feature_config.py:34: AssertionError</failure></testcase><testcase classname="test_feature_ingest" name="test_ingest_writes_records_with_the_specified_header" time="0.091" /><testcase classname="test_feature_ingest" name="test_ingest_keeps_every_posting" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_reads_system_b_amounts_as_dollars" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_reads_system_c_dates_day_first" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_keeps_refund_rows" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_preserves_a_quoted_description" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_names_account_5200_from_the_live_map" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_labels_unmapped_account_codes" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_orders_rows_by_date_then_system_then_id" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_reflects_a_changed_input_file" time="0.173" /><testcase classname="test_feature_ingest" name="test_records_file_stays_comma_separated" time="0.001" /><testcase classname="test_feature_reconcile" name="test_reconcile_flags_exactly_the_disagreements" time="0.087" /><testcase classname="test_feature_reconcile" name="test_reconcile_tolerance_flag_widens_the_window" time="0.091" /><testcase classname="test_feature_report" name="test_report_by_account_uses_the_semicolon_delimiter" time="0.086"><failure message="AssertionError: usage: ledgerkit [-h] [--config PATH] COMMAND ...&#10;  ledgerkit: error: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')&#10;  &#10;assert 2 == 0&#10; +  where 2 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'report',...r: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')\n&quot;).returncode">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-948/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/an...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_report_by_account_uses_the_semicolon_delimiter(ingested: IngestRun) -&gt; None:
+&gt;       lines = _report(ingested, "--by", "account")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_feature_report.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-948/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/an...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+args = ('--by', 'account')
+
+    def _report(ingested: IngestRun, *args: str) -&gt; list[str]:
+        proc = run_cli(["report", *args, "--records", str(ingested.records_path)], cwd=ingested.work)
+&gt;       assert proc.returncode == 0, proc.stderr
+E       AssertionError: usage: ledgerkit [-h] [--config PATH] COMMAND ...
+E         ledgerkit: error: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'report',...r: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')\n").returncode
+
+test_feature_report.py:38: AssertionError</failure></testcase><testcase classname="test_feature_report" name="test_report_by_account_totals_round_half_to_even" time="0.084"><failure message="AssertionError: usage: ledgerkit [-h] [--config PATH] COMMAND ...&#10;  ledgerkit: error: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')&#10;  &#10;assert 2 == 0&#10; +  where 2 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'report',...r: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')\n&quot;).returncode">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-948/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/an...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_report_by_account_totals_round_half_to_even(ingested: IngestRun) -&gt; None:
+&gt;       totals = _totals(_report(ingested, "--by", "account"))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_feature_report.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-948/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/an...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+args = ('--by', 'account')
+
+    def _report(ingested: IngestRun, *args: str) -&gt; list[str]:
+        proc = run_cli(["report", *args, "--records", str(ingested.records_path)], cwd=ingested.work)
+&gt;       assert proc.returncode == 0, proc.stderr
+E       AssertionError: usage: ledgerkit [-h] [--config PATH] COMMAND ...
+E         ledgerkit: error: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'report',...r: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')\n").returncode
+
+test_feature_report.py:38: AssertionError</failure></testcase><testcase classname="test_feature_report" name="test_report_by_account_counts_refunds_by_default" time="0.084"><failure message="AssertionError: usage: ledgerkit [-h] [--config PATH] COMMAND ...&#10;  ledgerkit: error: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')&#10;  &#10;assert 2 == 0&#10; +  where 2 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'report',...r: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')\n&quot;).returncode">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-948/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/an...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_report_by_account_counts_refunds_by_default(ingested: IngestRun) -&gt; None:
+&gt;       totals = _totals(_report(ingested, "--by", "account"))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_feature_report.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-948/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/an...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+args = ('--by', 'account')
+
+    def _report(ingested: IngestRun, *args: str) -&gt; list[str]:
+        proc = run_cli(["report", *args, "--records", str(ingested.records_path)], cwd=ingested.work)
+&gt;       assert proc.returncode == 0, proc.stderr
+E       AssertionError: usage: ledgerkit [-h] [--config PATH] COMMAND ...
+E         ledgerkit: error: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'report',...r: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')\n").returncode
+
+test_feature_report.py:38: AssertionError</failure></testcase><testcase classname="test_feature_report" name="test_report_by_month_totals" time="0.084"><failure message="AssertionError: usage: ledgerkit [-h] [--config PATH] COMMAND ...&#10;  ledgerkit: error: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')&#10;  &#10;assert 2 == 0&#10; +  where 2 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'report',...r: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')\n&quot;).returncode">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-948/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/an...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_report_by_month_totals(ingested: IngestRun) -&gt; None:
+&gt;       totals = _totals(_report(ingested, "--by", "month"))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_feature_report.py:71: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-948/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/an...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+args = ('--by', 'month')
+
+    def _report(ingested: IngestRun, *args: str) -&gt; list[str]:
+        proc = run_cli(["report", *args, "--records", str(ingested.records_path)], cwd=ingested.work)
+&gt;       assert proc.returncode == 0, proc.stderr
+E       AssertionError: usage: ledgerkit [-h] [--config PATH] COMMAND ...
+E         ledgerkit: error: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'report',...r: argument COMMAND: invalid choice: 'report' (choose from 'version', 'inspect', 'ingest', 'validate', 'reconcile')\n").returncode
+
+test_feature_report.py:38: AssertionError</failure></testcase><testcase classname="test_feature_validate" name="test_validate_exits_2_on_malformed_rows_and_0_on_clean_ones" time="0.178" /><testcase classname="test_feature_validate" name="test_validate_warns_through_the_project_logger" time="0.087" /></testsuite></testsuites>

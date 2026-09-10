@@ -1,0 +1,82 @@
+{
+  "arm": "E",
+  "arm_desc": "naive handover file, no plugin, fresh session told it exists",
+  "model_alias": "sonnet",
+  "rep": 1,
+  "condition": "build",
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/E/sonnet/build-r1",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": null,
+  "plugin_commit": null,
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "sonnet",
+    "--tools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--allowedTools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--disallowedTools",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors"
+  ],
+  "goal": null,
+  "phase1_session": "3e5cc18f-0ee7-44a3-8a7f-8dc27269c94c",
+  "phase2_session": "2f589fd5-2b52-4a81-b196-2c4815218c19",
+  "handover_file": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/E/sonnet/build-r1/HANDOVER.md",
+  "handover_words": {
+    "HANDOVER.md": 1141
+  },
+  "score": {
+    "feature_passed": 15,
+    "feature_total": 20,
+    "constraint_passed": 10,
+    "constraint_total": 10,
+    "passed": 25,
+    "total": 30
+  },
+  "turns": 77,
+  "turns_phase2": 43,
+  "cost_usd": 1.4641,
+  "cost_phase2_usd": 0.8244,
+  "tokens_in_phase2": 1611523,
+  "usage": {
+    "input_tokens": 96,
+    "cache_creation_input_tokens": 121681,
+    "cache_read_input_tokens": 2503424,
+    "output_tokens": 47434
+  },
+  "phase2_reads": 22,
+  "rederived_reads": 19,
+  "rederived_files": [
+    "CONVENTIONS.md",
+    "SPEC.md",
+    "__init__.py",
+    "__main__.py",
+    "cli.py",
+    "config.py",
+    "fields.py",
+    "log.py",
+    "mapping.py",
+    "normalize.py",
+    "records.py",
+    "system_a.py",
+    "system_b.py",
+    "system_c.py",
+    "test_cli.py",
+    "test_parsers.py"
+  ],
+  "verify": [
+    "valid: no access to hidden tests or reference"
+  ]
+}

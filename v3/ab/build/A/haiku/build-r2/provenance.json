@@ -1,0 +1,70 @@
+{
+  "arm": "A",
+  "arm_desc": "plugin handoff + fresh session",
+  "model_alias": "haiku",
+  "rep": 2,
+  "condition": "build",
+  "date": "2026-09-10",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/A/haiku/build-r2",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": "/home/anatoly/context-governance-plugin",
+  "plugin_commit": "089460155846b4f4f7616a3ae3d28608e2ab1793",
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "haiku",
+    "--tools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--allowedTools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--disallowedTools",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors",
+    "--plugin-dir",
+    "/home/anatoly/context-governance-plugin"
+  ],
+  "goal": "Implement the five features in SPEC.md correctly, respecting the conventions in docs/CONVENTIONS.md.",
+  "phase1_session": "bfd0e5e7-b20d-48c8-8460-d67583f31948",
+  "phase2_session": "f3548e27-7366-482c-bb3c-485d64019992",
+  "handover_file": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/build/A/haiku/build-r2/.governor/handoffs/2026-09-10-spec-implementation.md",
+  "handover_words": {
+    "2026-09-10-spec-implementation.md": 680
+  },
+  "score": {
+    "feature_passed": 18,
+    "feature_total": 20,
+    "constraint_passed": 10,
+    "constraint_total": 10,
+    "passed": 28,
+    "total": 30
+  },
+  "turns": 153,
+  "turns_phase2": 19,
+  "cost_usd": 0.9975,
+  "cost_phase2_usd": 0.0971,
+  "tokens_in_phase2": 332515,
+  "usage": {
+    "input_tokens": 952,
+    "cache_creation_input_tokens": 126809,
+    "cache_read_input_tokens": 5071976,
+    "output_tokens": 47145
+  },
+  "phase2_reads": 4,
+  "rederived_reads": 3,
+  "rederived_files": [
+    "SPEC.md",
+    "cli.py"
+  ],
+  "verify": [
+    "valid: no access to hidden tests or reference"
+  ]
+}
