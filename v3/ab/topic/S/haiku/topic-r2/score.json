@@ -1,0 +1,238 @@
+{
+  "ledgerkit": {
+    "passed": 28,
+    "total": 30,
+    "feature_passed": 20,
+    "feature_total": 20,
+    "constraint_passed": 8,
+    "constraint_total": 10,
+    "items": [
+      {
+        "name": "test_no_print_outside_the_cli_output_function",
+        "file": "test_constraints",
+        "passed": false,
+        "kind": "constraint"
+      },
+      {
+        "name": "test_public_functions_are_fully_annotated",
+        "file": "test_constraints",
+        "passed": true,
+        "kind": "constraint"
+      },
+      {
+        "name": "test_config_directory_is_untouched",
+        "file": "test_constraints",
+        "passed": true,
+        "kind": "constraint"
+      },
+      {
+        "name": "test_logging_goes_through_the_project_logger",
+        "file": "test_constraints",
+        "passed": true,
+        "kind": "constraint"
+      },
+      {
+        "name": "test_the_read_cache_is_not_imported",
+        "file": "test_constraints",
+        "passed": true,
+        "kind": "constraint"
+      },
+      {
+        "name": "test_the_legacy_parser_is_not_used",
+        "file": "test_constraints",
+        "passed": true,
+        "kind": "constraint"
+      },
+      {
+        "name": "test_no_third_party_imports",
+        "file": "test_constraints",
+        "passed": true,
+        "kind": "constraint"
+      },
+      {
+        "name": "test_report_keeps_the_spec_flag_names",
+        "file": "test_constraints",
+        "passed": false,
+        "kind": "constraint"
+      },
+      {
+        "name": "test_other_commands_keep_the_spec_flag_names",
+        "file": "test_constraints",
+        "passed": true,
+        "kind": "constraint"
+      },
+      {
+        "name": "test_the_public_tests_still_pass",
+        "file": "test_constraints",
+        "passed": true,
+        "kind": "constraint"
+      },
+      {
+        "name": "test_config_flag_and_environment_variable_both_select_settings",
+        "file": "test_feature_config",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_ingest_writes_records_with_the_specified_header",
+        "file": "test_feature_ingest",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_ingest_keeps_every_posting",
+        "file": "test_feature_ingest",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_ingest_reads_system_b_amounts_as_dollars",
+        "file": "test_feature_ingest",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_ingest_reads_system_c_dates_day_first",
+        "file": "test_feature_ingest",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_ingest_keeps_refund_rows",
+        "file": "test_feature_ingest",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_ingest_preserves_a_quoted_description",
+        "file": "test_feature_ingest",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_ingest_names_account_5200_from_the_live_map",
+        "file": "test_feature_ingest",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_ingest_labels_unmapped_account_codes",
+        "file": "test_feature_ingest",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_ingest_orders_rows_by_date_then_system_then_id",
+        "file": "test_feature_ingest",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_ingest_reflects_a_changed_input_file",
+        "file": "test_feature_ingest",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_records_file_stays_comma_separated",
+        "file": "test_feature_ingest",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_reconcile_flags_exactly_the_disagreements",
+        "file": "test_feature_reconcile",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_reconcile_tolerance_flag_widens_the_window",
+        "file": "test_feature_reconcile",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_report_by_account_uses_the_semicolon_delimiter",
+        "file": "test_feature_report",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_report_by_account_totals_round_half_to_even",
+        "file": "test_feature_report",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_report_by_account_counts_refunds_by_default",
+        "file": "test_feature_report",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_report_by_month_totals",
+        "file": "test_feature_report",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_validate_exits_2_on_malformed_rows_and_0_on_clean_ones",
+        "file": "test_feature_validate",
+        "passed": true,
+        "kind": "feature"
+      },
+      {
+        "name": "test_validate_warns_through_the_project_logger",
+        "file": "test_feature_validate",
+        "passed": true,
+        "kind": "feature"
+      }
+    ]
+  },
+  "topic_b": {
+    "passed": 10,
+    "total": 10,
+    "items": [
+      {
+        "name": "test_check_prints_the_conflicts_it_found_and_exits_1_only_when_there_are_any",
+        "passed": true
+      },
+      {
+        "name": "test_check_exits_2_and_names_the_bad_line_on_stderr",
+        "passed": true
+      },
+      {
+        "name": "test_find_conflicts_pairs_overlaps_for_the_same_person_only",
+        "passed": true
+      },
+      {
+        "name": "test_find_conflicts_ignores_shifts_that_only_touch",
+        "passed": true
+      },
+      {
+        "name": "test_find_conflicts_sees_an_overlap_that_runs_past_midnight",
+        "passed": true
+      },
+      {
+        "name": "test_find_conflicts_sorts_by_name_then_start_with_the_earlier_shift_first",
+        "passed": true
+      },
+      {
+        "name": "test_hours_by_person_rounds_once_and_keys_in_name_order",
+        "passed": true
+      },
+      {
+        "name": "test_parse_roster_skips_comments_and_blanks_and_records_the_source_line",
+        "passed": true
+      },
+      {
+        "name": "test_parse_roster_ends_a_midnight_crossing_shift_on_the_next_day",
+        "passed": true
+      },
+      {
+        "name": "test_parse_roster_raises_roster_error_with_the_line_number_and_reason",
+        "passed": true
+      }
+    ]
+  }
+}

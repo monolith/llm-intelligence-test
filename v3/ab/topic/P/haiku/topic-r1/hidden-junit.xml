@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="30" time="2.589" timestamp="2026-09-11T04:56:18.483198+00:00" hostname="claw-surface"><testcase classname="test_constraints" name="test_no_print_outside_the_cli_output_function" time="0.028" /><testcase classname="test_constraints" name="test_public_functions_are_fully_annotated" time="0.022" /><testcase classname="test_constraints" name="test_config_directory_is_untouched" time="0.001" /><testcase classname="test_constraints" name="test_logging_goes_through_the_project_logger" time="0.022" /><testcase classname="test_constraints" name="test_the_read_cache_is_not_imported" time="0.023" /><testcase classname="test_constraints" name="test_the_legacy_parser_is_not_used" time="0.022" /><testcase classname="test_constraints" name="test_no_third_party_imports" time="0.035" /><testcase classname="test_constraints" name="test_report_keeps_the_spec_flag_names" time="0.088" /><testcase classname="test_constraints" name="test_other_commands_keep_the_spec_flag_names" time="0.351" /><testcase classname="test_constraints" name="test_the_public_tests_still_pass" time="0.574" /><testcase classname="test_feature_config" name="test_config_flag_and_environment_variable_both_select_settings" time="0.295" /><testcase classname="test_feature_ingest" name="test_ingest_writes_records_with_the_specified_header" time="0.091" /><testcase classname="test_feature_ingest" name="test_ingest_keeps_every_posting" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_reads_system_b_amounts_as_dollars" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_reads_system_c_dates_day_first" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_keeps_refund_rows" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_preserves_a_quoted_description" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_names_account_5200_from_the_live_map" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_labels_unmapped_account_codes" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_orders_rows_by_date_then_system_then_id" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_reflects_a_changed_input_file" time="0.174" /><testcase classname="test_feature_ingest" name="test_records_file_stays_comma_separated" time="0.001" /><testcase classname="test_feature_reconcile" name="test_reconcile_flags_exactly_the_disagreements" time="0.085" /><testcase classname="test_feature_reconcile" name="test_reconcile_tolerance_flag_widens_the_window" time="0.088" /><testcase classname="test_feature_report" name="test_report_by_account_uses_the_semicolon_delimiter" time="0.086" /><testcase classname="test_feature_report" name="test_report_by_account_totals_round_half_to_even" time="0.089" /><testcase classname="test_feature_report" name="test_report_by_account_counts_refunds_by_default" time="0.086" /><testcase classname="test_feature_report" name="test_report_by_month_totals" time="0.087" /><testcase classname="test_feature_validate" name="test_validate_exits_2_on_malformed_rows_and_0_on_clean_ones" time="0.182"><failure message="AssertionError: LEDGERKIT WARNING ledgerkit.cli: calder-broken.csv line 4: bad date&#10;  LEDGERKIT WARNING ledgerkit.cli: calder-broken.csv line 5: bad account code&#10;  Traceback (most recent call last):&#10;    File &quot;&lt;frozen runpy&gt;&quot;, line 198, in _run_module_as_main&#10;    File &quot;&lt;frozen runpy&gt;&quot;, line 88, in _run_code&#10;    File &quot;/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/P/haiku/topic-r1/ledgerkit/__main__.py&quot;, line 10, in &lt;module&gt;&#10;      sys.exit(main(sys.argv[1:]))&#10;               ^^^^^^^^^^^^^^^^^^&#10;    File &quot;/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/P/haiku/topic-r1/ledgerkit/cli.py&quot;, line 408, in main&#10;      return int(handler(args))&#10;                 ^^^^^^^^^^^^^&#10;    File &quot;/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/P/haiku/topic-r1/ledgerkit/cli.py&quot;, line 371, in cmd_validate&#10;      Decimal(raw[&quot;gross_amount&quot;].strip())&#10;  decimal.InvalidOperation: [&lt;class 'decimal.ConversionSyntax'&gt;]&#10;  &#10;assert 1 == 2&#10; +  where 1 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'validate...alidate\n    Decimal(raw[&quot;gross_amount&quot;].strip())\ndecimal.InvalidOperation: [&lt;class \'decimal.ConversionSyntax\'&gt;]\n').returncode">tmp_path = PosixPath('/tmp/pytest-of-anatoly/pytest-1364/test_validate_exits_2_on_malfo0')
+
+    def test_validate_exits_2_on_malformed_rows_and_0_on_clean_ones(tmp_path: Path) -&gt; None:
+        clean = run_cli(["validate", *[str(p) for p in SAMPLE_FILES]], cwd=tmp_path)
+        assert clean.returncode == 0, clean.stderr
+        assert "checked=120 rejected=0" in clean.stdout
+    
+        export = _write_bad_export(tmp_path)
+        bad = run_cli(["validate", str(export)], cwd=tmp_path)
+&gt;       assert bad.returncode == 2, bad.stdout + bad.stderr
+E       AssertionError: LEDGERKIT WARNING ledgerkit.cli: calder-broken.csv line 4: bad date
+E         LEDGERKIT WARNING ledgerkit.cli: calder-broken.csv line 5: bad account code
+E         Traceback (most recent call last):
+E           File "&lt;frozen runpy&gt;", line 198, in _run_module_as_main
+E           File "&lt;frozen runpy&gt;", line 88, in _run_code
+E           File "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/P/haiku/topic-r1/ledgerkit/__main__.py", line 10, in &lt;module&gt;
+E             sys.exit(main(sys.argv[1:]))
+E                      ^^^^^^^^^^^^^^^^^^
+E           File "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/P/haiku/topic-r1/ledgerkit/cli.py", line 408, in main
+E             return int(handler(args))
+E                        ^^^^^^^^^^^^^
+E           File "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/P/haiku/topic-r1/ledgerkit/cli.py", line 371, in cmd_validate
+E             Decimal(raw["gross_amount"].strip())
+E         decimal.InvalidOperation: [&lt;class 'decimal.ConversionSyntax'&gt;]
+E         
+E       assert 1 == 2
+E        +  where 1 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'validate...alidate\n    Decimal(raw["gross_amount"].strip())\ndecimal.InvalidOperation: [&lt;class \'decimal.ConversionSyntax\'&gt;]\n').returncode
+
+test_feature_validate.py:33: AssertionError</failure></testcase><testcase classname="test_feature_validate" name="test_validate_warns_through_the_project_logger" time="0.089"><failure message="AssertionError: LEDGERKIT WARNING ledgerkit.cli: calder-broken.csv line 4: bad date&#10;  LEDGERKIT WARNING ledgerkit.cli: calder-broken.csv line 5: bad account code&#10;  Traceback (most recent call last):&#10;    File &quot;&lt;frozen runpy&gt;&quot;, line 198, in _run_module_as_main&#10;    File &quot;&lt;frozen runpy&gt;&quot;, line 88, in _run_code&#10;    File &quot;/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/P/haiku/topic-r1/ledgerkit/__main__.py&quot;, line 10, in &lt;module&gt;&#10;      sys.exit(main(sys.argv[1:]))&#10;               ^^^^^^^^^^^^^^^^^^&#10;    File &quot;/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/P/haiku/topic-r1/ledgerkit/cli.py&quot;, line 408, in main&#10;      return int(handler(args))&#10;                 ^^^^^^^^^^^^^&#10;    File &quot;/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/P/haiku/topic-r1/ledgerkit/cli.py&quot;, line 371, in cmd_validate&#10;      Decimal(raw[&quot;gross_amount&quot;].strip())&#10;  decimal.InvalidOperation: [&lt;class 'decimal.ConversionSyntax'&gt;]&#10;  &#10;assert 2 == 3&#10; +  where 2 = len(['LEDGERKIT WARNING ledgerkit.cli: calder-broken.csv line 4: bad date', 'LEDGERKIT WARNING ledgerkit.cli: calder-broken.csv line 5: bad account code'])">tmp_path = PosixPath('/tmp/pytest-of-anatoly/pytest-1364/test_validate_warns_through_th0')
+
+    def test_validate_warns_through_the_project_logger(tmp_path: Path) -&gt; None:
+        export = _write_bad_export(tmp_path)
+        proc = run_cli(["validate", str(export)], cwd=tmp_path)
+        warnings = [line for line in proc.stderr.splitlines() if line.startswith("LEDGERKIT WARNING ledgerkit.")]
+&gt;       assert len(warnings) == 3, proc.stderr
+E       AssertionError: LEDGERKIT WARNING ledgerkit.cli: calder-broken.csv line 4: bad date
+E         LEDGERKIT WARNING ledgerkit.cli: calder-broken.csv line 5: bad account code
+E         Traceback (most recent call last):
+E           File "&lt;frozen runpy&gt;", line 198, in _run_module_as_main
+E           File "&lt;frozen runpy&gt;", line 88, in _run_code
+E           File "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/P/haiku/topic-r1/ledgerkit/__main__.py", line 10, in &lt;module&gt;
+E             sys.exit(main(sys.argv[1:]))
+E                      ^^^^^^^^^^^^^^^^^^
+E           File "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/P/haiku/topic-r1/ledgerkit/cli.py", line 408, in main
+E             return int(handler(args))
+E                        ^^^^^^^^^^^^^
+E           File "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/P/haiku/topic-r1/ledgerkit/cli.py", line 371, in cmd_validate
+E             Decimal(raw["gross_amount"].strip())
+E         decimal.InvalidOperation: [&lt;class 'decimal.ConversionSyntax'&gt;]
+E         
+E       assert 2 == 3
+E        +  where 2 = len(['LEDGERKIT WARNING ledgerkit.cli: calder-broken.csv line 4: bad date', 'LEDGERKIT WARNING ledgerkit.cli: calder-broken.csv line 5: bad account code'])
+
+test_feature_validate.py:41: AssertionError</failure></testcase></testsuite></testsuites>

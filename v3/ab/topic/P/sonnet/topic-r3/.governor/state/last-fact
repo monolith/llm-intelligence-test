@@ -1,0 +1,1 @@
+bash: rm -rf /tmp/lk_out /tmp/lk_cwd_test /tmp/bad_a.csv /tmp/bad_a_err.txt /tmp/missi

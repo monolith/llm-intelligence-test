@@ -1,0 +1,69 @@
+{
+  "arm": "N",
+  "arm_desc": "plugin: conclude \u2192 fresh session for B \u2192 fresh session + merge for phase 2",
+  "model_alias": "haiku",
+  "rep": 3,
+  "condition": "topic",
+  "date": "2026-09-11",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r3",
+  "topic_b_dir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r3-topic-b",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": "/home/anatoly/context-governance-plugin",
+  "plugin_commit": "089460155846b4f4f7616a3ae3d28608e2ab1793",
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "haiku",
+    "--tools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--allowedTools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--disallowedTools",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r3-topic-b",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors",
+    "--plugin-dir",
+    "/home/anatoly/context-governance-plugin"
+  ],
+  "sessions": {
+    "phase1": "df7500bd-6aa1-4923-8ede-41ef8303b648",
+    "topic_b": "1e27679d-3f8e-475f-b36b-330274ce9dec",
+    "phase2": "30d613a4-45cd-4361-9f61-49739031941f"
+  },
+  "conclusion_slug": "ledgerkit-spec-setup",
+  "score": {
+    "ledgerkit": {
+      "passed": 27,
+      "total": 30,
+      "feature_passed": 17,
+      "feature_total": 20,
+      "constraint_passed": 10,
+      "constraint_total": 10
+    },
+    "topic_b": {
+      "passed": 10,
+      "total": 10
+    }
+  },
+  "turns": 137,
+  "cost_usd": 0.9056,
+  "cost_topic_b_usd": 0.1451,
+  "turns_topic_b": 29,
+  "cost_phase2_usd": 0.5289,
+  "turns_phase2": 68,
+  "tokens_in_phase2": 3051618,
+  "rederived_reads": 15,
+  "verify": [
+    "valid: no access to hidden tests or reference"
+  ]
+}

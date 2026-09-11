@@ -1,0 +1,67 @@
+{
+  "arm": "S",
+  "arm_desc": "same session, no plugin",
+  "model_alias": "opus",
+  "rep": 2,
+  "condition": "topic",
+  "date": "2026-09-11",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/S/opus/topic-r2",
+  "topic_b_dir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/S/opus/topic-r2-topic-b",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": null,
+  "plugin_commit": null,
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "opus",
+    "--tools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--allowedTools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--disallowedTools",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/S/opus/topic-r2-topic-b",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors"
+  ],
+  "sessions": {
+    "phase1": "f60bd503-8d9f-4170-83f2-95831e38f9a1",
+    "topic_b": "f60bd503-8d9f-4170-83f2-95831e38f9a1",
+    "phase2": "f60bd503-8d9f-4170-83f2-95831e38f9a1"
+  },
+  "conclusion_slug": null,
+  "score": {
+    "ledgerkit": {
+      "passed": 30,
+      "total": 30,
+      "feature_passed": 20,
+      "feature_total": 20,
+      "constraint_passed": 10,
+      "constraint_total": 10
+    },
+    "topic_b": {
+      "passed": 10,
+      "total": 10
+    }
+  },
+  "turns": 66,
+  "cost_usd": 4.2086,
+  "cost_topic_b_usd": 0.5493,
+  "turns_topic_b": 11,
+  "cost_phase2_usd": 2.5,
+  "turns_phase2": 21,
+  "tokens_in_phase2": 572203,
+  "rederived_reads": 1,
+  "verify": [
+    "valid: no access to hidden tests or reference"
+  ]
+}

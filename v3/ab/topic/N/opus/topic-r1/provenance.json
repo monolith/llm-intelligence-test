@@ -1,0 +1,69 @@
+{
+  "arm": "N",
+  "arm_desc": "plugin: conclude \u2192 fresh session for B \u2192 fresh session + merge for phase 2",
+  "model_alias": "opus",
+  "rep": 1,
+  "condition": "topic",
+  "date": "2026-09-11",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/opus/topic-r1",
+  "topic_b_dir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/opus/topic-r1-topic-b",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": "/home/anatoly/context-governance-plugin",
+  "plugin_commit": "089460155846b4f4f7616a3ae3d28608e2ab1793",
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "opus",
+    "--tools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--allowedTools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--disallowedTools",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/opus/topic-r1-topic-b",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors",
+    "--plugin-dir",
+    "/home/anatoly/context-governance-plugin"
+  ],
+  "sessions": {
+    "phase1": "a0267405-36c0-4ae4-a242-4517aa1b27c1",
+    "topic_b": "49c25d23-6e78-41df-8cfa-a8bd2f1c1db0",
+    "phase2": "8959aebc-1005-4292-b7f7-3c194d60ad24"
+  },
+  "conclusion_slug": "ledgerkit-spec-orientation",
+  "score": {
+    "ledgerkit": {
+      "passed": 30,
+      "total": 30,
+      "feature_passed": 20,
+      "feature_total": 20,
+      "constraint_passed": 10,
+      "constraint_total": 10
+    },
+    "topic_b": {
+      "passed": 10,
+      "total": 10
+    }
+  },
+  "turns": 66,
+  "cost_usd": 3.6377,
+  "cost_topic_b_usd": 0.2776,
+  "turns_topic_b": 7,
+  "cost_phase2_usd": 1.5675,
+  "turns_phase2": 20,
+  "tokens_in_phase2": 563830,
+  "rederived_reads": 0,
+  "verify": [
+    "valid: no access to hidden tests or reference"
+  ]
+}

@@ -1,0 +1,1 @@
+bash: rm -rf /tmp/lk_smoke; rm -rf out; git -C . status 2>&1 | head -1 || true; ls

@@ -428,13 +428,62 @@ Three runs per cell. The two compacted arms from Block 2a are shown for comparis
 
 Sequence: ledgerkit phase 1 → topic B (a separate directory, own hidden tests) → ledgerkit phase 2.
 Arms: S (one plain session), P (one session, plugin + goal, advisories ignored), N (the plugin's
-flow: `/conclude`, fresh session for topic B, fresh session with `/merge` for phase 2). Scores on
-both jobs, cost per phase, re-derived reads. **Running; results below when the cells fill.**
+flow: `/conclude`, fresh session for topic B, fresh session with `/merge` for phase 2). Three runs per
+cell, 27 runs, all verified.
 
 ```bash
 python3 v3/ab/harness/ab_topic.py --arm N --model haiku --rep 1 --plugin-dir /path/to/plugin
 python3 v3/ab/harness/ab_topic_report.py       # → v3/ab/TOPIC-REPORT.md
 ```
+
+| Model | Arm | Main job % (3 runs) | Side job % | Re-derived reads after the return | $ per run | Turns |
+|---|---|---|---|---|---|---|
+| Haiku | S one plain session | 72 [93, 93, 30] | 100 | 2.7 | $0.98 | 107 |
+| Haiku | P plugin loaded, ignored | 93 [93, 93, 93] | 100 | 2.3 | $0.83 | 94 |
+| Haiku | N plugin flow | 91 [100, 83, 90] | 100 | 12.3 | $0.93 | 140 |
+| Sonnet | S one plain session | 100 | 100 | 2.3 | $2.18 | 76 |
+| Sonnet | P plugin loaded, ignored | 100 | 100 | 1.3 | $2.15 | 77 |
+| Sonnet | N plugin flow | 96 [90, 100, 97] | 100 | 17.3 | $1.98 | 101 |
+| Opus | S one plain session | 100 | 100 | 4.3 | $4.82 | 66 |
+| Opus | P plugin loaded, ignored | 100 | 100 | 3.0 | $5.04 | 70 |
+| Opus | N plugin flow | 100 | 100 | 3.7 | $3.91 | 80 |
+
+- **The side job never suffers**: 10/10 in every run of every arm. Doing it inside the main session
+  costs nothing on this task; the plugin's conclude/merge detour buys no quality.
+- **The plugin's flow is cheaper for the strong models** (Opus −19 %, Sonnet −9 %; N−S paired
+  differences −$0.91 and −$0.21 per run) because three short sessions never carry the whole history.
+  It also takes more turns (+14 to +33) and, for Sonnet, ~15 more re-reads after the merge: the
+  conclusion file is not enough for Sonnet, which rebuilds its picture from the repository. The
+  cost of those re-reads is inside the dollar figures, so the saving is net.
+- **Haiku's one-session arm collapsed once more** (S r3, 9/30 with a false completion claim). Its
+  collapse tally across experiment 2: 4 in 18 long single-session runs (arms B, C, G, H, S, P), 0 in 15
+  fresh-session runs (A, D, E, F, N). Every seam arm avoided it; the plugin's flows are among them.
+- One Sonnet S run was voided and rerun (`void-logdeleted-topic-r1`): its phase-2 session listed the
+  repository root, found the harness's call log, deleted it in its final cleanup and said so. The log
+  now lives outside the session's directory for every build and topic run.
+
+## What experiment 2 says, in one place
+
+1. **Where the plugin helps:** Haiku at a compaction (brief 26–28 vs compaction 10–26); Sonnet and
+   Opus after compaction (+5 points, fewer fabricated claims); the goal anchor keeps Haiku's standing
+   rules (30/29/29 vs 27/28/10); the conclude/merge flow is cheaper for Sonnet and Opus at equal
+   quality; every fresh-session arm avoided Haiku's long-session collapse.
+2. **Where it does not:** a fresh session after a clear scores the same with the plugin's brief, its
+   hooks alone, a hand-written handover, or nothing (Sonnet/Opus/Haiku alike); Sonnet and Opus lose
+   nothing to compaction on the build task; never compacting beats every plugin arm on the reading
+   task by 10–14 points, and following the fill advisory trades 10–14 points for 10–24 % cost.
+3. **Usability:** under a strict user rule Sonnet 5 treated the plugin's injected advisories and its
+   handoff command as prompt injection until the plugin was authorized up front, then questioned the
+   handoff on the merits once; Haiku once wrote the brief where the hook could not find it; Opus's
+   fresh session once declined the hook's offer. A brief launders what the writing session believed
+   (Haiku's 8-point follow run).
+4. **Ceiling:** Opus scored 30/30 on every build and topic run (45 runs) and Sonnet on nearly all;
+   this fixture cannot show an effect for them on the build task. A harder task is the next step
+   (`docs/superpowers/brainstorms/2026-09-11-plugin-end-to-end-test.md`).
+5. **A window mismatch worth reporting:** Sonnet 5 and Opus 5 run a 1M window in this CLI and
+   auto-compact at ≈ 970K (probe, 02:57 UTC). The plugin tiers against 200K unless the model name
+   carries "[1m]", which native-1M models do not, so its advisories fire at 6 / 10 / 15 % of the real
+   window and its 75 % line calls 150K "auto-compact territory".
 
 ## Adapting experiment 2 to another plugin
 

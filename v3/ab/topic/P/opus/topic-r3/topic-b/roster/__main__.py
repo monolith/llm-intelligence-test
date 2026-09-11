@@ -1,0 +1,10 @@
+"""Entry point for ``python -m roster``."""
+
+from __future__ import annotations
+
+import sys
+
+from roster.cli import main
+
+if __name__ == "__main__":
+    sys.exit(main())

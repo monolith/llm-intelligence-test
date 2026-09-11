@@ -1,0 +1,1 @@
+bash: ls ledgerkit ledgerkit/core && python -m pytest -q -p no:cacheprovider tests/ 2>

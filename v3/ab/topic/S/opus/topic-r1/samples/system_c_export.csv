@@ -1,0 +1,42 @@
+CALDER EXPORT v3
+ref,txn_date,ledger_acct,narrative,gross_amount,ccy
+C-0401,02/01/2026,4100,Container unload allowance,386.54,USD
+C-0402,06/01/2026,4100,Fuel surcharge inbound,284.04,USD
+C-0403,11/01/2026,4100,Inbound freight consolidation,205.65,USD
+C-0404,12/01/2026,4100,Line haul second leg,328.32,USD
+C-0405,04/03/2026,4100,Inbound freight consolidation,177.65,USD
+C-0406,08/03/2026,4100,Line haul second leg,215.35,USD
+C-0407,10/03/2026,4100,Container unload allowance,200.71,USD
+C-0408,13/03/2026,4100,Fuel surcharge inbound,80.94,USD
+C-0409,15/01/2026,4200,Tariff reclass,151.18,USD
+C-0410,18/01/2026,4200,Entry filing fee,257.73,USD
+C-0411,22/01/2026,4200,Duty deposit,203.49,USD
+C-0412,17/03/2026,4200,Duty deposit,148.61,USD
+C-0413,19/03/2026,4200,Brokerage retainer,240.59,USD
+C-0414,24/01/2026,4300,Pallet position fee,312.34,USD
+C-0415,27/01/2026,4300,Rack storage aisle 7,238.66,USD
+C-0416,29/01/2026,4300,Overflow bay rental,210.05,USD
+C-0417,01/02/2026,4300,Overflow bay rental,263.62,USD
+C-0418,03/02/2026,4300,Cold room surcharge,243.39,USD
+C-0419,07/02/2026,4300,Pallet position fee,183.14,USD
+C-0420,09/02/2026,5100,Corrugate 32 ECT,246.48,USD
+C-0421,14/02/2026,5100,Stretch film rolls,269.01,USD
+C-0422,16/02/2026,5100,Void fill recycled,125.01,USD
+C-0423,02/01/2026,5200,Relief crew dock,101.24,USD
+C-0424,06/01/2026,5200,Night shift crew,153.06,USD
+C-0425,11/01/2026,5200,Weekend picking detail,155.95,USD
+C-0426,20/02/2026,5300,Yard tractor hire,74.19,USD
+C-0427,23/02/2026,5300,Dock plate rental,110.07,USD
+C-0428,25/02/2026,5300,Reach truck lease,125.74,USD
+C-0429,22/03/2026,5300,Dock plate rental,100.59,USD
+C-0430,25/03/2026,5300,Reach truck lease,118.96,USD
+C-0431,12/01/2026,6100,Power main building,333.80,USD
+C-0432,15/01/2026,6100,Water and sewer,199.80,USD
+C-0433,26/03/2026,6100,Power main building,148.54,USD
+C-0434,28/03/2026,6100,Water and sewer,110.74,USD
+C-0435,04/03/2026,6100,Compressed air plant,216.62,USD
+C-0436,08/03/2026,6200,Umbrella premium,1100.00,USD
+C-0437,27/02/2026,8800,Unposted supplier charge,104.43,USD
+C-0438,01/02/2026,8800,Awaiting reclass,113.97,USD
+C-0439,10/03/2026,9000,Suspense reversal,64.80,USD
+== 39 rows ==

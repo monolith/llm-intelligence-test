@@ -1,0 +1,1 @@
+bash: ls -la ledgerkit ledgerkit/core tests && python -m pytest -q tests/ 2>&1 | tail

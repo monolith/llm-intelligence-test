@@ -1,0 +1,8 @@
+2026-09-11T05:39:33 prompt_submit first run; stdin keys=['cwd', 'hook_event_name', 'permission_mode', 'prompt', 'prompt_id', 'session_id', 'transcript_path']
+2026-09-11T05:39:42 prompt_submit first run; stdin keys=['cwd', 'hook_event_name', 'permission_mode', 'prompt', 'prompt_id', 'session_id', 'transcript_path']
+2026-09-11T05:39:55 prompt_submit first run; stdin keys=['cwd', 'hook_event_name', 'permission_mode', 'prompt', 'prompt_id', 'session_id', 'transcript_path']
+2026-09-11T05:40:02 prompt_submit first run; stdin keys=['cwd', 'hook_event_name', 'permission_mode', 'prompt', 'prompt_id', 'session_id', 'transcript_path']
+2026-09-11T05:40:17 prompt_submit first run; stdin keys=['cwd', 'hook_event_name', 'permission_mode', 'prompt', 'prompt_id', 'session_id', 'transcript_path']
+2026-09-11T05:40:22 prompt_submit first run; stdin keys=['cwd', 'hook_event_name', 'permission_mode', 'prompt', 'prompt_id', 'session_id', 'transcript_path']
+2026-09-11T05:42:02 prompt_submit first run; stdin keys=['cwd', 'hook_event_name', 'permission_mode', 'prompt', 'prompt_id', 'session_id', 'transcript_path']
+2026-09-11T05:42:02 advisory tier=0 occupancy=61380

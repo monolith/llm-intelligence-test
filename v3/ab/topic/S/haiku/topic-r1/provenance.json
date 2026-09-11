@@ -1,0 +1,67 @@
+{
+  "arm": "S",
+  "arm_desc": "same session, no plugin",
+  "model_alias": "haiku",
+  "rep": 1,
+  "condition": "topic",
+  "date": "2026-09-11",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/S/haiku/topic-r1",
+  "topic_b_dir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/S/haiku/topic-r1-topic-b",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": null,
+  "plugin_commit": null,
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "haiku",
+    "--tools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--allowedTools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--disallowedTools",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/S/haiku/topic-r1-topic-b",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors"
+  ],
+  "sessions": {
+    "phase1": "9f6345fa-dd58-47bc-84d2-4ee1f503ba4c",
+    "topic_b": "9f6345fa-dd58-47bc-84d2-4ee1f503ba4c",
+    "phase2": "9f6345fa-dd58-47bc-84d2-4ee1f503ba4c"
+  },
+  "conclusion_slug": null,
+  "score": {
+    "ledgerkit": {
+      "passed": 28,
+      "total": 30,
+      "feature_passed": 18,
+      "feature_total": 20,
+      "constraint_passed": 10,
+      "constraint_total": 10
+    },
+    "topic_b": {
+      "passed": 10,
+      "total": 10
+    }
+  },
+  "turns": 112,
+  "cost_usd": 1.014,
+  "cost_topic_b_usd": 0.3085,
+  "turns_topic_b": 36,
+  "cost_phase2_usd": 0.4301,
+  "turns_phase2": 38,
+  "tokens_in_phase2": 3161861,
+  "rederived_reads": 3,
+  "verify": [
+    "valid: no access to hidden tests or reference"
+  ]
+}

@@ -1,0 +1,1 @@
+bash: cat > /tmp/week.txt <<'EOF'

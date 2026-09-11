@@ -1,0 +1,69 @@
+{
+  "arm": "N",
+  "arm_desc": "plugin: conclude \u2192 fresh session for B \u2192 fresh session + merge for phase 2",
+  "model_alias": "sonnet",
+  "rep": 2,
+  "condition": "topic",
+  "date": "2026-09-11",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/sonnet/topic-r2",
+  "topic_b_dir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/sonnet/topic-r2-topic-b",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": "/home/anatoly/context-governance-plugin",
+  "plugin_commit": "089460155846b4f4f7616a3ae3d28608e2ab1793",
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "sonnet",
+    "--tools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--allowedTools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--disallowedTools",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/sonnet/topic-r2-topic-b",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors",
+    "--plugin-dir",
+    "/home/anatoly/context-governance-plugin"
+  ],
+  "sessions": {
+    "phase1": "9210955e-f644-4724-ac2b-59129fc3d89e",
+    "topic_b": "5249f3b5-b1a2-40ce-92a4-62bf41fea709",
+    "phase2": "2627533b-89b0-43a7-a977-95d3d2b473e7"
+  },
+  "conclusion_slug": "ledgerkit-spec-recon",
+  "score": {
+    "ledgerkit": {
+      "passed": 30,
+      "total": 30,
+      "feature_passed": 20,
+      "feature_total": 20,
+      "constraint_passed": 10,
+      "constraint_total": 10
+    },
+    "topic_b": {
+      "passed": 10,
+      "total": 10
+    }
+  },
+  "turns": 96,
+  "cost_usd": 1.9076,
+  "cost_topic_b_usd": 0.1418,
+  "turns_topic_b": 9,
+  "cost_phase2_usd": 1.131,
+  "turns_phase2": 45,
+  "tokens_in_phase2": 2236298,
+  "rederived_reads": 18,
+  "verify": [
+    "valid: no access to hidden tests or reference"
+  ]
+}

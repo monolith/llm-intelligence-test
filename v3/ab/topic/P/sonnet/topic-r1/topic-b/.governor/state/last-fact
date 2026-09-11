@@ -1,0 +1,1 @@
+bash: rm -f /tmp/week.txt /tmp/nonexistent.txt /tmp/bad.txt /tmp/empty.txt

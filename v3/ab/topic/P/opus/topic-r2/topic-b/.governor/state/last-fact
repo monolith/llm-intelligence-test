@@ -1,0 +1,1 @@
+bash: T=$(mktemp -d) && printf '# c\n2026-05-01 25:00-01:00 A\n' > $T/bad.txt && T=$T

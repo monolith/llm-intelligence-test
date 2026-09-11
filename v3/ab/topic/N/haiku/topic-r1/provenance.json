@@ -1,0 +1,69 @@
+{
+  "arm": "N",
+  "arm_desc": "plugin: conclude \u2192 fresh session for B \u2192 fresh session + merge for phase 2",
+  "model_alias": "haiku",
+  "rep": 1,
+  "condition": "topic",
+  "date": "2026-09-11",
+  "workdir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r1",
+  "topic_b_dir": "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r1-topic-b",
+  "cli_version": "2.1.266 (Claude Code)",
+  "plugin_dir": "/home/anatoly/context-governance-plugin",
+  "plugin_commit": "089460155846b4f4f7616a3ae3d28608e2ab1793",
+  "fixed_flags": [
+    "claude",
+    "-p",
+    "--model",
+    "haiku",
+    "--tools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--allowedTools",
+    "Read,Write,Edit,Bash,Grep,Glob",
+    "--disallowedTools",
+    "Agent",
+    "WebFetch",
+    "WebSearch",
+    "--strict-mcp-config",
+    "--setting-sources",
+    "",
+    "--output-format",
+    "json",
+    "--add-dir",
+    "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r1-topic-b",
+    "--add-dir",
+    "/home/anatoly/llm-intelligence-test/v3/distractors",
+    "--plugin-dir",
+    "/home/anatoly/context-governance-plugin"
+  ],
+  "sessions": {
+    "phase1": "022639c6-5f80-428d-b08e-e66fbd7a097f",
+    "topic_b": "05f029b6-7d69-4fa3-b025-5b620800f382",
+    "phase2": "a6b488dc-5505-42cb-8e90-cd75d5fd74c5"
+  },
+  "conclusion_slug": "spec-implementation",
+  "score": {
+    "ledgerkit": {
+      "passed": 30,
+      "total": 30,
+      "feature_passed": 20,
+      "feature_total": 20,
+      "constraint_passed": 10,
+      "constraint_total": 10
+    },
+    "topic_b": {
+      "passed": 10,
+      "total": 10
+    }
+  },
+  "turns": 149,
+  "cost_usd": 1.027,
+  "cost_topic_b_usd": 0.1174,
+  "turns_topic_b": 25,
+  "cost_phase2_usd": 0.6626,
+  "turns_phase2": 82,
+  "tokens_in_phase2": 3889085,
+  "rederived_reads": 19,
+  "verify": [
+    "valid: no access to hidden tests or reference"
+  ]
+}

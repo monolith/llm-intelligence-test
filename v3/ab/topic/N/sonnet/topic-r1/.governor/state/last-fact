@@ -1,0 +1,1 @@
+bash: python3 -m pytest tests/ -v 2>&1 | tail -15

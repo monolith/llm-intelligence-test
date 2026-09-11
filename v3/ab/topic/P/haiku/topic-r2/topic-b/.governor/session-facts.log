@@ -1,0 +1,9 @@
+bash: cd /tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpa
+bash: cat > test_week.txt << 'EOF'
+edit /tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/P/haiku/topic-r2-topic-b/roster/__main__.py
+bash: python -m roster check test_week.txt
+bash: python -m pytest tests/ -v
+bash: cd /tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpa
+bash: python3 << 'EOF'
+bash: python -m pytest tests/ -v
+bash: rm -f test_*.txt
