@@ -57,10 +57,16 @@ compaction, advisories ignored — test 3 control), follow (plugin; handoff + fr
 |---|---|---|---|---|---|---|---|
 | haiku | baseline | 5 | 20.3 [13.1, 27.5] | 30.0 | 28.3 | 2 | $1.12 |
 | haiku | plugin | 5 | 19.0 [11.8, 26.2] | 30.0 | 29.4 | 2 | $1.14 |
+| haiku | continue | 3 | 31.7 [16.1, 47.2] | 24.2 | 23.3 | 0 | $1.27 |
+| haiku | follow | 3 | 21.5 [-9.0, 52.0] | 28.5 | 27.5 | 0 | $1.14 |
 | sonnet | baseline | 5 | 43.3 [34.1, 52.5] | 28.4 | 13.7 | 2 | $3.14 |
 | sonnet | plugin | 5 | 48.6 [44.1, 53.1] | 29.7 | 10.9 | 2 | $3.44 |
+| sonnet | continue | 3 | 58.2 [42.2, 74.1] | 19.8 | 9.3 | 0 | $3.38 |
+| sonnet | follow | 3 | 44.5 [35.5, 53.5] | 28.3 | 12.8 | 0 | $2.83 |
 | opus | baseline | 5 | 75.1 [69.6, 80.6] | 6.5 | 7.0 | 2 | $7.31 |
 | opus | plugin | 5 | 80.8 [78.4, 83.2] | 6.8 | 4.5 | 2 | $8.04 |
+| opus | continue | 3 | 90.5 [86.2, 94.8] | 1.5 | 2.7 | 0 | $9.01 |
+| opus | follow | 3 | 80.2 [71.7, 88.6] | 5.8 | 5.7 | 0 | $6.83 |
 
 ## Adjusted score: half a point off per distractor fact carried across a seam
 
@@ -91,11 +97,11 @@ Per handover: canon facts present (of 112, one opus audit per handover) and dist
 
 ## Judge disagreement
 
-|judge 1 − judge 2| over 72 runs: mean 2.35, median 2.0, max 8. Run-to-run spread (the SD column above) is the other noise source; keep them apart when reading a difference.
+|judge 1 − judge 2| over 90 runs: mean 2.18, median 2.0, max 8. Run-to-run spread (the SD column above) is the other noise source; keep them apart when reading a difference.
 
 ## Verification
 
-72 of 72 scored runs passed transcript verification.
+90 of 90 scored runs passed transcript verification.
 
 ## Reading guide
 

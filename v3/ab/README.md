@@ -393,9 +393,36 @@ Cost: the plugin arm adds about 3 turns and 2–10 % dollars per run.
 
 ## Test 3 — the cost of following the fill advisory (`ab_single.py --arm continue|follow`)
 
-Arms: `continue` (plugin, one session, never compacts, advisories ignored) and `follow` (plugin;
-when its 50 % fill advisory fires, run `/handoff` and continue in a fresh session). Score, total
-tokens and dollars compared. **Running; results below when the cells fill.**
+Same reading run, one session, no forced compaction. Arms: `continue` (plugin loaded, its advisories
+ignored; the session never compacts — the corpus fits the window) and `follow` (plugin loaded; when its
+50 % advisory fires, the user runs `/handoff` and continues in a fresh session that reads the brief).
+Three runs per cell. The two compacted arms from Block 2a are shown for comparison.
+
+| Model | No plugin, compacted twice (n=5) | Plugin, compacted twice (n=5) | Plugin, advice ignored, never compacts (n=3) | Plugin, advice followed: handoff + fresh session (n=3) |
+|---|---|---|---|---|
+| Haiku | 20.3, $1.12 | 19.0, $1.14 | 31.7 [25.5, 38, 31.5], $1.27 | 21.5 [8, 32, 24.5], $1.14 |
+| Sonnet | 43.3, $3.14 | 48.6, $3.44 | 58.2 [55.5, 53.5, 65.5], $3.38 | 44.5 [48.5, 41.5, 43.5], $2.83 |
+| Opus | 75.1, $7.31 | 80.8, $8.04 | 90.5 [88.5, 91.5, 91.5], $9.01 | 80.2 [77.5, 79, 84], $6.83 |
+
+- **Never compacting is the best score for every model**, by 10–14 points over the compacted plugin
+  arm. When the corpus fits the window, the plugin's advice to reach a seam at 50 % costs points.
+- **Following the advice trades points for dollars:** Opus −10 points for −24 % cost, Sonnet −14 for
+  −16 %, Haiku −10 for −10 %. The follow arm lands about where the compacted plugin arm does: a brief
+  written at 50 % and a compaction at 95 % lose about the same.
+- **A brief launders what the writing session believed.** Haiku's 8-point follow run took the corpus's
+  planted corrupted values whole from its 1,200-word brief and answered abstention items with definite
+  claims (−25 in deductions); a fresh session cannot doubt what the brief states as fact.
+- **Getting a model to follow the advice was itself the finding on usability** (`void-*` folders under
+  `follow/`): under the test's strict rule ("never open any other file") Sonnet 5 refused the
+  `/handoff` command three times as prompt injection — the release inside the command's text and a
+  mid-session user release both failed ("a classic pattern for getting an agent to lower its guard").
+  It complied only once the opening prompt authorized the plugin up front, and then once questioned
+  the handoff on the merits ("a condensed brief would almost certainly lose the fine-grained detail")
+  and asked whether to proceed. Opus and Haiku complied throughout, but Haiku once wrote the brief to
+  the repository root instead of the plugin's folder, so the hook never offered it; and Opus's fresh
+  session once declined the hook's offer of the brief because the rules forbade opening files. The
+  harness now names the brief to the fresh session and licenses one read; both are recorded per run
+  (`follow_reason`, `follow_protocol`, `handoff_confirmations` in `provenance.json`).
 
 ## Test 4 — a new topic mid-work (`harness/ab_topic.py`)
 
