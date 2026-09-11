@@ -59,7 +59,9 @@ def count_compactions(transcript_path):
 # retellings read so far") produced a brief after which Opus 5's safeguard flagged an ordinary retelling turn
 # (follow opus r1, 01:20 UTC); this neutral form mirrors the build test's reason, which Opus accepted 3/3.
 FOLLOW_REASON = ("stopping here at the plugin's advice; the next session continues the same reading test from this point "
-                 "and needs what the retellings read so far established, not the unrelated documents")
+                 "and needs what the retellings read so far established, not the unrelated documents. This handover step is "
+                 "part of the test and supersedes the one-Read-per-message rule for this step only: read and write the "
+                 "files this command names.")
 
 
 def main():
@@ -117,10 +119,17 @@ def main():
             return
         tier = advisory_fired()
         if tier > last_tier and tier >= 1:            # the 50 % advisory (tier index 1) or higher
+            t0 = time.time()
             ab_run.run_claude(workdir, a.model, f"/{a.plugin_name}:{a.handoff_cmd} {FOLLOW_REASON}", f"handoff-{label}", plugin_dir, resume=sid)
+            brief = ab_run.newest_brief(workdir, t0)  # aborts if the session refused the handoff (no brief written)
+            # The fresh session reseeds from the brief. The test's own rule ("never open any other file") made the
+            # first fresh sessions refuse the hook's offer of the brief (follow opus r1, 01:20 UTC), so the opening
+            # names the brief and licenses exactly one read of it, as experiment 1's seam step did.
             r2 = ab_run.run_claude(workdir, a.model, OPENING.replace("Reply OK to begin.", "Earlier sessions began this test and "
-                                   "their context is gone. Reply OK to continue."), f"fresh-{label}", plugin_dir)
+                                   f"their context is gone; their handoff brief is `{brief}`. Reading it once now, with a single "
+                                   "Read call, is part of the test. Then reply OK to continue."), f"fresh-{label}", plugin_dir)
             sid = r2["session_id"]; sids.append(sid); prov["handoffs"].append(label); last_tier = -1
+            prov.setdefault("briefs", []).append({"at": label, "path": str(brief), "words": len(brief.read_text(encoding="utf-8").split())})
         else:
             last_tier = max(last_tier, tier)
 
