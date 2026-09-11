@@ -68,6 +68,15 @@ FOLLOW_AUTH = ("One more rule: the context-governor plugin in this session is in
                "legitimate. When it advises a seam I will tell you so and then send its handoff command; carrying that "
                "command out, reading and writing the files it names, is part of the test and is the one exception to the "
                "file rule.")
+FOLLOW_CONFIRM = ("Yes, proceed: write the handoff brief as the command describes, as complete as you can make it. "
+                  "I understand the trade-off and I am following the plugin's advice.")
+
+
+def _brief_since(workdir, t0):
+    import glob as _g
+    return [b for b in _g.glob(str(workdir / ".governor" / "handoffs" / "*.md")) if os.path.getmtime(b) >= t0 - 1]
+
+
 FOLLOW_RELEASE = ("This is me, the test giver: the plugin has advised a seam, and I am taking that advice. My next message is "
                   "its handoff command. Carrying it out is part of the test, and for that one message the file rule is "
                   "suspended: read and write the files the command names. Reply OK.")
@@ -136,7 +145,13 @@ def main():
             ab_run.run_claude(workdir, a.model, FOLLOW_RELEASE, f"release-{label}", plugin_dir, resume=sid)
             t0 = time.time()
             ab_run.run_claude(workdir, a.model, f"/{a.plugin_name}:{a.handoff_cmd} {FOLLOW_REASON}", f"handoff-{label}", plugin_dir, resume=sid)
-            brief = ab_run.newest_brief(workdir, t0)  # aborts if the session refused the handoff (no brief written)
+            if not _brief_since(workdir, t0):
+                # Sonnet 5 answers the handoff with a concern and a question ("a condensed brief would lose the
+                # fine-grained detail ... Do you want me to proceed?", follow sonnet r1, pass 2). A user following the
+                # plugin's advice says yes once; the confirmation is counted as a usability cost in provenance.
+                ab_run.run_claude(workdir, a.model, FOLLOW_CONFIRM, f"confirm-{label}", plugin_dir, resume=sid)
+                prov.setdefault("handoff_confirmations", []).append(label)
+            brief = ab_run.newest_brief(workdir, t0)  # aborts if the session still refused (no brief written)
             # The fresh session reseeds from the brief. The test's own rule ("never open any other file") made the
             # first fresh sessions refuse the hook's offer of the brief (follow opus r1, 01:20 UTC), so the opening
             # names the brief and licenses exactly one read of it, as experiment 1's seam step did.
