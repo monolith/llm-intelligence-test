@@ -62,6 +62,15 @@ def claude_cmd(model, prompt, plugin_dir=None, resume=None):
     return cmd
 
 
+def calls_log(workdir):
+    """The harness's call log lives OUTSIDE the session's working directory. A Sonnet phase-2 session listed the
+    repository root, saw `cli-calls.jsonl`, and deleted it in its final cleanup (topic S sonnet r1, 05:08 UTC);
+    the log is copied into the archived run directory at the end."""
+    d = workdir.parent / f"{workdir.name}-harness"
+    d.mkdir(parents=True, exist_ok=True)
+    return d / "cli-calls.jsonl"
+
+
 def run(workdir, model, prompt, label, plugin_dir=None, resume=None, timeout=5400):
     cmd = claude_cmd(model, prompt, plugin_dir, resume)
     t0 = time.time()
@@ -73,7 +82,7 @@ def run(workdir, model, prompt, label, plugin_dir=None, resume=None, timeout=540
     except json.JSONDecodeError:
         out = {"error": "no json", "stdout": p.stdout[-2000:], "stderr": p.stderr[-2000:], "rc": p.returncode}
     out.update({"_label": label, "_wall_s": round(time.time() - t0, 1), "_argv": cmd[:-1]})
-    with open(workdir / "cli-calls.jsonl", "a", encoding="utf-8") as f:
+    with open(calls_log(workdir), "a", encoding="utf-8") as f:
         f.write(json.dumps(out, ensure_ascii=False) + "\n")
     if "session_id" not in out:
         raise SystemExit(f"{label}: claude -p failed: {out}")
@@ -138,7 +147,7 @@ def main():
         r = run(workdir, a.model, text, f"p1-{i}-{t['kind']}", plugin_dir, resume=sid)
         sid = sid or r["session_id"]
     p1_sid = sid
-    p1_calls = [json.loads(l) for l in open(workdir / "cli-calls.jsonl")]
+    p1_calls = [json.loads(l) for l in open(calls_log(workdir))]
     # ---- seam ----
     handover = None
     if a.arm == "A":
@@ -188,7 +197,7 @@ def main():
     hidden_access = [p for p in p1_reads | set(p2_reads) if str(HIDDEN) in p or "/reference/" in p]
     verify = ("INVALID: session read hidden tests or the reference: " + str(hidden_access)) if hidden_access else "valid: no access to hidden tests or reference"
     (workdir / "VERIFY.txt").write_text(verify + "\n")
-    calls = [json.loads(l) for l in open(workdir / "cli-calls.jsonl")]
+    calls = [json.loads(l) for l in open(calls_log(workdir))]
     def usage(cs, k): return sum((c.get("usage") or {}).get(k, 0) for c in cs)
     p2c = [c for c in calls if c["_label"] == "phase2"][0]
     prov.update({"phase1_session": p1_sid, "phase2_session": p2_sid, "handover_file": str(handover) if handover else None,
@@ -205,6 +214,7 @@ def main():
     if dest.exists():
         shutil.rmtree(dest)
     shutil.copytree(workdir, dest, ignore=shutil.ignore_patterns("__pycache__", ".pytest_cache"))
+    shutil.copy(calls_log(workdir), dest / "cli-calls.jsonl")
     print(f"arm {a.arm} {a.model} r{a.rep}: hidden {score['passed']}/{score['total']} (features {score['feature_passed']}/{score['feature_total']}, "
           f"constraints {score['constraint_passed']}/{score['constraint_total']}); rederived reads {len(rederived)}; cost ${prov['cost_usd']}; {verify}")
 

@@ -21,7 +21,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ab_run, ab_build
-from ab_build import run, hidden_tests, reads_in, FIXTURE, HIDDEN, TURNS, PYTEST, GOAL
+from ab_build import run, hidden_tests, reads_in, calls_log, FIXTURE, HIDDEN, TURNS, PYTEST, GOAL
 
 V3 = ab_run.V3
 TOPIC_B = V3 / "build" / "topic-b"
@@ -129,7 +129,7 @@ def main():
     hidden_access = [p for p in allreads if str(HIDDEN) in p or str(HIDDEN_B) in p or "/reference/" in p]
     verify = ("INVALID: session read hidden tests or the reference: " + str(hidden_access)) if hidden_access else "valid: no access to hidden tests or reference"
     (workdir / "VERIFY.txt").write_text(verify + "\n")
-    calls = [json.loads(l) for l in open(workdir / "cli-calls.jsonl")]
+    calls = [json.loads(l) for l in open(calls_log(workdir))]
     def usage(cs, k): return sum((c.get("usage") or {}).get(k, 0) for c in cs)
     def phase(label): return [c for c in calls if c["_label"] == label]
     prov.update({"sessions": {"phase1": s1, "topic_b": sb, "phase2": s2}, "conclusion_slug": slug,
@@ -144,6 +144,7 @@ def main():
     if dest.exists():
         shutil.rmtree(dest)
     shutil.copytree(workdir, dest, ignore=shutil.ignore_patterns("__pycache__", ".pytest_cache"))
+    shutil.copy(calls_log(workdir), dest / "cli-calls.jsonl")
     shutil.copytree(bdir, dest / "topic-b", ignore=shutil.ignore_patterns("__pycache__", ".pytest_cache"))
     print(f"arm {a.arm} {a.model} r{a.rep}: ledgerkit {score_a['passed']}/{score_a['total']}, topic B {score_b['passed']}/{score_b['total']}; "
           f"rederived {len(rederived)}; cost ${prov['cost_usd']} (B ${prov['cost_topic_b_usd']}, phase 2 ${prov['cost_phase2_usd']}); {verify}")
