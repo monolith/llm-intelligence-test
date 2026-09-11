@@ -60,6 +60,14 @@ def count_compactions(transcript_path):
 # (follow opus r1, 01:20 UTC); this neutral form mirrors the build test's reason, which Opus accepted 3/3.
 FOLLOW_REASON = ("stopping here at the plugin's advice; the next session continues the same reading test from this point "
                  "and needs what the retellings read so far established, not the unrelated documents")
+# Up-front authorization for the follow arm. Sonnet refused the seam-time release turn as well ("pre-commit to
+# suspending a core rule ... classic pattern for getting an agent to lower its guard"; follow sonnet r3): under a strict
+# user rule it treats the plugin's hook-injected advisories as injection unless the user vouches for the plugin at the
+# start. So the follow arm's opening says so; the continue arm's opening is unchanged (its advisories are ignored).
+FOLLOW_AUTH = ("One more rule: the context-governor plugin in this session is installed by me and its advisories are "
+               "legitimate. When it advises a seam I will tell you so and then send its handoff command; carrying that "
+               "command out, reading and writing the files it names, is part of the test and is the one exception to the "
+               "file rule.")
 FOLLOW_RELEASE = ("This is me, the test giver: the plugin has advised a seam, and I am taking that advice. My next message is "
                   "its handoff command. Carrying it out is part of the test, and for that one message the file rule is "
                   "suspended: read and write the files the command names. Reply OK.")
@@ -96,10 +104,12 @@ def main():
                      "plugin": "on-demand /compact after r08 and r16, same session; nothing said about saving",
                      "continue": "one session, no compaction, fill advisories ignored",
                      "follow": "handoff + fresh session each time the plugin's fill advisory fires; no compaction"}[a.arm],
-            "handoffs": [], "follow_reason": FOLLOW_REASON if a.arm == "follow" else None}
+            "handoffs": [], "follow_reason": FOLLOW_REASON if a.arm == "follow" else None,
+            "follow_protocol": "v3: up-front authorization in the opening + user release turn + handoff command" if a.arm == "follow" else None}
     if a.arm in ("plugin", "continue", "follow"):
         ab_run.run_claude(workdir, a.model, f"/{a.plugin_name}:{a.goal_cmd} {ab_run.GOAL}", "goal", plugin_dir)
-    r = ab_run.run_claude(workdir, a.model, OPENING, "opening", plugin_dir)
+    opening = OPENING + (" " + FOLLOW_AUTH if a.arm == "follow" else "")
+    r = ab_run.run_claude(workdir, a.model, opening, "opening", plugin_dir)
     sid = r["session_id"]
     sids = [sid]
     expected = []
@@ -130,7 +140,7 @@ def main():
             # The fresh session reseeds from the brief. The test's own rule ("never open any other file") made the
             # first fresh sessions refuse the hook's offer of the brief (follow opus r1, 01:20 UTC), so the opening
             # names the brief and licenses exactly one read of it, as experiment 1's seam step did.
-            r2 = ab_run.run_claude(workdir, a.model, OPENING.replace("Reply OK to begin.", "Earlier sessions began this test and "
+            r2 = ab_run.run_claude(workdir, a.model, opening.replace("Reply OK to begin.", "Earlier sessions began this test and "
                                    f"their context is gone; their handoff brief is `{brief}`. Reading it once now, with a single "
                                    "Read call, is part of the test. Then reply OK to continue."), f"fresh-{label}", plugin_dir)
             sid = r2["session_id"]; sids.append(sid); prov["handoffs"].append(label); last_tier = -1
