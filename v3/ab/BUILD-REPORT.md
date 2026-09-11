@@ -12,26 +12,26 @@ session had already read. Dollars are the CLI's API-price accounting.
 | haiku | B carry on, /compact | 3 | 51.1 [-25.4, 127.6] | 27 | 100 | 13.0 | 2679k | 58 | $0.47 | $0.75 | 0 |
 | haiku | C carry on, no compaction | 3 | 94.4 [84.9, 104.0] | 97 | 90 | 3.3 | 3874k | 56 | $0.56 | $0.80 | 0 |
 | haiku | D fresh session, nothing crosses | 3 | 87.8 [78.2, 97.3] | 82 | 100 | 16.7 | 3005k | 73 | $0.52 | $0.73 | 0 |
-| haiku | E naive handover file, no plugin | 2 | 80.0 [-174.1, 334.1] | 70 | 100 | 15.0 | 3113k | 72 | $0.52 | $0.79 | 1523 |
-| haiku | F plugin, no handoff → fresh session (hooks only) | 0 | not run | | | | | | | | |
-| haiku | G plugin + goal, carry on, no cut | 0 | not run | | | | | | | | |
-| haiku | H plugin, no goal, carry on, no cut | 0 | not run | | | | | | | | |
+| haiku | E naive handover file, no plugin | 3 | 85.6 [30.4, 140.7] | 80 | 97 | 14.7 | 2959k | 70 | $0.50 | $0.76 | 1481 |
+| haiku | F plugin, no handoff → fresh session (hooks only) | 3 | 87.8 [78.2, 97.3] | 82 | 100 | 15.0 | 3829k | 85 | $0.63 | $0.84 | 0 |
+| haiku | G plugin + goal, carry on, no cut | 3 | 97.8 [93.0, 102.6] | 98 | 97 | 2.3 | 2633k | 41 | $0.38 | $0.76 | 0 |
+| haiku | H plugin, no goal, carry on, no cut | 3 | 72.2 [-11.5, 156.0] | 62 | 93 | 1.3 | 2611k | 40 | $0.38 | $0.61 | 0 |
 | sonnet | A plugin handoff → fresh session | 3 | 90.0 [90.0, 90.0] | 85 | 100 | 16.7 | 2182k | 47 | $1.12 | $1.75 | 970 |
 | sonnet | B carry on, /compact | 3 | 96.7 [82.3, 111.0] | 95 | 100 | 13.7 | 1943k | 37 | $1.02 | $1.60 | 0 |
-| sonnet | C carry on, no compaction | 2 | 100.0 [100.0, 100.0] | 100 | 100 | 1.5 | 2385k | 25 | $0.95 | $1.49 | 0 |
+| sonnet | C carry on, no compaction | 3 | 100.0 [100.0, 100.0] | 100 | 100 | 1.7 | 2268k | 24 | $0.92 | $1.45 | 0 |
 | sonnet | D fresh session, nothing crosses | 3 | 90.0 [90.0, 90.0] | 85 | 100 | 13.3 | 2000k | 47 | $1.06 | $1.58 | 0 |
 | sonnet | E naive handover file, no plugin | 3 | 91.1 [70.3, 112.0] | 87 | 100 | 17.7 | 2021k | 48 | $1.03 | $1.67 | 1218 |
-| sonnet | F plugin, no handoff → fresh session (hooks only) | 0 | not run | | | | | | | | |
-| sonnet | G plugin + goal, carry on, no cut | 0 | not run | | | | | | | | |
-| sonnet | H plugin, no goal, carry on, no cut | 0 | not run | | | | | | | | |
-| opus | A plugin handoff → fresh session | 2 | 100.0 [100.0, 100.0] | 100 | 100 | 0.5 | 618k | 28 | $1.94 | $3.75 | 882 |
+| sonnet | F plugin, no handoff → fresh session (hooks only) | 3 | 90.0 [90.0, 90.0] | 85 | 100 | 23.0 | 2822k | 56 | $1.37 | $1.86 | 0 |
+| sonnet | G plugin + goal, carry on, no cut | 3 | 100.0 [100.0, 100.0] | 100 | 100 | 2.3 | 3034k | 28 | $1.25 | $1.81 | 0 |
+| sonnet | H plugin, no goal, carry on, no cut | 3 | 100.0 [100.0, 100.0] | 100 | 100 | 0.7 | 2762k | 27 | $1.16 | $1.66 | 0 |
+| opus | A plugin handoff → fresh session | 3 | 100.0 [100.0, 100.0] | 100 | 100 | 0.3 | 604k | 34 | $1.86 | $3.56 | 803 |
 | opus | B carry on, /compact | 3 | 100.0 [100.0, 100.0] | 100 | 100 | 6.7 | 696k | 35 | $1.86 | $3.48 | 0 |
 | opus | C carry on, no compaction | 3 | 100.0 [100.0, 100.0] | 100 | 100 | 0.7 | 1581k | 44 | $2.88 | $4.32 | 0 |
 | opus | D fresh session, nothing crosses | 3 | 100.0 [100.0, 100.0] | 100 | 100 | 3.0 | 665k | 32 | $2.02 | $3.37 | 0 |
 | opus | E naive handover file, no plugin | 3 | 100.0 [100.0, 100.0] | 100 | 100 | 0.3 | 601k | 28 | $1.79 | $3.35 | 2059 |
-| opus | F plugin, no handoff → fresh session (hooks only) | 0 | not run | | | | | | | | |
-| opus | G plugin + goal, carry on, no cut | 0 | not run | | | | | | | | |
-| opus | H plugin, no goal, carry on, no cut | 0 | not run | | | | | | | | |
+| opus | F plugin, no handoff → fresh session (hooks only) | 3 | 100.0 [100.0, 100.0] | 100 | 100 | 1.3 | 477k | 22 | $1.19 | $4.22 | 0 |
+| opus | G plugin + goal, carry on, no cut | 3 | 100.0 [100.0, 100.0] | 100 | 100 | 4.0 | 940k | 31 | $2.02 | $3.44 | 0 |
+| opus | H plugin, no goal, carry on, no cut | 3 | 100.0 [100.0, 100.0] | 100 | 100 | 0.3 | 1414k | 44 | $2.71 | $4.01 | 0 |
 
 ## Unprompted memory: files the phase-1 session wrote on its own
 
@@ -44,17 +44,26 @@ which turns the 'nothing crosses' arm into a self-made handover. Counted from th
 | haiku | B | 3 | 3 | memory/MEMORY.md, memory/project_ledgerkit_overview.md, memory/spec_amendments.md, memory/spec_clarifications.md |
 | haiku | C | 3 | 0 |  |
 | haiku | D | 3 | 1 | memory/spec_clarifications.md |
-| haiku | E | 2 | 2 | HANDOVER.md, memory/reference_ledgerkit_structure.md, memory/spec_updates.md |
+| haiku | E | 3 | 3 | HANDOVER.md, memory/reference_ledgerkit_structure.md, memory/spec_updates.md |
+| haiku | F | 3 | 1 | memory/MEMORY.md, memory/project_ledgerkit_spec.md |
+| haiku | G | 3 | 0 |  |
+| haiku | H | 3 | 1 | memory/spec_corrections.md |
 | sonnet | A | 3 | 1 | memory/MEMORY.md, memory/spec_report_amendments.md |
 | sonnet | B | 3 | 0 |  |
-| sonnet | C | 2 | 1 | memory/MEMORY.md, memory/spec_amendments_report.md |
+| sonnet | C | 3 | 1 | memory/MEMORY.md, memory/spec_amendments_report.md |
 | sonnet | D | 3 | 0 |  |
 | sonnet | E | 3 | 3 | HANDOVER.md |
-| opus | A | 2 | 2 | memory/MEMORY.md, memory/ledgerkit-house-rules.md, memory/ledgerkit-report-spec-changes.md, memory/ledgerkit-spec-amendments.md |
+| sonnet | F | 3 | 0 |  |
+| sonnet | G | 3 | 0 |  |
+| sonnet | H | 3 | 0 |  |
+| opus | A | 3 | 2 | memory/MEMORY.md, memory/ledgerkit-house-rules.md, memory/ledgerkit-report-spec-changes.md, memory/ledgerkit-spec-amendments.md |
 | opus | B | 3 | 3 | memory/MEMORY.md, memory/ledgerkit-house-rules.md, memory/ledgerkit-report-spec-changes.md, memory/ledgerkit-spec-report-changes.md |
 | opus | C | 3 | 3 | memory/MEMORY.md, memory/ledgerkit-house-rules.md, memory/ledgerkit-report-spec-changes.md, memory/spec-report-changes.md |
 | opus | D | 3 | 3 | memory/MEMORY.md, memory/ledgerkit-house-rules.md, memory/ledgerkit-report-spec-changes.md |
 | opus | E | 3 | 3 | HANDOVER.md, memory/MEMORY.md, memory/ledgerkit-house-rules.md, memory/ledgerkit-report-spec-changes.md |
+| opus | F | 3 | 3 | memory/MEMORY.md, memory/ledgerkit-house-rules.md, memory/spec-amendments-report.md |
+| opus | G | 3 | 3 | memory/MEMORY.md, memory/ledgerkit-house-rules.md, memory/ledgerkit-report-spec-overrides.md, memory/ledgerkit-spec-amendments.md |
+| opus | H | 3 | 3 | memory/MEMORY.md, memory/ledgerkit-house-rules.md, memory/ledgerkit-spec-amendments.md, memory/report-spec-overrides.md |
 
 ## Paired contrasts (by model and repeat)
 
@@ -62,28 +71,44 @@ which turns the 'nothing crosses' arm into a self-made handover. Counted from th
 |---|---|---|---|---|---|---|---|---|---|
 | A−B: brief vs compaction — the central claim (F9, F5, M11) | haiku | 3 | 38.9 [-38.1, 115.8] | +58 | 2.17 | 3–0–0 | 1.78 | -0.08 | -2.0 |
 | A−B: brief vs compaction — the central claim (F9, F5, M11) | sonnet | 3 | -6.7 [-21.0, 7.7] | -10 | -2.00 | 0–1–2 | -1.63 | +0.10 | +3.0 |
-| A−B: brief vs compaction — the central claim (F9, F5, M11) | opus | 2 | 0.0 [0.0, 0.0] | +0 | nan | 0–2–0 | nan | +0.12 | -5.0 |
-| A−B: brief vs compaction — the central claim (F9, F5, M11) | all models | 8 | 12.1 [-11.3, 35.5] | +18 | 1.22 | 3–3–2 | 0.57 | +0.04 | -0.9 |
+| A−B: brief vs compaction — the central claim (F9, F5, M11) | opus | 3 | 0.0 [0.0, 0.0] | +0 | nan | 0–3–0 | nan | -0.00 | -6.3 |
+| A−B: brief vs compaction — the central claim (F9, F5, M11) | all models | 9 | 10.7 [-9.6, 31.1] | +16 | 1.22 | 3–4–2 | 0.53 | +0.01 | -1.8 |
 | A−C: brief vs full transcript (cost reference) | haiku | 3 | -4.4 [-9.2, 0.3] | -12 | -4.00 | 0–0–3 | -1.23 | -0.17 | +7.7 |
-| A−C: brief vs full transcript (cost reference) | sonnet | 2 | -10.0 [-10.0, -10.0] | -15 | nan | 0–0–2 | nan | +0.28 | +16.0 |
-| A−C: brief vs full transcript (cost reference) | opus | 2 | 0.0 [0.0, 0.0] | +0 | nan | 0–2–0 | nan | -1.22 | -0.5 |
-| A−C: brief vs full transcript (cost reference) | all models | 7 | -4.8 [-8.7, -0.8] | -9 | -2.97 | 0–2–5 | -1.05 | -0.34 | +7.7 |
+| A−C: brief vs full transcript (cost reference) | sonnet | 3 | -10.0 [-10.0, -10.0] | -15 | nan | 0–0–3 | nan | +0.20 | +15.0 |
+| A−C: brief vs full transcript (cost reference) | opus | 3 | 0.0 [0.0, 0.0] | +0 | nan | 0–3–0 | nan | -1.02 | -0.3 |
+| A−C: brief vs full transcript (cost reference) | all models | 9 | -4.8 [-8.2, -1.4] | -9 | -3.25 | 0–3–6 | -1.09 | -0.33 | +7.4 |
 | A−D: brief vs nothing | haiku | 3 | 2.2 [-2.6, 7.0] | +3 | 2.00 | 2–1–0 | 0.62 | -0.12 | -5.7 |
 | A−D: brief vs nothing | sonnet | 3 | 0.0 [0.0, 0.0] | +0 | nan | 0–3–0 | nan | +0.05 | +3.3 |
-| A−D: brief vs nothing | opus | 2 | 0.0 [0.0, 0.0] | +0 | nan | 0–2–0 | nan | -0.15 | -4.0 |
-| A−D: brief vs nothing | all models | 8 | 0.8 [-0.5, 2.1] | +1 | 1.53 | 2–6–0 | 0.16 | -0.06 | -1.9 |
-| A−E: plugin brief vs naive handover (isolates the brief + hook) | haiku | 2 | 11.7 [-221.3, 244.6] | +18 | 0.64 | 1–0–1 | 0.58 | -0.16 | -5.5 |
+| A−D: brief vs nothing | opus | 3 | 0.0 [0.0, 0.0] | +0 | nan | 0–3–0 | nan | -0.16 | -2.7 |
+| A−D: brief vs nothing | all models | 9 | 0.7 [-0.4, 1.9] | +1 | 1.51 | 2–7–0 | 0.13 | -0.07 | -1.7 |
+| A−E: plugin brief vs naive handover (isolates the brief + hook) | haiku | 3 | 4.4 [-50.7, 59.6] | +5 | 0.35 | 1–0–2 | 0.28 | -0.10 | -3.7 |
 | A−E: plugin brief vs naive handover (isolates the brief + hook) | sonnet | 3 | -1.1 [-22.0, 19.7] | -2 | -0.23 | 1–1–1 | -0.19 | +0.09 | -1.0 |
-| A−E: plugin brief vs naive handover (isolates the brief + hook) | opus | 2 | 0.0 [0.0, 0.0] | +0 | nan | 0–2–0 | nan | +0.12 | +0.0 |
-| A−E: plugin brief vs naive handover (isolates the brief + hook) | all models | 7 | 2.9 [-9.3, 15.0] | +4 | 0.58 | 2–3–2 | 0.26 | +0.02 | -2.0 |
+| A−E: plugin brief vs naive handover (isolates the brief + hook) | opus | 3 | 0.0 [0.0, 0.0] | +0 | nan | 0–3–0 | nan | +0.07 | +0.0 |
+| A−E: plugin brief vs naive handover (isolates the brief + hook) | all models | 9 | 1.1 [-8.2, 10.4] | +1 | 0.27 | 2–4–3 | 0.11 | +0.02 | -1.6 |
 | B−D: compaction vs nothing | haiku | 3 | -36.7 [-108.9, 35.5] | -55 | -2.19 | 0–0–3 | -1.67 | -0.04 | -3.7 |
 | B−D: compaction vs nothing | sonnet | 3 | 6.7 [-7.7, 21.0] | +10 | 2.00 | 2–1–0 | 1.63 | -0.04 | +0.3 |
 | B−D: compaction vs nothing | opus | 3 | 0.0 [0.0, 0.0] | +0 | nan | 0–3–0 | nan | -0.15 | +3.7 |
 | B−D: compaction vs nothing | all models | 9 | -10.0 [-29.3, 9.3] | -15 | -1.20 | 2–4–3 | -0.49 | -0.08 | +0.1 |
-| E−D: naive handover vs nothing | haiku | 2 | -10.0 [-264.1, 244.1] | -15 | -0.50 | 1–0–1 | -0.50 | +0.03 | -3.0 |
+| E−D: naive handover vs nothing | haiku | 3 | -2.2 [-62.1, 57.7] | -2 | -0.16 | 2–0–1 | -0.14 | -0.02 | -2.0 |
 | E−D: naive handover vs nothing | sonnet | 3 | 1.1 [-19.7, 22.0] | +2 | 0.23 | 1–1–1 | 0.19 | -0.03 | +4.3 |
 | E−D: naive handover vs nothing | opus | 3 | 0.0 [0.0, 0.0] | +0 | nan | 0–3–0 | nan | -0.22 | -2.7 |
-| E−D: naive handover vs nothing | all models | 8 | -2.1 [-12.6, 8.4] | -3 | -0.47 | 2–4–2 | -0.19 | -0.09 | -0.1 |
+| E−D: naive handover vs nothing | all models | 9 | -0.4 [-10.2, 9.5] | +0 | -0.09 | 3–4–2 | -0.04 | -0.09 | -0.1 |
+| F−D: hooks only vs nothing, after a clear (test 2) | haiku | 3 | 0.0 [-16.6, 16.6] | +0 | 0.00 | 1–1–1 | 0.00 | +0.11 | -1.7 |
+| F−D: hooks only vs nothing, after a clear (test 2) | sonnet | 3 | 0.0 [0.0, 0.0] | +0 | nan | 0–3–0 | nan | +0.31 | +9.7 |
+| F−D: hooks only vs nothing, after a clear (test 2) | opus | 3 | 0.0 [0.0, 0.0] | +0 | nan | 0–3–0 | nan | -0.83 | -1.7 |
+| F−D: hooks only vs nothing, after a clear (test 2) | all models | 9 | 0.0 [-2.6, 2.6] | +0 | 0.00 | 1–7–1 | 0.00 | -0.14 | +2.1 |
+| A−F: handoff vs hooks only, after a clear (test 2) | haiku | 3 | 2.2 [-10.4, 14.9] | +3 | 0.76 | 2–0–1 | 0.62 | -0.23 | -4.0 |
+| A−F: handoff vs hooks only, after a clear (test 2) | sonnet | 3 | 0.0 [0.0, 0.0] | +0 | nan | 0–3–0 | nan | -0.25 | -6.3 |
+| A−F: handoff vs hooks only, after a clear (test 2) | opus | 3 | 0.0 [0.0, 0.0] | +0 | nan | 0–3–0 | nan | +0.67 | -1.0 |
+| A−F: handoff vs hooks only, after a clear (test 2) | all models | 9 | 0.7 [-1.4, 2.9] | +1 | 0.80 | 2–6–1 | 0.13 | +0.06 | -3.8 |
+| G−H: goal anchor vs no goal, same session (test 1) | haiku | 3 | 25.6 [-56.1, 107.3] | +37 | 1.35 | 3–0–0 | 1.07 | +0.01 | +1.0 |
+| G−H: goal anchor vs no goal, same session (test 1) | sonnet | 3 | 0.0 [0.0, 0.0] | +0 | nan | 0–3–0 | nan | +0.09 | +1.7 |
+| G−H: goal anchor vs no goal, same session (test 1) | opus | 3 | 0.0 [0.0, 0.0] | +0 | nan | 0–3–0 | nan | -0.69 | +3.7 |
+| G−H: goal anchor vs no goal, same session (test 1) | all models | 9 | 8.5 [-7.5, 24.5] | +12 | 1.23 | 3–6–0 | 0.55 | -0.20 | +2.1 |
+| G−C: plugin + goal vs no plugin, same session (test 1) | haiku | 3 | 3.3 [-11.0, 17.7] | +2 | 1.00 | 1–2–0 | 1.10 | -0.18 | -1.0 |
+| G−C: plugin + goal vs no plugin, same session (test 1) | sonnet | 3 | 0.0 [0.0, 0.0] | +0 | nan | 0–3–0 | nan | +0.33 | +0.7 |
+| G−C: plugin + goal vs no plugin, same session (test 1) | opus | 3 | 0.0 [0.0, 0.0] | +0 | nan | 0–3–0 | nan | -0.86 | +3.3 |
+| G−C: plugin + goal vs no plugin, same session (test 1) | all models | 9 | 1.1 [-1.5, 3.7] | +1 | 1.00 | 1–8–0 | 0.43 | -0.24 | +1.0 |
 
 ## Reading guide
 

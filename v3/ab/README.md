@@ -239,10 +239,183 @@ pending judgement at the time of stopping. Handover audits: baseline notes carri
 canon facts; Haiku's plugin briefs carried a few hundred words. Sonnet's baseline notes also
 carried 6–14 distractor answers per seam; Haiku's and Opus's carried none.
 
-**What this experiment did not test:** the plugin's stated promises (reseed from a brief beats
-carrying on; the goal anchor prevents drift; the post-compaction nudge; ruled-out dead ends are
-not re-attempted; the cost rule). Those need the design in
-`docs/superpowers/brainstorms/2026-09-10-plugin-test-research-driven.md`, derived from the
-plugin's own research (`research/claims-*.md`).
+**What experiment 1 did not test:** the plugin's stated promises. Experiment 2 below does.
 
-Full tables: `REPORT.md`.
+Full tables for experiment 1: `REPORT.md` (condition rows `nohint` and `noisy`).
+
+---
+
+# Experiment 2 — tests derived from the plugin's own research (2026-09-10/11)
+
+Experiment 1 cut a session and measured what crossed. The plugin's research and README promise
+something narrower and more specific (`research/claims-*.md`, `research/promises-readme-skill.md`):
+
+1. reseeding a fresh session from the plugin's brief beats letting the session compact (claims F9, F5, M11);
+2. the goal anchor at the end of every prompt stops drift from standing rules (F4, M8, M9);
+3. the post-compaction nudge and the automatic facts log limit what compaction loses (G5, M3);
+4. following its advisories to start a new session on context fill, or for a new topic, is cheaper
+   at equal quality (B7, E2, F10, G8).
+
+Each block below is one of those promises made into a manipulation, on a task with a hidden answer
+key. Anatoly's scoring rules apply throughout: one point per correct in-context item, credit for
+what arrives without a user command, cost alongside.
+
+## The fixture: `v3/build/`
+
+A small original Python project, **ledgerkit**, in two phases. Phase 1 is six scripted turns that
+make the session investigate the repository: which module owns what, two approaches that fail and
+why, a spec amendment announced mid-way, eight standing rules in `docs/CONVENTIONS.md`, and two
+unrelated requests interleaved as noise. Ten facts are planted (`facts-key.md`). Phase 2 is one
+prompt: implement the five features in `SPEC.md`. Thirty hidden tests (`hidden-tests/`, 20 feature
+items, 10 constraint items for the standing rules) run against the result; the session never sees
+them or the reference solution (`reference/`, 30/30). A second, smaller job, **topic B**
+(`topic-b/`: a shift-roster package, 10 hidden tests), serves the new-topic test.
+
+Phase-2 sessions get Read, Write, Edit, Bash, Grep, Glob and a pytest on PATH, so a session can run
+the public tests in `tests/`; the verification step voids any run whose transcript reads the hidden
+tests or the reference.
+
+## Block 1 — reseed from a brief, or carry on (`harness/ab_build.py`)
+
+The seam sits between phase 1 and phase 2. Eight arms decide what crosses it:
+
+| Arm | What happens at the seam |
+|---|---|
+| A | plugin `/handoff`, then a fresh session that starts from the brief the plugin's hook offers |
+| B | same session carries on, `/compact` at the seam |
+| C | same session carries on, no compaction (full transcript; the cost reference) |
+| D | fresh session, nothing crosses (floor) |
+| E | no plugin; the model is asked to write `HANDOVER.md`, fresh session told it exists |
+| F | plugin loaded, no `/handoff`, fresh session (hooks only) — Anatoly's test 2 |
+| G | plugin + `/goal`, same session, no cut — test 1 |
+| H | plugin, no `/goal`, same session, no cut — test 1 |
+
+Measures per run: hidden tests passed (feature and constraint separately), re-derived reads
+(phase-2 Reads of files phase 1 had already read; the quantity the plugin's cost rule turns on),
+tokens at phase-2 start, phase-2 turns and dollars, and the files phase 1 wrote unprompted.
+
+```bash
+python3 v3/ab/harness/ab_build.py --arm A --model haiku --rep 1 --plugin-dir /path/to/plugin
+python3 v3/ab/harness/ab_build_report.py        # → v3/ab/BUILD-REPORT.md
+```
+
+### Results (three runs per cell, 72 runs, all verified)
+
+Hidden tests passed, mean of three runs (out of 30), with the three runs in brackets:
+
+| Arm | Haiku | Sonnet | Opus |
+|---|---|---|---|
+| A plugin handoff → fresh | 27.0 [26, 28, 27] | 27.0 [27, 27, 27] | 30.0 |
+| B carry on, compact | 15.3 [10, 10, 26] | 29.0 [30, 27, 30] | 30.0 |
+| C carry on, no cut | 28.3 [27, 29, 29] | 30.0 | 30.0 |
+| D fresh, nothing crosses | 26.3 [25, 27, 27] | 27.0 | 30.0 |
+| E naive HANDOVER.md | 25.7 [30, 18, 29] | 27.3 [30, 25, 27] | 30.0 |
+| F plugin, hooks only, fresh | 26.3 [27, 27, 25] | 27.0 [27, 27, 27] | 30.0 |
+| G plugin + goal, no cut | 29.3 [30, 29, 29] | 30.0 | 30.0 |
+| H plugin, no goal, no cut | 21.7 [27, 28, 10] | 30.0 | 30.0 |
+
+Paired contrasts (by model and repeat; percent of items, 95% t-interval; wins–ties–losses):
+
+| Contrast | Haiku | Sonnet | Opus |
+|---|---|---|---|
+| A−B brief vs compaction (the central claim) | +38.9 [−38, +116], 3–0–0 | −6.7 [−21, +8], 0–1–2 | 0, 0–3–0 |
+| A−D brief vs nothing | +2.2 [−3, +7], 2–1–0 | 0 | 0 |
+| A−E plugin brief vs hand-written handover | +4.4 [−51, +60], 1–0–2 | −1.1 [−22, +20], 1–1–1 | 0 |
+| A−C brief vs full transcript | −4.4 [−9, +0.3], 0–0–3 | −10.0, 0–0–3 | 0 |
+| F−D hooks only vs nothing (test 2) | 0 [−17, +17], 1–1–1 | 0, 0–3–0 | 0 |
+| A−F handoff vs hooks only (test 2) | +2.2 [−10, +15], 2–0–1 | 0, 0–3–0 | 0 |
+| G−H goal anchor vs none, no cut (test 1) | +25.6 [−56, +107], 3–0–0 | 0, 0–3–0 | 0 |
+| G−C plugin + goal vs no plugin, no cut (test 1) | +3.3 [−11, +18], 1–2–0 | 0 | 0 |
+
+Re-derived reads in phase 2 (mean per run): Haiku A 11 / B 13 / C 3 / D 17 / E 15 / F 15 / G 2 / H 1;
+Sonnet A 17 / B 14 / C 2 / D 13 / E 18 / F 23 / G 2 / H 1; Opus A 0.3 / B 7 / C 0.7 / D 3 / E 0.3 / F 1 / G 4 / H 0.3.
+
+What the table says:
+
+- **Compaction is where Haiku loses, and the brief prevents it.** Two of three Haiku runs that
+  compacted collapsed to 10/30 (the ten constraint items only); every Haiku run that reseeded from
+  the plugin's brief scored 26–28. The paired interval is wide because the third compaction run did
+  not collapse, but the direction is 3–0. Sonnet and Opus lose nothing to compaction on this task,
+  so A−B is 0 or slightly negative for them.
+- **The brief is not better than nothing, or than a hand-written handover, on score.** A−D and A−E
+  include zero for every model. A fresh session re-derives what it needs from the repository; the
+  brief's contribution shows in re-derived reads (Haiku 11 vs 17; Opus 0.3 vs 3), not in tests passed.
+  For Sonnet the brief did not cut re-reads at all (17 vs 13).
+- **The full transcript beats any seam** (A−C negative for Haiku and Sonnet): if a session can
+  carry on without compacting, it should. The plugin's advice to cut early is a cost trade, and
+  test 3 measures it.
+- **Test 2, hooks only after a clear (F):** the score equals a plain fresh session (F−D = 0 for all
+  nine pairs but two). The plugin's SessionStart injection alone carries nothing a fresh session
+  would not rebuild. For Sonnet it raised re-reads (23 vs 13), presumably because the injected file
+  list invites opening files.
+- **Test 1, the goal anchor (G vs H):** for Haiku the anchored session kept all ten standing rules
+  in every run (30, 29, 29) where the unanchored one dropped a rule in two runs and collapsed once
+  (27, 28, 10). Sonnet and Opus were perfect either way: in an uncut session the rules are still in
+  view and the anchor has nothing to fix, which is what claim M8 predicts.
+- **Opus is at the ceiling on every arm** (24 runs, 30/30 each). The task cannot show an Opus
+  effect. Opus also wrote its own `memory/` notes unprompted in phase 1 in every run, so for Opus
+  "nothing crosses" never held: it made its own handover. Outside arm E (where the file is requested),
+  Opus wrote memory files in 21 of 21 runs, Haiku in 7, Sonnet in 2.
+- **Haiku's collapse mode is a false completion claim.** All three 10/30 runs (B r1, B r2, H r3)
+  end with "all five features implemented"; the code passes no feature test. Compaction makes it
+  more frequent (2 of 3) but it also happened once in an uncut plugin session with no goal.
+
+## Block 2a — one compacting session (`harness/ab_single.py`)
+
+The v3 noisy reading run in one session: 48 delivery turns, `/compact` forced after the 8th and
+16th story turns, the plugin's PreCompact hook and post-compaction nudge firing in the plugin arm.
+The judges classify every lost item as omission or fabrication (claim G5: compaction loses by
+omission, not fabrication).
+
+```bash
+python3 v3/ab/harness/ab_single.py --arm baseline|plugin --model sonnet --rep 1 --plugin-dir /path/to/plugin
+python3 v3/ab/harness/ab_judge.py <run-dir>; python3 v3/ab/harness/ab_report.py
+```
+
+### Results (five runs per cell, 30 runs)
+
+| Model | Baseline | Plugin | Plugin − baseline (5 pairs) | Fabrication items, baseline → plugin |
+|---|---|---|---|---|
+| Haiku | 20.3 [13.1, 27.5] | 19.0 [11.8, 26.2] | −1.3 [−14.5, 11.9], 2–0–3 | 28.3 → 29.4 |
+| Sonnet | 43.3 [34.1, 52.5] | 48.6 [44.1, 53.1] | +5.3 [−4.0, 14.6], 4–0–1 | 13.7 → 10.9 |
+| Opus | 75.1 [69.6, 80.6] | 80.8 [78.4, 83.2] | +5.7 [−0.1, 11.5], 5–0–0 | 7.0 → 4.5 |
+| All | | | +3.2 [−1.2, 7.7], 11 wins of 15 | |
+
+Cost: the plugin arm adds about 3 turns and 2–10 % dollars per run.
+
+- Sonnet and Opus score higher with the plugin in 9 of 10 pairs; Opus's interval just touches zero
+  (its five plugin runs, 78.5–83, are the highest reading scores in the study). Haiku is noise.
+- The gain is on the fabrication side: with the plugin Sonnet and Opus make fewer specific wrong
+  claims after compaction, omissions unchanged. That is the nudge doing what G5 says compaction
+  needs, on the two models that can use it.
+- Compare experiment 1's null: same corpus, same plugin, but there the seam was a hard cut with
+  nothing to nudge. The plugin's automatic value is at compaction, not at a clear.
+
+## Test 3 — the cost of following the fill advisory (`ab_single.py --arm continue|follow`)
+
+Arms: `continue` (plugin, one session, never compacts, advisories ignored) and `follow` (plugin;
+when its 50 % fill advisory fires, run `/handoff` and continue in a fresh session). Score, total
+tokens and dollars compared. **Running; results below when the cells fill.**
+
+## Test 4 — a new topic mid-work (`harness/ab_topic.py`)
+
+Sequence: ledgerkit phase 1 → topic B (a separate directory, own hidden tests) → ledgerkit phase 2.
+Arms: S (one plain session), P (one session, plugin + goal, advisories ignored), N (the plugin's
+flow: `/conclude`, fresh session for topic B, fresh session with `/merge` for phase 2). Scores on
+both jobs, cost per phase, re-derived reads. **Running; results below when the cells fill.**
+
+```bash
+python3 v3/ab/harness/ab_topic.py --arm N --model haiku --rep 1 --plugin-dir /path/to/plugin
+python3 v3/ab/harness/ab_topic_report.py       # → v3/ab/TOPIC-REPORT.md
+```
+
+## Adapting experiment 2 to another plugin
+
+The same flags as experiment 1: `--plugin-dir`, `--plugin-name`, `--goal-cmd`, `--handoff-cmd`
+(`ab_build.py`, `ab_single.py`), plus `--conclude-cmd` and `--merge-cmd` (`ab_topic.py`). The
+harness finds the brief through the plugin's SessionStart output, the fill advisory through
+`.governor/state/fill-<session>.json`, and the conclusion through `.governor/conclusions/*.md`;
+those three paths are the only plugin-specific reads (`newest_brief()`, `advisory_fired()`, and
+the glob in `ab_topic.py`). Full tables: `BUILD-REPORT.md`, `REPORT.md` (single-session
+section), `TOPIC-REPORT.md`.
+

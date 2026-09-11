@@ -20,12 +20,12 @@ API-price accounting (`total_cost_usd`), notional on a subscription; turns and t
 | noisy | sonnet | plugin | 0 | not run | | | | | | | |
 | noisy | opus | baseline | 2 | 70.0 [50.9, 89.1] | 2.1 | 68.5–71.5 | $9.61 | 63 | 4.2/162 | 38348 | 2 of 2 |
 | noisy | opus | plugin | 2 | 74.8 [33.5, 116.0] | 4.6 | 71.5–78 | $6.07 | 67 | 2.7/91 | 9475 | 0 of 2 |
-| single | haiku | baseline | 4 | 21.0 [10.8, 31.2] | 6.4 | 16–29.5 | $1.12 | 102 | 4.2/39 | 0 | 0 of 4 |
+| single | haiku | baseline | 5 | 20.3 [13.1, 27.5] | 5.8 | 16–29.5 | $1.12 | 102 | 4.2/40 | 0 | 0 of 5 |
 | single | haiku | plugin | 5 | 19.0 [11.8, 26.2] | 5.8 | 14–27.5 | $1.14 | 105 | 4.2/41 | 0 | 0 of 5 |
 | single | sonnet | baseline | 5 | 43.3 [34.1, 52.5] | 7.4 | 35.5–54 | $3.14 | 103 | 5.5/61 | 0 | 0 of 5 |
-| single | sonnet | plugin | 4 | 49.1 [42.8, 55.5] | 4.0 | 44–53.5 | $3.40 | 105 | 5.9/49 | 0 | 0 of 4 |
-| single | opus | baseline | 4 | 74.4 [66.9, 81.9] | 4.7 | 70–80 | $7.33 | 102 | 4.5/69 | 0 | 0 of 4 |
-| single | opus | plugin | 4 | 81.4 [78.7, 84.0] | 1.7 | 79.5–83 | $8.03 | 105 | 4.9/69 | 0 | 0 of 4 |
+| single | sonnet | plugin | 5 | 48.6 [44.1, 53.1] | 3.6 | 44–53.5 | $3.44 | 105 | 5.9/52 | 0 | 0 of 5 |
+| single | opus | baseline | 5 | 75.1 [69.6, 80.6] | 4.4 | 70–80 | $7.31 | 102 | 4.5/70 | 0 | 0 of 5 |
+| single | opus | plugin | 5 | 80.8 [78.4, 83.2] | 1.9 | 78.5–83 | $8.04 | 105 | 4.9/72 | 0 | 0 of 5 |
 
 ## Paired difference, plugin − baseline (paired by model, condition, repeat)
 
@@ -40,10 +40,10 @@ A positive mean favours the plugin. Cohen's d uses the pooled within-cell SD of 
 | noisy | haiku | 2 | -10.2 [-146.8, 126.3] | -0.95 | 1–0–1 | -0.74 | -0.39 | +10 |
 | noisy | opus | 2 | 4.8 [-55.6, 65.1] | 1.00 | 1–1–0 | 1.33 | -3.54 | +4 |
 | noisy | all models | 4 | -2.8 [-23.3, 17.8] | -0.43 | 2–1–1 | -0.14 | -1.96 | +7 |
-| single | haiku | 4 | -1.2 [-20.8, 18.3] | -0.20 | 2–0–2 | -0.19 | +0.02 | +3 |
-| single | sonnet | 4 | 4.6 [-8.8, 18.1] | 1.09 | 3–0–1 | 0.73 | +0.19 | +2 |
-| single | opus | 3 | 6.2 [-7.5, 19.8] | 1.94 | 3–0–0 | 1.85 | +0.49 | +3 |
-| single | all models | 11 | 2.9 [-3.2, 9.1] | 1.05 | 8–0–3 | 0.12 | +0.21 | +3 |
+| single | haiku | 5 | -1.3 [-14.5, 11.9] | -0.27 | 2–0–3 | -0.22 | +0.01 | +3 |
+| single | sonnet | 5 | 5.3 [-4.0, 14.6] | 1.58 | 4–0–1 | 0.90 | +0.31 | +2 |
+| single | opus | 5 | 5.7 [-0.1, 11.5] | 2.74 | 5–0–0 | 1.68 | +0.73 | +3 |
+| single | all models | 15 | 3.2 [-1.2, 7.7] | 1.55 | 11–0–4 | 0.13 | +0.35 | +3 |
 
 ## Single compacting session: what the losses were (Block 2a, G5)
 
@@ -55,12 +55,12 @@ compaction, advisories ignored — test 3 control), follow (plugin; handoff + fr
 
 | Model | Arm | n | score mean [95% CI] | omission items | fabrication items | compactions | $/run |
 |---|---|---|---|---|---|---|---|
-| haiku | baseline | 4 | 21.0 [10.8, 31.2] | 30.4 | 27.9 | 2 | $1.12 |
+| haiku | baseline | 5 | 20.3 [13.1, 27.5] | 30.0 | 28.3 | 2 | $1.12 |
 | haiku | plugin | 5 | 19.0 [11.8, 26.2] | 30.0 | 29.4 | 2 | $1.14 |
 | sonnet | baseline | 5 | 43.3 [34.1, 52.5] | 28.4 | 13.7 | 2 | $3.14 |
-| sonnet | plugin | 4 | 49.1 [42.8, 55.5] | 27.2 | 12.0 | 2 | $3.40 |
-| opus | baseline | 4 | 74.4 [66.9, 81.9] | 6.0 | 7.2 | 2 | $7.33 |
-| opus | plugin | 4 | 81.4 [78.7, 84.0] | 6.2 | 4.4 | 2 | $8.03 |
+| sonnet | plugin | 5 | 48.6 [44.1, 53.1] | 29.7 | 10.9 | 2 | $3.44 |
+| opus | baseline | 5 | 75.1 [69.6, 80.6] | 6.5 | 7.0 | 2 | $7.31 |
+| opus | plugin | 5 | 80.8 [78.4, 83.2] | 6.8 | 4.5 | 2 | $8.04 |
 
 ## Adjusted score: half a point off per distractor fact carried across a seam
 
@@ -91,11 +91,11 @@ Per handover: canon facts present (of 112, one opus audit per handover) and dist
 
 ## Judge disagreement
 
-|judge 1 − judge 2| over 68 runs: mean 2.44, median 2.0, max 8. Run-to-run spread (the SD column above) is the other noise source; keep them apart when reading a difference.
+|judge 1 − judge 2| over 72 runs: mean 2.35, median 2.0, max 8. Run-to-run spread (the SD column above) is the other noise source; keep them apart when reading a difference.
 
 ## Verification
 
-68 of 68 scored runs passed transcript verification.
+72 of 72 scored runs passed transcript verification.
 
 ## Reading guide
 
