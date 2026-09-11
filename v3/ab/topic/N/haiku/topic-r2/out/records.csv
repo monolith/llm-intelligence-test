@@ -1,0 +1,121 @@
+record_id,source_system,date,account_code,account_name,description,amount
+C-0401,C,2026-01-02,4100,Freight In,Container unload allowance,386.54
+C-0423,C,2026-01-02,5200,Contract Labor,Relief crew dock,101.24
+A-10001,A,2026-01-03,4100,Freight In,"Rebill, ""Q1 true-up"", carrier",239.55
+A-10019,A,2026-01-03,5100,Packaging Materials,Credit note damaged corrugate,-125.00
+A-10002,A,2026-01-05,4100,Freight In,"Drayage, port apron to DC",283.82
+A-10024,A,2026-01-05,5200,Contract Labor,Night shift crew,144.11
+C-0402,C,2026-01-06,4100,Freight In,Fuel surcharge inbound,284.04
+C-0424,C,2026-01-06,5200,Contract Labor,Night shift crew,153.06
+B-2201,B,2026-01-07,4100,Freight In,Container unload allowance,254.40
+B-2228,B,2026-01-07,5300,Equipment Rental,Yard tractor hire,121.33
+B-2202,B,2026-01-08,4100,Freight In,Fuel surcharge inbound,320.63
+B-2229,B,2026-01-08,5300,Equipment Rental,Dock plate rental,167.57
+A-10003,A,2026-01-09,4100,Freight In,Inbound freight consolidation,226.28
+A-10025,A,2026-01-09,5200,Contract Labor,Weekend picking detail,92.50
+C-0403,C,2026-01-11,4100,Freight In,Inbound freight consolidation,205.65
+C-0425,C,2026-01-11,5200,Contract Labor,Weekend picking detail,155.95
+C-0404,C,2026-01-12,4100,Freight In,Line haul second leg,328.32
+C-0431,C,2026-01-12,6100,Utilities,Power main building,333.80
+B-2203,B,2026-01-13,4100,Freight In,Inbound freight consolidation,313.70
+B-2232,B,2026-01-13,6100,Utilities,Compressed air plant,355.40
+A-10004,A,2026-01-14,4100,Freight In,Line haul second leg,454.90
+A-10026,A,2026-01-14,5200,Contract Labor,Temp crew cycle count,173.64
+B-2204,B,2026-01-15,4100,Freight In,Line haul second leg,315.82
+B-2233,B,2026-01-15,6100,Utilities,Gas dock heaters,194.50
+C-0409,C,2026-01-15,4200,Duty and Brokerage,Tariff reclass,151.18
+C-0432,C,2026-01-15,6100,Utilities,Water and sewer,199.80
+A-10008,A,2026-01-16,4200,Duty and Brokerage,Entry filing fee,195.82
+A-10029,A,2026-01-16,5300,Equipment Rental,Reach truck lease,131.94
+C-0410,C,2026-01-18,4200,Duty and Brokerage,Entry filing fee,257.73
+B-2213,B,2026-01-19,4300,Storage,Rack storage aisle 7,238.03
+B-2238,B,2026-01-19,6200,Insurance,Property premium,1100.03
+A-10009,A,2026-01-20,4200,Duty and Brokerage,Duty deposit,220.85
+A-10030,A,2026-01-20,5300,Equipment Rental,Scrubber rental,156.96
+B-2214,B,2026-01-21,4300,Storage,Overflow bay rental,280.72
+B-2239,B,2026-01-21,9000,Suspense,Suspense entry,57.25
+A-10010,A,2026-01-22,4200,Duty and Brokerage,Brokerage retainer,195.73
+A-10033,A,2026-01-22,6100,Utilities,Power main building,256.91
+C-0411,C,2026-01-22,4200,Duty and Brokerage,Duty deposit,203.49
+C-0414,C,2026-01-24,4300,Storage,Pallet position fee,312.34
+B-2215,B,2026-01-25,4300,Storage,Cold room surcharge,225.55
+A-10016,A,2026-01-26,5100,Packaging Materials,Corrugate 32 ECT,367.47
+A-10034,A,2026-01-26,6100,Utilities,Water and sewer,276.69
+B-2216,B,2026-01-27,5100,Packaging Materials,Case tape printed,347.99
+C-0415,C,2026-01-27,4300,Storage,Rack storage aisle 7,238.66
+A-10017,A,2026-01-28,5100,Packaging Materials,Stretch film rolls,410.74
+A-10038,A,2026-01-28,6200,Insurance,Cargo cover premium,1100.00
+B-2217,B,2026-01-28,5100,Packaging Materials,Corrugate 32 ECT,237.78
+C-0416,C,2026-01-29,4300,Storage,Overflow bay rental,210.05
+A-10018,A,2026-01-30,5100,Packaging Materials,Void fill recycled,166.79
+B-2218,B,2026-01-30,5100,Packaging Materials,Stretch film rolls,234.23
+C-0417,C,2026-02-01,4300,Storage,Overflow bay rental,263.62
+C-0438,C,2026-02-01,8800,UNCLASSIFIED,Awaiting reclass,113.97
+A-10005,A,2026-02-02,4100,Freight In,Container unload allowance,247.87
+A-10035,A,2026-02-02,6100,Utilities,Compressed air plant,251.97
+C-0418,C,2026-02-03,4300,Storage,Cold room surcharge,243.39
+B-2205,B,2026-02-04,4100,Freight In,Line haul second leg,279.17
+B-2224,B,2026-02-04,5200,Contract Labor,Temp crew cycle count,79.82
+B-2206,B,2026-02-05,4100,Freight In,Container unload allowance,260.15
+B-2230,B,2026-02-05,5300,Equipment Rental,Reach truck lease,178.81
+A-10006,A,2026-02-06,4100,Freight In,Fuel surcharge inbound,275.01
+A-10036,A,2026-02-06,6100,Utilities,Gas dock heaters,288.28
+C-0419,C,2026-02-07,4300,Storage,Pallet position fee,183.14
+C-0420,C,2026-02-09,5100,Packaging Materials,Corrugate 32 ECT,246.48
+B-2207,B,2026-02-10,4100,Freight In,Fuel surcharge inbound,440.78
+B-2231,B,2026-02-10,5300,Equipment Rental,Scrubber rental,131.19
+A-10007,A,2026-02-11,4100,Freight In,Inbound freight consolidation,457.22
+A-10037,A,2026-02-11,6100,Utilities,Meter correction credit,-42.00
+B-2208,B,2026-02-12,4200,Duty and Brokerage,Entry filing fee,253.47
+B-2234,B,2026-02-12,6100,Utilities,Power main building,335.91
+A-10011,A,2026-02-13,4200,Duty and Brokerage,Brokerage retainer,231.46
+A-10042,A,2026-02-13,9000,Suspense,Suspense clearing,294.95
+C-0421,C,2026-02-14,5100,Packaging Materials,Stretch film rolls,269.01
+C-0422,C,2026-02-16,5100,Packaging Materials,Void fill recycled,125.01
+A-10012,A,2026-02-17,4200,Duty and Brokerage,Tariff reclass,223.54
+B-2209,B,2026-02-18,4200,Duty and Brokerage,Duty deposit,259.28
+B-2235,B,2026-02-18,6100,Utilities,Water and sewer,174.14
+A-10013,A,2026-02-19,4300,Storage,Cold room surcharge,282.71
+B-2219,B,2026-02-20,5100,Packaging Materials,Void fill recycled,388.35
+C-0426,C,2026-02-20,5300,Equipment Rental,Yard tractor hire,74.19
+B-2220,B,2026-02-21,5100,Packaging Materials,Case tape printed,340.40
+B-2221,B,2026-02-23,5100,Packaging Materials,Credit note damaged corrugate,-88.25
+C-0427,C,2026-02-23,5300,Equipment Rental,Dock plate rental,110.07
+A-10014,A,2026-02-24,4300,Storage,Pallet position fee,234.09
+A-10015,A,2026-02-25,4300,Storage,Rack storage aisle 7,173.35
+C-0428,C,2026-02-25,5300,Equipment Rental,Reach truck lease,125.74
+A-10027,A,2026-02-26,5200,Contract Labor,Temp crew cycle count,237.73
+B-2222,B,2026-02-26,5200,Contract Labor,Night shift crew,135.69
+A-10028,A,2026-02-27,5200,Contract Labor,Relief crew dock,125.07
+B-2223,B,2026-02-27,5200,Contract Labor,Weekend picking detail,147.29
+C-0437,C,2026-02-27,8800,UNCLASSIFIED,Unposted supplier charge,104.43
+A-10020,A,2026-03-02,5100,Packaging Materials,Case tape printed,237.69
+B-2210,B,2026-03-03,4200,Duty and Brokerage,Brokerage retainer,109.64
+C-0405,C,2026-03-04,4100,Freight In,Inbound freight consolidation,177.65
+C-0435,C,2026-03-04,6100,Utilities,Compressed air plant,216.62
+A-10021,A,2026-03-05,5100,Packaging Materials,Corrugate 32 ECT,186.07
+B-2211,B,2026-03-06,4200,Duty and Brokerage,Tariff reclass,131.56
+A-10022,A,2026-03-08,5100,Packaging Materials,Stretch film rolls,206.99
+C-0406,C,2026-03-08,4100,Freight In,Line haul second leg,215.35
+C-0436,C,2026-03-08,6200,Insurance,Umbrella premium,1100.00
+B-2212,B,2026-03-09,4200,Duty and Brokerage,Entry filing fee,148.00
+C-0407,C,2026-03-10,4100,Freight In,Container unload allowance,200.71
+C-0439,C,2026-03-10,9000,Suspense,Suspense reversal,64.80
+A-10023,A,2026-03-11,5100,Packaging Materials,Credit note damaged corrugate,-151.75
+B-2225,B,2026-03-12,5200,Contract Labor,Relief crew dock,65.96
+C-0408,C,2026-03-13,4100,Freight In,Fuel surcharge inbound,80.94
+B-2226,B,2026-03-15,5200,Contract Labor,Night shift crew,80.10
+A-10031,A,2026-03-16,5300,Equipment Rental,Scrubber rental,135.90
+C-0412,C,2026-03-17,4200,Duty and Brokerage,Duty deposit,148.61
+A-10032,A,2026-03-18,5300,Equipment Rental,Yard tractor hire,68.20
+C-0413,C,2026-03-19,4200,Duty and Brokerage,Brokerage retainer,240.59
+B-2227,B,2026-03-20,5200,Contract Labor,Weekend picking detail,55.34
+C-0429,C,2026-03-22,5300,Equipment Rental,Dock plate rental,100.59
+A-10039,A,2026-03-23,6200,Insurance,Liability premium,1100.00
+B-2236,B,2026-03-24,6100,Utilities,Compressed air plant,268.24
+A-10040,A,2026-03-25,8800,UNCLASSIFIED,Held for review,127.75
+C-0430,C,2026-03-25,5300,Equipment Rental,Reach truck lease,118.96
+C-0433,C,2026-03-26,6100,Utilities,Power main building,148.54
+A-10041,A,2026-03-27,8800,UNCLASSIFIED,Reversal of unposted charge,-31.20
+B-2237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66
+C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74

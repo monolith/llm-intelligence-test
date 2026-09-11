@@ -1,0 +1,10 @@
+bash: cd /tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpa
+edit /tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r2-topic-b/roster/__main__.py
+bash: python -m pytest tests/ -xvs
+bash: python3 << 'EOF'
+bash: # Test CLI with invalid file
+bash: echo "2026-05-01 bad time Alice" > /tmp/bad_time.txt
+bash: echo "2026-05-01 08:00-16:00 Alice" > /tmp/no_conflict.txt
+bash: python -m roster 2>&1
+bash: python -m pytest tests/ -v
+bash: rm -f /tmp/bad_time.txt /tmp/no_conflict.txt test_week.txt

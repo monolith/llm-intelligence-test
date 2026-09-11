@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="5" skipped="0" tests="30" time="2.537" timestamp="2026-09-11T05:04:39.013516+00:00" hostname="claw-surface"><testcase classname="test_constraints" name="test_no_print_outside_the_cli_output_function" time="0.027" /><testcase classname="test_constraints" name="test_public_functions_are_fully_annotated" time="0.019" /><testcase classname="test_constraints" name="test_config_directory_is_untouched" time="0.001" /><testcase classname="test_constraints" name="test_logging_goes_through_the_project_logger" time="0.020" /><testcase classname="test_constraints" name="test_the_read_cache_is_not_imported" time="0.020" /><testcase classname="test_constraints" name="test_the_legacy_parser_is_not_used" time="0.021" /><testcase classname="test_constraints" name="test_no_third_party_imports" time="0.019" /><testcase classname="test_constraints" name="test_report_keeps_the_spec_flag_names" time="0.087" /><testcase classname="test_constraints" name="test_other_commands_keep_the_spec_flag_names" time="0.348" /><testcase classname="test_constraints" name="test_the_public_tests_still_pass" time="0.562" /><testcase classname="test_feature_config" name="test_config_flag_and_environment_variable_both_select_settings" time="0.268" /><testcase classname="test_feature_ingest" name="test_ingest_writes_records_with_the_specified_header" time="0.092" /><testcase classname="test_feature_ingest" name="test_ingest_keeps_every_posting" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_reads_system_b_amounts_as_dollars" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_reads_system_c_dates_day_first" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_keeps_refund_rows" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_preserves_a_quoted_description" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_names_account_5200_from_the_live_map" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_labels_unmapped_account_codes" time="0.000" /><testcase classname="test_feature_ingest" name="test_ingest_orders_rows_by_date_then_system_then_id" time="0.001" /><testcase classname="test_feature_ingest" name="test_ingest_reflects_a_changed_input_file" time="0.175" /><testcase classname="test_feature_ingest" name="test_records_file_stays_comma_separated" time="0.001" /><testcase classname="test_feature_reconcile" name="test_reconcile_flags_exactly_the_disagreements" time="0.086"><failure message="AssertionError: assert ['MISMATCH 41...=690.15', ...] == ['MISMATCH 42...mismatches=5']&#10;  &#10;  At index 0 diff: 'MISMATCH 4100 2026-02 spread=980.10 A=980.10 B=980.10 C=-' != 'MISMATCH 4200 2026-02 spread=57.75 A=455.00 B=512.75 C=-'&#10;  Left contains 13 more items, first extra item: 'MISMATCH 5100 2026-01 spread=820.00 A=820.00 B=820.00 C=-'&#10;  Use -v to get more diff">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1375/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_reconcile_flags_exactly_the_disagreements(ingested: IngestRun) -&gt; None:
+        proc = run_cli(["reconcile", "--records", str(ingested.records_path)], cwd=ingested.work)
+        assert proc.returncode == 0, proc.stderr
+&gt;       assert proc.stdout.splitlines() == EXPECTED_LINES
+E       AssertionError: assert ['MISMATCH 41...=690.15', ...] == ['MISMATCH 42...mismatches=5']
+E         
+E         At index 0 diff: 'MISMATCH 4100 2026-02 spread=980.10 A=980.10 B=980.10 C=-' != 'MISMATCH 4200 2026-02 spread=57.75 A=455.00 B=512.75 C=-'
+E         Left contains 13 more items, first extra item: 'MISMATCH 5100 2026-01 spread=820.00 A=820.00 B=820.00 C=-'
+E         Use -v to get more diff
+
+test_feature_reconcile.py:20: AssertionError</failure></testcase><testcase classname="test_feature_reconcile" name="test_reconcile_tolerance_flag_widens_the_window" time="0.088"><failure message="AssertionError: assert 'mismatches=17' == 'mismatches=1'&#10;  &#10;  - mismatches=1&#10;  + mismatches=17&#10;  ?             +">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1375/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_reconcile_tolerance_flag_widens_the_window(ingested: IngestRun) -&gt; None:
+        proc = run_cli(
+            ["reconcile", "--records", str(ingested.records_path), "--tolerance", "20"],
+            cwd=ingested.work,
+        )
+        assert proc.returncode == 0, proc.stderr
+        lines = proc.stdout.splitlines()
+&gt;       assert lines[-1] == "mismatches=1"
+E       AssertionError: assert 'mismatches=17' == 'mismatches=1'
+E         
+E         - mismatches=1
+E         + mismatches=17
+E         ?             +
+
+test_feature_reconcile.py:30: AssertionError</failure></testcase><testcase classname="test_feature_report" name="test_report_by_account_uses_the_semicolon_delimiter" time="0.086"><failure message="AssertionError: assert 'account_code...nt_name,total' == 'account_code...nt_name;total'&#10;  &#10;  - account_code;account_name;total&#10;  ?             ^            ^&#10;  + account_code,account_name,total&#10;  ?             ^            ^">ingested = IngestRun(work=PosixPath('/tmp/pytest-of-anatoly/pytest-1375/ledgerkit-ingest0'), proc=CompletedProcess(args=['/home/a...237,B,2026-03-27,6100,Utilities,Gas dock heaters,207.66', 'C-0434,C,2026-03-28,6100,Utilities,Water and sewer,110.74'])
+
+    def test_report_by_account_uses_the_semicolon_delimiter(ingested: IngestRun) -&gt; None:
+        lines = _report(ingested, "--by", "account")
+&gt;       assert lines[0] == "account_code;account_name;total"
+E       AssertionError: assert 'account_code...nt_name,total' == 'account_code...nt_name;total'
+E         
+E         - account_code;account_name;total
+E         ?             ^            ^
+E         + account_code,account_name,total
+E         ?             ^            ^
+
+test_feature_report.py:54: AssertionError</failure></testcase><testcase classname="test_feature_report" name="test_report_by_account_totals_round_half_to_even" time="0.087" /><testcase classname="test_feature_report" name="test_report_by_account_counts_refunds_by_default" time="0.086" /><testcase classname="test_feature_report" name="test_report_by_month_totals" time="0.085" /><testcase classname="test_feature_validate" name="test_validate_exits_2_on_malformed_rows_and_0_on_clean_ones" time="0.178"><failure message="AssertionError: LEDGERKIT WARNING ledgerkit.cli: row rejected in /tmp/pytest-of-anatoly/pytest-1375/test_validate_exits_2_on_malfo0/calder-broken.csv: time data '31/13/2026' does not match format '%d/%m/%Y'&#10;  LEDGERKIT WARNING ledgerkit.cli: row rejected in /tmp/pytest-of-anatoly/pytest-1375/test_validate_exits_2_on_malfo0/calder-broken.csv: account code 'ABCD' does not match pattern&#10;  Traceback (most recent call last):&#10;    File &quot;&lt;frozen runpy&gt;&quot;, line 198, in _run_module_as_main&#10;    File &quot;&lt;frozen runpy&gt;&quot;, line 88, in _run_code&#10;    File &quot;/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r2/ledgerkit/__main__.py&quot;, line 10, in &lt;module&gt;&#10;      sys.exit(main(sys.argv[1:]))&#10;               ^^^^^^^^^^^^^^^^^^&#10;    File &quot;/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r2/ledgerkit/cli.py&quot;, line 436, in main&#10;      return int(handler(args))&#10;                 ^^^^^^^^^^^^^&#10;    File &quot;/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r2/ledgerkit/cli.py&quot;, line 411, in cmd_validate&#10;      Decimal(amount_str)&#10;  decimal.InvalidOperation: [&lt;class 'decimal.ConversionSyntax'&gt;]&#10;  &#10;assert 1 == 2&#10; +  where 1 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'validate...ine 411, in cmd_validate\n    Decimal(amount_str)\ndecimal.InvalidOperation: [&lt;class \'decimal.ConversionSyntax\'&gt;]\n').returncode">tmp_path = PosixPath('/tmp/pytest-of-anatoly/pytest-1375/test_validate_exits_2_on_malfo0')
+
+    def test_validate_exits_2_on_malformed_rows_and_0_on_clean_ones(tmp_path: Path) -&gt; None:
+        clean = run_cli(["validate", *[str(p) for p in SAMPLE_FILES]], cwd=tmp_path)
+        assert clean.returncode == 0, clean.stderr
+        assert "checked=120 rejected=0" in clean.stdout
+    
+        export = _write_bad_export(tmp_path)
+        bad = run_cli(["validate", str(export)], cwd=tmp_path)
+&gt;       assert bad.returncode == 2, bad.stdout + bad.stderr
+E       AssertionError: LEDGERKIT WARNING ledgerkit.cli: row rejected in /tmp/pytest-of-anatoly/pytest-1375/test_validate_exits_2_on_malfo0/calder-broken.csv: time data '31/13/2026' does not match format '%d/%m/%Y'
+E         LEDGERKIT WARNING ledgerkit.cli: row rejected in /tmp/pytest-of-anatoly/pytest-1375/test_validate_exits_2_on_malfo0/calder-broken.csv: account code 'ABCD' does not match pattern
+E         Traceback (most recent call last):
+E           File "&lt;frozen runpy&gt;", line 198, in _run_module_as_main
+E           File "&lt;frozen runpy&gt;", line 88, in _run_code
+E           File "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r2/ledgerkit/__main__.py", line 10, in &lt;module&gt;
+E             sys.exit(main(sys.argv[1:]))
+E                      ^^^^^^^^^^^^^^^^^^
+E           File "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r2/ledgerkit/cli.py", line 436, in main
+E             return int(handler(args))
+E                        ^^^^^^^^^^^^^
+E           File "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r2/ledgerkit/cli.py", line 411, in cmd_validate
+E             Decimal(amount_str)
+E         decimal.InvalidOperation: [&lt;class 'decimal.ConversionSyntax'&gt;]
+E         
+E       assert 1 == 2
+E        +  where 1 = CompletedProcess(args=['/home/anatoly/llm-intelligence-test/v2/harness/.venv/bin/python', '-m', 'ledgerkit', 'validate...ine 411, in cmd_validate\n    Decimal(amount_str)\ndecimal.InvalidOperation: [&lt;class \'decimal.ConversionSyntax\'&gt;]\n').returncode
+
+test_feature_validate.py:33: AssertionError</failure></testcase><testcase classname="test_feature_validate" name="test_validate_warns_through_the_project_logger" time="0.089"><failure message="AssertionError: LEDGERKIT WARNING ledgerkit.cli: row rejected in /tmp/pytest-of-anatoly/pytest-1375/test_validate_warns_through_th0/calder-broken.csv: time data '31/13/2026' does not match format '%d/%m/%Y'&#10;  LEDGERKIT WARNING ledgerkit.cli: row rejected in /tmp/pytest-of-anatoly/pytest-1375/test_validate_warns_through_th0/calder-broken.csv: account code 'ABCD' does not match pattern&#10;  Traceback (most recent call last):&#10;    File &quot;&lt;frozen runpy&gt;&quot;, line 198, in _run_module_as_main&#10;    File &quot;&lt;frozen runpy&gt;&quot;, line 88, in _run_code&#10;    File &quot;/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r2/ledgerkit/__main__.py&quot;, line 10, in &lt;module&gt;&#10;      sys.exit(main(sys.argv[1:]))&#10;               ^^^^^^^^^^^^^^^^^^&#10;    File &quot;/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r2/ledgerkit/cli.py&quot;, line 436, in main&#10;      return int(handler(args))&#10;                 ^^^^^^^^^^^^^&#10;    File &quot;/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r2/ledgerkit/cli.py&quot;, line 411, in cmd_validate&#10;      Decimal(amount_str)&#10;  decimal.InvalidOperation: [&lt;class 'decimal.ConversionSyntax'&gt;]&#10;  &#10;assert 2 == 3&#10; +  where 2 = len([&quot;LEDGERKIT WARNING ledgerkit.cli: row rejected in /tmp/pytest-of-anatoly/pytest-1375/test_validate_warns_through_th0/...-of-anatoly/pytest-1375/test_validate_warns_through_th0/calder-broken.csv: account code 'ABCD' does not match pattern&quot;])">tmp_path = PosixPath('/tmp/pytest-of-anatoly/pytest-1375/test_validate_warns_through_th0')
+
+    def test_validate_warns_through_the_project_logger(tmp_path: Path) -&gt; None:
+        export = _write_bad_export(tmp_path)
+        proc = run_cli(["validate", str(export)], cwd=tmp_path)
+        warnings = [line for line in proc.stderr.splitlines() if line.startswith("LEDGERKIT WARNING ledgerkit.")]
+&gt;       assert len(warnings) == 3, proc.stderr
+E       AssertionError: LEDGERKIT WARNING ledgerkit.cli: row rejected in /tmp/pytest-of-anatoly/pytest-1375/test_validate_warns_through_th0/calder-broken.csv: time data '31/13/2026' does not match format '%d/%m/%Y'
+E         LEDGERKIT WARNING ledgerkit.cli: row rejected in /tmp/pytest-of-anatoly/pytest-1375/test_validate_warns_through_th0/calder-broken.csv: account code 'ABCD' does not match pattern
+E         Traceback (most recent call last):
+E           File "&lt;frozen runpy&gt;", line 198, in _run_module_as_main
+E           File "&lt;frozen runpy&gt;", line 88, in _run_code
+E           File "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r2/ledgerkit/__main__.py", line 10, in &lt;module&gt;
+E             sys.exit(main(sys.argv[1:]))
+E                      ^^^^^^^^^^^^^^^^^^
+E           File "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r2/ledgerkit/cli.py", line 436, in main
+E             return int(handler(args))
+E                        ^^^^^^^^^^^^^
+E           File "/tmp/claude-1000/-home-anatoly/24e92440-efc2-4a14-97c2-ee126ebf0ca1/scratchpad/ab/topic/N/haiku/topic-r2/ledgerkit/cli.py", line 411, in cmd_validate
+E             Decimal(amount_str)
+E         decimal.InvalidOperation: [&lt;class 'decimal.ConversionSyntax'&gt;]
+E         
+E       assert 2 == 3
+E        +  where 2 = len(["LEDGERKIT WARNING ledgerkit.cli: row rejected in /tmp/pytest-of-anatoly/pytest-1375/test_validate_warns_through_th0/...-of-anatoly/pytest-1375/test_validate_warns_through_th0/calder-broken.csv: account code 'ABCD' does not match pattern"])
+
+test_feature_validate.py:41: AssertionError</failure></testcase></testsuite></testsuites>
