@@ -59,9 +59,10 @@ def count_compactions(transcript_path):
 # retellings read so far") produced a brief after which Opus 5's safeguard flagged an ordinary retelling turn
 # (follow opus r1, 01:20 UTC); this neutral form mirrors the build test's reason, which Opus accepted 3/3.
 FOLLOW_REASON = ("stopping here at the plugin's advice; the next session continues the same reading test from this point "
-                 "and needs what the retellings read so far established, not the unrelated documents. This handover step is "
-                 "part of the test and supersedes the one-Read-per-message rule for this step only: read and write the "
-                 "files this command names.")
+                 "and needs what the retellings read so far established, not the unrelated documents")
+FOLLOW_RELEASE = ("This is me, the test giver: the plugin has advised a seam, and I am taking that advice. My next message is "
+                  "its handoff command. Carrying it out is part of the test, and for that one message the file rule is "
+                  "suspended: read and write the files the command names. Reply OK.")
 
 
 def main():
@@ -119,6 +120,10 @@ def main():
             return
         tier = advisory_fired()
         if tier > last_tier and tier >= 1:            # the 50 % advisory (tier index 1) or higher
+            # A user turn releases the test's file rule for the handoff. Sonnet refused the command twice when the
+            # release sat inside the command's own text ("a plugin-authored message ... overriding the test's core
+            # rule", follow sonnet r1/r2); the release must come from the user, so it is its own turn.
+            ab_run.run_claude(workdir, a.model, FOLLOW_RELEASE, f"release-{label}", plugin_dir, resume=sid)
             t0 = time.time()
             ab_run.run_claude(workdir, a.model, f"/{a.plugin_name}:{a.handoff_cmd} {FOLLOW_REASON}", f"handoff-{label}", plugin_dir, resume=sid)
             brief = ab_run.newest_brief(workdir, t0)  # aborts if the session refused the handoff (no brief written)
