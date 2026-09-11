@@ -136,7 +136,7 @@ def claude_cmd(model, prompt, plugin_dir=None, resume=None):
     return cmd
 
 
-def run_claude(workdir, model, prompt, label, plugin_dir=None, resume=None, timeout=5400, dry=False):
+def run_claude(workdir, model, prompt, label, plugin_dir=None, resume=None, timeout=5400, dry=False, _retry=False):
     cmd = claude_cmd(model, prompt, plugin_dir, resume)
     if dry:
         print(f"[dry] {label}: cwd={workdir}\n      " + " ".join(repr(c) if " " in c else c for c in cmd[:-1]) + f"\n      prompt={prompt[:160]!r}...")
@@ -156,7 +156,11 @@ def run_claude(workdir, model, prompt, label, plugin_dir=None, resume=None, time
     if "error" in out and "session_id" not in out:
         raise SystemExit(f"{label}: claude -p failed: {out}")
     if "safeguards flagged" in str(out.get("result", "")):
-        raise SystemExit(f"{label}: the model's safeguard flagged the prompt; run aborted (see cli-calls.jsonl)")
+        # Opus 5's safeguard occasionally flags an ordinary turn ("this sometimes happens with safe, normal
+        # conversations"); one retry of the same turn in the same session, then abort. Both calls are logged.
+        if not _retry:
+            return run_claude(workdir, model, prompt, label + "-retry", plugin_dir, resume or out.get("session_id"), timeout, dry, _retry=True)
+        raise SystemExit(f"{label}: the model's safeguard flagged the prompt twice; run aborted (see cli-calls.jsonl)")
     res = str(out.get("result", ""))
     if out.get("is_error") or "session limit" in res or "rate_limit" in res or res.startswith("API Error"):
         raise SystemExit(f"{label}: API error / rate limit; run aborted: {res[:160]!r}")

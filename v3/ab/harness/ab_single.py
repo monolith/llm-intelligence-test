@@ -55,6 +55,13 @@ def count_compactions(transcript_path):
     return n
 
 
+# Handoff reason for the follow arm. The first wording ("must answer detailed questions about everything in the
+# retellings read so far") produced a brief after which Opus 5's safeguard flagged an ordinary retelling turn
+# (follow opus r1, 01:20 UTC); this neutral form mirrors the build test's reason, which Opus accepted 3/3.
+FOLLOW_REASON = ("stopping here at the plugin's advice; the next session continues the same reading test from this point "
+                 "and needs what the retellings read so far established, not the unrelated documents")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--arm", choices=["baseline", "plugin", "continue", "follow"], required=True,
@@ -86,7 +93,7 @@ def main():
                      "plugin": "on-demand /compact after r08 and r16, same session; nothing said about saving",
                      "continue": "one session, no compaction, fill advisories ignored",
                      "follow": "handoff + fresh session each time the plugin's fill advisory fires; no compaction"}[a.arm],
-            "handoffs": []}
+            "handoffs": [], "follow_reason": FOLLOW_REASON if a.arm == "follow" else None}
     if a.arm in ("plugin", "continue", "follow"):
         ab_run.run_claude(workdir, a.model, f"/{a.plugin_name}:{a.goal_cmd} {ab_run.GOAL}", "goal", plugin_dir)
     r = ab_run.run_claude(workdir, a.model, OPENING, "opening", plugin_dir)
@@ -110,9 +117,7 @@ def main():
             return
         tier = advisory_fired()
         if tier > last_tier and tier >= 1:            # the 50 % advisory (tier index 1) or higher
-            ab_run.run_claude(workdir, a.model, f"/{a.plugin_name}:{a.handoff_cmd} the plugin advised reaching a seam; "
-                              "the next session continues the same reading test and must answer detailed questions about "
-                              "everything in the retellings read so far, not the unrelated documents", f"handoff-{label}", plugin_dir, resume=sid)
+            ab_run.run_claude(workdir, a.model, f"/{a.plugin_name}:{a.handoff_cmd} {FOLLOW_REASON}", f"handoff-{label}", plugin_dir, resume=sid)
             r2 = ab_run.run_claude(workdir, a.model, OPENING.replace("Reply OK to begin.", "Earlier sessions began this test and "
                                    "their context is gone. Reply OK to continue."), f"fresh-{label}", plugin_dir)
             sid = r2["session_id"]; sids.append(sid); prov["handoffs"].append(label); last_tier = -1
